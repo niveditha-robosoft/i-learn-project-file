@@ -97,12 +97,21 @@ extension AboutSubjectViewController{
         cell.chapterThreeDescription.text = "DJ boss"
         
         cell.chapterFourName.text = "niveditha"
-        cell.chapterFourDescription.text = "I don't know what to say;)"
+        cell.chapterFourDescription.text = "I "
         
         
         cell.backView.layer.masksToBounds = true
         cell.backView.layer.cornerRadius = 15.0
         
+        cell.click1.isHidden = true
+        cell.click2.isHidden = true
+        cell.click3.isHidden = true
+        cell.click4.isHidden = true
+        
+        cell.done1.isHidden = false
+        cell.done2.isHidden = false
+        cell.done3.isHidden = false
+        cell.done4.isHidden = false
         return cell
         
     }

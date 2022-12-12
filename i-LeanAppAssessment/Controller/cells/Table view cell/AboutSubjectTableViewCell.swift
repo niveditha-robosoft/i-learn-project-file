@@ -27,5 +27,17 @@ class AboutSubjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backView: UIView!
     
- 
+    @IBOutlet weak var click1: UIImageView!
+    @IBOutlet weak var done1: UIImageView!
+    
+    @IBOutlet weak var click2: UIImageView!
+    @IBOutlet weak var done2: UIImageView!
+    
+    
+    @IBOutlet weak var click3: UIImageView!
+    @IBOutlet weak var done3: UIImageView!
+    
+    @IBOutlet weak var click4: UIImageView!
+    @IBOutlet weak var done4: UIImageView!
+    
 }
