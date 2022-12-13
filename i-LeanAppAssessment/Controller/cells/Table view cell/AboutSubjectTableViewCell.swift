@@ -28,4 +28,43 @@ class AboutSubjectTableViewCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     
  
+    
+    func addUnitDetails(data: [UnitModel]) {
+        
+        for i in data{
+            var cou = i.unitName.count
+            
+            for j in 0...cou
+            {
+                switch j {
+                case 0:
+                    chapterOneName.text = i.unitName
+                    chapterOneDescription.text = i.unitOverview
+                    print(i.unitName)
+                case 1:
+                    chapterOneName.text = i.unitName
+                    chapterOneDescription.text = i.unitOverview
+                    print(i.unitName)
+                case 2:
+                    chapterOneName.text = i.unitName
+                    chapterOneDescription.text = i.unitOverview
+                    print(i.unitName)
+                case 3:
+                    chapterOneName.text = i.unitName
+                    chapterOneDescription.text = i.unitOverview
+                    print(i.unitName)
+                default:
+                    return
+                }
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
 }

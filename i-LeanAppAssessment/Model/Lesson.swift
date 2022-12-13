@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class LessonModel {
+class Lesson {
     var unitId: Int
     var level: String
     var unitName: String

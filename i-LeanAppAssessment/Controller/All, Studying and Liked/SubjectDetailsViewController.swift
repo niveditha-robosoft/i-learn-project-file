@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var allButton: SkipCustomButtob!
     @IBOutlet weak var likedButton: SkipCustomButtob!
@@ -15,14 +17,17 @@ class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var detailsOfTheSubject: UIView!
     @IBOutlet weak var studying: UIView!
     @IBOutlet weak var liked: UIView!
-    
-    
+        
+    var subjectIdFromSUbjectlist = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.bringSubviewToFront(detailsOfTheSubject)
-        allButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1), for: .normal)
+
+        detailsOfTheSubject.isHidden = true
+        studying.isHidden = true
+        liked.isHidden = true
+        allButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
         likedButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
         studyingButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
         studying.isHidden = true
@@ -34,7 +39,7 @@ class SubjectDetailsViewController: UIViewController {
     }
     
     @IBAction func allbuttonTapped(_ sender: Any) {
-        view.bringSubviewToFront(detailsOfTheSubject)
+        
         detailsOfTheSubject.isHidden = false
         studying.isHidden = true
         liked.isHidden = true
@@ -43,18 +48,25 @@ class SubjectDetailsViewController: UIViewController {
         studyingButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? AboutSubjectViewController{
+        vc.subIdIs = subjectIdFromSUbjectlist}
+    }
+    
     @IBAction func subjectButtonTapped(_ sender: Any) {
-        view.bringSubviewToFront(studying)
+        view.bringSubviewToFront(detailsOfTheSubject)
         studying.isHidden = false
         detailsOfTheSubject.isHidden = true
         liked.isHidden = true
         allButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
         likedButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
         studyingButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1), for: .normal)
+        
     }
     
     @IBAction func likeButtonTapped(_ sender: Any) {
-        view.bringSubviewToFront(liked)
         detailsOfTheSubject.isHidden = true
         studying.isHidden = true
         liked.isHidden = false

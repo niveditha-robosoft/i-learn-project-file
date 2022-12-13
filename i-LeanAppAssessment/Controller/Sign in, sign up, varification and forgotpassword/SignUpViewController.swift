@@ -344,8 +344,5 @@ extension SignUpViewController{
         self.activeTextField = nil
         
       }
-    
-    
-    
-    
+
 }

@@ -8,22 +8,20 @@
 import Foundation
 class LessonViewModel {
 
-    static var objectOfviewModel = LessonViewModel()
-
+    static var shared = LessonViewModel()
     
-
      var lessonKey = "lessonId"
      var testByLessonValue = 29
 
    
 
-    var LessonsList = [LessonModel]()
+    var lessonsList = [Lesson]()
 
     
 
      
 
-    func fetchQuestions(key: String, value: Int, completion: @escaping(([LessonModel]?, Error) -> Void)){
+    func fetchQuestions(key: String, value: Int, completion: @escaping(([Lesson]?, Error) -> Void)){
 
          let networkManager = LessonNetworkManager()
 
@@ -62,8 +60,8 @@ class LessonViewModel {
 
    
                 
-                let lessonList = LessonModel(unitId: lessonId1, level: levelData, unitName: lessonNamedata, unitOverView: descriptionData)
-                self.LessonsList.append(lessonList)
+                let lessonList = Lesson(unitId: lessonId1, level: levelData, unitName: lessonNamedata, unitOverView: descriptionData)
+                self.lessonsList.append(lessonList)
               //  self.testList.append(testsList)
 
              }
