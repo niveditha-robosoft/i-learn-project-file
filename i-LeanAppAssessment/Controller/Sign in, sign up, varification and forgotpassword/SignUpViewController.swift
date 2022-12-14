@@ -56,6 +56,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        let loder = self.load()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.stopLoder(loder: loder)
+        }
+    }
+    
+    
     func allowAccessToMoveToVarificationScreen(){
         
         if  nameText.text != "" && mobile_EmailText.text != "" && confirmPasswordText.text != "" && createPasswordText.text != ""  {
@@ -344,8 +352,31 @@ extension SignUpViewController{
         self.activeTextField = nil
         
       }
+  
+}
+
+
+extension SignUpViewController{
     
     
+    func load() -> UIAlertController {
+        
+        let alert = UIAlertController(title: nil, message: "loading", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 65, height: 65 ))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.large
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        return alert
+    }
     
+    func stopLoder(loder: UIAlertController) {
+        DispatchQueue.main.async {
+            loder.dismiss(animated: true, completion: nil)
+        }
+        
+        
+    }
     
 }

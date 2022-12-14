@@ -16,10 +16,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var homeBackgroundView: UIView!
     
+    
+    
+    
     @IBOutlet weak var bottomViewHeightCon: NSLayoutConstraint!
-    @IBOutlet weak var bottimViewBottomCon: NSLayoutConstraint!
-    @IBOutlet weak var bottomViewLeading: NSLayoutConstraint!
-    @IBOutlet weak var bottomviewTrailing: NSLayoutConstraint!
+
     
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var yesBurron: UIButton!
@@ -47,6 +48,8 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         bottomView.isHidden = true
+//        self.tabBarController?.tabBar.isHidden = false
+
 
     }
     
@@ -64,13 +67,19 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
         
+        let editVc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileEditViewController") as? ProfileEditViewController
         
+        if let vc = editVc{
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
     
     @IBAction func logOutButtonTapped(_ sender: UIButton) {
         
+        self.tabBarController?.tabBar.layer.zPosition = -1
         
         
         bottomView.isHidden = false
@@ -82,7 +91,8 @@ class ProfileViewController: UIViewController {
         bottomView.layer.cornerRadius = 15.0
        
         edit_LogoutBackgroundView.isHidden = true
-//        homeBackgroundView.backgroundColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+        homeBackgroundView.backgroundColor = UIColor(red: 147/255, green: 150/255, blue: 153/255, alpha: 1.0)
+//        self.tabBarController?.tabBar.isHidden = true
         UIView.animate(withDuration: 0.3, animations: {
             self.bottomViewHeightCon.constant = 312
             self.view.layoutIfNeeded()
@@ -103,6 +113,15 @@ class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func tappedOnScrollView(_ sender: Any) {
+        
+        bottomView.isHidden = true
+       
+        edit_LogoutBackgroundView.isHidden = true
+        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        
+        
+    }
     
     
 }

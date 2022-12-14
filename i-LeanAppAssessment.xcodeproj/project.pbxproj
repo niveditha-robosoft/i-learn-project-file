@@ -26,6 +26,7 @@
 		7772117829474CC50064B305 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772117729474CC40064B305 /* SkipCustomButtob.swift */; };
 		777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886222940AC28001E7E1F /* SearchResultViewController.swift */; };
 		777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886252940DCA9001E7E1F /* signInViewModel.swift */; };
+		777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */; };
 		7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */; };
 		7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */; };
 		7786FC962945B0F700A0B956 /* AboutSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */; };
@@ -33,6 +34,9 @@
 		77C73D8A2944A1CB003031EF /* SubjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C73D892944A1CB003031EF /* SubjectDetailsViewController.swift */; };
 		77C73D902944A8E5003031EF /* StudyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C73D8F2944A8E5003031EF /* StudyingViewController.swift */; };
 		77C73D932944A945003031EF /* LikedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C73D922944A945003031EF /* LikedViewController.swift */; };
+		77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */; };
+		77DFCF2D2949FC1C002F1CFC /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */; };
+		77DFCF312949FC69002F1CFC /* ProfileEditManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DFCF302949FC69002F1CFC /* ProfileEditManager.swift */; };
 		77E0BC092940A6E400CA0EF0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0BC082940A6E400CA0EF0 /* NotificationViewController.swift */; };
 		77E0BC102940A8FC00CA0EF0 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0BC0F2940A8FC00CA0EF0 /* NotificationsTableViewCell.swift */; };
 		77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F2A0162941A8670034CFB6 /* SubjectListViewController.swift */; };
@@ -121,6 +125,7 @@
 		7772117729474CC40064B305 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipCustomButtob.swift; path = "../../../../../Users/harsharmundaragi/Desktop/zip/Main-i-Learn/i-LeanAppAssessment/Custom button/SkipCustomButtob.swift"; sourceTree = "<group>"; };
 		777886222940AC28001E7E1F /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		777886252940DCA9001E7E1F /* signInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInViewModel.swift; sourceTree = "<group>"; };
+		777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailVideoAudioViewController.swift; sourceTree = "<group>"; };
 		7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectViewController.swift; sourceTree = "<group>"; };
 		7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +133,9 @@
 		77C73D892944A1CB003031EF /* SubjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsViewController.swift; sourceTree = "<group>"; };
 		77C73D8F2944A8E5003031EF /* StudyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingViewController.swift; sourceTree = "<group>"; };
 		77C73D922944A945003031EF /* LikedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewController.swift; sourceTree = "<group>"; };
+		77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
+		77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		77DFCF302949FC69002F1CFC /* ProfileEditManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditManager.swift; sourceTree = "<group>"; };
 		77E0BC082940A6E400CA0EF0 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		77E0BC0F2940A8FC00CA0EF0 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		77F2A0162941A8670034CFB6 /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +226,14 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		777FB2A72948572400718711 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
 		7786FC832945A6FF00A0B956 /* Sign in, sign up, varification and forgotpassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,10 +249,10 @@
 		7786FC842945A75700A0B956 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				77DFCF2F2949FC52002F1CFC /* profile  */,
 				7715F00B2941F65300E04728 /* TabBarViewController.swift */,
 				77517EC5293F8841002FED03 /* HomeScreenViewController.swift */,
 				77F2A0162941A8670034CFB6 /* SubjectListViewController.swift */,
-				7715F0082941ADEE00E04728 /* ProfileViewController.swift */,
 				777886222940AC28001E7E1F /* SearchResultViewController.swift */,
 			);
 			path = Home;
@@ -253,8 +269,8 @@
 		7786FC872945A82100A0B956 /* All, Studying and Liked */ = {
 			isa = PBXGroup;
 			children = (
-				77C73D892944A1CB003031EF /* SubjectDetailsViewController.swift */,
 				7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */,
+				77C73D892944A1CB003031EF /* SubjectDetailsViewController.swift */,
 				77C73D8F2944A8E5003031EF /* StudyingViewController.swift */,
 				77C73D922944A945003031EF /* LikedViewController.swift */,
 			);
@@ -279,6 +295,7 @@
 				83FE3566294729E600B557CC /* LessonableViewCell.swift */,
 				7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */,
 				83FE3569294729F900B557CC /* TestTableViewCell.swift */,
+				77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */,
 			);
 			path = "Table view cell";
 			sourceTree = "<group>";
@@ -299,6 +316,16 @@
 				83FE357629472C1700B557CC /* CustomButton.swift */,
 			);
 			path = "Custom button";
+			sourceTree = "<group>";
+		};
+		77DFCF2F2949FC52002F1CFC /* profile  */ = {
+			isa = PBXGroup;
+			children = (
+				77DFCF302949FC69002F1CFC /* ProfileEditManager.swift */,
+				77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */,
+				7715F0082941ADEE00E04728 /* ProfileViewController.swift */,
+			);
+			path = "profile ";
 			sourceTree = "<group>";
 		};
 		77F6FA4F293F060100EBD0A9 = {
@@ -429,6 +456,7 @@
 		77F6FADA293F1F7000EBD0A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				777FB2A72948572400718711 /* VideoPlayer */,
 				83FE355B2947296B00B557CC /* Lesson */,
 				7786FC872945A82100A0B956 /* All, Studying and Liked */,
 				7786FC852945A77200A0B956 /* Notification */,
@@ -613,7 +641,9 @@
 				7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */,
 				77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */,
 				7715F0122942146300E04728 /* varificationNetwork.swift in Sources */,
+				77DFCF312949FC69002F1CFC /* ProfileEditManager.swift in Sources */,
 				83FE358529473F8700B557CC /* LessonModel.swift in Sources */,
+				777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */,
 				7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */,
 				77C73D932944A945003031EF /* LikedViewController.swift in Sources */,
 				7706556C294341D10018056D /* CreatePasswordViewController.swift in Sources */,
@@ -633,9 +663,11 @@
 				77F6FAE6293F204100EBD0A9 /* signUpNetwork.swift in Sources */,
 				77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */,
 				775C2BF829408A5C003E7405 /* OnBoardingOneViewController.swift in Sources */,
+				77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */,
 				777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */,
 				77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */,
 				775C2BF429404D31003E7405 /* HomeScreenCollectionViewCell.swift in Sources */,
+				77DFCF2D2949FC1C002F1CFC /* ProfileEditViewController.swift in Sources */,
 				77E0BC092940A6E400CA0EF0 /* NotificationViewController.swift in Sources */,
 				775C2BFB29408A65003E7405 /* OnBoardinCollectionViewCell.swift in Sources */,
 				77E0BC102940A8FC00CA0EF0 /* NotificationsTableViewCell.swift in Sources */,
