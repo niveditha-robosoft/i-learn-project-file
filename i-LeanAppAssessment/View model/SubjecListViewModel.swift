@@ -7,12 +7,12 @@
 
 import Foundation
 
-class SubjectViewModel{
+class SubjectListViewModel{
     
-    static var objectOfViewModel = SubjectViewModel()
+    static var objectOfViewModel = SubjectListViewModel()
     
    var objectOfSubjectNetwork = SubjectListNetwork()
-    
+    var subjectListDetail = [SubjectListModel]()
     
     var subName = [String]()
     var subId = [Int]()
@@ -44,6 +44,8 @@ class SubjectViewModel{
                         }
                         self.subDic[dataId] = data2
                         self.subId.append(dataId)
+                        let sub = SubjectListModel(subjectName: data2, subjectId: dataId)
+                        self.subjectListDetail.append(sub)
                     }
                     
 //                    print(self.subName)

@@ -30,7 +30,7 @@ class AboutSubjectNetwork {
 
         if let responsIs = responce as? HTTPURLResponse{
 
-                print("responce is: ",responsIs.statusCode)
+                print("subbjectId responce is: ",responsIs.statusCode)
 
                 if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
@@ -88,7 +88,7 @@ class AboutSubjectNetwork {
 
         if let responsIs = responce as? HTTPURLResponse{
 
-                print("responce is: ",responsIs.statusCode)
+                print("lessonId responce is: ",responsIs.statusCode)
 
                 if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 

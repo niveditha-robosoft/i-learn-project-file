@@ -9,26 +9,42 @@ import UIKit
 
 class LessonTestViewController: UIViewController {
     var lessonVc :LessonViewController?
+    
+    var lessonNameIs = ""
+    var lessonNumberIs = "" 
+    var unitDetails = [UnitModel]()
+    
     @IBOutlet weak var lessonButton: CustomButton!
  
     @IBOutlet weak var testButton: CustomButton!
     @IBOutlet weak var testContainerView: UIView!
     @IBOutlet weak var lessonContainerView: UIView!
     
+    @IBOutlet weak var lessonName: UILabel!
+    @IBOutlet weak var lessonNumber: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         testContainerView.isHidden = true
         lessonContainerView.isHidden = false
-       
         lessonButton.roundCorners(corners: [.bottomLeft,.topLeft], radius: 12)
         testButton.roundCorners(corners: [.bottomRight,.topRight], radius: 12)
+        
+        lessonName.text = lessonNameIs
+        lessonNumber.text = lessonNumberIs
+        
     
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        lessonVc = segue.destination as? LessonViewController
-
+        if let vc = segue.destination as? LessonViewController{
+            vc.unitDetailsIS = unitDetails
+        }
+        
+        
+        
+        
         }
 
 

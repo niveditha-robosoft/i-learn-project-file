@@ -8,9 +8,11 @@
 import UIKit
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   static var shared = LessonViewModel()
- 
-    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "btn_back"),#imageLiteral(resourceName: "btn_back"),#imageLiteral(resourceName: "btn_signin-1")]
+
+    var unitDetailsIS = [UnitModel]()
+    
+    
+    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "img_geography"),#imageLiteral(resourceName: "round"),#imageLiteral(resourceName: "btn_signin-1"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "logo_ilearn"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_notificationsettings")]
     //var levelLbl = ["beginner","beginner","Beginner"]
     var levelLbl: UILabel!
     var titleLabl : UILabel!
@@ -22,18 +24,21 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        LessonViewModel.shared.lessonsList.count
+        
+        return unitDetailsIS.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
         cell.customizeView()
         cell.lessonImage.image = lessonImg[indexPath.row]
-        cell.titleLbl.text = LessonViewModel.shared.lessonsList[indexPath.row].unitName
-        cell.levelLabel.text = LessonViewModel.shared.lessonsList[indexPath.row].level
-        cell.descriptionLabel.text = LessonViewModel.shared.lessonsList[indexPath.row].unitOverView
+        cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName
+        cell.levelLabel.text = unitDetailsIS[indexPath.row].level
+        cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview
+        
        
         return cell
     }

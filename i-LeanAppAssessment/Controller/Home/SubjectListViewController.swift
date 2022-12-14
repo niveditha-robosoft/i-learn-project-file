@@ -11,7 +11,7 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var tableView: UITableView!
     var image: [UIImage] = [ #imageLiteral(resourceName: "img_geography"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_search"),#imageLiteral(resourceName: "img_searchresultnotfound"),#imageLiteral(resourceName: "btn_cancel"),#imageLiteral(resourceName: "btn_signin-3"),#imageLiteral(resourceName: "btn_signin-1") ,#imageLiteral(resourceName: "icn_search-1"), #imageLiteral(resourceName: "img_ilearn_logo_main")]
    
-    var objectOfSubjectViewModel = SubjectViewModel.objectOfViewModel
+    var objectOfSubjectViewModel = SubjectListViewModel.objectOfViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +31,26 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
 
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return objectOfSubjectViewModel.subName.count
+    return objectOfSubjectViewModel.subjectListDetail.count
 }
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! subjectsTableViewCell
     cell.customizeCardView()
-    cell.subjectlabel.text = objectOfSubjectViewModel.subName[indexPath.row]
-    cell.subjectImage?.image = image[indexPath.row]
+    cell.subjectlabel.text = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectName
+    cell.subjectImage.image = image[indexPath.row]
     return cell
 }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        print("path is : ",objectOfSubjectViewModel.subId[indexPath.row])
-//
         let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as? SubjectDetailsViewController
 
         if let vc = detailsVc {
-            vc.subjectIdFromSUbjectlist = objectOfSubjectViewModel.subId[indexPath.row]
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectId)
+            vc.subjectIdFromSUbjectlist = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectId
             self.navigationController?.pushViewController(vc, animated: true)
         }
      
