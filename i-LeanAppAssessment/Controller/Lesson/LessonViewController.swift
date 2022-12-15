@@ -8,7 +8,7 @@
 import UIKit
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
+//    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
     var lessonImg: [UIImage] = [#imageLiteral(resourceName: "btn_back"),#imageLiteral(resourceName: "btn_back"),#imageLiteral(resourceName: "btn_signin-1")]
     var levelLbl = ["Food Substances","Balanced Diet","Food Test"]
     var descriptionLbl = ["Classes and sources","Balanced Diet","Food Test"]

@@ -32,7 +32,7 @@ class VarificationNetwork {
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("nbxvcjhvcvcivscivci",responsIs.statusCode)
+                    print("send otp responce",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -40,7 +40,7 @@ class VarificationNetwork {
 
                             if let data1 = responsData as? [String: Any]{
                                 
-                                print(")(*&^%^&*(*&^%^&",data1)
+                                print("Send otp data : ",data1)
 
                                 completion(true,nil)
                             }
@@ -74,7 +74,6 @@ class VarificationNetwork {
         request.setValue(sendmobile_email, forHTTPHeaderField: "source")
         request.setValue(String(sendOtp), forHTTPHeaderField: "sentOtp")
 
-        print(")(*&^%$%^&*(*&^%$#$%^&*(&^",sendOtp)
     
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
@@ -86,7 +85,6 @@ class VarificationNetwork {
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("nbxvcjhvcvcivscivci",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -95,7 +93,7 @@ class VarificationNetwork {
                             if let data1 = responsData as? [String: Any]{
                                 
                                 completion(true,nil)
-                                print(")(*&^%^&*(*&^%^&",data1)
+                                print("Varify otp data : ",data1)
 
                             }
                             
@@ -106,7 +104,7 @@ class VarificationNetwork {
                         
                     }else{
                         completion(false,error)
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Varify error Responce Error is: ", error?.localizedDescription)
                     }
 
                 }
@@ -119,12 +117,7 @@ class VarificationNetwork {
     
     
     func createNewPassword(sendmobile_email: String, newPasswordToApi: String, completion: @escaping((Bool, Error?) -> ())) {
-        
-        
-//        var header: [String:String] = ["source": sendmobile_email, "newPassword": newPasswordToApi]
-        
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",sendmobile_email,newPasswordToApi)
-        
+
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/reset-password") else{
             return
         }
@@ -146,7 +139,7 @@ class VarificationNetwork {
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("###################",responsIs.statusCode)
+                    print("Create password responce : ",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -155,7 +148,7 @@ class VarificationNetwork {
                             if let data1 = responsData as? [String: Any]{
                                 
                                 completion(true,nil)
-                                print(")(*&^%^&*(*&^%^&",data1)
+                                print("create password data : ",data1)
 
                             }
                             
@@ -163,21 +156,10 @@ class VarificationNetwork {
                     }else if responsIs.statusCode == 400{
                         
                         completion(false,nil)
-                        
-//                        do{
-//                            let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//
-//                            if let data1 = responsData as? [String: Any]{
-//
-//                                completion(data1,nil)
-//                                print(")(*&^%^&*(*&^%^&",data1)
-//
-//                            }
-//
-//                        }
+
                     }else{
                         completion(false,error)
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Create pass word Responce Error is: ", error?.localizedDescription)
                     }
 
                 }

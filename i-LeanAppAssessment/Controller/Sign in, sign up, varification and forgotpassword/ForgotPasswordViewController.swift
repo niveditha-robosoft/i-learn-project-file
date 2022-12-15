@@ -63,7 +63,7 @@ class ForgotPasswordViewController: UIViewController {
             }else{
 
 
-                objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:emailAndMobileData){ varifivationResponce in
+                objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:emailAndMobileData.lowercased()){ varifivationResponce in
 
 
                     if varifivationResponce == true{

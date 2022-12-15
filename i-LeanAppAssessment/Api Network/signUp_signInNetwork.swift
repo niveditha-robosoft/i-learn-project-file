@@ -43,7 +43,7 @@ class SignUpAndSignInApiNetwork {
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("nbxvcjhvcvcivscivci",responsIs.statusCode)
+                    print("Sign up responce : ",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -51,7 +51,7 @@ class SignUpAndSignInApiNetwork {
                             
                             if let data1 = responsData as? [String: Any]{
                                 
-                                print("SIGN UP STATUS 200: ",data1)
+                                print("SIGN UP data: ",data1)
 
                                 completion(true ,nil)
                             }
@@ -60,7 +60,7 @@ class SignUpAndSignInApiNetwork {
                     }else if responsIs.statusCode == 400{
                         completion(false,error)
                     }else{
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Sign up Responce Error is: ", error?.localizedDescription)
                     }
 
                 }
@@ -74,7 +74,7 @@ class SignUpAndSignInApiNetwork {
     
     
     
-    func postTheSignInDataToApi(mobilenumber_EmailToSend: String, passwordToSend: String, completion: @escaping(([String: Any],Error?) -> ())) {
+    func postTheSignInDataToApi(mobilenumber_EmailToSend: String, passwordToSend: String, completion: @escaping(([String: Any],Bool,Error?) -> ())) {
 
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/login") else{
             return
@@ -103,7 +103,7 @@ class SignUpAndSignInApiNetwork {
 
 
                 if let responsIs = responce as? HTTPURLResponse{
-
+                    print("Sign in responce : ",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -111,17 +111,19 @@ class SignUpAndSignInApiNetwork {
 
                             if let data = responsData as? [String: Any] {
                                 
-                                print(data)
-                                completion(data,nil)
+                                print("Sign in data ",data)
+                                completion(data,true,nil)
                                 
                             }
                         }
                     }else if responsIs.statusCode == 400{
-                        completion(["error message": "Invalid user name or password"],error)
+                        
+                        completion(["": ""],false,nil)
+
                         
                     }else{
                         
-                        print("Http Responce Error is: ", error?.localizedDescription)
+                        print(" Sign in Http Responce Error is: ", error?.localizedDescription)
                         
                     }
 

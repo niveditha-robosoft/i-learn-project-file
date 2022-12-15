@@ -56,12 +56,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        let loder = self.load()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.stopLoder(loder: loder)
-        }
-    }
     
     
     func allowAccessToMoveToVarificationScreen(){
@@ -159,7 +153,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if confirmPasswordText.text == enteredCreatePassword {
             
-
+            let loder = self.load()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.stopLoder(loder: loder)
+            }
             
             objectOfSignUpViewModel.ViewModelPostTheDataToApi(name: nameToSend.lowercased(), mobilenumber_Email: mobile_EmailToSend, password: enteredCreatePassword){ responsIs in
 

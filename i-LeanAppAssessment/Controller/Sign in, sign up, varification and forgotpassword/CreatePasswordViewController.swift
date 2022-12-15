@@ -86,10 +86,9 @@ class CreatePasswordViewController: UIViewController {
             
             objectOfCreatePasswordViewModel.sendResetPasswordDataToApi(mobile_EmaildataToSend: mobile_EmailToSend, newPasswordToSend: enteredCreatePassword){ reponcedata in
                 
-                print("))))))))))))))))))$$$$$$$$$$$$$$$$$$$$$",reponcedata)
                 if reponcedata == true{
                     
-                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
+                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
                     
                     if let vc = HomeVc {
                         

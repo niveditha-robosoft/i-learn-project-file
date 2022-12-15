@@ -8,6 +8,21 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    
+    var objectOfProfileViewMOdel = ProfileViewMOdel.objectOfViewMOdel
+    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
+    
+    
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userMailId: UILabel!
+    @IBOutlet weak var chapterCompleted: UILabel!
+    @IBOutlet weak var averageScore: UILabel!
+    @IBOutlet weak var highestScore: UILabel!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var image2View: UIView!
     @IBOutlet weak var edit_LogoutBackgroundView: UIView!
@@ -15,12 +30,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var homeBackgroundView: UIView!
-    
-    
-    
-    
-    @IBOutlet weak var bottomViewHeightCon: NSLayoutConstraint!
 
+    @IBOutlet weak var bottomViewHeightCon: NSLayoutConstraint!
     
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var yesBurron: UIButton!
@@ -40,10 +51,30 @@ class ProfileViewController: UIViewController {
  
         image2View.layer.cornerRadius = image2View.bounds.width / 2
         
+        profileImage.layer.cornerRadius = 60.0
         edit_LogoutBackgroundView.isHidden = true
         editButton.isEnabled = false
         logOutButton.isEnabled = false
         bottomView.isHidden = false
+        
+        print("Did load token : \(objectOfSignInViewModel.userDetails[0].token)")
+        
+        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
+            
+            if responce == true{
+                
+                self.userName.text = self.objectOfProfileViewMOdel.profileData[0].name.capitalized
+                self.userMailId.text = self.objectOfProfileViewMOdel.profileData[0].email
+                self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData[0].chapter)
+                self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData[0].average)
+                self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData[0].highest)
+                
+            }
+            
+            
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +86,7 @@ class ProfileViewController: UIViewController {
     
 
     @IBAction func edit_LogOutButtonTapped(_ sender: UIButton) {
-        
+
         edit_LogoutBackgroundView.isHidden = false
         edit_Logoutview.layer.cornerRadius = 16.0
         editButton.isEnabled = true

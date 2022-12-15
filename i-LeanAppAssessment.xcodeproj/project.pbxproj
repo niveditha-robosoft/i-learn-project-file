@@ -26,6 +26,12 @@
 		7772117829474CC50064B305 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772117729474CC40064B305 /* SkipCustomButtob.swift */; };
 		777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886222940AC28001E7E1F /* SearchResultViewController.swift */; };
 		777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886252940DCA9001E7E1F /* signInViewModel.swift */; };
+		777F16EB294ADFB40010D807 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16EA294ADFB40010D807 /* UserDataModel.swift */; };
+		777F16EE294AEA1B0010D807 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16ED294AEA1B0010D807 /* ProfileViewModel.swift */; };
+		777F16F2294AEFB90010D807 /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F1294AEFB90010D807 /* ProfileNetwork.swift */; };
+		777F16F7294B009D0010D807 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F6294B009D0010D807 /* ProfileModel.swift */; };
+		777F16FA294B3F870010D807 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */; };
+		777F16FD294B42060010D807 /* EditProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16FC294B42060010D807 /* EditProfileNetwork.swift */; };
 		777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */; };
 		7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */; };
 		7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */; };
@@ -92,7 +98,7 @@
 		77F6FAD3293F183500EBD0A9 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77F6FAC1293F183500EBD0A9 /* SF-Pro-Text-SemiboldItalic.otf */; };
 		77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FADD293F1FF400EBD0A9 /* signUpViewModel.swift */; };
 		77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FAE1293F200800EBD0A9 /* signUpModel.swift */; };
-		77F6FAE6293F204100EBD0A9 /* signUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FAE5293F204100EBD0A9 /* signUpNetwork.swift */; };
+		77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FAE5293F204100EBD0A9 /* signUp_signInNetwork.swift */; };
 		7D1D013A293F242C00D98E7A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D0139293F242C00D98E7A /* SignInViewController.swift */; };
 		83FE355E294729A500B557CC /* LessonTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE355D294729A500B557CC /* LessonTestViewController.swift */; };
 		83FE3561294729B500B557CC /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE3560294729B500B557CC /* LessonViewController.swift */; };
@@ -100,7 +106,6 @@
 		83FE3567294729E600B557CC /* LessonableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE3566294729E600B557CC /* LessonableViewCell.swift */; };
 		83FE356A294729F900B557CC /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE3569294729F900B557CC /* TestTableViewCell.swift */; };
 		83FE357729472C1700B557CC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE357629472C1700B557CC /* CustomButton.swift */; };
-		83FE357E294739F500B557CC /* LessonNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE357D294739F500B557CC /* LessonNetworkManager.swift */; };
 		83FE358229473B9800B557CC /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE358129473B9800B557CC /* LessonViewModel.swift */; };
 		83FE358529473F8700B557CC /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE358429473F8700B557CC /* LessonModel.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +130,12 @@
 		7772117729474CC40064B305 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipCustomButtob.swift; path = "../../../../../Users/harsharmundaragi/Desktop/zip/Main-i-Learn/i-LeanAppAssessment/Custom button/SkipCustomButtob.swift"; sourceTree = "<group>"; };
 		777886222940AC28001E7E1F /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		777886252940DCA9001E7E1F /* signInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInViewModel.swift; sourceTree = "<group>"; };
+		777F16EA294ADFB40010D807 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		777F16ED294AEA1B0010D807 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		777F16F1294AEFB90010D807 /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
+		777F16F6294B009D0010D807 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
+		777F16FC294B42060010D807 /* EditProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNetwork.swift; sourceTree = "<group>"; };
 		777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailVideoAudioViewController.swift; sourceTree = "<group>"; };
 		7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectViewController.swift; sourceTree = "<group>"; };
 		7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -193,7 +204,7 @@
 		77F6FAC1293F183500EBD0A9 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		77F6FADD293F1FF400EBD0A9 /* signUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewModel.swift; sourceTree = "<group>"; };
 		77F6FAE1293F200800EBD0A9 /* signUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpModel.swift; sourceTree = "<group>"; };
-		77F6FAE5293F204100EBD0A9 /* signUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpNetwork.swift; sourceTree = "<group>"; };
+		77F6FAE5293F204100EBD0A9 /* signUp_signInNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp_signInNetwork.swift; sourceTree = "<group>"; };
 		7D1D0139293F242C00D98E7A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		83FE355D294729A500B557CC /* LessonTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTestViewController.swift; sourceTree = "<group>"; };
 		83FE3560294729B500B557CC /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +212,6 @@
 		83FE3566294729E600B557CC /* LessonableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonableViewCell.swift; sourceTree = "<group>"; };
 		83FE3569294729F900B557CC /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		83FE357629472C1700B557CC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		83FE357D294739F500B557CC /* LessonNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonNetworkManager.swift; sourceTree = "<group>"; };
 		83FE358129473B9800B557CC /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		83FE358429473F8700B557CC /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -321,9 +331,9 @@
 		77DFCF2F2949FC52002F1CFC /* profile  */ = {
 			isa = PBXGroup;
 			children = (
-				77DFCF302949FC69002F1CFC /* ProfileEditManager.swift */,
-				77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */,
 				7715F0082941ADEE00E04728 /* ProfileViewController.swift */,
+				77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */,
+				77DFCF302949FC69002F1CFC /* ProfileEditManager.swift */,
 			);
 			path = "profile ";
 			sourceTree = "<group>";
@@ -474,6 +484,8 @@
 				77F6FAE1293F200800EBD0A9 /* signUpModel.swift */,
 				775C2BFD29408A72003E7405 /* OnBoardingSlide .swift */,
 				83FE358429473F8700B557CC /* LessonModel.swift */,
+				777F16EA294ADFB40010D807 /* UserDataModel.swift */,
+				777F16F6294B009D0010D807 /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,6 +498,8 @@
 				7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */,
 				778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */,
 				83FE358129473B9800B557CC /* LessonViewModel.swift */,
+				777F16ED294AEA1B0010D807 /* ProfileViewModel.swift */,
+				777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -493,9 +507,10 @@
 		77F6FAE4293F201C00EBD0A9 /* Api Network */ = {
 			isa = PBXGroup;
 			children = (
-				77F6FAE5293F204100EBD0A9 /* signUpNetwork.swift */,
+				77F6FAE5293F204100EBD0A9 /* signUp_signInNetwork.swift */,
 				7715F0112942146300E04728 /* varificationNetwork.swift */,
-				83FE357D294739F500B557CC /* LessonNetworkManager.swift */,
+				777F16F1294AEFB90010D807 /* ProfileNetwork.swift */,
+				777F16FC294B42060010D807 /* EditProfileNetwork.swift */,
 			);
 			path = "Api Network";
 			sourceTree = "<group>";
@@ -636,7 +651,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83FE357E294739F500B557CC /* LessonNetworkManager.swift in Sources */,
 				7D1D013A293F242C00D98E7A /* SignInViewController.swift in Sources */,
 				7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */,
 				77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */,
@@ -646,12 +660,15 @@
 				777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */,
 				7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */,
 				77C73D932944A945003031EF /* LikedViewController.swift in Sources */,
+				777F16F7294B009D0010D807 /* ProfileModel.swift in Sources */,
 				7706556C294341D10018056D /* CreatePasswordViewController.swift in Sources */,
 				83FE356A294729F900B557CC /* TestTableViewCell.swift in Sources */,
 				77517EC0293F7FD8002FED03 /* SignUpViewController.swift in Sources */,
 				7772117229474CBA0064B305 /* KeyChainFIle.swift in Sources */,
+				777F16EE294AEA1B0010D807 /* ProfileViewModel.swift in Sources */,
 				7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */,
 				77F6FA5C293F060100EBD0A9 /* AppDelegate.swift in Sources */,
+				777F16FD294B42060010D807 /* EditProfileNetwork.swift in Sources */,
 				7715F0002941AAB800E04728 /* subjectsTableViewCell.swift in Sources */,
 				77065569294341C00018056D /* ForgotPasswordViewController.swift in Sources */,
 				775C2BFE29408A72003E7405 /* OnBoardingSlide .swift in Sources */,
@@ -659,11 +676,13 @@
 				83FE3567294729E600B557CC /* LessonableViewCell.swift in Sources */,
 				77517EC3293F7FDE002FED03 /* VarifyAccountViewController.swift in Sources */,
 				7715F00F294212EC00E04728 /* varifyAccountViewModel.swift in Sources */,
+				777F16EB294ADFB40010D807 /* UserDataModel.swift in Sources */,
 				7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */,
-				77F6FAE6293F204100EBD0A9 /* signUpNetwork.swift in Sources */,
+				77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */,
 				77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */,
 				775C2BF829408A5C003E7405 /* OnBoardingOneViewController.swift in Sources */,
 				77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */,
+				777F16F2294AEFB90010D807 /* ProfileNetwork.swift in Sources */,
 				777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */,
 				77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */,
 				775C2BF429404D31003E7405 /* HomeScreenCollectionViewCell.swift in Sources */,
@@ -677,6 +696,7 @@
 				777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */,
 				83FE357729472C1700B557CC /* CustomButton.swift in Sources */,
 				77F6FA5E293F060100EBD0A9 /* SceneDelegate.swift in Sources */,
+				777F16FA294B3F870010D807 /* ProfileEditViewModel.swift in Sources */,
 				83FE358229473B9800B557CC /* LessonViewModel.swift in Sources */,
 				77C73D8A2944A1CB003031EF /* SubjectDetailsViewController.swift in Sources */,
 				83FE355E294729A500B557CC /* LessonTestViewController.swift in Sources */,

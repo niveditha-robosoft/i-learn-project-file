@@ -13,39 +13,41 @@ class SignInViewModel {
     
     var objectofSignUpAndSignInApiNetwork = SignUpAndSignInApiNetwork()
     
+    var userDetails = [UserDataModel]()
+    
     func requestApiForSignIn(mobile_email: String, password: String, completion: @escaping((Bool) -> ())) {
         
-        objectofSignUpAndSignInApiNetwork.postTheSignInDataToApi(mobilenumber_EmailToSend: mobile_email, passwordToSend: password){ completionData, completionError in
+        objectofSignUpAndSignInApiNetwork.postTheSignInDataToApi(mobilenumber_EmailToSend: mobile_email, passwordToSend: password){ completionData, completionBool, completionError in
             
             if completionError == nil {
                 
-                if let data1 = completionData["token"]{
+                if completionBool == true{
+                   
                     
-                    print("")
-                    print("")
-                    print(")(*&^%$#@!#$%^&*()token",data1)
-                    print("")
-                    print("")
+                    guard let data1 = completionData["token"] as? String else{ return}
+                    guard let data2 = completionData["name"] as? String else{ return}
+                    guard let data3 = completionData["userId"] as? Int else{ return}
+                    
+                    print("token is : \(data1)\nname is : \(data2)\nid is : \(data3)")
+                    
+                    let user = UserDataModel(userName: data2, userId: data3, token: data1)
+                    
+                    self.userDetails.append(user)
                     completion(true)
                     
-                }
-                
-                if let data2 = completionData["error message"]{
+                }else{
                     
-                    print("I am here ")
                     completion(false)
+
                 }
-            
+
             }
             else{
 
-              
-
         }
-            
-        }
-        
-        
+   
+        } 
+   
     }
     
 }

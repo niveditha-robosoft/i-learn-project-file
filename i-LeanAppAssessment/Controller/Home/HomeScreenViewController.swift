@@ -14,6 +14,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     var chapName = ["padya","chapter","shahiri","animals","intigration","cell","HCl"]
     var per = ["10%","20%","30%","40%","50%","60%","70%"]
     
+    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
+    
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchView: UIView!
@@ -22,7 +25,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.isHidden = true
+        collectionView.isHidden = false
         
         searchField.borderStyle = .none
         // Do any additional setup after loading the view.
@@ -33,6 +36,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         notificationIndicator.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails[0].userName.capitalized)"
+        
     }
     
     
