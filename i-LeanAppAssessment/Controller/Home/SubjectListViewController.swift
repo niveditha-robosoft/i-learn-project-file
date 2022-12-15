@@ -12,7 +12,7 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
     var image: [UIImage] = [ #imageLiteral(resourceName: "img_geography"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_search"),#imageLiteral(resourceName: "img_searchresultnotfound"),#imageLiteral(resourceName: "btn_cancel"),#imageLiteral(resourceName: "btn_signin-3"),#imageLiteral(resourceName: "btn_signin-1") ,#imageLiteral(resourceName: "icn_search-1"), #imageLiteral(resourceName: "img_ilearn_logo_main")]
    
     var objectOfSubjectViewModel = SubjectListViewModel.objectOfViewModel
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
