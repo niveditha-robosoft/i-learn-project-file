@@ -9,12 +9,18 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var objectOfNotificationViewMOdel = NotificationViewMOdel.objectOfViewModel
+    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
+    
+    
+    
+    
     var imageis: [UIImage] = [#imageLiteral(resourceName: "img_geography"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "btn_signin-2"), #imageLiteral(resourceName: "logo_ilearn")]
     var subName = ["kannada","english","hindi","science","maths","bio","chemistry"]
     var chapName = ["padya","chapter","shahiri","animals","intigration","cell","HCl"]
     var per = ["10%","20%","30%","40%","50%","60%","70%"]
     
-    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
+
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
@@ -25,6 +31,12 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let loader =   self.loader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.stopLoader(loader: loader)
+                }
+ 
+        
         collectionView.isHidden = false
         
         searchField.borderStyle = .none
@@ -33,11 +45,26 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         notificationIndicator.layer.cornerRadius = 3.5
         searchView.layer.cornerRadius = 14.0
         
-        notificationIndicator.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails[0].userName.capitalized)"
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized)"
+        
+        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            if status == true{
+                
+                self.notificationIndicator.isHidden = false
+
+            }else{
+                
+                self.notificationIndicator.isHidden = true
+
+                
+            }
+            
+            
+        }
         
     }
     

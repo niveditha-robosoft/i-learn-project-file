@@ -112,7 +112,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
    
         nameToSend = nameText.text ?? ""
         
-        var condition = isValidPassword(pass1: createPasswordText.text ?? "")
+        let condition = isValidPassword(pass1: createPasswordText.text ?? "")
         
         if condition == true{
             
@@ -126,7 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        var emailCondition = isValidEmail(email: mobile_EmailText.text ?? "")
+        let emailCondition = isValidEmail(email: mobile_EmailText.text ?? "")
         
         if emailCondition == true{
             
@@ -153,10 +153,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if confirmPasswordText.text == enteredCreatePassword {
             
-            let loder = self.load()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                self.stopLoder(loder: loder)
-            }
+            let loader =   self.loader()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        self.stopLoader(loader: loader)
+                    }
             
             objectOfSignUpViewModel.ViewModelPostTheDataToApi(name: nameToSend.lowercased(), mobilenumber_Email: mobile_EmailToSend, password: enteredCreatePassword){ responsIs in
 
@@ -353,27 +353,23 @@ extension SignUpViewController{
 }
 
 
-extension SignUpViewController{
-    
-    
-    func load() -> UIAlertController {
-        
-        let alert = UIAlertController(title: nil, message: "loading", preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 65, height: 65 ))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.large
-        loadingIndicator.startAnimating()
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        return alert
-    }
-    
-    func stopLoder(loder: UIAlertController) {
-        DispatchQueue.main.async {
-            loder.dismiss(animated: true, completion: nil)
+extension UIViewController{
+    func loader() -> UIAlertController {
+            let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.large
+            loadingIndicator.startAnimating()
+            alert.view.addSubview(loadingIndicator)
+            present(alert, animated: true, completion: nil)
+            return alert
         }
         
-        
-    }
+        func stopLoader(loader : UIAlertController) {
+            DispatchQueue.main.async {
+                loader.dismiss(animated: true, completion: nil)
+            }
+        }
+    
     
 }

@@ -42,10 +42,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         
         invalidPinView.isHidden = true
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
-            
-            print(varifivationResponce)
-            
-            print(")))))))))))))))",self.signUpMobile_EmailIsIS)
+     
         }
         
         self.goToHomeScreenButton.isEnabled = false
@@ -74,7 +71,6 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
         ConfigureTapGesture()
         
-        print("x =",x)
     }
     
     
@@ -150,7 +146,13 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
             
-            print(varifivationResponce)
+            if varifivationResponce == true{
+                
+                self.alertMessage(message: "New OTP is sent to the respected Email or Mobile Number")
+            }else{
+                
+                
+            }
         }
         
     }
@@ -226,10 +228,14 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         
         otp = Int("\(data11)\(data22)\(data33)\(data44)") ?? 0
         
-        print("\(signUpMobile_EmailIsIS)\(otp)")
+        
                     
         objectOfVarifyAccountViewModel.varifyTheSentOtpwithApi(mobile_Emailis: signUpMobile_EmailIsIS, otpIs: otp){ varifyResponce in
 
+            let loader =   self.loader()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                        self.stopLoader(loader: loader)
+                    }
 
             DispatchQueue.main.async {
 

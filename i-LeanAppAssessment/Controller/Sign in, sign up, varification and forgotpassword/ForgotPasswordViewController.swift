@@ -26,14 +26,20 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
- 
+        
+
         emailAndMobileData = mobileNumberOrEmailField.text ?? ""
         
-        print("emailAndMobileData :",emailAndMobileData)
         if mobileNumberOrEmailField.text != ""{
 
             if mobileNumberOrEmailField.text?.count == 10{
 
+                let loader =   self.loader()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                            self.stopLoader(loader: loader)
+                        }
+         
+                
                 objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:"+91\(emailAndMobileData)"){ varifivationResponce in
 
                     
@@ -62,6 +68,11 @@ class ForgotPasswordViewController: UIViewController {
                 }
             }else{
 
+                let loader =   self.loader()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                            self.stopLoader(loader: loader)
+                        }
+         
 
                 objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:emailAndMobileData.lowercased()){ varifivationResponce in
 

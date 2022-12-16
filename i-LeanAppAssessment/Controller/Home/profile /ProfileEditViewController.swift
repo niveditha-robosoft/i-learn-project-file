@@ -10,8 +10,11 @@ import UIKit
 class ProfileEditViewController: UIViewController ,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
     var objectOfProfileEditViewMOdel = ProfileEditViewMOdel.objectOfViewModel
+    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
-    
+    @IBOutlet weak var chapterCompleted: UILabel!
+    @IBOutlet weak var averageScore: UILabel!
+    @IBOutlet weak var highestScore: UILabel!
     
     
     @IBOutlet weak var nameField: UITextField!
@@ -22,10 +25,24 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBOutlet weak var profileIMage: UIImageView!
     
+    
+    var nameIs = ""
+    var emailIs = ""
+    var chapter = ""
+    var highest = ""
+    var average = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mailField.borderStyle = .none
         nameField.borderStyle = .none
+        
+        nameField.text = nameIs
+        mailField.text = emailIs
+        chapterCompleted.text = chapter
+        averageScore.text = average
+        highestScore.text = highest
         
         imageView.layer.cornerRadius = imageView.bounds.width/2
         let gradientLayer = CAGradientLayer()
@@ -36,6 +53,12 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
         imageView.layer.insertSublayer(gradientLayer, at: 0)
         profileIMage.layer.cornerRadius = 60.0
         image2View.layer.cornerRadius = image2View.bounds.width / 2
+        
+        let loader =   self.loader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.stopLoader(loader: loader)
+                }
+ 
     }
 
 
@@ -52,10 +75,27 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBAction func updateEditButtonTapped(_ sender: UIButton) {
         
+        let loader =   self.loader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
+                    self.stopLoader(loader: loader)
+                }
         
         
-        
-        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "")
+        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responseIs in
+            
+            if responseIs == true{
+                
+                self.alertMessage(message: "Profile Data Has Been Updated.")
+                
+                
+            }else{
+                
+                
+                
+            }
+            
+            
+        }
         
         
         
@@ -67,7 +107,6 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         
-//        self.navigationController?.popViewController(animated: true)
         backTwo()
     }
     
@@ -76,6 +115,15 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true)
     }
+    
+    func alertMessage(message: String){
+        
+            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
+        
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+            self.present(alert,animated: true, completion: nil)
+        }
     
 }
 

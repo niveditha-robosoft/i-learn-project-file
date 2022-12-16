@@ -37,6 +37,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
         
         
+        let loader =   self.loader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                    self.stopLoader(loader: loader)
+                }
+        
         objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
             
             DispatchQueue.main.async {

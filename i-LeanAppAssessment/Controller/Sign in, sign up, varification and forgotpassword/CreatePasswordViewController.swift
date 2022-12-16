@@ -79,10 +79,10 @@ class CreatePasswordViewController: UIViewController {
         
         if confirmPAsswordTextField.text == enteredCreatePassword{
             
-            print("Api call", mobile_EmailToSend)
-            
-            print("#####",mobile_EmailToSend,"*******",enteredCreatePassword)
-            
+            let loader =   self.loader()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                        self.stopLoader(loader: loader)
+                    }
             
             objectOfCreatePasswordViewModel.sendResetPasswordDataToApi(mobile_EmaildataToSend: mobile_EmailToSend, newPasswordToSend: enteredCreatePassword){ reponcedata in
                 

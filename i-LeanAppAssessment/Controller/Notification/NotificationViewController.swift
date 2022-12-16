@@ -9,8 +9,9 @@ import UIKit
 
 class NotificationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var title1 = ["xyz", "abc", "bhff", "hhfh", "gfewj", "gfewse"]
-        var body = ["Lorem Ipsum is simply dummy text of the printi and typesetting industry.;ekke;k", "Lorem Ipsum is simply dummy text of the printi and typesetting industry.", "Lorem Ipsum is simply dummy text of the printi and typesetting industry.", "jhkhhfddfghyhujjj", "jjhuatyrfgvv", "jkjjdhhbdnjklklll"]
+    var objectOfNotificationViewMOdel = NotificationViewMOdel.objectOfViewModel
+    var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
+    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -20,17 +21,31 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
         tableView.delegate = self
         tableView.dataSource = self
+        
+        objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ status in
+            
+            if status == true{
+                
+                self.tableView.reloadData()
+                
+            }else{
+                
+                
+            }
+            
+            
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return title1.count
+        return objectOfNotificationViewMOdel.notificationDataToShow.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NotificationsTableViewCell
         cell.customizeView()
-        cell.notificationTitle.text = title1[indexPath.row]
-        cell.notificationBody.text = body[indexPath.row]
+        cell.notificationTitle.text = objectOfNotificationViewMOdel.notificationDataToShow.last?.title
+        cell.notificationBody.text = objectOfNotificationViewMOdel.notificationDataToShow.last?.message
         return cell
     }
 
