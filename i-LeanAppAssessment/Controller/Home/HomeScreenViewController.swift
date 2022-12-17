@@ -11,22 +11,18 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var objectOfNotificationViewMOdel = NotificationViewMOdel.objectOfViewModel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
-    
-    
-    
+    var objectOfHomeViewModel = HomeViewModel.objectOfViewModel
+ 
     
     var imageis: [UIImage] = [#imageLiteral(resourceName: "img_geography"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "btn_signin-2"), #imageLiteral(resourceName: "logo_ilearn")]
-    var subName = ["kannada","english","hindi","science","maths","bio","chemistry"]
-    var chapName = ["padya","chapter","shahiri","animals","intigration","cell","HCl"]
-    var per = ["10%","20%","30%","40%","50%","60%","70%"]
     
-
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var currentyStudyingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,21 +33,25 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+   
+    
+    override func viewDidAppear(_ animated: Bool) {
         
+        viewWillAppearChanges()
+        
+        viewWillAppearApicall()
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageis.count
+        return objectOfHomeViewModel.currentyStudyingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeScreenCollectionViewCell
         cell.image.image = imageis[indexPath.row]
-        cell.subjectName.text = subName[indexPath.row]
-        cell.chapterName.text = chapName[indexPath.row]
-        cell.progressPercentage.text = per[indexPath.row]
+        cell.subjectName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName
+        cell.chapterName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName
+        cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
         cell.contentBackgroundView.layer.masksToBounds = true
         cell.contentBackgroundView.layer.cornerRadius = 15.0
         
@@ -85,8 +85,8 @@ extension HomeScreenViewController{
     
     func didloadChanges()  {
         
-        collectionView.isHidden = false
-        
+        collectionView.isHidden = true
+        currentyStudyingLabel.isHidden = true
         searchField.borderStyle = .none
         notificationIndicator.layer.masksToBounds = true
         notificationIndicator.layer.cornerRadius = 3.5
@@ -122,6 +122,30 @@ extension HomeScreenViewController{
             }
   
         }
+        
+        objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            if status == true{
+                
+                self.collectionView.isHidden = false
+                self.currentyStudyingLabel.isHidden = false
+                self.collectionView.reloadData()
+                
+            }else{
+                
+                self.collectionView.isHidden = true
+                self.currentyStudyingLabel.isHidden = true
+                
+                
+            }
+            
+            
+            
+        }
+        
+        
+        
+        
         
     }
     

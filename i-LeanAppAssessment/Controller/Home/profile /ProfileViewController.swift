@@ -46,14 +46,12 @@ class ProfileViewController: UIViewController {
         didLoadApiCall()
         
     }
-
-    override func viewWillAppear(_ animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-
         viewWillwApperChanges()
         
         viewWillAppeareApiCall()
-
     }
     
 
@@ -127,6 +125,16 @@ class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func goToResultScreen(_ sender: UIButton) {
+        
+        let resultVc = self.storyboard?.instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController
+        
+        if let vc = resultVc{
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
     
 }
 
@@ -171,6 +179,7 @@ extension ProfileViewController{
                     
                     self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
                     self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                    self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
                     self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
                     self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
                     self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
@@ -183,6 +192,25 @@ extension ProfileViewController{
 
         }
    
+    }
+    
+    
+    func getImage(urlString: String) -> UIImage {
+        
+        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") }
+        
+        let imageData = try?
+        Data(contentsOf: imageUrl)
+        
+        if let imageData = imageData{
+            
+            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") }
+            
+            return image
+        }
+        
+        return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
+        
     }
     
     
@@ -226,6 +254,7 @@ extension ProfileViewController{
                     
                     self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
                     self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                    self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
                     self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
                     self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
                     self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)

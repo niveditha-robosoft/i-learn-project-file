@@ -18,16 +18,22 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
+        let loader =   self.loader()
+        
         objectOfSubjectViewModel.subjectDetail(){ condition in
-            if condition == true {
-                self.tableView.reloadData()
-            }
-            else{
-                
-            }
             
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if condition == true {
+                    self.tableView.reloadData()
+                }
+                else{
+                    
+                }
+            }
+
         }
- 
+
     }
 
 

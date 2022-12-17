@@ -32,6 +32,12 @@
 		777F16FA294B3F870010D807 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */; };
 		777F16FD294B42060010D807 /* EditProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16FC294B42060010D807 /* EditProfileNetwork.swift */; };
 		777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */; };
+		7781D698294DDCDF0020D973 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D697294DDCDF0020D973 /* ResultsViewController.swift */; };
+		7781D69B294DDCF80020D973 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */; };
+		7781D69E294DEB930020D973 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D69D294DEB930020D973 /* ResultModel.swift */; };
+		7781D6A1294DFCCD0020D973 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A0294DFCCD0020D973 /* HomeViewModel.swift */; };
+		7781D6A4294DFE970020D973 /* HomeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A3294DFE970020D973 /* HomeNetwork.swift */; };
+		7781D6A7294E01F00020D973 /* CurrentyStudyingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A6294E01F00020D973 /* CurrentyStudyingModel.swift */; };
 		7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */; };
 		7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */; };
 		7786FC962945B0F700A0B956 /* AboutSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */; };
@@ -157,6 +163,12 @@
 		777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		777F16FC294B42060010D807 /* EditProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNetwork.swift; sourceTree = "<group>"; };
 		777FB2A8294857B100718711 /* LessonDetailVideoAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailVideoAudioViewController.swift; sourceTree = "<group>"; };
+		7781D697294DDCDF0020D973 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		7781D69D294DEB930020D973 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		7781D6A0294DFCCD0020D973 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7781D6A3294DFE970020D973 /* HomeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetwork.swift; sourceTree = "<group>"; };
+		7781D6A6294E01F00020D973 /* CurrentyStudyingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentyStudyingModel.swift; sourceTree = "<group>"; };
 		7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectViewController.swift; sourceTree = "<group>"; };
 		7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectTableViewCell.swift; sourceTree = "<group>"; };
@@ -350,6 +362,7 @@
 				77AEE5A2294DA7B500906FE4 /* AboutHeaderCell.swift */,
 				83FE3569294729F900B557CC /* TestTableViewCell.swift */,
 				77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */,
+				7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */,
 			);
 			path = "Table view cell";
 			sourceTree = "<group>";
@@ -371,11 +384,13 @@
 			path = TestResult;
 			sourceTree = "<group>";
 		};
-		77AEE5CC294DB37D00906FE4 /* New Group */ = {
+		77AEE5D3294DC16500906FE4 /* Progress bar  */ = {
 			isa = PBXGroup;
 			children = (
+				77AEE5CE294DB3A200906FE4 /* ProgressBarView.swift */,
+				77AEE5CD294DB3A200906FE4 /* ProgressBarViewTwo.swift */,
 			);
-			path = "New Group";
+			path = "Progress bar ";
 			sourceTree = "<group>";
 		};
 		77C73D952944AA49003031EF /* Custom button */ = {
@@ -393,6 +408,7 @@
 			children = (
 				7715F0082941ADEE00E04728 /* ProfileViewController.swift */,
 				77DFCF2C2949FC1C002F1CFC /* ProfileEditViewController.swift */,
+				7781D697294DDCDF0020D973 /* ResultsViewController.swift */,
 			);
 			path = "profile ";
 			sourceTree = "<group>";
@@ -416,7 +432,7 @@
 		77F6FA5A293F060100EBD0A9 /* i-LeanAppAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				77AEE5CC294DB37D00906FE4 /* New Group */,
+				77AEE5D3294DC16500906FE4 /* Progress bar  */,
 				779C8FD62946E2FD00B233EF /* Key chain */,
 				77C73D952944AA49003031EF /* Custom button */,
 				77F6FAE8293F204D00EBD0A9 /* Files */,
@@ -428,8 +444,6 @@
 				77F6FA64293F060100EBD0A9 /* Assets.xcassets */,
 				77F6FA66293F060100EBD0A9 /* LaunchScreen.storyboard */,
 				77F6FA69293F060100EBD0A9 /* Info.plist */,
-				77AEE5CE294DB3A200906FE4 /* ProgressBarView.swift */,
-				77AEE5CD294DB3A200906FE4 /* ProgressBarViewTwo.swift */,
 			);
 			path = "i-LeanAppAssessment";
 			sourceTree = "<group>";
@@ -556,6 +570,8 @@
 				77BE859E294C9AD700676F5B /* UserDataModel.swift */,
 				77BE85A9294CABA900676F5B /* NotificationMOdel.swift */,
 				77AEE5BE294DB10600906FE4 /* LessonDetailModel.swift */,
+				7781D69D294DEB930020D973 /* ResultModel.swift */,
+				7781D6A6294E01F00020D973 /* CurrentyStudyingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -574,6 +590,7 @@
 				777F16F9294B3F870010D807 /* ProfileEditViewModel.swift */,
 				77BE85A3294CA68500676F5B /* NotificationViewModel.swift */,
 				77AEE5B8294DB0AE00906FE4 /* LessonDetailViewModel.swift */,
+				7781D6A0294DFCCD0020D973 /* HomeViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -589,6 +606,7 @@
 				777F16FC294B42060010D807 /* EditProfileNetwork.swift */,
 				77BE85A6294CA75100676F5B /* NotificationNetwork.swift */,
 				77AEE5C1294DB17900906FE4 /* LessonDetailNetwork.swift */,
+				7781D6A3294DFE970020D973 /* HomeNetwork.swift */,
 			);
 			path = "Api Network";
 			sourceTree = "<group>";
@@ -736,6 +754,7 @@
 				7715F0122942146300E04728 /* varificationNetwork.swift in Sources */,
 				83FE358529473F8700B557CC /* LessonModel.swift in Sources */,
 				777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */,
+				7781D69B294DDCF80020D973 /* ResultsTableViewCell.swift in Sources */,
 				7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */,
 				77C73D932944A945003031EF /* LikedViewController.swift in Sources */,
 				777F16F7294B009D0010D807 /* ProfileModel.swift in Sources */,
@@ -748,6 +767,7 @@
 				77AEE5C9294DB2AB00906FE4 /* TestResultViewController.swift in Sources */,
 				7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */,
 				77AEE5BC294DB0DA00906FE4 /* BottomUpCollectionViewCell.swift in Sources */,
+				7781D69E294DEB930020D973 /* ResultModel.swift in Sources */,
 				77F6FA5C293F060100EBD0A9 /* AppDelegate.swift in Sources */,
 				777F16FD294B42060010D807 /* EditProfileNetwork.swift in Sources */,
 				7715F0002941AAB800E04728 /* subjectsTableViewCell.swift in Sources */,
@@ -781,10 +801,12 @@
 				77AEE593294DA28B00906FE4 /* SubjecListViewModel.swift in Sources */,
 				77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */,
 				775C2BF429404D31003E7405 /* HomeScreenCollectionViewCell.swift in Sources */,
+				7781D6A4294DFE970020D973 /* HomeNetwork.swift in Sources */,
 				77DFCF2D2949FC1C002F1CFC /* ProfileEditViewController.swift in Sources */,
 				77E0BC092940A6E400CA0EF0 /* NotificationViewController.swift in Sources */,
 				775C2BFB29408A65003E7405 /* OnBoardinCollectionViewCell.swift in Sources */,
 				77E0BC102940A8FC00CA0EF0 /* NotificationsTableViewCell.swift in Sources */,
+				7781D6A7294E01F00020D973 /* CurrentyStudyingModel.swift in Sources */,
 				77AEE5B6294DADB500906FE4 /* LessonDetailsViewController.swift in Sources */,
 				77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */,
 				7772117529474CC10064B305 /* SkipButton.swift in Sources */,
@@ -798,8 +820,10 @@
 				77BE85A7294CA75100676F5B /* NotificationNetwork.swift in Sources */,
 				777F16FA294B3F870010D807 /* ProfileEditViewModel.swift in Sources */,
 				83FE358229473B9800B557CC /* LessonViewModel.swift in Sources */,
+				7781D698294DDCDF0020D973 /* ResultsViewController.swift in Sources */,
 				77C73D8A2944A1CB003031EF /* SubjectDetailsViewController.swift in Sources */,
 				83FE355E294729A500B557CC /* LessonTestViewController.swift in Sources */,
+				7781D6A1294DFCCD0020D973 /* HomeViewModel.swift in Sources */,
 				7772117829474CC50064B305 /* SkipCustomButtob.swift in Sources */,
 				77C73D902944A8E5003031EF /* StudyingViewController.swift in Sources */,
 				83FE3561294729B500B557CC /* LessonViewController.swift in Sources */,

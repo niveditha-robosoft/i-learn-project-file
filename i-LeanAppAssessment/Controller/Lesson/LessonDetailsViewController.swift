@@ -175,6 +175,9 @@ class LessonDetailsViewController: UIViewController {
     @IBAction func okButtontapped(_ sender: Any) {
         
     }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.heightConstraint.constant = 0
+    }
 }
 extension LessonDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

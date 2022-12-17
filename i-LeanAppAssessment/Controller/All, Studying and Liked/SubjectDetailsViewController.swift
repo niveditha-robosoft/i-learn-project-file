@@ -8,6 +8,8 @@
 import UIKit
 
 class SubjectDetailsViewController: UIViewController {
+    
+
     @IBOutlet weak var allButton: SkipCustomButtob!
     @IBOutlet weak var likedButton: SkipCustomButtob!
     @IBOutlet weak var studyingButton: UIButton!
@@ -21,7 +23,8 @@ class SubjectDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailsOfTheSubject.isHidden = true
+        view.bringSubviewToFront(detailsOfTheSubject)
+        detailsOfTheSubject.isHidden = false
         studying.isHidden = true
         liked.isHidden = true
         view.bringSubviewToFront(detailsOfTheSubject)
@@ -33,7 +36,6 @@ class SubjectDetailsViewController: UIViewController {
         allButton.roundCorners(corners: [.bottomLeft,.topLeft], radius: 12)
 
         likedButton.roundCorners(corners: [.bottomRight,.topRight], radius: 12)
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

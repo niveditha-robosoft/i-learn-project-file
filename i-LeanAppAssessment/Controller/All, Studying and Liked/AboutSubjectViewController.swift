@@ -21,14 +21,24 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let loader =   self.loader()
         objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
             
-            if condition == true{
-                
-                self.collectionView.reloadData()
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if condition == true{
+                    
+                    self.collectionView.reloadData()
+                }else{
+                    
+                }
             }
             
+            
         }
+        
+        
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -63,25 +73,27 @@ extension AboutSubjectViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let loader =   self.loader()
         objectOfAboutSUbjectViewModel.callApiForLessonDetails(lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
             
-            print("Hi HI HI ")
-            if completionResponce == true{
-                print("HI true" )
-                
-                self.tableView.reloadData()
-                self.tableView.isHidden = false
-                
-            }else{
-                
-                print("HI false" )
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if completionResponce == true{
+                    
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    
+                }else{
+                    
 
+                }
             }
-            
-        }    }
-    
-    
-    
+   
+        }
+  
+    }
+
 }
 
 
@@ -106,7 +118,6 @@ extension AboutSubjectViewController{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-//            return dataisis.count
             return objectOfAboutSUbjectViewModel.lessonDetails.count
 
     }

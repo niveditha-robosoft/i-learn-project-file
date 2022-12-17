@@ -16,6 +16,9 @@ class ProfileViewMOdel {
     
     static var objectOfViewMOdel = ProfileViewMOdel()
     
+    
+    var resultData = [ResultModel]()
+    
     func callApiForUSerProfileData(tokenToSend: String, complition: @escaping((Bool) -> ())) {
         
         objectOfProfileNetwork.callProfileApi(taken: tokenToSend){ data, boolCondition, error in
@@ -57,5 +60,47 @@ class ProfileViewMOdel {
     }
     
     
-    
+    func getResultDetails(tokenToSend: String, completion: @escaping((Bool) -> ())) {
+        
+        objectOfProfileNetwork.getUserResultDetailsFromApi(token: tokenToSend){responceData, responceStatus, responceError in
+            
+            if responceError == nil{
+                
+                if responceStatus == true{
+                    
+                    if let dataIs = responceData as? [[String: Any]]{
+                        
+                        for i in dataIs{
+                            
+                            guard let data1 = i["subjectName"] as? String else{ return}
+                            guard let data2 = i["lessonNumber"] as? String else{ return}
+                            guard let data3 = i["testName"] as? String else{ return}
+                            guard let data4 = i["rightAnswerCount"] as? Int else{ return}
+                            guard let data5 = i["questionsAttempted"] as? Int else{ return}
+                            guard let data6 = i["totalQuestions"] as? String else{ return}
+                            guard let data7 = i["percentage"] as? Int else{ return}
+                            guard let data8 = i["testId"] as? Int else{ return}
+
+                            let result = ResultModel(subjectName: data1, lessonNumber: data2, lessonName: data3, rightAnswreCount: data4, questionsAttempted: data5, totalPercentage: data7, totalQuestions: data6)
+                            
+                            self.resultData.append(result)
+                        }
+   
+                    }
+
+                    completion(true)
+                    
+                }else{
+                    
+                    completion(false)
+                }
+  
+            }else{
+ 
+            }
+  
+        }
+        
+    }
+ 
 }

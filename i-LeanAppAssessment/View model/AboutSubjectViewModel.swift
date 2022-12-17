@@ -19,6 +19,8 @@ class AboutSUbjectViewModel {
         
         objectOfAboutSubjectNetwork.callApiForDetailsOfTheSubject(subbjectId: subjectIdToSend){ completionDatais, completionErrorIS in
             
+            self.subjectDetailsArray.removeAll()
+            
             DispatchQueue.main.async {
                 if completionErrorIS == nil{
                     
@@ -61,6 +63,8 @@ class AboutSUbjectViewModel {
         
         objectOfAboutSubjectNetwork.callApiForDetailsOfTheLesson(lessonId: lessonIdToSend){ responceData, responceError in
             
+            self.lessonDetails.removeAll()
+            
             DispatchQueue.main.async {
                 if responceError == nil{
                     
@@ -78,7 +82,7 @@ class AboutSUbjectViewModel {
                             let lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6)
                             
                             self.lessonDetails.append(lesson)
-                            
+                            lesson.unitDetails.removeAll()
                             print("2")
                             if let data7 = i["unitList"] as? [[String: Any]]{
                                 
