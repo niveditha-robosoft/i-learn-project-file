@@ -35,29 +35,10 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mailField.borderStyle = .none
-        nameField.borderStyle = .none
         
-        nameField.text = nameIs
-        mailField.text = emailIs
-        chapterCompleted.text = chapter
-        averageScore.text = average
-        highestScore.text = highest
+        didloadChanges()
         
-        imageView.layer.cornerRadius = imageView.bounds.width/2
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = imageView.bounds
-        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
-        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
-        imageView.layer.cornerRadius = imageView.bounds.width / 2
-        imageView.layer.insertSublayer(gradientLayer, at: 0)
-        profileIMage.layer.cornerRadius = 60.0
-        image2View.layer.cornerRadius = image2View.bounds.width / 2
-        
-        let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.stopLoader(loader: loader)
-                }
+       
  
     }
 
@@ -75,33 +56,25 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBAction func updateEditButtonTapped(_ sender: UIButton) {
         
+        
         let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
-                    self.stopLoader(loader: loader)
+        
+        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responseIs in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                
+                if responseIs == true{
+
+                    self.navigationController?.popViewController(animated: true)
+
+                }else{
+ 
                 }
-        
-        
-        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responseIs in
-            
-            if responseIs == true{
-                
-                self.alertMessage(message: "Profile Data Has Been Updated.")
-                
-                
-            }else{
-                
-                
-                
             }
-            
-            
+   
         }
-        
-        
-        
-        
-        
-        
+
     }
     
     
@@ -127,3 +100,31 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
 }
 
+extension ProfileEditViewController{
+    
+    func didloadChanges()  {
+        
+        mailField.borderStyle = .none
+        nameField.borderStyle = .none
+        
+        nameField.text = nameIs
+        mailField.text = emailIs
+        chapterCompleted.text = chapter
+        averageScore.text = average
+        highestScore.text = highest
+        
+        imageView.layer.cornerRadius = imageView.bounds.width/2
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = imageView.bounds
+        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
+        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
+        imageView.layer.cornerRadius = imageView.bounds.width / 2
+        imageView.layer.insertSublayer(gradientLayer, at: 0)
+        profileIMage.layer.cornerRadius = 60.0
+        image2View.layer.cornerRadius = image2View.bounds.width / 2
+        
+    }
+    
+    
+    
+}

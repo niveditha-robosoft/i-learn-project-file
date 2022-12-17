@@ -38,13 +38,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         
         let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                    self.stopLoader(loader: loader)
-                }
         
         objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
                 if reposeIs == true{
                     
                     let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
@@ -66,6 +64,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             }
 
         }
+        
+                
+        
+        
         
     }
     

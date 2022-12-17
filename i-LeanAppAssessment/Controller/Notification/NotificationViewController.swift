@@ -21,20 +21,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
         tableView.delegate = self
         tableView.dataSource = self
-        
-        objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ status in
-            
-            if status == true{
-                
-                self.tableView.reloadData()
-                
-            }else{
-                
-                
-            }
-            
-            
-        }
+        didloadChanges()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objectOfNotificationViewMOdel.notificationDataToShow.count
@@ -55,3 +42,33 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
 }
 
+
+extension NotificationViewController{
+    
+
+    
+    func didloadChanges() {
+        
+        
+        let loader =   self.loader()
+
+        
+        objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ status in
+            
+            DispatchQueue.main.async {
+                self.stopLoader(loader: loader)
+                if status == true{
+                    
+                    self.tableView.reloadData()
+                    
+                }else{
+                    
+                    
+                }
+            }
+
+        }
+ 
+    }
+ 
+}

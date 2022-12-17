@@ -16,10 +16,6 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
-        let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    self.stopLoader(loader: loader)
-                }
  
     }
 

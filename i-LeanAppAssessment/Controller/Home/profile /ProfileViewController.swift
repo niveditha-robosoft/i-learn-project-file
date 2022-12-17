@@ -41,90 +41,19 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                    self.stopLoader(loader: loader)
-                }
- 
-        // Do any additional setup after loading the view.
-        imageView.layer.cornerRadius = imageView.bounds.width/2
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = imageView.bounds
-        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
-        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
-        imageView.layer.cornerRadius = imageView.bounds.width / 2
-        imageView.layer.insertSublayer(gradientLayer, at: 0)
- 
-        image2View.layer.cornerRadius = image2View.bounds.width / 2
+        didloadChanges()
         
-        profileImage.layer.cornerRadius = 60.0
-        edit_LogoutBackgroundView.isHidden = true
-        editButton.isEnabled = false
-        logOutButton.isEnabled = false
-        bottomView.isHidden = false
-        noButton.isHidden = true
-        noButton.isEnabled = false
-        yesBurron.isEnabled = false
-        yesBurron.isHidden = true
-        self.bottomViewHeightCon.constant = 0
-        
-        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
-            
-            if responce == true{
-                
-                self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
-                self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
-                self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
-                self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
-                self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
-                
-            }
-            
-            
-            
-        }
+        didLoadApiCall()
         
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        bottomView.isHidden = true
-//        self.tabBarController?.tabBar.isHidden = false
-
-        imageView.layer.cornerRadius = imageView.bounds.width/2
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = imageView.bounds
-        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
-        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
-        imageView.layer.cornerRadius = imageView.bounds.width / 2
-        imageView.layer.insertSublayer(gradientLayer, at: 0)
- 
-        image2View.layer.cornerRadius = image2View.bounds.width / 2
         
-        profileImage.layer.cornerRadius = 60.0
-        edit_LogoutBackgroundView.isHidden = true
-        editButton.isEnabled = false
-        logOutButton.isEnabled = false
-        bottomView.isHidden = false
-        noButton.isHidden = true
-        noButton.isEnabled = false
-        yesBurron.isEnabled = false
-        yesBurron.isHidden = true
-        self.bottomViewHeightCon.constant = 0
 
+        viewWillwApperChanges()
         
-        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
-            
-            if responce == true{
-                
-                self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
-                self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
-                self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
-                self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
-                self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
-                
-            }
+        viewWillAppeareApiCall()
 
-        }
     }
     
 
@@ -201,3 +130,113 @@ class ProfileViewController: UIViewController {
     
 }
 
+
+extension ProfileViewController{
+    
+    func didloadChanges() {
+        
+        imageView.layer.cornerRadius = imageView.bounds.width/2
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = imageView.bounds
+        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
+        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
+        imageView.layer.cornerRadius = imageView.bounds.width / 2
+        imageView.layer.insertSublayer(gradientLayer, at: 0)
+ 
+        image2View.layer.cornerRadius = image2View.bounds.width / 2
+        
+        profileImage.layer.cornerRadius = 60.0
+        edit_LogoutBackgroundView.isHidden = true
+        editButton.isEnabled = false
+        logOutButton.isEnabled = false
+        bottomView.isHidden = false
+        noButton.isHidden = true
+        noButton.isEnabled = false
+        yesBurron.isEnabled = false
+        yesBurron.isHidden = true
+        self.bottomViewHeightCon.constant = 0
+        
+    }
+    
+    func didLoadApiCall() {
+        
+        let loader =   self.loader()
+        
+        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                
+                if responce == true{
+                    
+                    self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
+                    self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                    self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
+                    self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
+                    self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
+                    
+                }else{
+                    
+                    
+                }
+            }
+
+        }
+   
+    }
+    
+    
+    
+    func viewWillwApperChanges() {
+        bottomView.isHidden = true
+        imageView.layer.cornerRadius = imageView.bounds.width/2
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = imageView.bounds
+        gradientLayer.colors = [UIColor.systemBlue.cgColor,UIColor.white.cgColor]
+        gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
+        imageView.layer.cornerRadius = imageView.bounds.width / 2
+        imageView.layer.insertSublayer(gradientLayer, at: 0)
+ 
+        image2View.layer.cornerRadius = image2View.bounds.width / 2
+        
+        profileImage.layer.cornerRadius = 60.0
+        edit_LogoutBackgroundView.isHidden = true
+        editButton.isEnabled = false
+        logOutButton.isEnabled = false
+        bottomView.isHidden = false
+        noButton.isHidden = true
+        noButton.isEnabled = false
+        yesBurron.isEnabled = false
+        yesBurron.isHidden = true
+        self.bottomViewHeightCon.constant = 0
+        
+        
+    }
+    
+    
+    func viewWillAppeareApiCall() {
+        
+        let loader =   self.loader()
+        
+        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if responce == true{
+                    
+                    self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
+                    self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                    self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
+                    self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
+                    self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
+                    
+                }else{
+                    
+                }
+            }
+
+        }
+  
+    }
+    
+}

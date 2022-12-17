@@ -154,49 +154,44 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if confirmPasswordText.text == enteredCreatePassword {
             
             let loader =   self.loader()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                        self.stopLoader(loader: loader)
-                    }
             
             objectOfSignUpViewModel.ViewModelPostTheDataToApi(name: nameToSend.lowercased(), mobilenumber_Email: mobile_EmailToSend, password: enteredCreatePassword){ responsIs in
 
-                        if responsIs == true{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    
+                    if responsIs == true{
 
 
-                            let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
+                        let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
 
-                            if let vc = varifyVc {
+                        if let vc = varifyVc {
 
-                                vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
-                                self.navigationController?.pushViewController(vc, animated: true)
+                            vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
+                            self.navigationController?.pushViewController(vc, animated: true)
 
                             }
 
 
                         }else if responsIs == false{
 
-                            self.alertMessage(message: "Already you have an account pleace try to Sign In")
+                        self.alertMessage(message: "Already you have an account pleace try to Sign In")
 
 
                         } else{
 
                         }
-
                     }
-            
+  
+                }
+   
             
         }else{
             
             self.alertMessage(message: "Create password and confirm passwod asre not matching try again")
             
         }
-        
-        
-        
-        
-        
-//
-        
+
     }
     
 

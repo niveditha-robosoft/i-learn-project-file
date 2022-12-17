@@ -34,7 +34,7 @@ class ProfileEditViewMOdel {
                     
                     
                 }else{
-                    
+                    completion(false)
                     
                 }
             }

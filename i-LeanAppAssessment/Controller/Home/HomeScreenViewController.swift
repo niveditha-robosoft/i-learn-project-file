@@ -31,10 +31,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loader =   self.loader()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.stopLoader(loader: loader)
-                }
+       
  
         
         collectionView.isHidden = false
@@ -48,24 +45,52 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized)"
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
+        
+        let loader =   self.loader()
         
         objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
             
-            if status == true{
-                
-                self.notificationIndicator.isHidden = false
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if status == true{
+                    
+                    self.notificationIndicator.isHidden = false
 
-            }else{
-                
-                self.notificationIndicator.isHidden = true
+                }else{
+                    
+                    self.notificationIndicator.isHidden = true
 
-                
+                    
+                }
             }
-            
-            
+  
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
+        
+        let loader =   self.loader()
+        
+        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if status == true{
+                    
+                    self.notificationIndicator.isHidden = false
+
+                }else{
+                    
+                    self.notificationIndicator.isHidden = true
+
+                    
+                }
+            }
+  
+        }
     }
     
     

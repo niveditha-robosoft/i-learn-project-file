@@ -229,18 +229,13 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         otp = Int("\(data11)\(data22)\(data33)\(data44)") ?? 0
         
         
-                    
+        let loader = self.loader()
+        
+        
         objectOfVarifyAccountViewModel.varifyTheSentOtpwithApi(mobile_Emailis: signUpMobile_EmailIsIS, otpIs: otp){ varifyResponce in
 
-            let loader =   self.loader()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                        self.stopLoader(loader: loader)
-                    }
-
-            DispatchQueue.main.async {
-
-                print("09876543234567890-9876543",varifyResponce)
-
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
                 if varifyResponce == true{
 
                     self.hideError()
@@ -275,7 +270,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
 
 
-                    }
+                        }
                     }
 
 
@@ -288,11 +283,17 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             }else{
 
             }
-
         }
 
-
     }
+        
+        
+        
+        
+        
+                
+                    
+        
     }
 
     
