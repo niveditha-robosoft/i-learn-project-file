@@ -31,66 +31,14 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        didloadChanges()
  
-        
-        collectionView.isHidden = false
-        
-        searchField.borderStyle = .none
-        // Do any additional setup after loading the view.
-        notificationIndicator.layer.masksToBounds = true
-        notificationIndicator.layer.cornerRadius = 3.5
-        searchView.layer.cornerRadius = 14.0
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
-        
-        let loader =   self.loader()
-        
-        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
-            
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if status == true{
-                    
-                    self.notificationIndicator.isHidden = false
+        didloadApiCall()
 
-                }else{
-                    
-                    self.notificationIndicator.isHidden = true
-
-                    
-                }
-            }
-  
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
         
-        let loader =   self.loader()
-        
-        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
-            
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if status == true{
-                    
-                    self.notificationIndicator.isHidden = false
-
-                }else{
-                    
-                    self.notificationIndicator.isHidden = true
-
-                    
-                }
-            }
-  
-        }
     }
     
     
@@ -130,4 +78,99 @@ extension HomeScreenViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
+}
+
+
+extension HomeScreenViewController{
+    
+    func didloadChanges()  {
+        
+        collectionView.isHidden = false
+        
+        searchField.borderStyle = .none
+        notificationIndicator.layer.masksToBounds = true
+        notificationIndicator.layer.cornerRadius = 3.5
+        searchView.layer.cornerRadius = 14.0
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
+
+        
+    }
+    
+    
+    func didloadApiCall() {
+        
+        let loader =   self.loader()
+        
+        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if status == true{
+                    
+                    self.notificationIndicator.isHidden = false
+
+                }else{
+                    
+                    self.notificationIndicator.isHidden = true
+
+                    
+                }
+            }
+  
+        }
+        
+    }
+    
+    
+    func viewWillAppearChanges() {
+        
+        collectionView.isHidden = false
+        
+        searchField.borderStyle = .none
+        notificationIndicator.layer.masksToBounds = true
+        notificationIndicator.layer.cornerRadius = 3.5
+        searchView.layer.cornerRadius = 14.0
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        
+    }
+    
+    
+    
+    
+    func viewWillAppearApicall() {
+        
+        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
+        
+        let loader =   self.loader()
+        
+        objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if status == true{
+                    
+                    self.notificationIndicator.isHidden = false
+
+                }else{
+                    
+                    self.notificationIndicator.isHidden = true
+
+                    
+                }
+            }
+  
+        }
+        
+        
+    }
+    
+    
+    
 }

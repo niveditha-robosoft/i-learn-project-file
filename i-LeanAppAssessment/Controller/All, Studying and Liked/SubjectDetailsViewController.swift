@@ -16,11 +16,14 @@ class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var studying: UIView!
     @IBOutlet weak var liked: UIView!
     
-    
+    var subjectIdFromSUbjectlist = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        detailsOfTheSubject.isHidden = true
+        studying.isHidden = true
+        liked.isHidden = true
         view.bringSubviewToFront(detailsOfTheSubject)
         allButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1), for: .normal)
         likedButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
@@ -33,6 +36,11 @@ class SubjectDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? AboutSubjectViewController{
+        vc.subIdIs = subjectIdFromSUbjectlist}
+    }
     @IBAction func allbuttonTapped(_ sender: Any) {
         view.bringSubviewToFront(detailsOfTheSubject)
         detailsOfTheSubject.isHidden = false

@@ -15,14 +15,16 @@ class ProfileModel {
     var chapter: Int
     var average: Int
     var highest: Int
+    var profileIMage: String
     
-    init(id: Int64,email: String,name: String,chapter: Int,average: Int,highest: Int) {
+    init(id: Int64,email: String,name: String,chapter: Int,average: Int,highest: Int, profileIMage: String) {
         self.id = id
         self.email = email
         self.name = name
         self.chapter = chapter
         self.average = average
         self.highest = highest
+        self.profileIMage = profileIMage
     }
     
 }

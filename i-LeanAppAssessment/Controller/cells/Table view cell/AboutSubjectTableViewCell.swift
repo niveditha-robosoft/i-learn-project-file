@@ -9,8 +9,7 @@ import UIKit
 
 class AboutSubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lessonName: UILabel!
-    @IBOutlet weak var lessonNumber: UILabel!
+
     
     @IBOutlet weak var chapterOneName: UILabel!
     @IBOutlet weak var chapterOneDescription: UILabel!

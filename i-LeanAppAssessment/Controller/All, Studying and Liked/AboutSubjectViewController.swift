@@ -10,16 +10,25 @@ import UIKit
 class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     var imageis: [UIImage] = [#imageLiteral(resourceName: "img_geography"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "btn_signin-2"), #imageLiteral(resourceName: "logo_ilearn")]
-    var chapName = ["padya","chapter","shahiri","animals","intigration","cell","HCl"]
+    var backgroundColour: [CGColor] = [#colorLiteral(red: 0.8352941176, green: 0.9450980392, blue: 0.8980392157, alpha: 1),#colorLiteral(red: 1, green: 0.9215686275, blue: 0.7098039216, alpha: 1),#colorLiteral(red: 1, green: 0.6745098039, blue: 0.6431372549, alpha: 1),#colorLiteral(red: 0, green: 0.4666666667, blue: 0.4235294118, alpha: 1),#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)]
 
-    var lessonNameIs = ["naannu","neenu","avnu","ivnu"]
-    var lessonNumber = ["Lesson 1","Lesson 2","Lesson 3","Lesson 4"]
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
         
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
+    var subIdIs = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
+            
+            if condition == true{
+                
+                self.collectionView.reloadData()
+            }
+            
+        }
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -38,14 +47,15 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
 extension AboutSubjectViewController{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageis.count
+        return objectOfAboutSUbjectViewModel.subjectDetailsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AboutSubjectCollectionViewCell
         cell.image.image = imageis[indexPath.row]
-        cell.labelText.text = chapName[indexPath.row]
+        cell.labelText.text = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterName
+        cell.imageBackgroundView.backgroundColor = UIColor(cgColor: backgroundColour.randomElement() ?? .init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1))
         cell.backView.layer.masksToBounds = true
         cell.backView.layer.cornerRadius = 15.0
         return cell
@@ -53,8 +63,22 @@ extension AboutSubjectViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        tableView.isHidden = false
-    }
+        objectOfAboutSUbjectViewModel.callApiForLessonDetails(lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
+            
+            print("Hi HI HI ")
+            if completionResponce == true{
+                print("HI true" )
+                
+                self.tableView.reloadData()
+                self.tableView.isHidden = false
+                
+            }else{
+                
+                print("HI false" )
+
+            }
+            
+        }    }
     
     
     
@@ -77,51 +101,60 @@ extension AboutSubjectViewController: UICollectionViewDelegateFlowLayout{
 extension AboutSubjectViewController{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lessonNumber.count
+        return objectOfAboutSUbjectViewModel.lessonDetails.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
+//            return dataisis.count
+            return objectOfAboutSUbjectViewModel.lessonDetails.count
+
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        cell.lessonName.text = lessonNameIs[indexPath.row]
-        cell.lessonNumber.text = lessonNumber[indexPath.row]
+            let cell01 = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? AboutHeaderCell
+            
+            if let cell = cell01{
+    
+                cell.imageIS.image = #imageLiteral(resourceName: "img_pp-1")
+                cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName
+                cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber
+                return cell
+
+            
+        }
         
-        cell.chapterOneName.text = "santhosh"
-        cell.chapterOneDescription.text = "coder"
-        
-        cell.chapterTwoName.text = "Harsha"
-        cell.chapterTwoDescription.text = "learner"
-        
-        cell.chapterThreeName.text = "prajwal"
-        cell.chapterThreeDescription.text = "DJ boss"
-        
-        cell.chapterFourName.text = "niveditha"
-        cell.chapterFourDescription.text = "I "
-        
-        
-        cell.backView.layer.masksToBounds = true
-        cell.backView.layer.cornerRadius = 15.0
-        
-        cell.click1.isHidden = true
-        cell.click2.isHidden = true
-        cell.click3.isHidden = true
-        cell.click4.isHidden = true
-        
-        cell.done1.isHidden = false
-        cell.done2.isHidden = false
-        cell.done3.isHidden = false
-        cell.done4.isHidden = false
-        return cell
+        return nil
+
+    
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
+        
+                    cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName
+                    cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview
+                        return cell002
+
+
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as? LessonTestViewController
+
         
         if let vc = detailsVc {
-            
+            vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
+            vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
+            vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
+
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+
+       }
      
     }
     
