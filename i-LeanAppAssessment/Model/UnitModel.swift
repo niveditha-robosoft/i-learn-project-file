@@ -14,14 +14,14 @@ class UnitModel {
     var unitName: String
     var unitOverview: String
     var level: String
-    var pages: Int
+    var totalPages: Int
     
-    init(unitId: Int,unitName: String,unitOverview: String,level: String,pages: Int) {
+    init(unitId: Int,unitName: String,unitOverview: String,level: String,totalPages: Int) {
         
         self.unitId = unitId
         self.unitName = unitName
         self.unitOverview = unitOverview
         self .level = level
-        self.pages = pages
+        self.totalPages = totalPages
     }
 }

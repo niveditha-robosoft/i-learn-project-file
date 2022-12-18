@@ -48,9 +48,6 @@ class SubjectListViewModel{
                         self.subjectListDetail.append(sub)
                     }
                     
-//                    print(self.subName)
-//                    print(self.subId)
-//                    print("))))))))))))))",self.subDic)
                    completion(true)
                 }else{
                     completion(false)

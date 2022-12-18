@@ -75,7 +75,7 @@ class AboutSUbjectViewModel {
                             guard let data5 = i["noOfUnits"] as? Int else{ return}
                             guard let data6 = i["level"] as? String else{ return}
                             
-                            var lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6)
+                            let lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6)
                             
                             self.lessonDetails.append(lesson)
                             
@@ -92,21 +92,17 @@ class AboutSUbjectViewModel {
                                     guard let data12 = j["unitName"] as? String else{ return}
                                     guard let data13 = j["unitOverview"] as? String else{ return}
                                     guard let data14 = j["level"] as? String else{ return}
-//                                    guard let data15 = j["pages"] as? Int else{ return}
+                                    guard let data15 = j["totalPages"] as? Int else{ return}
 //
-                                    var unit = UnitModel(unitId: data11, unitName: data12, unitOverview: data13, level: data14, pages: 0)
+                                    let unit = UnitModel(unitId: data11, unitName: data12, unitOverview: data13, level: data14, totalPages: data15)
                                     lesson.unitDetails.append(unit)
                                     
-                                    print(" for llop bottom")
                                 }
     
-                                print("after for llop")
                             }
                             
-                            print(" after data7 if let ")
                         }
       
-                        print("true is here")
                         completion(true)
                     }
                     

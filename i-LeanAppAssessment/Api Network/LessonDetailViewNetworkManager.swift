@@ -7,13 +7,12 @@
 
 import Foundation
 class LessonDetailNetwork{
-    func apiCallForLessonDetails(unitId:Int){
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&page=1") else{return}
+    func apiCallForLessonDetails(urlIs: String ,completion: @escaping(([String:Any], Error?) -> ())){
+        guard let url = URL(string: urlIs) else{return}
         
         var request = URLRequest(url: url)
 
-        var tokenIs = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJzaGFtdW5kYXJhZ2lAZ21haWwuY29tIiwiZXhwIjoxNjcxMTQxNDc4LCJpYXQiOjE2NzExMDU0Nzh9.7KC7kNRIoS0cK_hnPalmCgzKLYMyy-wi1bKGM3j7NBWF0iha4DX_rYVPBHSLhTKkCHh8siU3Mm6R4bPwb37sHg"
-        
+        var tokenIs = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxMzc1NDUzLCJpYXQiOjE2NzEzMzk0NTN9.y5gx6DSpiDDYajq3fHdCfiQ-op55kbu1sppYYeDRl9DBIO9aWA6OXc-OZ03XSeZaxU141iy4djCn1p8AgKBFqw"
         request.httpMethod = "GET"
         request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
         
@@ -34,25 +33,35 @@ class LessonDetailNetwork{
 
                 if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
-                        do{
+                    do{
 
-                            let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                        let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
 
-                            print("data is is : \(responsData)")
+                        if let datais = responsData as? [String: Any]{
+                            
+                            print("fsdfsfsdgsgsfg",datais)
+                            completion(datais,nil)
+                        }
+
+            }catch{
+                        
+                       completion(["": ""], error)
+                        print(error)
+                        
+                    }
+
+                }else{
+
+                    completion(["": ""], error)
+                    print("Responce Error is: ", error?.localizedDescription)
 
                         }
 
-                    }else if (responsIs.statusCode == 400 || responsIs.statusCode == 500){
+                    }
 
-                        print("Responce Error is 400 || 500 : ", error?.localizedDescription)
+                })
 
-                            }
-
-                        }
-
-                    })
-
-                    task.resume()
+                task.resume()
 
     }
 }

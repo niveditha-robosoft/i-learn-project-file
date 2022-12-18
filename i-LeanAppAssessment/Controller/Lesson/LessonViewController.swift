@@ -8,17 +8,15 @@
 import UIKit
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+   var lessonNumberIs = ""
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
     var lessonDetails = [Lesson]()
     var lessonImg: [UIImage] = [#imageLiteral(resourceName: "img_geography"),#imageLiteral(resourceName: "round"),#imageLiteral(resourceName: "btn_signin-1"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "logo_ilearn"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_notificationsettings")]
-    //var levelLbl = ["beginner","beginner","Beginner"]
     var levelLbl: UILabel!
     var titleLabl : UILabel!
     var descriptionLbl: UILabel!
-   // var descriptionLbl = ["Classes and sources","Balanced Diet","Food Test"]
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +48,18 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
        let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
         if let vc = lessondetailVc {
-            print("fvsdfdsgdfghfghfgjhjghkhjkhjljljkkl",unitDetailsIS[indexPath.row].unitId)
-            vc.unitId = unitDetailsIS[indexPath.row].unitId
-          self.navigationController?.pushViewController(vc, animated: true)     }
+            vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(407)&limit=1&page=1")
+                { (Bool) in
+                    if Bool {
+                        vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+                        vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                        vc.lessonNum = self.lessonNumberIs
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+           
+              }
 
     }
 
+}
 }

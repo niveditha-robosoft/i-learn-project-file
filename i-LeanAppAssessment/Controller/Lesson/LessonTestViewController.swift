@@ -40,6 +40,7 @@ class LessonTestViewController: UIViewController {
 
         if let vc = segue.destination as? LessonViewController{
             vc.unitDetailsIS = unitDetails
+            vc.lessonNumberIs = lessonNumberIs
         }
         
         
