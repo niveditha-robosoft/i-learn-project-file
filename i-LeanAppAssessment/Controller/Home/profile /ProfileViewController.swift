@@ -77,6 +77,7 @@ class ProfileViewController: UIViewController {
             vc.average = averageScore.text ?? ""
             vc.highest = highestScore.text ?? ""
             vc.chapter = chapterCompleted.text ?? ""
+            vc.profileImageIs = profileImage.image ?? #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

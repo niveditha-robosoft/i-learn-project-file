@@ -56,6 +56,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         if let vc = detailsVc {
             
             vc.subjectIdFromSUbjectlist = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectId
+            vc.subjectNameToSend = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectName
             self.navigationController?.pushViewController(vc, animated: true)
         }
      

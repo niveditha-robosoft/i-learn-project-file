@@ -11,11 +11,9 @@ class LessonDetailViewModel{
     var objOfLessonDetailNetwotk = LessonDetailNetwork()
     var lessonDetail = [LessonDetailModel]()
     
-    func callForLessonDetail(URLString: String,completion: @escaping((Bool) -> ())){
-        objOfLessonDetailNetwotk.apiCallForLessonDetails( urlIs: URLString){ dataIs ,errorIs in
-        print("111111")
+    func callForLessonDetail(URLString: String, tokenTOSend: String,completion: @escaping((Bool) -> ())){
+        objOfLessonDetailNetwotk.apiCallForLessonDetails( urlIs: URLString, token: tokenTOSend){ dataIs ,errorIs in
             DispatchQueue.main.async {
-                print(333333)
                 if(errorIs == nil){
                     if let data = dataIs as? [String: Any] {
                         guard let title = dataIs["title"] as? String else {
@@ -34,11 +32,9 @@ class LessonDetailViewModel{
                             return
                         }
                         print("data of ",title,photo,description,pageNo,unitNo)
-                        var lessonDetails = LessonDetailModel(pageNum: pageNo, pageTitle: title, unitImage: photo, unitDescription: description, unitNum: unitNo)
+                        let lessonDetails = LessonDetailModel(pageNum: pageNo, pageTitle: title, unitImage: photo, unitDescription: description, unitNum: unitNo)
                         self.lessonDetail.append(lessonDetails)
-                        print("222222")
-                        print("hwsdjkfcejwfjdvadwvkle",self.lessonDetail.last?.pageTitle)
-                        print("cccccccccccccc",self.lessonDetail)
+
                     }
                     completion(true)
                 }

@@ -7,14 +7,14 @@
 
 import Foundation
 class LessonDetailNetwork{
-    func apiCallForLessonDetails(urlIs: String ,completion: @escaping(([String:Any], Error?) -> ())){
+    func apiCallForLessonDetails(urlIs: String ,token: String, completion: @escaping(([String:Any], Error?) -> ())){
         guard let url = URL(string: urlIs) else{return}
         
         var request = URLRequest(url: url)
 
-        var tokenIs = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxMjg5NDY0LCJpYXQiOjE2NzEyNTM0NjR9.REwQQBlnJoPVZ9X0YWQLtBDEFvnADftrMRQ8-BGnrIWHrqhpiOLq6mVo5zoyjzHzvnbAJX7FynMacC4lGsP55Q"
+//        var tokenIs = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxMjg5NDY0LCJpYXQiOjE2NzEyNTM0NjR9.REwQQBlnJoPVZ9X0YWQLtBDEFvnADftrMRQ8-BGnrIWHrqhpiOLq6mVo5zoyjzHzvnbAJX7FynMacC4lGsP55Q"
         request.httpMethod = "GET"
-        request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in

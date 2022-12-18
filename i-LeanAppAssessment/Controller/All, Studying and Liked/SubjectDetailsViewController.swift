@@ -19,7 +19,7 @@ class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var liked: UIView!
     
     var subjectIdFromSUbjectlist = 0
-    
+    var subjectNameToSend = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +41,9 @@ class SubjectDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let vc = segue.destination as? AboutSubjectViewController{
-        vc.subIdIs = subjectIdFromSUbjectlist}
+        vc.subIdIs = subjectIdFromSUbjectlist
+            vc.subjectNameIs = subjectNameToSend
+        }
     }
     @IBAction func allbuttonTapped(_ sender: Any) {
         view.bringSubviewToFront(detailsOfTheSubject)

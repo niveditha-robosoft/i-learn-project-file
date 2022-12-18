@@ -54,7 +54,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
         cell.contentBackgroundView.layer.masksToBounds = true
         cell.contentBackgroundView.layer.cornerRadius = 15.0
-        
+        cell.progrssBar.progress = Float( objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)/Float(100)
         return cell
     }
     

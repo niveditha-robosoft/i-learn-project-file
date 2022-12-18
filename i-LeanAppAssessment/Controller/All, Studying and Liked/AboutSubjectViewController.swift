@@ -18,6 +18,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     
     var subIdIs = 0
+    var subjectNameIs = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,10 +37,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
             
             
         }
-        
-        
-        
-        
+      
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -118,7 +116,7 @@ extension AboutSubjectViewController{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-            return objectOfAboutSUbjectViewModel.lessonDetails.count
+        return objectOfAboutSUbjectViewModel.lessonDetails.count
 
     }
     
@@ -130,8 +128,8 @@ extension AboutSubjectViewController{
             if let cell = cell01{
     
                 cell.imageIS.image = #imageLiteral(resourceName: "img_pp-1")
-                cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName
-                cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber
+                cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName.uppercased()
+                cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber.capitalized
                 return cell
 
             
@@ -147,8 +145,8 @@ extension AboutSubjectViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
         
-                    cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName
-                    cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview
+        cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
+        cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
                         return cell002
 
 
@@ -162,7 +160,7 @@ extension AboutSubjectViewController{
             vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
             vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
             vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
-
+            vc.subjectName = subjectNameIs
             self.navigationController?.pushViewController(vc, animated: true)
 
        }

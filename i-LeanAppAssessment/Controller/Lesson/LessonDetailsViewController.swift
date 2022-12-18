@@ -10,11 +10,18 @@ import UIKit
 class LessonDetailsViewController: UIViewController {
    // var  objectFromLessonViewModel = LessonViewModel()
     var objectOfLessonViewModel = LessonDetailViewModel.objectOfLessonDetailViewModel
-       
+    var objectOFSignInViewMOdel = SignInViewModel.objectOfViewModel
+    
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
+    
+    
+    var numarr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    
     var unitId = 0
-    
+    var lessonNum = ""
+
     var currentPageNo = 1
-    
+    var SelectedCellLabel = 0
     var totalePages = 0
     
     @IBOutlet weak var selectedPageLabel: UILabel!
@@ -50,6 +57,23 @@ class LessonDetailsViewController: UIViewController {
         collectionView.dataSource = self
         DispatchQueue.main.async {
             for i in self.objectOfLessonViewModel.lessonDetail{
+                
+                if (self.lessonNum == "LessonNo 1"){
+                    self.unitTitleLabel.text = "L1:\(i.pageTitle)"
+                    
+                }
+                else if(self.lessonNum == "LessonNo 2") {
+                    self.unitTitleLabel.text = "L2:\(i.pageTitle)"
+                    
+                }
+                else if(self.lessonNum == "LessonNo 3") {
+                    self.unitTitleLabel.text = "L3:\(i.pageTitle)"
+                    
+                }
+                else{
+                    self.unitTitleLabel.text = "L4:\(i.pageTitle)"
+                }
+                
                 
                 self.titleLabel.text = i.pageTitle
                 self.contentTextView.text = i.unitDescription
@@ -124,12 +148,13 @@ class LessonDetailsViewController: UIViewController {
       
         currentPageNo += 1
         print("current page",currentPageNo)
-        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(407)&limit=1&page=\(currentPageNo)"){ data in
+        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ [self] data in
             
             if data == true{
                     
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
+                self.unitDetailImage.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
                 self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
                 //self.viewDidLoad()
                 
@@ -140,15 +165,13 @@ class LessonDetailsViewController: UIViewController {
         }
        
         
-        
-        
     }
     
     @IBAction func leftButtonTapped(_ sender: Any) {
       
         currentPageNo -= 1
         if currentPageNo != 0 {
-            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(407)_&limit=1&page=\(currentPageNo)"){ data in
+            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ data in
                 
                 if data == true{
                    
@@ -174,6 +197,15 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func okButtontapped(_ sender: Any) {
         
+        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ data in
+            if data == true {
+                self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
+                self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
+            }
+        }
+        self.heightConstraint.constant = 0
+        self.currentPage.text = "\(self.SelectedCellLabel) of \(self.totalePages) pages"
+        
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.heightConstraint.constant = 0
@@ -185,11 +217,14 @@ extension LessonDetailsViewController: UICollectionViewDelegate,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BottomUpCollectionViewCell
-        cell?.numberLabel.text = String(indexPath.row)
-        return cell!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BottomUpCollectionViewCell
+        cell.numberLabel.text = String(numarr[indexPath.row])
+
+        return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        SelectedCellLabel = indexPath.row + 1
+        
         
     }
 }

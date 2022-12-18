@@ -25,7 +25,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBOutlet weak var profileIMage: UIImageView!
     
-    
+    var profileImageIs = #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
     var nameIs = ""
     var emailIs = ""
     var chapter = ""
@@ -106,7 +106,7 @@ extension ProfileEditViewController{
         
         mailField.borderStyle = .none
         nameField.borderStyle = .none
-        
+        profileIMage.image = profileImageIs
         nameField.text = nameIs
         mailField.text = emailIs
         chapterCompleted.text = chapter

@@ -8,6 +8,9 @@
 import UIKit
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
+    
 //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
@@ -34,9 +37,9 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
         cell.customizeView()
         cell.lessonImage.image = lessonImg[indexPath.row]
-        cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName
-        cell.levelLabel.text = unitDetailsIS[indexPath.row].level
-        cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview
+        cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName.capitalized
+        cell.levelLabel.text = unitDetailsIS[indexPath.row].level.uppercased()
+        cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview.capitalized
         return cell
     }
 
@@ -47,8 +50,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
        let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
         if let vc = lessondetailVc {
-            vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(407)&limit=1&page=1")
-                { (Bool) in
+            vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: ObjectOfSignInVIewMOdel.userDetails[0].token){ (Bool) in
                     if Bool {
                         vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                         vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
