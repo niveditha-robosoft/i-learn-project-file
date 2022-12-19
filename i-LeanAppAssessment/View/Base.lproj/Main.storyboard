@@ -110,7 +110,7 @@
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="gEP-0y-8Ve"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="28"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGg-TQ-xs8">
@@ -3264,7 +3264,7 @@ attempted.</string>
                                             <constraint firstAttribute="width" constant="40" id="h9u-TI-5NJ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vz-M9-FFL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vz-M9-FFL">
                                         <rect key="frame" x="116.5" y="43.5" width="129" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="Gii-vL-b8j"/>
@@ -3274,7 +3274,7 @@ attempted.</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have unattempted questions, would you like to submit the test?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQp-g5-tdK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to logout now?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQp-g5-tdK">
                                         <rect key="frame" x="38.5" y="84.5" width="285" height="88"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="icT-Jw-El9"/>
@@ -3329,7 +3329,6 @@ attempted.</string>
                                     <constraint firstAttribute="bottom" secondItem="8Oj-c8-vgj" secondAttribute="bottom" constant="48" id="RVH-SJ-gPU"/>
                                     <constraint firstItem="nQp-g5-tdK" firstAttribute="top" secondItem="1vz-M9-FFL" secondAttribute="bottom" constant="14" id="WyK-vE-htg"/>
                                     <constraint firstItem="Xt5-F7-5RR" firstAttribute="top" secondItem="RKR-aD-qez" secondAttribute="top" constant="13" id="Zcn-3i-4f5"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="bSy-TB-aBk"/>
                                     <constraint firstAttribute="trailing" secondItem="476-4z-y9d" secondAttribute="trailing" constant="31" id="vy4-cb-6FF"/>
                                 </constraints>
                             </view>
@@ -4109,9 +4108,9 @@ attempted.</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subjects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gM-GX-h9d">
-                                        <rect key="frame" x="32" y="79" width="149" height="26"/>
+                                        <rect key="frame" x="32" y="79" width="149" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="0kk-Mu-eAY"/>
+                                            <constraint firstAttribute="height" constant="55" id="0kk-Mu-eAY"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="8qQ-Bf-VWB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rubik-SemiBold" family="Rubik" pointSize="34"/>
@@ -4184,7 +4183,7 @@ attempted.</string>
                                     <constraint firstItem="c0a-Fu-vX8" firstAttribute="bottom" secondItem="SdQ-zu-SgX" secondAttribute="bottom" id="9lp-sM-dr0"/>
                                     <constraint firstItem="SdQ-zu-SgX" firstAttribute="leading" secondItem="c0a-Fu-vX8" secondAttribute="leading" constant="20" id="SgP-NG-r5P"/>
                                     <constraint firstItem="c0a-Fu-vX8" firstAttribute="trailing" secondItem="SdQ-zu-SgX" secondAttribute="trailing" constant="20" id="ZQZ-GZ-CIy"/>
-                                    <constraint firstItem="SdQ-zu-SgX" firstAttribute="top" secondItem="2gM-GX-h9d" secondAttribute="bottom" constant="37" id="f8I-om-n4K"/>
+                                    <constraint firstItem="SdQ-zu-SgX" firstAttribute="top" secondItem="2gM-GX-h9d" secondAttribute="bottom" constant="8" id="f8I-om-n4K"/>
                                     <constraint firstItem="c0a-Fu-vX8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2gM-GX-h9d" secondAttribute="trailing" symbolic="YES" id="q23-i9-vSZ"/>
                                     <constraint firstItem="2gM-GX-h9d" firstAttribute="top" secondItem="c0a-Fu-vX8" secondAttribute="top" constant="35" id="rBd-Sw-Omc"/>
                                 </constraints>
@@ -4200,7 +4199,7 @@ attempted.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zR-xt-RKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4638" y="1484"/>
+            <point key="canvasLocation" x="4637.68115942029" y="1483.9285714285713"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="25P-xP-5xw">

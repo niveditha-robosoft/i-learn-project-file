@@ -186,11 +186,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                         }else if responsIs == false{
 
-                        self.alertMessage(message: "Already you have an account pleace try to Sign In")
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "Already you have an account pleace try to Sign In")
+
+                            }
 
 
                         } else{
 
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "There is some technical problem pleace try again later")
+
+                            }
                         }
                     }
 

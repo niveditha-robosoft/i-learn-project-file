@@ -28,6 +28,9 @@ class ProfileViewMOdel {
                 if error == nil{
                     if boolCondition == true{
                         
+                        
+                        
+                        
                             guard let dataId = data["profileId"] as? Int64 else{  return}
                             guard let dataEmail = data["source"] as? String else{  return}
                             guard let dataName = data["name"] as? String else{  return}

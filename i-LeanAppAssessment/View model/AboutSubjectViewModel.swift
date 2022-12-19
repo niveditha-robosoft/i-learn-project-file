@@ -31,11 +31,11 @@ class AboutSUbjectViewModel {
                             
                             guard let data2 = i["chapterId"] as? Int else{return}
                             guard let data3 = i["chapterName"] as? String else{return}
-                            
+                            guard let dataImage = i["imageURL"] as? String else { return}
                             print("chapterName :",data3)
                             print("chapterId :",data2)
                             
-                            var sub = SubjectDetailsModel(chapterName: data3, chapterId: data2)
+                            let sub = SubjectDetailsModel(chapterName: data3, chapterId: data2, chapterImage: dataImage)
                             
                             
                             self.subjectDetailsArray.append(sub)

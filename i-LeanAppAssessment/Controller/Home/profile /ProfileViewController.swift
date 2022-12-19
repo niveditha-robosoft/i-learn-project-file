@@ -301,7 +301,7 @@ extension ProfileViewController{
     
     func viewWillAppeareApiCall() {
         
-        let loader =   self.loader()
+        let loader = self.loader()
         
         objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
             

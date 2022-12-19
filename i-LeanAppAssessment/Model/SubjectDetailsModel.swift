@@ -10,13 +10,14 @@ import Foundation
 class SubjectDetailsModel {
     
     
-    
+    var chapterImage: String
     var chapterName: String
     var chapterId: Int
     
-    init(chapterName: String,chapterId: Int) {
+    init(chapterName: String,chapterId: Int,chapterImage: String) {
         self.chapterName = chapterName
         self.chapterId = chapterId
+        self.chapterImage = chapterImage
     }
     
 }

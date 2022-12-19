@@ -13,11 +13,7 @@ class SubjectListViewModel{
     
    var objectOfSubjectNetwork = SubjectListNetwork()
     var subjectListDetail = [SubjectListModel]()
-    
-    var subName = [String]()
-    var subId = [Int]()
-    
-    var subDic: [Int: String] = [:]
+
     func subjectDetail(completion: @escaping((Bool) -> Void) ) {
         
         print(" view model")
@@ -38,13 +34,13 @@ class SubjectListViewModel{
                         }
                         
                         
-                        self.subName.append(data2)
                         guard let dataId = i["subjectId"] as? Int else {
                             return
                         }
-                        self.subDic[dataId] = data2
-                        self.subId.append(dataId)
-                        let sub = SubjectListModel(subjectName: data2, subjectId: dataId)
+                        
+                        guard let subImage = i["subjectImage"] as? String else{ return}
+                        
+                        let sub = SubjectListModel(subjectName: data2, subjectId: dataId, subjectImage: subImage)
                         self.subjectListDetail.append(sub)
                     }
                     
