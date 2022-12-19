@@ -15,6 +15,7 @@ class AboutSubjectTableViewCell: UITableViewCell {
     @IBOutlet weak var chapterOneDescription: UILabel!
     
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var cellBackgroundView: UIView!
     
     
     func setRadious(x: Int) {
@@ -31,6 +32,15 @@ class AboutSubjectTableViewCell: UITableViewCell {
             statusLabel.backgroundColor = #colorLiteral(red: 0.8745098039, green: 0.8745098039, blue: 0.8745098039, alpha: 1)
             
         }
+    }
+    
+    func setTopTwoCornerRadius() {
+        
+        cellBackgroundView.clipsToBounds = true
+
+        cellBackgroundView.layer.masksToBounds = true
+        cellBackgroundView.layer.cornerRadius = 18.0
+        cellBackgroundView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
     }
     
 }

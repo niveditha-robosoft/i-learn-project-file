@@ -70,19 +70,21 @@ class ProfileNetwork {
         var request = URLRequest(url: url)
         
         request.httpMethod = "GET"
+        
+        let tokenISIS = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbnVzaGthMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNDg0NDY4LCJpYXQiOjE2NzE0NDg0Njh9.1-caAwyYUIv5yfMiXeuh8qPOVx6jUaGDLcZOfzAx5-B8CzugbhJ0EtWWckqnAZVKi88wLXYdjNV8l8OoxcKTNQ"
 
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(tokenISIS)", forHTTPHeaderField: "Authorization")
     
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Profile Api Error is: \(error?.localizedDescription)")
+                    print("Result is: \(error?.localizedDescription)")
                     return
                 }
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("Profile api responce",responsIs.statusCode)
+                    print("Result api responce",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{
@@ -90,7 +92,7 @@ class ProfileNetwork {
 
                             if let dataIs = responsData as? [[String:Any]]{
                                 
-                                print("profile data : \(dataIs)")
+                                print("Result data : \(dataIs)")
                                 
                                 completion(dataIs,true,nil)
                             }

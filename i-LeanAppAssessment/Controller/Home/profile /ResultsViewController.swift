@@ -52,7 +52,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
         cell.customizeView()
-        cell.subjectName.text = objectOfProfileViewMOdel.resultData[indexPath.row].subjectName
+        cell.subjectName.text = objectOfProfileViewMOdel.resultData[indexPath.row].subjectName.uppercased()
         cell.lessonName.text = objectOfProfileViewMOdel.resultData[indexPath.row].lessonName
         cell.lessonNumber.text = objectOfProfileViewMOdel.resultData[indexPath.row].lessonNumber
         cell.numberOfQuestionAttempted.text = String(objectOfProfileViewMOdel.resultData[indexPath.row].questionsAttempted)

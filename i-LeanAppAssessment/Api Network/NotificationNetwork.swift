@@ -36,9 +36,7 @@ class NotificationNetwork {
 
                         do{
                             let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-
-                           
-                                
+ 
                                 print("Notification ststus  : ",responsData)
 
                                 completion(true,nil)

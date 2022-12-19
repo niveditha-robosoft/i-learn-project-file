@@ -150,6 +150,7 @@ extension AboutSubjectViewController{
         cell002.setRadious(x: 1)
         cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
         cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
+//        cell002.setTopTwoCornerRadius()
                         return cell002
 
 

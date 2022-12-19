@@ -44,8 +44,10 @@ class AboutHeaderCell: UITableViewCell {
     
     func setTopTwoCornerRadius() {
         
+        headerBackgroundView.clipsToBounds = true
+
         headerBackgroundView.layer.masksToBounds = true
-        headerBackgroundView.layer.cornerRadius = 9.0
-//        headerBackgroundView.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+        headerBackgroundView.layer.cornerRadius = 18.0
+        headerBackgroundView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
 }

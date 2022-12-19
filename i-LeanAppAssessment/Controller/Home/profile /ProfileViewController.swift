@@ -7,12 +7,16 @@
 
 import UIKit
 
+
+
 class ProfileViewController: UIViewController {
-    
     
     var objectOfProfileViewMOdel = ProfileViewMOdel.objectOfViewMOdel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
+    @IBOutlet weak var chapterView: UIView!
+    @IBOutlet weak var averageVIew: UIView!
+    @IBOutlet weak var highestView: UIView!
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userMailId: UILabel!
@@ -99,14 +103,23 @@ class ProfileViewController: UIViewController {
         noButton.layer.borderColor = #colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1)
         yesBurron.layer.cornerRadius = 10.0
         bottomView.layer.cornerRadius = 15.0
+        
+        noButton.isHidden = false
+        yesBurron.isHidden = false
+        noButton.isEnabled = true
+        yesBurron.isEnabled = true
        
         edit_LogoutBackgroundView.isHidden = true
-        homeBackgroundView.backgroundColor = UIColor(red: 147/255, green: 150/255, blue: 153/255, alpha: 1.0)
+//        homeBackgroundView.backgroundColor = UIColor(red: 147/255, green: 150/255, blue: 153/255, alpha: 1.0)
+        homeBackgroundView.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.5882352941, blue: 0.6, alpha: 0.3377836045)
+        chapterView.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.5882352941, blue: 0.6, alpha: 0.3377836045)
+        averageVIew.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.5882352941, blue: 0.6, alpha: 0.3377836045)
+        highestView.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.5882352941, blue: 0.6, alpha: 0.3377836045)
         UIView.animate(withDuration: 0.3, animations: {
             self.bottomViewHeightCon.constant = 312
             self.view.layoutIfNeeded()
         }) { (status) in
-//            hu
+            
         }
         
         
@@ -127,8 +140,12 @@ class ProfileViewController: UIViewController {
         bottomView.isHidden = true
        
         edit_LogoutBackgroundView.isHidden = true
-        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+//        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         
+        homeBackgroundView.backgroundColor = #colorLiteral(red: 0.9641161561, green: 0.9801463485, blue: 1, alpha: 1)
+        chapterView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        averageVIew.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        highestView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         
     }
     
@@ -143,6 +160,32 @@ class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func signOutNOButtonTapped(_ sender: UIButton) {
+        
+        
+        bottomView.isHidden = true
+       
+        edit_LogoutBackgroundView.isHidden = true
+//        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        
+        homeBackgroundView.backgroundColor = #colorLiteral(red: 0.9641161561, green: 0.9801463485, blue: 1, alpha: 1)
+        chapterView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        averageVIew.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        highestView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        
+        
+        print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+        
+        
+    }
+    
+    @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
+        
+        
+        print("Yessssssssssssssssssss")
+    }
+    
+    
 }
 
 
@@ -150,6 +193,9 @@ extension ProfileViewController{
     
     func didloadChanges() {
         
+        highestView.layer.cornerRadius = 9.0
+        averageVIew.layer.cornerRadius = 9.0
+        chapterView.layer.cornerRadius = 9.0
         imageView.layer.cornerRadius = imageView.bounds.width/2
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = imageView.bounds
@@ -223,6 +269,10 @@ extension ProfileViewController{
     
     
     func viewWillwApperChanges() {
+        
+        highestView.layer.cornerRadius = 9.0
+        averageVIew.layer.cornerRadius = 9.0
+        chapterView.layer.cornerRadius = 9.0
         bottomView.isHidden = true
         imageView.layer.cornerRadius = imageView.bounds.width/2
         let gradientLayer = CAGradientLayer()

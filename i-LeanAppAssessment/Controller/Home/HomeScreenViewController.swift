@@ -35,6 +35,37 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         didloadNameApiCall()
 
+        
+        
+    }
+    
+    func save() {
+        do{
+            
+            try KeyChainManagesr.saveData(userId: "i23", userToken: "naanu".data(using: .utf8) ?? Data())
+        }
+        catch{
+            
+            print(error)
+            
+        }
+    }
+    
+    func getIt() {
+         
+        guard let data =  KeyChainManagesr.getData(userId: "i23") else{
+            
+            print("Failed to read password")
+            
+            return
+            
+        }
+        
+        
+        let tokenIs = String(decoding: data, as: UTF8.self)
+        
+        print("Getted data : \(tokenIs)")
+        
     }
     
    
@@ -111,6 +142,8 @@ extension HomeScreenViewController{
     func didloadNOtificationStatusApiCall() {
         
         let loader =   self.loader()
+        
+        print("STTUS ID : \(objectOfSignInViewModel.userDetails.last?.token ?? "")")
         
         objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
             

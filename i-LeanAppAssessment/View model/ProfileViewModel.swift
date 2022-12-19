@@ -63,23 +63,35 @@ class ProfileViewMOdel {
     func getResultDetails(tokenToSend: String, completion: @escaping((Bool) -> ())) {
         
         objectOfProfileNetwork.getUserResultDetailsFromApi(token: tokenToSend){responceData, responceStatus, responceError in
-            
+            self.resultData.removeAll()
             if responceError == nil{
-                
+
                 if responceStatus == true{
-                    
-                    if let dataIs = responceData as? [[String: Any]]{
+
+                    if let dataIs = responceData{
                         
+
                         for i in dataIs{
                             
-                            guard let data1 = i["subjectName"] as? String else{ return}
-                            guard let data2 = i["lessonNumber"] as? String else{ return}
-                            guard let data3 = i["testName"] as? String else{ return}
-                            guard let data4 = i["rightAnswerCount"] as? Int else{ return}
-                            guard let data5 = i["questionsAttempted"] as? Int else{ return}
-                            guard let data6 = i["totalQuestions"] as? String else{ return}
-                            guard let data7 = i["percentage"] as? Int else{ return}
-                            guard let data8 = i["testId"] as? Int else{ return}
+
+                            guard let data1 = i["subjectName"] as? String else{
+                                return}
+                            guard let data2 = i["lessonNumber"] as? String else{
+                                return}
+                            guard let data3 = i["testName"] as? String else{
+                                return}
+                            guard let data4 = i["rightAnswerCount"] as? Int else{
+                                return}
+                            guard let data5 = i["questionsAttempted"] as? Int else{
+                                return}
+                            guard let data6 = i["totalQuestions"] as? Int else{
+                                return}
+                            guard let data7 = i["percentage"] as? Int else{
+                                return}
+                            guard (i["testId"] as? Int) != nil else{ 
+                                return}
+
+                            print("16")
 
                             let result = ResultModel(subjectName: data1, lessonNumber: data2, lessonName: data3, rightAnswreCount: data4, questionsAttempted: data5, totalPercentage: data7, totalQuestions: data6)
                             

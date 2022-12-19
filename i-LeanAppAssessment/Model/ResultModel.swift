@@ -17,9 +17,9 @@ class ResultModel {
     var rightAnswreCount: Int
     var questionsAttempted: Int
     var totalPercentage: Int
-    var totalQuestions: String
+    var totalQuestions: Int
     
-    init(subjectName: String,lessonNumber: String,lessonName: String,rightAnswreCount: Int,questionsAttempted: Int,totalPercentage: Int,totalQuestions: String) {
+    init(subjectName: String,lessonNumber: String,lessonName: String,rightAnswreCount: Int,questionsAttempted: Int,totalPercentage: Int,totalQuestions: Int) {
         
         self.subjectName = subjectName
         self.lessonNumber = lessonNumber
