@@ -127,7 +127,9 @@ extension AboutSubjectViewController{
             
             if let cell = cell01{
     
-                cell.imageIS.image = #imageLiteral(resourceName: "img_pp-1")
+                cell.progressPercentage(value: 10)
+                cell.progressInitiate()
+                cell.setTopTwoCornerRadius()
                 cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName.uppercased()
                 cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber.capitalized
                 return cell
@@ -145,6 +147,7 @@ extension AboutSubjectViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
         
+        cell002.setRadious(x: 1)
         cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
         cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
                         return cell002

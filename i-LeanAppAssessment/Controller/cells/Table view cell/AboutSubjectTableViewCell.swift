@@ -14,29 +14,23 @@ class AboutSubjectTableViewCell: UITableViewCell {
     @IBOutlet weak var chapterOneName: UILabel!
     @IBOutlet weak var chapterOneDescription: UILabel!
     
-    @IBOutlet weak var chapterTwoName: UILabel!
-    @IBOutlet weak var chapterTwoDescription: UILabel!
-    
-    @IBOutlet weak var chapterThreeName: UILabel!
-    @IBOutlet weak var chapterThreeDescription: UILabel!
-    
-    @IBOutlet weak var chapterFourName: UILabel!
-    @IBOutlet weak var chapterFourDescription: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     
-    @IBOutlet weak var backView: UIView!
-    
-    @IBOutlet weak var click1: UIImageView!
-    @IBOutlet weak var done1: UIImageView!
-    
-    @IBOutlet weak var click2: UIImageView!
-    @IBOutlet weak var done2: UIImageView!
-    
-    
-    @IBOutlet weak var click3: UIImageView!
-    @IBOutlet weak var done3: UIImageView!
-    
-    @IBOutlet weak var click4: UIImageView!
-    @IBOutlet weak var done4: UIImageView!
+    func setRadious(x: Int) {
+        
+        
+        if x == 1{
+            
+        statusLabel.layer.masksToBounds = true
+            statusLabel.layer.cornerRadius = 6.0
+        statusLabel.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.7803921569, blue: 0.3882352941, alpha: 1)
+        }else{
+            statusLabel.layer.masksToBounds = true
+            statusLabel.layer.cornerRadius = 6.0
+            statusLabel.backgroundColor = #colorLiteral(red: 0.8745098039, green: 0.8745098039, blue: 0.8745098039, alpha: 1)
+            
+        }
+    }
     
 }

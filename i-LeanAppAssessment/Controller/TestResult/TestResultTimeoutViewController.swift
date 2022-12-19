@@ -20,7 +20,6 @@ class TestResultTimeoutViewController: UIViewController {
     let duration:Float = 10.0
     var progressIncrement:Float = 0
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         takeNewTestButton.layer.cornerRadius = 12
         creditLabel.layer.cornerRadius = 20

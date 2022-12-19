@@ -29,7 +29,11 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         didloadChanges()
  
-        didloadApiCall()
+        didloadNOtificationStatusApiCall()
+        
+        didLoadCurrentlyStudying()
+        
+        didloadNameApiCall()
 
     }
     
@@ -40,6 +44,10 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         viewWillAppearChanges()
         
         viewWillAppearApicall()
+        
+        didLoadCurrentlyStudying()
+        
+        didloadNameApiCall()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -95,13 +103,12 @@ extension HomeScreenViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
 
         
     }
     
     
-    func didloadApiCall() {
+    func didloadNOtificationStatusApiCall() {
         
         let loader =   self.loader()
         
@@ -122,9 +129,16 @@ extension HomeScreenViewController{
             }
   
         }
+   
+    }
+    
+    func didLoadCurrentlyStudying()  {
         
+        let loader =   self.loader()
         objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
             
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
             if status == true{
                 
                 self.collectionView.isHidden = false
@@ -139,16 +153,35 @@ extension HomeScreenViewController{
                 
             }
             
-            
+            }
             
         }
         
+    }
+    
+    
+    func didloadNameApiCall() {
         
-        
+        let loader =   self.loader()
+
+        objectOfHomeViewModel.getUserName(tokenTosend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+            
+            if status == true{
+                self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName)"
+                
+            }else{
+                
+                
+            }
+            
+            }
+        }
         
         
     }
-    
     
     func viewWillAppearChanges() {
         
@@ -170,7 +203,6 @@ extension HomeScreenViewController{
     
     func viewWillAppearApicall() {
         
-        userNameLabel.text = "Hi, \(objectOfSignInViewModel.userDetails.last?.userName.capitalized ?? "")"
         
         let loader =   self.loader()
         

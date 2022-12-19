@@ -16,10 +16,10 @@ class LessonDetailViewModel{
             DispatchQueue.main.async {
                 if(errorIs == nil){
                     if let data = dataIs as? [String: Any] {
-                        guard let title = dataIs["title"] as? String else {
+                        guard let title = dataIs["title"] as? String else { print("1")
                             return
                         }
-                        guard let photo = dataIs["file"] as? String else {
+                        guard let photo = dataIs["file"] as? String else {  print("2")
                             return
                         }
                         guard let description = dataIs["description"] as?  String else{

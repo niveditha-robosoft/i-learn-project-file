@@ -32,8 +32,10 @@ class ForgotPasswordViewController: UIViewController {
         
         if mobileNumberOrEmailField.text != ""{
 
-            if mobileNumberOrEmailField.text?.count == 10{
+            if mobileNumberOrEmailField.text?.count == 10 && Int(mobileNumberOrEmailField.text ?? "") != nil {
 
+                print("YOOU HAVE ENTERED MOBILE NUMBER FORGOT : ",mobileNumberOrEmailField.text)
+                
                 let loader =   self.loader()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
                             self.stopLoader(loader: loader)

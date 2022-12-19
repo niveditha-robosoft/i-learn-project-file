@@ -26,6 +26,7 @@
 		7772117829474CC50064B305 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7772117729474CC40064B305 /* SkipCustomButtob.swift */; };
 		777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886222940AC28001E7E1F /* SearchResultViewController.swift */; };
 		777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886252940DCA9001E7E1F /* signInViewModel.swift */; };
+		777ADEBD29502E5500175BF1 /* AboutSubjectHeaderProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */; };
 		777F16EE294AEA1B0010D807 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16ED294AEA1B0010D807 /* ProfileViewModel.swift */; };
 		777F16F2294AEFB90010D807 /* ProfileNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F1294AEFB90010D807 /* ProfileNetwork.swift */; };
 		777F16F7294B009D0010D807 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F16F6294B009D0010D807 /* ProfileModel.swift */; };
@@ -157,6 +158,7 @@
 		7772117729474CC40064B305 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipCustomButtob.swift; path = "../../../../../Users/harsharmundaragi/Desktop/zip/Main-i-Learn/i-LeanAppAssessment/Custom button/SkipCustomButtob.swift"; sourceTree = "<group>"; };
 		777886222940AC28001E7E1F /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		777886252940DCA9001E7E1F /* signInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInViewModel.swift; sourceTree = "<group>"; };
+		777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectHeaderProgress.swift; sourceTree = "<group>"; };
 		777F16ED294AEA1B0010D807 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		777F16F1294AEFB90010D807 /* ProfileNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetwork.swift; sourceTree = "<group>"; };
 		777F16F6294B009D0010D807 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				77AEE5CE294DB3A200906FE4 /* ProgressBarView.swift */,
 				77AEE5CD294DB3A200906FE4 /* ProgressBarViewTwo.swift */,
+				777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */,
 			);
 			path = "Progress bar ";
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				7781D698294DDCDF0020D973 /* ResultsViewController.swift in Sources */,
 				77C73D8A2944A1CB003031EF /* SubjectDetailsViewController.swift in Sources */,
 				83FE355E294729A500B557CC /* LessonTestViewController.swift in Sources */,
+				777ADEBD29502E5500175BF1 /* AboutSubjectHeaderProgress.swift in Sources */,
 				7781D6A1294DFCCD0020D973 /* HomeViewModel.swift in Sources */,
 				7772117829474CC50064B305 /* SkipCustomButtob.swift in Sources */,
 				77C73D902944A8E5003031EF /* StudyingViewController.swift in Sources */,

@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Light.ttf">
-            <string>Rubik-Light</string>
-        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -22,6 +19,7 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
+            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
     </customFonts>
@@ -2397,7 +2395,7 @@ you can search below.</string>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="LyI-DJ-t6c">
                                                 <rect key="frame" x="32" y="320" width="350" height="251"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat </mutableString>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat </string>
                                                 <color key="textColor" red="0.30196078431372547" green="0.31372549019607843" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -4726,10 +4724,10 @@ attempted.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-M0-K0P">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrL-aG-p4k">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="930"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="930"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MicrosoftTeams-image (4)" translatesAutoresizingMaskIntoConstraints="NO" id="RxK-61-S53" customClass="cre">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="930"/>
@@ -4753,7 +4751,7 @@ attempted.</string>
                                                 <color key="textColor" red="0.93333333330000001" green="0.92941176469999998" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAU-RV-FCa">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAU-RV-FCa">
                                                 <rect key="frame" x="56" y="409.5" width="316" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="316" id="SH5-Cf-KPd"/>
@@ -4765,7 +4763,7 @@ attempted.</string>
                                                     <action selector="newPassword:" destination="oJi-hf-6nv" eventType="editingChanged" id="fv0-kH-8jX"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-Q0-hGh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-Q0-hGh">
                                                 <rect key="frame" x="57" y="501.5" width="314" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="314" id="MiP-VF-deO"/>
@@ -4786,14 +4784,14 @@ attempted.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toj-hi-mJL">
-                                                <rect key="frame" x="57" y="543.5" width="300" height="2"/>
+                                                <rect key="frame" x="57" y="543.5" width="314" height="2"/>
                                                 <color key="backgroundColor" red="0.93333333330000001" green="0.92941176469999998" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="NWZ-Mf-QWY"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mph-cs-ReB">
-                                                <rect key="frame" x="111" y="635.5" width="192" height="46"/>
+                                                <rect key="frame" x="118" y="635.5" width="192" height="46"/>
                                                 <color key="backgroundColor" red="0.23529411759999999" green="0.4941176471" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="dgg-BG-mUh"/>
@@ -4915,7 +4913,7 @@ attempted.</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEGINNER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muk-i0-ZcU">
-                                                            <rect key="frame" x="104" y="35" width="60.5" height="14"/>
+                                                            <rect key="frame" x="104" y="35" width="61" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="14" id="ONb-Ml-H4q"/>
                                                             </constraints>
@@ -4924,7 +4922,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Substances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-po-b93">
-                                                            <rect key="frame" x="104" y="60" width="175" height="26"/>
+                                                            <rect key="frame" x="104" y="60" width="165.5" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="26" id="Mhf-q9-hP1"/>
                                                             </constraints>
@@ -4933,7 +4931,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes and sources." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-XM-wSD">
-                                                            <rect key="frame" x="104" y="92" width="151.5" height="19"/>
+                                                            <rect key="frame" x="104" y="92" width="153" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="nmD-JG-TtT"/>
                                                             </constraints>
@@ -5312,7 +5310,7 @@ Food Chain</string>
             <objects>
                 <viewController storyboardIdentifier="AboutSubjectViewController" id="8vN-PY-cni" customClass="AboutSubjectViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHK-d5-i0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kP-Mjh">
@@ -5411,13 +5409,6 @@ Food Chain</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-EM-w8B">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="63s-cS-svi">
-                                                            <rect key="frame" x="15" y="10" width="30" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="g48-ge-ih6"/>
-                                                                <constraint firstAttribute="width" constant="30" id="iqS-EQ-05R"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="animal Nutrition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zha-DL-1kS">
                                                             <rect key="frame" x="60" y="18" width="94" height="14"/>
                                                             <constraints>
@@ -5430,23 +5421,32 @@ Food Chain</string>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUJ-Ke-lnm">
                                                             <rect key="frame" x="166" y="12" width="46.5" height="26"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="26" id="uN0-NF-Ill"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46.5" id="6e9-ix-0Vm"/>
+                                                                <constraint firstAttribute="height" constant="26" id="fWJ-JR-6g7"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="12"/>
                                                             <color key="textColor" red="0.34901960784313724" green="0.35686274509803922" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwI-Nh-NZF" customClass="AboutHeaderProgress" customModule="i_LeanAppAssessment" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="QhW-RN-2Hl"/>
+                                                                <constraint firstAttribute="height" constant="30" id="RDT-1z-yZb"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="zha-DL-1kS" firstAttribute="leading" secondItem="63s-cS-svi" secondAttribute="trailing" constant="15" id="0ci-FO-hw8"/>
+                                                        <constraint firstItem="zha-DL-1kS" firstAttribute="leading" secondItem="wwI-Nh-NZF" secondAttribute="trailing" constant="15" id="8ky-QS-6hR"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mUJ-Ke-lnm" secondAttribute="trailing" constant="20" symbolic="YES" id="C5E-rJ-khE"/>
                                                         <constraint firstItem="zha-DL-1kS" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="18" id="D3z-2E-GpT"/>
-                                                        <constraint firstItem="mUJ-Ke-lnm" firstAttribute="leading" secondItem="zha-DL-1kS" secondAttribute="trailing" constant="12" id="D6v-ef-Wet"/>
-                                                        <constraint firstItem="63s-cS-svi" firstAttribute="centerY" secondItem="HAH-EM-w8B" secondAttribute="centerY" id="IdH-dZ-WPn"/>
-                                                        <constraint firstItem="mUJ-Ke-lnm" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="12" id="JA6-gO-5uD"/>
+                                                        <constraint firstItem="mUJ-Ke-lnm" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="12" id="HXe-Wh-qsY"/>
                                                         <constraint firstAttribute="bottom" secondItem="zha-DL-1kS" secondAttribute="bottom" constant="18" id="TRJ-Ni-dNy"/>
-                                                        <constraint firstAttribute="bottom" secondItem="mUJ-Ke-lnm" secondAttribute="bottom" constant="12" id="X8y-KP-TYW"/>
-                                                        <constraint firstItem="63s-cS-svi" firstAttribute="leading" secondItem="HAH-EM-w8B" secondAttribute="leading" constant="15" id="wFy-9j-NJP"/>
+                                                        <constraint firstItem="mUJ-Ke-lnm" firstAttribute="leading" secondItem="zha-DL-1kS" secondAttribute="trailing" constant="12" id="Y2h-t2-8hT"/>
+                                                        <constraint firstItem="wwI-Nh-NZF" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="10" id="mLF-cm-MJb"/>
+                                                        <constraint firstItem="wwI-Nh-NZF" firstAttribute="leading" secondItem="HAH-EM-w8B" secondAttribute="leading" constant="15" id="vaV-Cc-Aao"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -5461,9 +5461,9 @@ Food Chain</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="headerBackgroundView" destination="HAH-EM-w8B" id="BP7-se-1bR"/>
-                                            <outlet property="imageIS" destination="63s-cS-svi" id="IeB-Af-Jk5"/>
                                             <outlet property="lessonNumber" destination="mUJ-Ke-lnm" id="9Km-Rl-kol"/>
                                             <outlet property="lessonname" destination="zha-DL-1kS" id="02Y-I4-ed8"/>
+                                            <outlet property="progressView" destination="wwI-Nh-NZF" id="A33-YW-EIS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AboutSubjectTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="NvF-jv-wjI" customClass="AboutSubjectTableViewCell" customModule="i_LeanAppAssessment" customModuleProvider="target">
@@ -5517,7 +5517,7 @@ Food Chain</string>
                                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="12" id="Ebm-SH-2g5"/>
-                                                                <constraint firstAttribute="width" constant="13" id="P8x-uE-icR"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="13" id="P8x-uE-icR"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -5529,6 +5529,7 @@ Food Chain</string>
                                                         <constraint firstAttribute="trailing" secondItem="HRC-1P-sun" secondAttribute="trailing" id="Eb7-jI-h3F"/>
                                                         <constraint firstItem="HRC-1P-sun" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="17" id="F1H-GH-546"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="25" id="G55-Uj-qc8"/>
+                                                        <constraint firstItem="HRC-1P-sun" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eKq-qZ-fOc" secondAttribute="trailing" constant="8" symbolic="YES" id="aLr-KK-DpN"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="leading" secondItem="xMs-wC-vTI" secondAttribute="leading" constant="25" id="bUk-AZ-oge"/>
                                                         <constraint firstAttribute="bottom" secondItem="HRC-1P-sun" secondAttribute="bottom" constant="17" id="qaS-Bg-dJC"/>
                                                     </constraints>
@@ -5546,6 +5547,7 @@ Food Chain</string>
                                         <connections>
                                             <outlet property="chapterOneDescription" destination="r0x-wr-mRl" id="SOu-QV-Yd2"/>
                                             <outlet property="chapterOneName" destination="HXN-3S-GDD" id="3A7-TT-q7v"/>
+                                            <outlet property="statusLabel" destination="eKq-qZ-fOc" id="vwU-hj-tbd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -5570,14 +5572,14 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sR-ia-gwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5685.507246376812" y="2162.6116071428569"/>
+            <point key="canvasLocation" x="5685.507246376812" y="2161.9419642857142"/>
         </scene>
         <!--Studying View Controller-->
         <scene sceneID="Bvu-Q7-VYP">
             <objects>
                 <viewController storyboardIdentifier="StudyingViewController" id="ctg-2g-pB3" customClass="StudyingViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-Lz-xgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-1n-Eo0">
@@ -5608,7 +5610,7 @@ Food Chain</string>
             <objects>
                 <viewController storyboardIdentifier="LikedViewController" id="X8h-yW-QKo" customClass="LikedViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIY-Yt-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mo-im-4yf">
@@ -5685,6 +5687,9 @@ Food Chain</string>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

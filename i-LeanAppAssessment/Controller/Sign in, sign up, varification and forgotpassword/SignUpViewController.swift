@@ -134,16 +134,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
         }else{
             
-            if mobile_EmailText.text?.count == 10 && mobile_EmailText.text != "" {
+            if mobile_EmailText.text?.count == 10 && mobile_EmailText.text != "" && Int(mobile_EmailText.text ?? "") != nil{
                 
                 if let number = mobile_EmailText.text{
                     
+                    print("YOOU HAVE ENTERED MOBILE NUMBER : ",number)
+                    
+                    
                     mobile_EmailToSend = "+91\(number)"
+                }else{
+                    
+                    
+                    
                 }
                
                 }
             else{
                 
+                alertMessage(message: "Enter a valid mobile number")
             }
 
 
@@ -151,7 +159,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        if confirmPasswordText.text == enteredCreatePassword {
+        if confirmPasswordText.text == enteredCreatePassword && mobile_EmailToSend != ""{
+            
+            print("name : \(nameToSend)\nMobile_Email : \(mobile_EmailToSend)\npasssword : \(enteredCreatePassword)")
+            
             
             let loader =   self.loader()
             
@@ -159,7 +170,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
-                    
+
                     if responsIs == true{
 
 
@@ -182,10 +193,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                         }
                     }
-  
+
                 }
    
-            
+            mobile_EmailToSend = ""
         }else{
             
             self.alertMessage(message: "Create password and confirm passwod asre not matching try again")

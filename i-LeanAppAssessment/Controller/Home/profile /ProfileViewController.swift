@@ -47,13 +47,19 @@ class ProfileViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//        viewWillwApperChanges()
+//        
+//        viewWillAppeareApiCall()
+//    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
         viewWillwApperChanges()
         
         viewWillAppeareApiCall()
     }
-    
 
     @IBAction func edit_LogOutButtonTapped(_ sender: UIButton) {
 

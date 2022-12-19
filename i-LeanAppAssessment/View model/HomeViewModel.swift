@@ -16,6 +16,7 @@ class HomeViewModel {
     
     var currentyStudyingData = [CurrentlyStudyingModel]()
     
+    var userName = ""
     
     func callApiForCurrentStudyingDetails(tokenToSend: String, completion: @escaping((Bool) -> ())) {
         
@@ -67,5 +68,40 @@ class HomeViewModel {
         
     }
     
+    
+    
+    func getUserName(tokenTosend: String, completion: @escaping((Bool) -> ()))  {
+        
+        objectOfHomeNetwork.userNameFromApi(token: tokenTosend){ userData, userStatus, userError in
+            
+            DispatchQueue.main.async {
+                if userError == nil{
+                    
+                    if userStatus == true{
+                        
+                        if let data1 = userData?["fullName"] as? String {
+                            
+                            self.userName = data1
+                            
+                            completion(true)
+                        }
+                        
+                    }else{
+                        
+                        completion(false)
+                        
+                    }
+                    
+                    
+                    
+                }else{
+                    
+                    completion(false)
+                }
+            }
+ 
+        }
+        
+    }
     
 }
