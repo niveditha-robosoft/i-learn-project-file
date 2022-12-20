@@ -17,33 +17,42 @@ class AboutSUbjectViewModel {
     var objectOfAboutSubjectNetwork = AboutSubjectNetwork()
     func callApiForSubjectdetails(subjectIdToSend: Int, completion: @escaping((Bool) -> ())) {
         
-        objectOfAboutSubjectNetwork.callApiForDetailsOfTheSubject(subbjectId: subjectIdToSend){ completionDatais, completionErrorIS in
+        objectOfAboutSubjectNetwork.callApiForDetailsOfTheSubject(subbjectId: subjectIdToSend){ completionDatais, completionStatus , completionErrorIS in
             
             self.subjectDetailsArray.removeAll()
             
+            print("subjectDetailsArray is is : \(self.subjectDetailsArray.count)")
             DispatchQueue.main.async {
                 if completionErrorIS == nil{
                     
-                    
-                    if let data1 = completionDatais as? [[String: Any]] {
+                    if completionStatus == true{
                         
-                        for i in data1{
+                        if let data1 = completionDatais as? [[String: Any]] {
                             
-                            guard let data2 = i["chapterId"] as? Int else{return}
-                            guard let data3 = i["chapterName"] as? String else{return}
-                            guard let dataImage = i["imageURL"] as? String else { return}
-                            print("chapterName :",data3)
-                            print("chapterId :",data2)
+                            for i in data1{
+                                
+                                guard let data2 = i["chapterId"] as? Int else{  print("chapter error 1 is is : ");return}
+                                guard let data3 = i["chapterName"] as? String else{  print("chapter error 2 is is : ");return}
+                                guard let dataImage = i["imageURL"] as? String else {  print("chapter error 3 is is : ");return}
+                                print("chapterName :",data3)
+                                print("chapterId :",data2)
+                                
+                                let sub = SubjectDetailsModel(chapterName: data3, chapterId: data2, chapterImage: dataImage)
+                                
+                                
+                                self.subjectDetailsArray.append(sub)
+                            }
                             
-                            let sub = SubjectDetailsModel(chapterName: data3, chapterId: data2, chapterImage: dataImage)
-                            
-                            
-                            self.subjectDetailsArray.append(sub)
                         }
                         
+                        completion(true)
+                        
+                        
+                    }else{
+                        
+                        completion(false)
                     }
-                    
-                    completion(true)
+
                     
                 }else{
                     

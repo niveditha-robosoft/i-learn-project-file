@@ -99,7 +99,10 @@ class CreatePasswordViewController: UIViewController {
                         
                     } else if reponcedata == false{
                         
-                        self.alertMessage(message: "New password is same as Old password")
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "New password is same as Old password")
+
+                        }
                         
                     }else{
                         

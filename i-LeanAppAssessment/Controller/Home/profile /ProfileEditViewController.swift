@@ -120,8 +120,9 @@ extension ProfileEditViewController{
         gradientLayer.cornerRadius = gradientLayer.bounds.width / 2
         imageView.layer.cornerRadius = imageView.bounds.width / 2
         imageView.layer.insertSublayer(gradientLayer, at: 0)
-        profileIMage.layer.cornerRadius = 60.0
         image2View.layer.cornerRadius = image2View.bounds.width / 2
+        profileIMage.layer.cornerRadius = 60.0
+
         
     }
     

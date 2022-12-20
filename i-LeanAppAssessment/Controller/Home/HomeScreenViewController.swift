@@ -13,6 +13,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     var objectOfHomeViewModel = HomeViewModel.objectOfViewModel
  
+    var x = 0
     
     var imageis: [UIImage] = [#imageLiteral(resourceName: "img_geography"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "btn_signin-2"), #imageLiteral(resourceName: "logo_ilearn")]
     
@@ -27,13 +28,15 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("^^^^^^^^^^^^^^^^",x)
+        didloadNameApiCall()
+
         didloadChanges()
  
-        didloadNOtificationStatusApiCall()
+//        didloadNOtificationStatusApiCall()
         
         didLoadCurrentlyStudying()
         
-        didloadNameApiCall()
 
         
         
@@ -72,13 +75,14 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidAppear(_ animated: Bool) {
         
-        viewWillAppearChanges()
-        
         viewWillAppearApicall()
         
         didLoadCurrentlyStudying()
         
         didloadNameApiCall()
+        
+        viewWillAppearChanges()
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,12 +92,12 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeScreenCollectionViewCell
         cell.image.image = imageis[indexPath.row]
-        cell.subjectName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName
+        cell.subjectName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName.uppercased()
         cell.chapterName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName
         cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
         cell.contentBackgroundView.layer.masksToBounds = true
         cell.contentBackgroundView.layer.cornerRadius = 15.0
-        cell.progrssBar.progress = Float( objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)/Float(100)
+        cell.progrssBar.progress = Float(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)/Float(100)
         return cell
     }
     

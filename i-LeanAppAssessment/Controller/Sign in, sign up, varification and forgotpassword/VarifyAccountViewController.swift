@@ -41,6 +41,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         invalidPinView.isHidden = true
+        hideError()
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
      
         }
@@ -95,13 +96,21 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     func hideError() {
         
         firstFieldText.layer.borderWidth = 2.0
-        firstFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        firstFieldText.layer.cornerRadius = 8.0
+        firstFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        secondFieldText.layer.cornerRadius = 8.0
+
         secondFieldText.layer.borderWidth = 2.0
-        secondFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+        secondFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        thirdFieldText.layer.cornerRadius = 8.0
+
         thirdFieldText.layer.borderWidth = 2.0
-        thirdFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        thirdFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        fourthFieldText.layer.cornerRadius = 8.0
+
         fourthFieldText.layer.borderWidth = 2.0
-        fourthFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        fourthFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
         invalidPinView.isHidden = true
     }
     
@@ -113,6 +122,13 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
         
         firstFieldText.layer.borderWidth = 2.0
+        
+        firstFieldText.layer.cornerRadius = 8.0
+        secondFieldText.layer.cornerRadius = 8.0
+        thirdFieldText.layer.cornerRadius = 8.0
+        fourthFieldText.layer.cornerRadius = 8.0
+
+        
         firstFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
         secondFieldText.layer.borderWidth = 2.0
         secondFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
@@ -142,7 +158,8 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func resendOtp(_ sender: UIButton) {
         
-       
+        hideError()
+
         
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
             
@@ -171,6 +188,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     @IBAction func secondField(_ sender: Any) {
@@ -186,6 +204,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     @IBAction func thirdField(_ sender: Any) {
@@ -201,6 +220,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     
@@ -315,6 +335,8 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             
         }
  
+        hideError()
+
     }
     
     func alertMessage(message: String){

@@ -10,7 +10,7 @@ import Foundation
 
 class AboutSubjectNetwork {
     
-    func callApiForDetailsOfTheSubject(subbjectId: Int, completion: @escaping(([[String:Any]], Error?) -> ())) {
+    func callApiForDetailsOfTheSubject(subbjectId: Int, completion: @escaping(([[String:Any]]?, Bool, Error?) -> ())) {
     
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/chapters?subject_id=\(subbjectId)") else{return}
         
@@ -40,19 +40,14 @@ class AboutSubjectNetwork {
 
                             if let datais = responsData as? [[String: Any]]{
                                 
-                                completion(datais,nil)
+                                completion(datais, true ,nil)
                             }
 
-                        }catch{
-                            
-                            completion([["": ""]], error)
-                            print(error)
-                            
                         }
 
-                    }else{
+                    }else if (responsIs.statusCode == 400){
 
-                        completion([["": ""]], error)
+                        completion(nil, false , error)
                         print("Responce Error is: ", error?.localizedDescription)
 
                             }

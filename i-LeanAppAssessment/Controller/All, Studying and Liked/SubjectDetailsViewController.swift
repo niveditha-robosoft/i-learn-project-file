@@ -18,11 +18,14 @@ class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var studying: UIView!
     @IBOutlet weak var liked: UIView!
     
+    @IBOutlet weak var subjectNAmeToShow: UILabel!
+    
     var subjectIdFromSUbjectlist = 0
     var subjectNameToSend = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        subjectNAmeToShow.text = subjectNameToSend
         view.bringSubviewToFront(detailsOfTheSubject)
         detailsOfTheSubject.isHidden = false
         studying.isHidden = true

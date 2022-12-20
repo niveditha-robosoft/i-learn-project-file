@@ -19,7 +19,9 @@ class HomeNetwork {
                 
         request.httpMethod = "GET"
 
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        var tok = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbnVzaGthMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNTQ4MTkyLCJpYXQiOjE2NzE1MTIxOTJ9.OL25fDfAQIh_QrK1CxXfixf20X47sWrXcLVXR-wF_gXt7upNa4PnuRmoG_19qVotbPMooXvFg8_lAl9EL5vTlA"
+        
+        request.setValue("Bearer \(tok)", forHTTPHeaderField: "Authorization")
 
     
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in

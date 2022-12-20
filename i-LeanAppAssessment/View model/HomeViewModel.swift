@@ -22,6 +22,8 @@ class HomeViewModel {
         
         objectOfHomeNetwork.callCurrentyStudyingApi(token: tokenToSend){ responceData, responceStatus, responceError in
             
+            self.currentyStudyingData.removeAll()
+            
             DispatchQueue.main.async {
                 if responceError == nil{
                     
@@ -40,13 +42,9 @@ class HomeViewModel {
                                 self.currentyStudyingData.append(current)
                                 
                             }
-                            
-                            
-                            
+ 
                         }
-                        
-                        
-                        
+
                         completion(true)
                         
                     }else{
@@ -54,9 +52,7 @@ class HomeViewModel {
                         
                        completion(false)
                     }
-                    
-                    
-                    
+  
                 }else{
                     
                   completion(false)
