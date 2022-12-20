@@ -14,7 +14,11 @@ class OnBoardingOneViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedLabel: UILabel!
     
-
+    
+    var userDefault = UserDefaults()
+    
+    
+    var plistHelp = PlistManagment()
     
     var slide: [OnBoardingSlide] = []
     var currentpage = 0 {
@@ -134,6 +138,13 @@ extension OnBoardingOneViewController: goToLogInscreen{
     func go() {
         
         let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        
+//        plistHelp.writePlist(namePlist: "SkipStatus", key: "StatusManager", data: 1 as AnyObject )
+        
+//        print("Plist data is : \(plistHelp.readPlist(namePlist: "SkipStatus", key: "StatusManager"))")
+        
+        userDefault.setValue(true, forKeyPath: "Status")
+        
         self.navigationController?.pushViewController(vc2, animated: true)
     }
     

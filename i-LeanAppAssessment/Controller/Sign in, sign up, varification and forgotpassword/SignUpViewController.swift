@@ -187,7 +187,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         }else if responsIs == false{
 
                             DispatchQueue.main.async {
-                                self.alertMessage(message: "Already you have an account pleace try to Sign In")
+                                self.alertMessage(message: "This Email or Mobile number already exists try another one")
 
                             }
 
