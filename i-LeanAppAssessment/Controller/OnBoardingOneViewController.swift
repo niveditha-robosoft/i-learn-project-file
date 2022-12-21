@@ -14,10 +14,7 @@ class OnBoardingOneViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedLabel: UILabel!
     
-    
-    var userDefault = UserDefaults()
-    
-    
+
     var plistHelp = PlistManagment()
     
     var slide: [OnBoardingSlide] = []
@@ -137,13 +134,13 @@ extension OnBoardingOneViewController: UICollectionViewDelegate,UICollectionView
 extension OnBoardingOneViewController: goToLogInscreen{
     func go() {
         
-        let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
         
 //        plistHelp.writePlist(namePlist: "SkipStatus", key: "StatusManager", data: 1 as AnyObject )
         
 //        print("Plist data is : \(plistHelp.readPlist(namePlist: "SkipStatus", key: "StatusManager"))")
         
-        userDefault.setValue(true, forKeyPath: "Status")
+//        vc2.objectOfNavigationController = navigationController
         
         self.navigationController?.pushViewController(vc2, animated: true)
     }

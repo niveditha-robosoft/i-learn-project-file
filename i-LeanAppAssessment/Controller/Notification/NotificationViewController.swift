@@ -50,24 +50,33 @@ extension NotificationViewController{
     func didloadChanges() {
         
         
-        let loader =   self.loader()
-
-        
-        objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ status in
+        if objectOfSignInViewModel.userDetails.last?.token != ""{
             
-            DispatchQueue.main.async {
-                self.stopLoader(loader: loader)
-                if status == true{
-                    
-                    self.tableView.reloadData()
-                    
-                }else{
-                    
-                    
-                }
-            }
+            let loader =   self.loader()
 
+            
+            objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+                
+                DispatchQueue.main.async {
+                    self.stopLoader(loader: loader)
+                    if status == true{
+                        
+                        self.tableView.reloadData()
+                        
+                    }else{
+                        
+                        
+                    }
+                }
+
+            }
+            
+        }else{
+            
+            
         }
+        
+        
  
     }
  

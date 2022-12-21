@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     var objectOfProfileViewMOdel = ProfileViewMOdel.objectOfViewMOdel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
+    
     @IBOutlet weak var chapterView: UIView!
     @IBOutlet weak var averageVIew: UIView!
     @IBOutlet weak var highestView: UIView!
@@ -45,25 +46,31 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = true
         didloadChanges()
         
         didLoadApiCall()
         
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//        viewWillwApperChanges()
-//        
-//        viewWillAppeareApiCall()
-//    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        
+        tabBarController?.tabBar.isHidden = false
+
         viewWillwApperChanges()
         
         viewWillAppeareApiCall()
     }
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//        tabBarController?.tabBar.isHidden = false
+//
+//        viewWillwApperChanges()
+//
+//        viewWillAppeareApiCall()
+//    }
 
     @IBAction func edit_LogOutButtonTapped(_ sender: UIButton) {
 
@@ -72,11 +79,15 @@ class ProfileViewController: UIViewController {
         editButton.isEnabled = true
         logOutButton.isEnabled = true
         bottomView.isHidden = true
+
     }
     
 
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        
+        print("HI edit is here...!")
+        
         
         let editVc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileEditViewController") as? ProfileEditViewController
         
@@ -95,6 +106,8 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func logOutButtonTapped(_ sender: UIButton) {
+
+        tabBarController?.tabBar.isHidden = true
 
         bottomView.isHidden = false
         
@@ -146,7 +159,8 @@ class ProfileViewController: UIViewController {
         chapterView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         averageVIew.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         highestView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
-        
+        tabBarController?.tabBar.isHidden = false
+
     }
     
     @IBAction func goToResultScreen(_ sender: UIButton) {
@@ -221,29 +235,38 @@ extension ProfileViewController{
     
     func didLoadApiCall() {
         
-        let loader =   self.loader()
-        
-        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
+        if objectOfSignInViewModel.userDetails.last?.token != nil {
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
+            let loader =   self.loader()
+            
+            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responce in
                 
-                if responce == true{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
                     
-                    self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
-                    self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
-                    self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
-                    self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
-                    self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
-                    self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
-                    
-                }else{
-                    
-                    
+                    if responce == true{
+                        
+                        self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
+                        self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                        self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
+                        self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
+                        self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
+                        self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
+                        
+                    }else{
+                        
+                        
+                    }
                 }
-            }
 
+            }
+            
+        }else{
+            
+            
         }
+        
+        
    
     }
     
@@ -301,27 +324,37 @@ extension ProfileViewController{
     
     func viewWillAppeareApiCall() {
         
-        let loader = self.loader()
-        
-        objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ responce in
+        if objectOfSignInViewModel.userDetails.last?.token != nil{
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if responce == true{
-                    
-                    self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
-                    self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
-                    self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
-                    self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
-                    self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
-                    self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
-                    
-                }else{
-                    
+            
+            let loader = self.loader()
+            
+            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responce in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if responce == true{
+                        
+                        self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
+                        self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                        self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
+                        self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
+                        self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
+                        self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
+                        
+                    }else{
+                        
+                    }
                 }
-            }
 
+            }
+            
+        }else{
+            
+            
         }
+        
+        
   
     }
     

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, UITextFieldDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate{
+    
+    
     
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
@@ -23,6 +25,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = true
         statusOftheButton()
         mobileEmailTextField.borderStyle = .none
         passwordTextField.borderStyle = .none
@@ -32,6 +36,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         ConfigureTapGesture()
 
     }
+    
     
     
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
@@ -45,12 +50,20 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.stopLoader(loader: loader)
                 if reposeIs == true{
                     
-                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
+//                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "LessonViewController") as?
+//                    LessonViewController
+//
+//                    if let vc = HomeVc{
+//
+//                        self.navigationController?.pushViewController(vc, animated: true)
+//                    }
                     
-                    if let vc = HomeVc{
-                        
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
+                    
+                    
+                    
+                    
+                    
+                    self.navigationController?.popViewController(animated: true)
                     
                     print("hi000000 ")
 

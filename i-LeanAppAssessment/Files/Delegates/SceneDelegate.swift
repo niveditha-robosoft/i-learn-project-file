@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 //    var plistHelp01 = PlistManagment()
 
+    var userHelp = UserDefaults()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -37,6 +38,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            
 //        }
         
+        
+        let valueIs = userHelp.value(forKey: "Status")
+        
+        if (valueIs != nil) == true{
+            
+            let mainStory: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let signInPage = mainStory.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
+            
+            if let vc = signInPage{
+                
+                self.window?.rootViewController = vc
+                
+            }
+            
+            
+            
+        }else{
+            
+        }
         
         
         guard let _ = (scene as? UIWindowScene) else { return }

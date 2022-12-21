@@ -1057,7 +1057,7 @@ Account</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwx-P4-92X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3711.594202898551" y="6.6964285714285712"/>
+            <point key="canvasLocation" x="6580" y="686"/>
         </scene>
         <!--Test Result Timeout View Controller-->
         <scene sceneID="Xd7-2l-k9f">
@@ -1220,7 +1220,7 @@ by default.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLj-lJ-b2F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7226" y="3232"/>
+            <point key="canvasLocation" x="11357" y="2239"/>
         </scene>
         <!--Test Result View Controller-->
         <scene sceneID="ZKi-iX-el4">
@@ -1384,7 +1384,7 @@ away from 100%. You can do it.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9a-SD-kJl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8187" y="3232"/>
+            <point key="canvasLocation" x="12380" y="2239"/>
         </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="q75-7k-Ar0">
@@ -1415,7 +1415,7 @@ away from 100%. You can do it.</string>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-dn-Rdw" userLabel="notification Label">
-                                                        <rect key="frame" x="12" y="8" width="7" height="7"/>
+                                                        <rect key="frame" x="12" y="46" width="7" height="0.0"/>
                                                         <color key="backgroundColor" red="0.96078431369999995" green="0.1137254902" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1684,7 +1684,7 @@ you can search below.</string>
                             <constraint firstItem="6rg-x1-qNH" firstAttribute="leading" secondItem="rQ2-hz-9ot" secondAttribute="leading" id="vu7-44-VGc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" selectedImage="homekit" id="WaU-c3-KZV"/>
+                    <navigationItem key="navigationItem" id="gBO-7o-eeX"/>
                     <connections>
                         <outlet property="collectionView" destination="a0P-bW-nLa" id="whB-FC-Tsj"/>
                         <outlet property="currentyStudyingLabel" destination="EfB-X4-kyT" id="CJr-Db-gRs"/>
@@ -1696,7 +1696,7 @@ you can search below.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJX-6A-ngj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4637.68115942029" y="685.71428571428567"/>
+            <point key="canvasLocation" x="5547.826086956522" y="685.71428571428567"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="ZBm-Gv-cDy">
@@ -1835,7 +1835,7 @@ you can search below.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sx1-HN-rWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4638" y="-45"/>
+            <point key="canvasLocation" x="7648" y="686"/>
         </scene>
         <!--Lesson Detail Video Audio View Controller-->
         <scene sceneID="vjf-Gx-TnH">
@@ -2159,22 +2159,7 @@ you can search below.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyi-hf-jQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9906" y="1961"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="guR-xa-5pc">
-            <objects>
-                <viewController id="sdN-zz-zxL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="af9-k3-U4x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ncA-je-9qB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hsq-Km-Rmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3938" y="2196"/>
+            <point key="canvasLocation" x="11877" y="-316"/>
         </scene>
         <!--Subject Details View Controller-->
         <scene sceneID="yg8-8T-Vf9">
@@ -2370,7 +2355,7 @@ you can search below.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IK-4f-Fqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4638" y="2163"/>
+            <point key="canvasLocation" x="6684.057971014493" y="-604.01785714285711"/>
         </scene>
         <!--Lesson Details View Controller-->
         <scene sceneID="XWT-8m-BSS">
@@ -2384,7 +2369,7 @@ you can search below.</string>
                                 <rect key="frame" x="0.0" y="99" width="414" height="797"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sg8-xL-fjS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="661"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="713"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Substances" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uac-Mb-bUt">
                                                 <rect key="frame" x="90" y="30" width="234" height="33"/>
@@ -2418,7 +2403,7 @@ you can search below.</string>
                                             <constraint firstItem="W5b-aQ-hkK" firstAttribute="top" secondItem="uac-Mb-bUt" secondAttribute="bottom" constant="30" id="25P-5m-rB6"/>
                                             <constraint firstItem="LyI-DJ-t6c" firstAttribute="leading" secondItem="sg8-xL-fjS" secondAttribute="leading" constant="32" id="Bhx-pr-rxa"/>
                                             <constraint firstItem="W5b-aQ-hkK" firstAttribute="centerX" secondItem="sg8-xL-fjS" secondAttribute="centerX" id="Hvz-ei-igy"/>
-                                            <constraint firstAttribute="bottom" secondItem="LyI-DJ-t6c" secondAttribute="bottom" constant="90" id="J8k-3A-oJV"/>
+                                            <constraint firstAttribute="bottom" secondItem="LyI-DJ-t6c" secondAttribute="bottom" constant="142" id="J8k-3A-oJV"/>
                                             <constraint firstItem="LyI-DJ-t6c" firstAttribute="top" secondItem="W5b-aQ-hkK" secondAttribute="bottom" constant="30" id="Srp-HY-uW3"/>
                                             <constraint firstItem="LyI-DJ-t6c" firstAttribute="top" secondItem="sg8-xL-fjS" secondAttribute="top" constant="320" id="rLC-fj-mrE"/>
                                             <constraint firstItem="uac-Mb-bUt" firstAttribute="centerX" secondItem="sg8-xL-fjS" secondAttribute="centerX" id="vgU-DA-PFr"/>
@@ -2492,7 +2477,7 @@ you can search below.</string>
                                     <constraint firstItem="8at-ek-nYQ" firstAttribute="bottom" secondItem="uiJ-cB-po3" secondAttribute="bottom" id="3jx-h4-kcB"/>
                                     <constraint firstItem="8at-ek-nYQ" firstAttribute="trailing" secondItem="uiJ-cB-po3" secondAttribute="trailing" id="8wW-cH-gIf"/>
                                     <constraint firstItem="uiJ-cB-po3" firstAttribute="leading" secondItem="8at-ek-nYQ" secondAttribute="leading" id="MH5-PP-A4a"/>
-                                    <constraint firstAttribute="bottom" secondItem="sg8-xL-fjS" secondAttribute="bottom" constant="-8" id="f5c-hi-vei"/>
+                                    <constraint firstAttribute="bottom" secondItem="sg8-xL-fjS" secondAttribute="bottom" constant="84" id="f5c-hi-vei"/>
                                     <constraint firstItem="sg8-xL-fjS" firstAttribute="leading" secondItem="BTw-K1-1Yz" secondAttribute="leading" id="fwx-jB-6AM"/>
                                     <constraint firstItem="sg8-xL-fjS" firstAttribute="top" secondItem="BTw-K1-1Yz" secondAttribute="top" id="lqP-G4-nxm"/>
                                     <constraint firstItem="sg8-xL-fjS" firstAttribute="width" secondItem="BTw-K1-1Yz" secondAttribute="width" id="t9q-IM-7du"/>
@@ -2663,7 +2648,7 @@ you can search below.</string>
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="rOx-kv-T9d"/>
-                                            <constraint firstAttribute="width" constant="40" id="t67-Sr-pTZ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="t67-Sr-pTZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -2733,7 +2718,7 @@ you can search below.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyU-Hg-Jfs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8888.4057971014499" y="1960.7142857142856"/>
+            <point key="canvasLocation" x="10798.550724637682" y="-316.07142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W23-Pu-XQ7">
@@ -2765,9 +2750,9 @@ you can search below.</string>
                         <color key="selectedImageTintColor" red="0.22745098039215686" green="0.49803921568627452" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="F0Q-vC-g8c" kind="relationship" relationship="viewControllers" id="53v-QM-M1P"/>
-                        <segue destination="zWd-xP-gOn" kind="relationship" relationship="viewControllers" id="9R0-FK-1DM"/>
-                        <segue destination="qwF-sd-S6J" kind="relationship" relationship="viewControllers" id="0xD-Es-gT4"/>
+                        <segue destination="M5i-cV-Kfd" kind="relationship" relationship="viewControllers" id="53v-QM-M1P"/>
+                        <segue destination="OTc-ta-hNu" kind="relationship" relationship="viewControllers" id="9R0-FK-1DM"/>
+                        <segue destination="H1e-8O-Lq0" kind="relationship" relationship="viewControllers" id="0xD-Es-gT4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Daf-Wb-GrA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3366,7 +3351,7 @@ attempted.</string>
                             <constraint firstItem="bZF-7Y-dzA" firstAttribute="trailing" secondItem="RKR-aD-qez" secondAttribute="trailing" constant="26" id="uH9-MG-JkB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="hJ5-2M-Xug"/>
+                    <navigationItem key="navigationItem" id="pDz-cS-4Z2"/>
                     <connections>
                         <outlet property="averageScore" destination="szF-Ad-rci" id="e5V-VK-0TS"/>
                         <outlet property="averageVIew" destination="SIc-RU-eVv" id="17e-Fd-UU3"/>
@@ -3402,7 +3387,7 @@ attempted.</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2588" y="1478"/>
+            <point key="canvasLocation" x="4849" y="1654"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="RPg-dO-XXS">
@@ -3630,7 +3615,7 @@ attempted.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LmT-gi-vca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3495.652173913044" y="1477.9017857142856"/>
+            <point key="canvasLocation" x="4848" y="2452"/>
         </scene>
         <!--Profile Edit View Controller-->
         <scene sceneID="6Go-oc-nyq">
@@ -4120,7 +4105,7 @@ attempted.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LU3-HN-G4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3208.6956521739135" y="2269.4196428571427"/>
+            <point key="canvasLocation" x="6028" y="1653"/>
         </scene>
         <!--Subject List View Controller-->
         <scene sceneID="zmY-rr-eni">
@@ -4135,7 +4120,7 @@ attempted.</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subjects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gM-GX-h9d">
-                                        <rect key="frame" x="32" y="79" width="149" height="55"/>
+                                        <rect key="frame" x="32" y="123" width="149" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="0kk-Mu-eAY"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="8qQ-Bf-VWB"/>
@@ -4145,8 +4130,8 @@ attempted.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-zu-SgX">
-                                        <rect key="frame" x="20" y="142" width="374" height="671"/>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="20" y="186" width="374" height="627"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="112" id="cox-Qh-EXb" customClass="subjectsTableViewCell" customModule="i_LeanAppAssessment" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="112"/>
@@ -4176,7 +4161,7 @@ attempted.</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="3m2-Na-rjM" firstAttribute="top" secondItem="WcR-fl-1Zd" secondAttribute="top" constant="31" id="0dY-8S-DSb"/>
                                                                 <constraint firstItem="3m2-Na-rjM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uCZ-mn-cvE" secondAttribute="trailing" constant="8" symbolic="YES" id="LEt-Ak-7Ky"/>
@@ -4219,14 +4204,14 @@ attempted.</string>
                         <viewLayoutGuide key="safeArea" id="vmo-AP-Gg1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="lineweight" catalog="system" id="o0m-1G-xRx"/>
+                    <navigationItem key="navigationItem" id="8pp-9v-kfR"/>
                     <connections>
                         <outlet property="tableView" destination="SdQ-zu-SgX" id="7JS-cc-eBG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zR-xt-RKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4637.68115942029" y="1483.9285714285713"/>
+            <point key="canvasLocation" x="5618.840579710145" y="-604.01785714285711"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="25P-xP-5xw">
@@ -4643,7 +4628,7 @@ attempted.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Oa-EY-1tP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7853" y="1961"/>
+            <point key="canvasLocation" x="9842.753623188406" y="-316.07142857142856"/>
         </scene>
         <!--Lesson Test View Controller-->
         <scene sceneID="Z1Y-J0-JVs">
@@ -4715,7 +4700,6 @@ Food Chain</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="51"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="E0D-Yt-o6b"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="IZ3-Kh-MeW"/>
                                                             <constraint firstAttribute="height" constant="51" id="Wsw-lR-zKP"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="cMJ-b6-7hC"/>
@@ -4733,10 +4717,7 @@ Food Chain</string>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="A3w-7N-77f"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="AvN-55-Hbv"/>
                                                             <constraint firstAttribute="height" constant="51" id="UwD-GC-jPR"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="cpp-mQ-tzD"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="iAi-uD-vVd"/>
                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="51" id="vmu-Je-JuH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="16"/>
@@ -4750,6 +4731,7 @@ Food Chain</string>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="kCd-Cn-bGX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Znx-59-bEV" secondAttribute="trailing" constant="2" id="0XP-Tf-8WY"/>
                                                     <constraint firstItem="Znx-59-bEV" firstAttribute="top" secondItem="PU0-6j-1vD" secondAttribute="top" id="4TD-WE-ZCV"/>
                                                     <constraint firstItem="kCd-Cn-bGX" firstAttribute="top" secondItem="PU0-6j-1vD" secondAttribute="top" id="Lue-nV-PU9"/>
                                                     <constraint firstAttribute="trailing" secondItem="kCd-Cn-bGX" secondAttribute="trailing" id="Nbb-Lg-fjq"/>
@@ -4824,7 +4806,7 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4u-Bw-e2A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6787" y="2163"/>
+            <point key="canvasLocation" x="8718.8405797101459" y="-605.35714285714278"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="FKQ-yx-Tpk">
@@ -4957,7 +4939,7 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLn-aC-GnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7853" y="2417"/>
+            <point key="canvasLocation" x="9842.753623188406" y="-1044.6428571428571"/>
         </scene>
         <!--About Subject View Controller-->
         <scene sceneID="Qwp-JB-1rI">
@@ -5227,7 +5209,7 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sR-ia-gwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5685.507246376812" y="2161.9419642857142"/>
+            <point key="canvasLocation" x="7734.7826086956529" y="-604.35267857142856"/>
         </scene>
         <!--Studying View Controller-->
         <scene sceneID="Bvu-Q7-VYP">
@@ -5258,7 +5240,7 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OS4-Mc-M1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4271" y="2856"/>
+            <point key="canvasLocation" x="6294" y="72"/>
         </scene>
         <!--Liked View Controller-->
         <scene sceneID="pH4-hb-twq">
@@ -5289,7 +5271,64 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LK-Nj-9pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5117" y="2856"/>
+            <point key="canvasLocation" x="7181" y="72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YY6-UV-MPN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M5i-cV-Kfd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" selectedImage="homekit" id="WaU-c3-KZV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I5b-3n-Tnf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F0Q-vC-g8c" kind="relationship" relationship="rootViewController" id="Bh0-V9-bzM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8N-a6-x6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4709" y="686"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lF3-4c-Fb4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OTc-ta-hNu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="lineweight" catalog="system" id="o0m-1G-xRx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ib9-sz-KKA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zWd-xP-gOn" kind="relationship" relationship="rootViewController" id="cq8-nt-Hnt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RdX-F2-sik" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4519" y="-604"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ni2-JW-GUd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H1e-8O-Lq0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="hJ5-2M-Xug"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WpK-qf-KA0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qwF-sd-S6J" kind="relationship" relationship="rootViewController" id="CL4-A1-2EL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGE-i6-Ba7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3712" y="1654"/>
         </scene>
     </scenes>
     <resources>

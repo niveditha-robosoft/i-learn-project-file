@@ -36,6 +36,8 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.tabBar.isHidden = true
+
         didloadChanges()
         
        
@@ -59,7 +61,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
         
         let loader =   self.loader()
         
-        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responseIs in
+        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responseIs in
             
             DispatchQueue.main.async() {
                 self.stopLoader(loader: loader)

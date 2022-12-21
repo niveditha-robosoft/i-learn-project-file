@@ -20,7 +20,8 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     var subjectNameIs = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabBarController?.tabBar.isHidden = true
+
         let loader =   self.loader()
         objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
             
