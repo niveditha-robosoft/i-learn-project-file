@@ -16,5 +16,5 @@ class AboutSubjectCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var backView: UIView!
     
-    
+    @IBOutlet weak var imageBackgroundView: UIView!
 }

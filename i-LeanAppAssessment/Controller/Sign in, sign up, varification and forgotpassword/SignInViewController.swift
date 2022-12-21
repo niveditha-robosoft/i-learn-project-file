@@ -37,9 +37,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
         
         
+        let loader =   self.loader()
+        
         objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
                 if reposeIs == true{
                     
                     let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
@@ -49,18 +52,28 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                     
+                    print("hi000000 ")
+
                     
                     
                 }else if reposeIs == false{
+                    DispatchQueue.main.async {
+                        print("hi hi ")
+                        self.alertMessage(message: "Invalid user name or password try again")
+                    }
                     
-                    self.alertMessage(message: "Invalid user name or password try again")
+                    
                     
                 }else{
-                    
+                     
                 }
             }
 
         }
+        
+                
+        
+        
         
     }
     

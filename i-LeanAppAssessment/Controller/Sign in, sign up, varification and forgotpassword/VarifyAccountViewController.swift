@@ -41,11 +41,9 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         invalidPinView.isHidden = true
+        hideError()
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
-            
-            print(varifivationResponce)
-            
-            print(")))))))))))))))",self.signUpMobile_EmailIsIS)
+     
         }
         
         self.goToHomeScreenButton.isEnabled = false
@@ -74,7 +72,6 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
         ConfigureTapGesture()
         
-        print("x =",x)
     }
     
     
@@ -99,13 +96,21 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     func hideError() {
         
         firstFieldText.layer.borderWidth = 2.0
-        firstFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        firstFieldText.layer.cornerRadius = 8.0
+        firstFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        secondFieldText.layer.cornerRadius = 8.0
+
         secondFieldText.layer.borderWidth = 2.0
-        secondFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+        secondFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        thirdFieldText.layer.cornerRadius = 8.0
+
         thirdFieldText.layer.borderWidth = 2.0
-        thirdFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        thirdFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        fourthFieldText.layer.cornerRadius = 8.0
+
         fourthFieldText.layer.borderWidth = 2.0
-        fourthFieldText.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        fourthFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
         invalidPinView.isHidden = true
     }
     
@@ -117,6 +122,13 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
         
         firstFieldText.layer.borderWidth = 2.0
+        
+        firstFieldText.layer.cornerRadius = 8.0
+        secondFieldText.layer.cornerRadius = 8.0
+        thirdFieldText.layer.cornerRadius = 8.0
+        fourthFieldText.layer.cornerRadius = 8.0
+
+        
         firstFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
         secondFieldText.layer.borderWidth = 2.0
         secondFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
@@ -146,11 +158,18 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func resendOtp(_ sender: UIButton) {
         
-       
+        hideError()
+
         
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
             
-            print(varifivationResponce)
+            if varifivationResponce == true{
+                
+                self.alertMessage(message: "New OTP is sent to the respected Email or Mobile Number")
+            }else{
+                
+                
+            }
         }
         
     }
@@ -169,6 +188,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     @IBAction func secondField(_ sender: Any) {
@@ -184,6 +204,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     @IBAction func thirdField(_ sender: Any) {
@@ -199,6 +220,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
             
         }
+        hideError()
     }
     
     
@@ -226,15 +248,14 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         
         otp = Int("\(data11)\(data22)\(data33)\(data44)") ?? 0
         
-        print("\(signUpMobile_EmailIsIS)\(otp)")
-                    
+        
+        let loader = self.loader()
+        
+        
         objectOfVarifyAccountViewModel.varifyTheSentOtpwithApi(mobile_Emailis: signUpMobile_EmailIsIS, otpIs: otp){ varifyResponce in
 
-
-            DispatchQueue.main.async {
-
-                print("09876543234567890-9876543",varifyResponce)
-
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
                 if varifyResponce == true{
 
                     self.hideError()
@@ -245,7 +266,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
                         print("00000",self.x)
 
-                        let homeVc = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController
+                        let homeVc = self.storyboard?.instantiateViewController(identifier: "SignInViewController") as? SignInViewController
 
                         if let vc = homeVc{
 
@@ -269,7 +290,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
 
 
-                    }
+                        }
                     }
 
 
@@ -282,11 +303,17 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             }else{
 
             }
-
         }
 
-
     }
+        
+        
+        
+        
+        
+                
+                    
+        
     }
 
     
@@ -308,6 +335,8 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             
         }
  
+        hideError()
+
     }
     
     func alertMessage(message: String){

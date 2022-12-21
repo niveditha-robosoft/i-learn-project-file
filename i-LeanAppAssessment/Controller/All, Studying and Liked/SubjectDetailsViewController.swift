@@ -8,6 +8,8 @@
 import UIKit
 
 class SubjectDetailsViewController: UIViewController {
+    
+
     @IBOutlet weak var allButton: SkipCustomButtob!
     @IBOutlet weak var likedButton: SkipCustomButtob!
     @IBOutlet weak var studyingButton: UIButton!
@@ -16,11 +18,18 @@ class SubjectDetailsViewController: UIViewController {
     @IBOutlet weak var studying: UIView!
     @IBOutlet weak var liked: UIView!
     
+    @IBOutlet weak var subjectNAmeToShow: UILabel!
     
-    
+    var subjectIdFromSUbjectlist = 0
+    var subjectNameToSend = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        subjectNAmeToShow.text = subjectNameToSend
+        view.bringSubviewToFront(detailsOfTheSubject)
+        detailsOfTheSubject.isHidden = false
+        studying.isHidden = true
+        liked.isHidden = true
         view.bringSubviewToFront(detailsOfTheSubject)
         allButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1), for: .normal)
         likedButton.setTitleColor(#colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1), for: .normal)
@@ -30,9 +39,15 @@ class SubjectDetailsViewController: UIViewController {
         allButton.roundCorners(corners: [.bottomLeft,.topLeft], radius: 12)
 
         likedButton.roundCorners(corners: [.bottomRight,.topRight], radius: 12)
-        // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? AboutSubjectViewController{
+        vc.subIdIs = subjectIdFromSUbjectlist
+            vc.subjectNameIs = subjectNameToSend
+        }
+    }
     @IBAction func allbuttonTapped(_ sender: Any) {
         view.bringSubviewToFront(detailsOfTheSubject)
         detailsOfTheSubject.isHidden = false

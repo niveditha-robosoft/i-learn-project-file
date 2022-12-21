@@ -56,6 +56,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
+    
     func allowAccessToMoveToVarificationScreen(){
         
         if  nameText.text != "" && mobile_EmailText.text != "" && confirmPasswordText.text != "" && createPasswordText.text != ""  {
@@ -110,7 +112,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
    
         nameToSend = nameText.text ?? ""
         
-        var condition = isValidPassword(pass1: createPasswordText.text ?? "")
+        let condition = isValidPassword(pass1: createPasswordText.text ?? "")
         
         if condition == true{
             
@@ -124,7 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        var emailCondition = isValidEmail(email: mobile_EmailText.text ?? "")
+        let emailCondition = isValidEmail(email: mobile_EmailText.text ?? "")
         
         if emailCondition == true{
             
@@ -132,16 +134,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
         }else{
             
-            if mobile_EmailText.text?.count == 10 && mobile_EmailText.text != "" {
+            if mobile_EmailText.text?.count == 10 && mobile_EmailText.text != "" && Int(mobile_EmailText.text ?? "") != nil{
                 
                 if let number = mobile_EmailText.text{
                     
+                    print("YOOU HAVE ENTERED MOBILE NUMBER : ",number)
+                    
+                    
                     mobile_EmailToSend = "+91\(number)"
+                }else{
+                    
+                    
+                    
                 }
                
                 }
             else{
                 
+                alertMessage(message: "Enter a valid mobile number")
             }
 
 
@@ -149,49 +159,57 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        if confirmPasswordText.text == enteredCreatePassword {
+        if confirmPasswordText.text == enteredCreatePassword && mobile_EmailToSend != ""{
             
-
+            print("name : \(nameToSend)\nMobile_Email : \(mobile_EmailToSend)\npasssword : \(enteredCreatePassword)")
+            
+            
+            let loader =   self.loader()
             
             objectOfSignUpViewModel.ViewModelPostTheDataToApi(name: nameToSend.lowercased(), mobilenumber_Email: mobile_EmailToSend, password: enteredCreatePassword){ responsIs in
 
-                        if responsIs == true{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+
+                    if responsIs == true{
 
 
-                            let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
+                        let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
 
-                            if let vc = varifyVc {
+                        if let vc = varifyVc {
 
-                                vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
-                                self.navigationController?.pushViewController(vc, animated: true)
+                            vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
+                            self.navigationController?.pushViewController(vc, animated: true)
 
                             }
 
 
                         }else if responsIs == false{
 
-                            self.alertMessage(message: "Already you have an account pleace try to Sign In")
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "This Email or Mobile number already exists try another one")
+
+                            }
 
 
                         } else{
 
-                        }
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "There is some technical problem pleace try again later")
 
+                            }
+                        }
                     }
-            
-            
+
+                }
+   
+            mobile_EmailToSend = ""
         }else{
             
             self.alertMessage(message: "Create password and confirm passwod asre not matching try again")
             
         }
-        
-        
-        
-        
-        
-//
-        
+
     }
     
 
@@ -344,8 +362,27 @@ extension SignUpViewController{
         self.activeTextField = nil
         
       }
-    
-    
+  
+}
+
+
+extension UIViewController{
+    func loader() -> UIAlertController {
+            let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.large
+            loadingIndicator.startAnimating()
+            alert.view.addSubview(loadingIndicator)
+            present(alert, animated: true, completion: nil)
+            return alert
+        }
+        
+        func stopLoader(loader : UIAlertController) {
+            DispatchQueue.main.async {
+                loader.dismiss(animated: true, completion: nil)
+            }
+        }
     
     
 }

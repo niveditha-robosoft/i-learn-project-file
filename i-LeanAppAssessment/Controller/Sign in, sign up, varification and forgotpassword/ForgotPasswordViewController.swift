@@ -26,14 +26,22 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
- 
+        
+
         emailAndMobileData = mobileNumberOrEmailField.text ?? ""
         
-        print("emailAndMobileData :",emailAndMobileData)
         if mobileNumberOrEmailField.text != ""{
 
-            if mobileNumberOrEmailField.text?.count == 10{
+            if mobileNumberOrEmailField.text?.count == 10 && Int(mobileNumberOrEmailField.text ?? "") != nil {
 
+                print("YOOU HAVE ENTERED MOBILE NUMBER FORGOT : ",mobileNumberOrEmailField.text)
+                
+                let loader =   self.loader()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                            self.stopLoader(loader: loader)
+                        }
+         
+                
                 objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:"+91\(emailAndMobileData)"){ varifivationResponce in
 
                     
@@ -62,31 +70,32 @@ class ForgotPasswordViewController: UIViewController {
                 }
             }else{
 
+                let loader =   self.loader()
+                
+                objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:emailAndMobileData.lowercased()){ varifivationResponce in
 
-                objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:emailAndMobileData){ varifivationResponce in
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                        if varifivationResponce == true{
 
+                            let otpVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
 
-                    if varifivationResponce == true{
+                            if let vc = otpVc{
 
-                        let otpVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
+                                vc.x = 1
+                                vc.signUpMobile_EmailIsIS = self.emailAndMobileData
+                                self.navigationController?.pushViewController(vc, animated: true)
 
-                        if let vc = otpVc{
+                            }
 
-                            vc.x = 1
-                            vc.signUpMobile_EmailIsIS = self.emailAndMobileData
-                            self.navigationController?.pushViewController(vc, animated: true)
+                        }else{
+
+                            self.alertMessage(message: "Enter a valid Mabile Number or Email")
 
                         }
-
-                    }else{
-
-                        self.alertMessage(message: "Enter a valid Mabile Number or Email")
-
                     }
 
-                    print("9876545678765r56787trdfyuytfcuiasghcvh8usdvgh",varifivationResponce)
                 }
-
 
             }
 

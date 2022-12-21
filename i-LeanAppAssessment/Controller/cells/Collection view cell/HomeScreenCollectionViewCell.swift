@@ -13,5 +13,6 @@ class HomeScreenCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var chapterName: UILabel!
     @IBOutlet weak var progressPercentage: UILabel!
     @IBOutlet weak var contentBackgroundView: UIView!
+    @IBOutlet weak var progrssBar: UIProgressView!
     
 }

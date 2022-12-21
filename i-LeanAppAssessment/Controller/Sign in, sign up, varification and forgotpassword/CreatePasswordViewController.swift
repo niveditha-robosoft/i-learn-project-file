@@ -79,36 +79,42 @@ class CreatePasswordViewController: UIViewController {
         
         if confirmPAsswordTextField.text == enteredCreatePassword{
             
-            print("Api call", mobile_EmailToSend)
-            
-            print("#####",mobile_EmailToSend,"*******",enteredCreatePassword)
-            
+            let loader =   self.loader()
             
             objectOfCreatePasswordViewModel.sendResetPasswordDataToApi(mobile_EmaildataToSend: mobile_EmailToSend, newPasswordToSend: enteredCreatePassword){ reponcedata in
                 
-                print("))))))))))))))))))$$$$$$$$$$$$$$$$$$$$$",reponcedata)
-                if reponcedata == true{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
                     
-                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
-                    
-                    if let vc = HomeVc {
+                    if reponcedata == true{
                         
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
+                        
+                        if let vc = HomeVc {
+                            
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+                        
+                        
+                    } else if reponcedata == false{
+                        
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "New password is same as Old password")
+
+                        }
+                        
+                    }else{
+                        
                         
                     }
-                    
-                    
-                } else if reponcedata == false{
-                    
-                    self.alertMessage(message: "New password is same as Old password")
-                    
-                }else{
-                    
-                    
                 }
-                
-                
+  
             }
+            
+                    
+            
+            
    
             
         }else{

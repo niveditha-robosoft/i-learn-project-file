@@ -9,23 +9,38 @@ import UIKit
 
 class AboutSubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lessonName: UILabel!
-    @IBOutlet weak var lessonNumber: UILabel!
+
     
     @IBOutlet weak var chapterOneName: UILabel!
     @IBOutlet weak var chapterOneDescription: UILabel!
     
-    @IBOutlet weak var chapterTwoName: UILabel!
-    @IBOutlet weak var chapterTwoDescription: UILabel!
-    
-    @IBOutlet weak var chapterThreeName: UILabel!
-    @IBOutlet weak var chapterThreeDescription: UILabel!
-    
-    @IBOutlet weak var chapterFourName: UILabel!
-    @IBOutlet weak var chapterFourDescription: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var cellBackgroundView: UIView!
     
     
-    @IBOutlet weak var backView: UIView!
+    func setRadious(x: Int) {
+        
+        
+        if x == 1{
+            
+        statusLabel.layer.masksToBounds = true
+            statusLabel.layer.cornerRadius = 6.0
+        statusLabel.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.7803921569, blue: 0.3882352941, alpha: 1)
+        }else{
+            statusLabel.layer.masksToBounds = true
+            statusLabel.layer.cornerRadius = 6.0
+            statusLabel.backgroundColor = #colorLiteral(red: 0.8745098039, green: 0.8745098039, blue: 0.8745098039, alpha: 1)
+            
+        }
+    }
     
- 
+    func setTopTwoCornerRadius() {
+        
+        cellBackgroundView.clipsToBounds = true
+
+        cellBackgroundView.layer.masksToBounds = true
+        cellBackgroundView.layer.cornerRadius = 18.0
+        cellBackgroundView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+    }
+    
 }
