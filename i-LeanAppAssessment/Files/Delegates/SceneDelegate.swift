@@ -20,28 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        
-//        let skipStatusIs = plistHelp01.readPlist(namePlist: "SkipStatus", key: "StatusManager")
-//        
-//        if skipStatusIs as! Decimal == 1{
-//            
-//            let mainStory: UIStoryboard = UIStoryboard(name: "main", bundle: nil)
-//
-//            let signInPage = mainStory.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
-//
-//            if let vc = signInPage{
-//                
-//                self.window?.rootViewController = vc
-//
-//            }
-//
-//            
-//        }
-        
-        
+
+        var value = 0
         let valueIs = userHelp.value(forKey: "Status")
         
-        if (valueIs != nil) == true{
+        if let value1 = valueIs as? Int{
+            
+            value = value1
+        }
+        
+        
+        if value == 3{
             
             let mainStory: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -52,13 +41,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window?.rootViewController = vc
                 
             }
+   
+        } else if value == 1 || value  == 2{
             
+            let mainStory: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
+            let signInPage = mainStory.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
+            
+            if let vc = signInPage{
+                
+                self.window?.rootViewController = vc
+                
+            }
             
         }else{
-            
+  
         }
-        
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }

@@ -35,7 +35,7 @@ class OnBoardinCollectionViewCell: UICollectionViewCell {
         
         delegate?.go()
         
-        userDefault.setValue(true, forKeyPath: "Status")
+        userDefault.setValue(1, forKeyPath: "Status")
 
         
     }

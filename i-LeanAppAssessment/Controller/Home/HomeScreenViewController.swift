@@ -15,6 +15,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
      
     var imageis: [UIImage] = [#imageLiteral(resourceName: "img_geography"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (2)"), #imageLiteral(resourceName: "imgpsh_fullsize_anim (1)"), #imageLiteral(resourceName: "btn_signin-2"), #imageLiteral(resourceName: "logo_ilearn")]
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
     @IBOutlet weak var searchField: UITextField!
@@ -218,31 +221,51 @@ extension HomeScreenViewController{
     
     
     func didloadNameApiCall() {
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil{
+        if let idIs = userIdIs as? Int{
             
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return }
+        
+        print("token",receivedToken)
+
+        if receivedToken != ""{
+
+            print("API CALL API CALL API CALL")
+
             let loader =   self.loader()
 
-            objectOfHomeViewModel.getUserName(tokenTosend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
-                
+            objectOfHomeViewModel.getUserName(tokenTosend: receivedToken){ status in
+
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
-                
+
                 if status == true{
                     self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName)"
-                    
+
                 }else{
-                    
-                    
+
+
                 }
-                
+
                 }
             }
-            
-            
-            
+
+
+
         }else{
-            
+
         }
         
         
