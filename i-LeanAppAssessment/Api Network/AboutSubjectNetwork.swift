@@ -13,11 +13,10 @@ class AboutSubjectNetwork {
     func callApiForDetailsOfTheSubject(subbjectId: Int, completion: @escaping(([[String:Any]]?, Bool, Error?) -> ())) {
     
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/chapters?subject_id=\(subbjectId)") else{return}
-        
+       
+
         var request = URLRequest(url: url)
-
         request.httpMethod = "GET"
-
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
 
         guard let data = data, error == nil else{
@@ -65,12 +64,14 @@ class AboutSubjectNetwork {
     func callApiForDetailsOfTheLesson(lessonId: Int, completion: @escaping(([[String: Any]],Error?) -> ())) {
         
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/LessonsAndUnit?chapterId=\(lessonId)") else{return}
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/LessonsAndUnit?chapterId=\(lessonId)") else{return}
         
         var request = URLRequest(url: url)
 
         request.httpMethod = "GET"
 
+        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxNzE3MjUwLCJpYXQiOjE2NzE2ODEyNTB9.TiFbTE2yBeHTm3qiDxRVxCKCvvz4j9e8DDi3qqim6ZWA5Hzu4HVMs1l9ImtcSCTbCQ5JFrpZtcT82I5_yrpBtA"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
 
         guard let data = data, error == nil else{

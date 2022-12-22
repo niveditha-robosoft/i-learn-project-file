@@ -20,12 +20,11 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     var subjectNameIs = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let loader =   self.loader()
+         let loader =   self.loader()
         objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
             
             DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
+           self.stopLoader(loader: loader)
                 if condition == true{
                     
                     self.collectionView.reloadData()
@@ -78,11 +77,11 @@ extension AboutSubjectViewController{
         
         print("index range is is : \(objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId)")
         
-        let loader =   self.loader()
+       let loader =   self.loader()
         objectOfAboutSUbjectViewModel.callApiForLessonDetails(lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
             
             DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
+               self.stopLoader(loader: loader)
                 if completionResponce == true{
                     
                     self.tableView.reloadData()
