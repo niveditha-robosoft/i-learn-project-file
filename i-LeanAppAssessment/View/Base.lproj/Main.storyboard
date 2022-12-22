@@ -213,7 +213,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="5Rp-rj-1ZZ">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FK9-Tr-5gw" customClass="SignInViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SignInViewController" storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" id="FK9-Tr-5gw" customClass="SignInViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eb1-SR-PVa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5100,15 +5100,23 @@ Food Chain</string>
                                                                 <constraint firstAttribute="height" constant="30" id="RDT-1z-yZb"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKI-b6-MCa" userLabel="topView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="tKI-b6-MCa" firstAttribute="leading" secondItem="HAH-EM-w8B" secondAttribute="leading" id="2ps-Et-UAb"/>
                                                         <constraint firstItem="zha-DL-1kS" firstAttribute="leading" secondItem="wwI-Nh-NZF" secondAttribute="trailing" constant="15" id="8ky-QS-6hR"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mUJ-Ke-lnm" secondAttribute="trailing" constant="20" symbolic="YES" id="C5E-rJ-khE"/>
                                                         <constraint firstItem="zha-DL-1kS" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="18" id="D3z-2E-GpT"/>
+                                                        <constraint firstItem="tKI-b6-MCa" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" id="Gg3-Zn-k0l"/>
                                                         <constraint firstItem="mUJ-Ke-lnm" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="12" id="HXe-Wh-qsY"/>
                                                         <constraint firstAttribute="bottom" secondItem="zha-DL-1kS" secondAttribute="bottom" constant="18" id="TRJ-Ni-dNy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tKI-b6-MCa" secondAttribute="trailing" id="Woh-cz-LUF"/>
                                                         <constraint firstItem="mUJ-Ke-lnm" firstAttribute="leading" secondItem="zha-DL-1kS" secondAttribute="trailing" constant="12" id="Y2h-t2-8hT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="tKI-b6-MCa" secondAttribute="bottom" id="lTa-7Q-USI"/>
                                                         <constraint firstItem="wwI-Nh-NZF" firstAttribute="top" secondItem="HAH-EM-w8B" secondAttribute="top" constant="10" id="mLF-cm-MJb"/>
                                                         <constraint firstItem="wwI-Nh-NZF" firstAttribute="leading" secondItem="HAH-EM-w8B" secondAttribute="leading" constant="15" id="vaV-Cc-Aao"/>
                                                     </constraints>
@@ -5125,6 +5133,7 @@ Food Chain</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="headerBackgroundView" destination="HAH-EM-w8B" id="BP7-se-1bR"/>
+                                            <outlet property="headerTopView" destination="tKI-b6-MCa" id="aSd-TD-Lwx"/>
                                             <outlet property="lessonNumber" destination="mUJ-Ke-lnm" id="9Km-Rl-kol"/>
                                             <outlet property="lessonname" destination="zha-DL-1kS" id="02Y-I4-ed8"/>
                                             <outlet property="progressView" destination="wwI-Nh-NZF" id="A33-YW-EIS"/>
@@ -5187,15 +5196,23 @@ Food Chain</string>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNJ-ao-8pP" userLabel="topView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="HRC-1P-sun" secondAttribute="trailing" id="Eb7-jI-h3F"/>
                                                         <constraint firstItem="HRC-1P-sun" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="17" id="F1H-GH-546"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="25" id="G55-Uj-qc8"/>
+                                                        <constraint firstItem="yNJ-ao-8pP" firstAttribute="leading" secondItem="xMs-wC-vTI" secondAttribute="leading" id="YeW-IT-esn"/>
                                                         <constraint firstItem="HRC-1P-sun" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eKq-qZ-fOc" secondAttribute="trailing" constant="8" symbolic="YES" id="aLr-KK-DpN"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="leading" secondItem="xMs-wC-vTI" secondAttribute="leading" constant="25" id="bUk-AZ-oge"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yNJ-ao-8pP" secondAttribute="bottom" id="cyO-9K-Pb2"/>
                                                         <constraint firstAttribute="bottom" secondItem="HRC-1P-sun" secondAttribute="bottom" constant="17" id="qaS-Bg-dJC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="yNJ-ao-8pP" secondAttribute="trailing" id="uEq-Hd-DdC"/>
+                                                        <constraint firstItem="yNJ-ao-8pP" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" id="x0i-CT-p58"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -5210,6 +5227,7 @@ Food Chain</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellBackgroundView" destination="xMs-wC-vTI" id="FWf-Wg-4Bq"/>
+                                            <outlet property="cellTapView" destination="yNJ-ao-8pP" id="q8G-6d-Bxj"/>
                                             <outlet property="chapterOneDescription" destination="r0x-wr-mRl" id="SOu-QV-Yd2"/>
                                             <outlet property="chapterOneName" destination="HXN-3S-GDD" id="3A7-TT-q7v"/>
                                             <outlet property="statusLabel" destination="eKq-qZ-fOc" id="vwU-hj-tbd"/>
@@ -5237,7 +5255,7 @@ Food Chain</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sR-ia-gwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7543" y="-10"/>
+            <point key="canvasLocation" x="7542.0289855072469" y="-10.379464285714285"/>
         </scene>
         <!--Studying View Controller-->
         <scene sceneID="Bvu-Q7-VYP">

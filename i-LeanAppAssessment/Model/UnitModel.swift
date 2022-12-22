@@ -15,13 +15,14 @@ class UnitModel {
     var unitOverview: String
     var level: String
     var totalPages: Int
-    
-    init(unitId: Int,unitName: String,unitOverview: String,level: String,totalPages: Int) {
+    var completeStatus: Bool
+    init(unitId: Int,unitName: String,unitOverview: String,level: String,totalPages: Int,completeStatus: Bool) {
         
         self.unitId = unitId
         self.unitName = unitName
         self.unitOverview = unitOverview
         self .level = level
         self.totalPages = totalPages
+        self.completeStatus = completeStatus
     }
 }

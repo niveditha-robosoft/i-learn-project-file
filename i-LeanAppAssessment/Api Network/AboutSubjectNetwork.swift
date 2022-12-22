@@ -62,14 +62,17 @@ class AboutSubjectNetwork {
        
     
     
-    func callApiForDetailsOfTheLesson(lessonId: Int, completion: @escaping(([[String: Any]],Error?) -> ())) {
+    func callApiForDetailsOfTheLesson(tokenIs: String,lessonId: Int, completion: @escaping(([[String: Any]],Error?) -> ())) {
         
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/LessonsAndUnit?chapterId=\(lessonId)") else{return}
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/LessonsAndUnit?chapterId=\(lessonId)") else{return}
         
         var request = URLRequest(url: url)
 
         request.httpMethod = "GET"
+
+        
+        request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
 
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
 

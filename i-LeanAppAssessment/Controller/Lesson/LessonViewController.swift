@@ -53,7 +53,6 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if ObjectOfSignInVIewMOdel.userDetails.last?.token != nil{
             
             let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
              if let vc = lessondetailVc {
@@ -67,43 +66,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                    }
 
          }
-            
-        }else{
-            
-            let refreshAlert = UIAlertController(title: "ALERT", message: "You are not loged in to tha application to access the all features of the app SIGN IN first", preferredStyle: UIAlertController.Style.alert)
-
-                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-
-                        let signInVc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
-                        
-                        if let vc = signInVc{
-                            
-                            
-                            self.navigationController?.popToViewController(vc, animated: true)
-                            
-                        }
-                        print("Handle Ok logic here")
-
-                    }))
-
-
-
-                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-
-                          print("Handle Cancel Logic here")
-
-                    }))
-
-
-
-                    present(refreshAlert, animated: true, completion: nil)
-            
-            
-            
-            
-        }
-        
-
+ 
 }
 
 }

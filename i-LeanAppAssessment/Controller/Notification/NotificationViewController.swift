@@ -12,6 +12,8 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     var objectOfNotificationViewMOdel = NotificationViewMOdel.objectOfViewModel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -49,13 +51,14 @@ extension NotificationViewController{
     
     func didloadChanges() {
         
+        var call = getToken()
         
-        if objectOfSignInViewModel.userDetails.last?.token != ""{
+        if call != ""{
             
             let loader =   self.loader()
 
             
-            objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: call){ status in
                 
                 DispatchQueue.main.async {
                     self.stopLoader(loader: loader)
@@ -80,4 +83,33 @@ extension NotificationViewController{
  
     }
  
+}
+
+
+extension NotificationViewController{
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
+    
 }

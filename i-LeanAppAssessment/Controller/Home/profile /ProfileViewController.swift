@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController {
     var objectOfProfileViewMOdel = ProfileViewMOdel.objectOfViewMOdel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
     
     @IBOutlet weak var chapterView: UIView!
     @IBOutlet weak var averageVIew: UIView!
@@ -195,13 +197,20 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
+        print("1")
+        for controller in self.navigationController!.viewControllers as Array {
+            print("2")
+            if controller.isKind(of: SignInViewController.self) {
+                print("3")
+            self.navigationController!.popToViewController(controller, animated: false)
+                print("4")
+                break
 
-        // Find the view controller you want to pop to
+            }
+
+    }
         
-        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
-
-            let appDelegate = UIApplication.shared.delegate
-            appDelegate?.window??.rootViewController = signInPage
+       
 
         
         print("Yessssssssssssssssssss")
@@ -243,11 +252,14 @@ extension ProfileViewController{
     
     func didLoadApiCall() {
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil {
+        var call = getToken()
+
+        
+        if call != "" {
             
             let loader =   self.loader()
             
-            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responce in
+            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: call){ responce in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -332,12 +344,14 @@ extension ProfileViewController{
     
     func viewWillAppeareApiCall() {
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil{
+        var call = getToken()
+        
+        if call != ""{
             
             
             let loader = self.loader()
             
-            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responce in
+            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: call){ responce in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -366,13 +380,37 @@ extension ProfileViewController{
   
     }
     
+    
+    
 }
 
 
-extension UINavigationController {
-  func popToViewController(ofClass: AnyClass, animated: Bool = true) {
-    if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
-      popToViewController(vc, animated: animated)
+extension ProfileViewController{
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
     }
-  }
+    
 }
+
+

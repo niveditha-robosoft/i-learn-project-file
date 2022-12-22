@@ -9,6 +9,9 @@ import UIKit
 
 class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     var backgroundColour: [CGColor] = [#colorLiteral(red: 0.8352941176, green: 0.9450980392, blue: 0.8980392157, alpha: 1),#colorLiteral(red: 1, green: 0.9215686275, blue: 0.7098039216, alpha: 1),#colorLiteral(red: 1, green: 0.6745098039, blue: 0.6431372549, alpha: 1),#colorLiteral(red: 0, green: 0.4666666667, blue: 0.4235294118, alpha: 1),#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1),#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1),#colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1),#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1),#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1),#colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1),#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1),#colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1),#colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1),#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1),#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1),#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)]
 
     var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
@@ -77,25 +80,63 @@ extension AboutSubjectViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("index range is is : \(objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId)")
+       var call = getToken()
         
-        let loader =   self.loader()
-        objectOfAboutSUbjectViewModel.callApiForLessonDetails(lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
+        if call != ""{
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if completionResponce == true{
-                    
-                    self.tableView.reloadData()
-                    self.tableView.isHidden = false
-                    
-                }else{
-                    
+            let loader =   self.loader()
+            objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: call, lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if completionResponce == true{
+                        
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                        
+                    }else{
+                        
 
+                    }
                 }
+       
             }
-   
+            
+        }else{
+            
+            let refreshAlert = UIAlertController(title: "ALERT", message: "You are not loged in to tha application to access the all features of the app SIGN IN first", preferredStyle: UIAlertController.Style.alert)
+
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+
+                        let signInVc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
+                        
+                        if let vc = signInVc{
+                            
+                            
+                            self.navigationController?.popToViewController(vc, animated: true)
+                            
+                        }
+                        print("Handle Ok logic here")
+
+                    }))
+
+
+
+                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+
+                          print("Handle Cancel Logic here")
+
+                    }))
+
+
+
+                    present(refreshAlert, animated: true, completion: nil)
+            
+            
         }
+        
+        
+        
   
     }
 
@@ -130,7 +171,6 @@ extension AboutSubjectViewController{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("number Of Rows In Section 22 : \(objectOfAboutSUbjectViewModel.lessonDetails.last?.unitDetails.count)")
 
         return objectOfAboutSUbjectViewModel.lessonDetails.last?.unitDetails.count ?? 0
     }
@@ -140,12 +180,14 @@ extension AboutSubjectViewController{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
             let cell01 = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? AboutHeaderCell
-            
+        
+        
             if let cell = cell01{
     
-                cell.progressPercentage(value: 10)
+                cell.progressPercentage(value: objectOfAboutSUbjectViewModel.lessonDetails[section].percentage)
                 cell.progressInitiate()
                 cell.setTopTwoCornerRadius()
+
                 cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName.uppercased()
                 cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber.capitalized
                 return cell
@@ -163,10 +205,9 @@ extension AboutSubjectViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
         
-        cell002.setRadious(x: 1)
+        cell002.setRadious(x: objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].completeStatus)
         cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
         cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
-//        cell002.setTopTwoCornerRadius()
                         return cell002
 
 
@@ -215,5 +256,33 @@ extension AboutSubjectViewController{
         
             self.present(alert,animated: true, completion: nil)
         }
+    
+}
+
+extension AboutSubjectViewController{
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
     
 }
