@@ -43,6 +43,7 @@
 		7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */; };
 		7786FC962945B0F700A0B956 /* AboutSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */; };
 		778E6B4929445F0200A44471 /* CreatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */; };
+		77A0571E29545647004C0365 /* OnBoardingSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A0571D29545647004C0365 /* OnBoardingSplashViewController.swift */; };
 		77A252412951BAD6006BAC2D /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A252402951BAD6006BAC2D /* PlistManager.swift */; };
 		77A252442951BEE2006BAC2D /* SkipStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A252432951BEE2006BAC2D /* SkipStatus.plist */; };
 		77AEE593294DA28B00906FE4 /* SubjecListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEE592294DA28B00906FE4 /* SubjecListViewModel.swift */; };
@@ -177,6 +178,7 @@
 		7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewModel.swift; sourceTree = "<group>"; };
+		77A0571D29545647004C0365 /* OnBoardingSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSplashViewController.swift; sourceTree = "<group>"; };
 		77A252402951BAD6006BAC2D /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		77A252432951BEE2006BAC2D /* SkipStatus.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SkipStatus.plist; sourceTree = "<group>"; };
 		77AEE592294DA28B00906FE4 /* SubjecListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjecListViewModel.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 				7786FC832945A6FF00A0B956 /* Sign in, sign up, varification and forgotpassword */,
 				775C2BF229404CFF003E7405 /* cells */,
 				775C2BF729408A5C003E7405 /* OnBoardingOneViewController.swift */,
+				77A0571D29545647004C0365 /* OnBoardingSplashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				7781D6A7294E01F00020D973 /* CurrentyStudyingModel.swift in Sources */,
 				77AEE5B6294DADB500906FE4 /* LessonDetailsViewController.swift in Sources */,
 				77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */,
+				77A0571E29545647004C0365 /* OnBoardingSplashViewController.swift in Sources */,
 				7772117529474CC10064B305 /* SkipButton.swift in Sources */,
 				83FE3564294729C000B557CC /* TestViewController.swift in Sources */,
 				777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */,

@@ -10,54 +10,12 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-//    var plistHelp01 = PlistManagment()
-
-    var userHelp = UserDefaults()
-    
+ 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
-
-        var value = 0
-        let valueIs = userHelp.value(forKey: "Status")
-        
-        if let value1 = valueIs as? Int{
-            
-            value = value1
-        }
-        
-        
-        if value == 3{
-            
-            let mainStory: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let signInPage = mainStory.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
-            
-            if let vc = signInPage{
-                
-                self.window?.rootViewController = vc
-                
-            }
    
-        } else if value == 1 || value  == 2{
-            
-            let mainStory: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let signInPage = mainStory.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
-            
-            if let vc = signInPage{
-                
-                self.window?.rootViewController = vc
-                
-            }
-            
-        }else{
-  
-        }
-        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

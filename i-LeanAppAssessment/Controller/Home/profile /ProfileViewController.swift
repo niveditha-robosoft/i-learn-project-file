@@ -181,7 +181,7 @@ class ProfileViewController: UIViewController {
        
         edit_LogoutBackgroundView.isHidden = true
 //        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-        
+        tabBarController?.tabBar.isHidden = false
         homeBackgroundView.backgroundColor = #colorLiteral(red: 0.9641161561, green: 0.9801463485, blue: 1, alpha: 1)
         chapterView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         averageVIew.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
@@ -195,6 +195,14 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
+
+        // Find the view controller you want to pop to
+        
+        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = signInPage
+
         
         print("Yessssssssssssssssssss")
     }
@@ -358,4 +366,13 @@ extension ProfileViewController{
   
     }
     
+}
+
+
+extension UINavigationController {
+  func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+    if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+      popToViewController(vc, animated: animated)
+    }
+  }
 }

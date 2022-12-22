@@ -79,15 +79,10 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         if let vc = signInVc{
                             
                             
-                            self.present(vc, animated: true, completion: nil)
+                            self.navigationController?.popToViewController(vc, animated: true)
                             
                         }
-                        
-                        
-
-                       
-
-                          print("Handle Ok logic here")
+                        print("Handle Ok logic here")
 
                     }))
 

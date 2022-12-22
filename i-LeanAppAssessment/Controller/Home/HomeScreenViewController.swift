@@ -38,10 +38,15 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         didLoadCurrentlyStudying()
         
+        if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
 
         
         
     }
+    
+    
     
 //    func save() {
 //        do{
@@ -86,6 +91,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         viewWillAppearChanges()
 
+        if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

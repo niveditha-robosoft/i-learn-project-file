@@ -34,7 +34,9 @@ class OnBoardingOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
         self.navigationController?.navigationBar.isHidden = true
         
         
