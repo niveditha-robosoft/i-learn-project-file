@@ -28,7 +28,6 @@ class ResultModel {
         self.questionsAttempted = questionsAttempted
         self.totalQuestions = totalQuestions
         self.totalPercentage = totalPercentage
-        
     }
     
 

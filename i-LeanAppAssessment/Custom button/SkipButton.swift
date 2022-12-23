@@ -2,7 +2,7 @@
 //  SkipButton.swift
 //  i-LeanAppAssessment
 //
-//  Created by Niveditha Naik on 21/12/22.
+//  Created by Shrushti Shetty on 22/12/22.
 //
 
 import Foundation
