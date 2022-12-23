@@ -15,6 +15,8 @@ class SignInViewModel {
     
     var userDetails = [UserDataModel]()
     
+    var objectOfUserDefault = UserDefaults()
+    
     func requestApiForSignIn(mobile_email: String, password: String, completion: @escaping((Bool) -> ())) {
         
         objectofSignUpAndSignInApiNetwork.postTheSignInDataToApi(mobilenumber_EmailToSend: mobile_email, passwordToSend: password){ completionData, completionBool, completionError in
@@ -28,8 +30,15 @@ class SignInViewModel {
                     guard let data2 = completionData["name"] as? String else{ return}
                     guard let data3 = completionData["userId"] as? Int else{ return}
                     
-                    print("token is : \(data1)\nname is : \(data2)\nid is : \(data3)")
-                    
+                    let objectOfKeyChain = KeyChain()
+                    objectOfKeyChain.saveData(userId: String(data3), data: "".data(using: .utf8) ?? Data())
+                    objectOfKeyChain.saveData(userId: String(data3), data: data1.data(using: .utf8) ?? Data())
+                    self.objectOfUserDefault.setValue(data3, forKeyPath: "userId")
+                    print("")
+                    print("userId : \(data3)")
+                    print("user Token : \(data1)")
+                    print("")
+
                     let user = UserDataModel(userName: data2, userId: data3, token: data1)
                     
                     self.userDetails.append(user)

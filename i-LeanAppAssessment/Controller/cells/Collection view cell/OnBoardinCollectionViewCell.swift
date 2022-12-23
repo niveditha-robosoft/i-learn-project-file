@@ -12,6 +12,10 @@ protocol goToLogInscreen{
 }
 
 class OnBoardinCollectionViewCell: UICollectionViewCell {
+    
+    var userDefault = UserDefaults()
+    
+    
     static let identifier = String(describing: OnBoardinCollectionViewCell.self)
     @IBOutlet weak var slideImageView: UIImageView!
     @IBOutlet weak var slideDescriptionLabel: UILabel!
@@ -31,6 +35,8 @@ class OnBoardinCollectionViewCell: UICollectionViewCell {
         
         delegate?.go()
         
+        userDefault.setValue(1, forKeyPath: "Status")
+
         
     }
     

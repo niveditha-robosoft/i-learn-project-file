@@ -6,6 +6,11 @@
 //
 
 import UIKit
+protocol dismissVc {
+    
+    func dismiss()
+    }
+
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,9 +27,12 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var descriptionLbl: UILabel!
     
     
+    var delegate: dismissVc?
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -45,22 +53,20 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        print("unit id : ",unitDetailsIS[indexPath.row].unitId)
-        
-       let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
-        if let vc = lessondetailVc {
-            vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: ObjectOfSignInVIewMOdel.userDetails[0].token){ (Bool) in
-                    if Bool {
-                        vc.unitId = self.unitDetailsIS[indexPath.row].unitId
-                        vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-           
-              }
+            
+            let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
+             if let vc = lessondetailVc {
+                 vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: ObjectOfSignInVIewMOdel.userDetails[0].token){ (Bool) in
+                         if Bool {
+                             vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+                             vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                             self.navigationController?.pushViewController(vc, animated: true)
+                         }
+                
+                   }
 
-    }
-
+         }
+ 
 }
 
 }

@@ -68,9 +68,9 @@ class AboutSUbjectViewModel {
     
     
     
-    func callApiForLessonDetails(lessonIdToSend: Int, completion: @escaping((Bool) -> ())) {
+    func callApiForLessonDetails(tokenToSenf: String,lessonIdToSend: Int, completion: @escaping((Bool) -> ())) {
         
-        objectOfAboutSubjectNetwork.callApiForDetailsOfTheLesson(lessonId: lessonIdToSend){ responceData, responceError in
+        objectOfAboutSubjectNetwork.callApiForDetailsOfTheLesson(tokenIs: tokenToSenf,lessonId: lessonIdToSend){ responceData, responceError in
             
             self.lessonDetails.removeAll()
             
@@ -87,8 +87,8 @@ class AboutSUbjectViewModel {
                             guard let data4 = i["lessonName"] as? String else{ return}
                             guard let data5 = i["noOfUnits"] as? Int else{ return}
                             guard let data6 = i["level"] as? String else{ return}
-                            
-                            let lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6)
+                            guard let data7 = i["percentage"] as? Int else{ return}
+                            let lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6, percentage: data7)
                             
                             self.lessonDetails.append(lesson)
                             lesson.unitDetails.removeAll()
@@ -101,13 +101,19 @@ class AboutSUbjectViewModel {
                                    
                                     print("for loop")
                                     
-                                    guard let data11 = j["unitId"] as? Int else{ return}
-                                    guard let data12 = j["unitName"] as? String else{ return}
-                                    guard let data13 = j["unitOverview"] as? String else{ return}
-                                    guard let data14 = j["level"] as? String else{ return}
-                                    guard let data15 = j["totalPages"] as? Int else{ return}
-//
-                                    let unit = UnitModel(unitId: data11, unitName: data12, unitOverview: data13, level: data14, totalPages: data15)
+                                    guard let data11 = j["unitId"] as? Int else{ print("001")
+                                        return}
+                                    guard let data12 = j["unitName"] as? String else{print("002")
+                                        return}
+                                    guard let data13 = j["unitOverview"] as? String else{ print("003")
+                                        return}
+                                    guard let data14 = j["level"] as? String else{ print("004")
+                                        return}
+                                    guard let data15 = j["totalPages"] as? Int else{ print("005")
+                                        return}
+                                    guard let data16 = j["completeStatus"] as? Bool else{print("006")
+                                        return}
+                                    let unit = UnitModel(unitId: data11, unitName: data12, unitOverview: data13, level: data14, totalPages: data15, completeStatus: data16)
                                     lesson.unitDetails.append(unit)
                                     
                                 }

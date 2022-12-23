@@ -12,6 +12,9 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     var objectOfProfileEditViewMOdel = ProfileEditViewMOdel.objectOfViewModel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     @IBOutlet weak var chapterCompleted: UILabel!
     @IBOutlet weak var averageScore: UILabel!
     @IBOutlet weak var highestScore: UILabel!
@@ -36,6 +39,8 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.tabBar.isHidden = true
+
         didloadChanges()
         
        
@@ -56,24 +61,34 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBAction func updateEditButtonTapped(_ sender: UIButton) {
         
+       var call = getToken()
         
-        let loader =   self.loader()
-        
-        objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "img_pp") , nameText: nameField.text ?? "", tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ responseIs in
+        if call != ""{
+          
+            let loader =   self.loader()
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
+            objectOfProfileEditViewMOdel.profileEditApicall(imageFile: profileIMage.image ?? #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") , nameText: nameField.text ?? "", tokenToSend: call){ responseIs in
                 
-                if responseIs == true{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    
+                    if responseIs == true{
 
-                    self.navigationController?.popViewController(animated: true)
+                        self.navigationController?.popViewController(animated: true)
 
-                }else{
- 
+                    }else{
+     
+                    }
                 }
+       
             }
-   
+            
+        }else{
+            
+            
         }
+        
+        
 
     }
     
@@ -127,5 +142,34 @@ extension ProfileEditViewController{
     }
     
     
+    
+}
+
+
+extension ProfileEditViewController{
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
     
 }

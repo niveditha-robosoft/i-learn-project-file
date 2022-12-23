@@ -7,7 +7,10 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, UITextFieldDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate{
+    
+    var userDefault = UserDefaults()
+
     
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
@@ -17,12 +20,32 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var signInSkipButton: UIButton!
+    
     @IBOutlet weak var gotoHomeScreenWhenButtonTappedInSigninScreenButton: UIButton!
     
     var activeTextField : UITextField? = nil
 
+    let yourAttributes: [NSAttributedString.Key: Any] = [
+          .font: UIFont.systemFont(ofSize: 16),
+          .underlineStyle: NSUnderlineStyle.single.rawValue
+      ]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let attributeString = NSMutableAttributedString(
+                string: "Skip",
+                attributes: yourAttributes
+             )
+        
+        
+        signInSkipButton.setAttributedTitle(attributeString, for: .normal)
+        signInSkipButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 16)
+        
+//        navigationController?.navigationBar.isHidden = true
         statusOftheButton()
         mobileEmailTextField.borderStyle = .none
         passwordTextField.borderStyle = .none
@@ -32,6 +55,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         ConfigureTapGesture()
 
     }
+    
     
     
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
@@ -45,13 +69,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.stopLoader(loader: loader)
                 if reposeIs == true{
                     
-                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
-                    
+                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
+                    TabBarViewController
+
                     if let vc = HomeVc{
-                        
+
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
-                    
+
                     print("hi000000 ")
 
                     
@@ -65,7 +90,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }else{
-                     
+                    DispatchQueue.main.async {
+                        self.alertMessage(message: "Try to sign up")
+                    }
                 }
             }
 
@@ -121,6 +148,21 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func signInSkipButtonTapped(_ sender: UIButton) {
+        
+        print("sign in skip tapped 1")
+        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
+        
+        if let vc = HomeVc {
+            print("sign in skip tapped 2")
+
+            userDefault.setValue(3, forKeyPath: "Status")
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+    }
     
     
     func statusOftheButton() {

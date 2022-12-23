@@ -24,7 +24,9 @@ class SubjectDetailsViewController: UIViewController {
     var subjectNameToSend = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+
         subjectNAmeToShow.text = subjectNameToSend
         view.bringSubviewToFront(detailsOfTheSubject)
         detailsOfTheSubject.isHidden = false

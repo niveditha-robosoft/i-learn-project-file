@@ -14,11 +14,8 @@ class OnBoardingOneViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedLabel: UILabel!
     
-    
     var userDefault = UserDefaults()
-    
-    
-    var plistHelp = PlistManagment()
+
     
     var slide: [OnBoardingSlide] = []
     var currentpage = 0 {
@@ -37,7 +34,9 @@ class OnBoardingOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
         self.navigationController?.navigationBar.isHidden = true
         
         
@@ -50,10 +49,11 @@ class OnBoardingOneViewController: UIViewController {
     
     
     @IBAction func nextbuttonClicked(_ sender: UIButton) {
-        print(11)
         if currentpage == slide.count - 1 {
             
             let vc = storyboard?.instantiateViewController(identifier: "SignInViewController") as! SignInViewController
+            
+            userDefault.setValue(2, forKeyPath: "Status")
              navigationController?.pushViewController(vc, animated: true)
         }else{
             currentpage += 1
@@ -79,11 +79,9 @@ class OnBoardingOneViewController: UIViewController {
 }
 extension OnBoardingOneViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(25)
         return slide.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(11111)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnBoardinCollectionViewCell.identifier, for: indexPath) as! OnBoardinCollectionViewCell
         cell.setup(slide[indexPath.row])
         cell.delegate = self
@@ -139,11 +137,6 @@ extension OnBoardingOneViewController: goToLogInscreen{
         
         let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         
-//        plistHelp.writePlist(namePlist: "SkipStatus", key: "StatusManager", data: 1 as AnyObject )
-        
-//        print("Plist data is : \(plistHelp.readPlist(namePlist: "SkipStatus", key: "StatusManager"))")
-        
-        userDefault.setValue(true, forKeyPath: "Status")
         
         self.navigationController?.pushViewController(vc2, animated: true)
     }

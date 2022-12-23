@@ -17,14 +17,15 @@ class lessonModel {
     var lessonName: String
     var noOfUnits: Int
     var level: String
+    var percentage: Int
     
-    
-    init(lessonId: Int,lessonNumber: String,lessonName: String,noOfUnits: Int,level: String) {
+    init(lessonId: Int,lessonNumber: String,lessonName: String,noOfUnits: Int,level: String,percentage: Int) {
         self.lessonId = lessonId
         self.lessonNumber = lessonNumber
         self.lessonName = lessonName
         self.noOfUnits = noOfUnits
         self.level = level
+        self.percentage = percentage
     }
     
 }

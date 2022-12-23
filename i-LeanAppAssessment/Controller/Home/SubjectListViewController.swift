@@ -13,8 +13,11 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
    
     var objectOfSubjectViewModel = SubjectListViewModel.objectOfViewModel
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -36,7 +39,12 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
 
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
 
+    }
+    
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return objectOfSubjectViewModel.subjectListDetail.count
 }
@@ -52,6 +60,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("HI HI HI i am here ....!")
         
         let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as? SubjectDetailsViewController
         

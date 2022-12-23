@@ -23,23 +23,34 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
 
-        let loader =   self.loader()
-        objectOfProfileViewMOdel.getResultDetails(tokenToSend: objectOfSignInViewModel.userDetails[0].token){ stsus in
+        
+        if objectOfSignInViewModel.userDetails.last?.token != ""{
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-            if stsus == true{
+            let loader =   self.loader()
+            objectOfProfileViewMOdel.getResultDetails(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ stsus in
                 
-                self.tableView.reloadData()
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                if stsus == true{
+                    
+                    self.tableView.reloadData()
+                    
+                }
+                else{
+                    self.alertMessage(message: "No result is available...!")
+                    
+                }
+                }
                 
             }
-            else{
-                self.alertMessage(message: "No result is available...!")
-                
-            }
-            }
+            
+        }else{
+            
             
         }
+        
+        
+        
         
         
         
