@@ -19,30 +19,43 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
+    var x2 = 0
     var subIdIs = 0
     var subjectNameIs = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
 
-        let loader =   self.loader()
-        objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
+        
+        if x2 == 1{
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if condition == true{
-                    
-                    self.collectionView.reloadData()
-                }else{
-                    DispatchQueue.main.async {
-                        self.alertMessage(message: "Ooops no data found related to this subject pleace try later ...!!!")
+            collectionView.reloadData()
+            
+        }else{
+           
+            let loader =   self.loader()
+            objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: subIdIs){ condition in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if condition == true{
+                        
+                        self.collectionView.reloadData()
+                    }else{
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Ooops no data found related to this subject pleace try later ...!!!")
+                        }
+       
                     }
-   
                 }
+                
+                
             }
             
-            
         }
+        
+        
+       
       
         collectionView.delegate = self
         collectionView.dataSource = self

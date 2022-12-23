@@ -10,6 +10,8 @@ import Foundation
 
 class HomeViewModel {
     
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
+    
     static var objectOfViewModel = HomeViewModel()
     
     var objectOfHomeNetwork = HomeNetwork()
@@ -97,6 +99,74 @@ class HomeViewModel {
             }
  
         }
+        
+    }
+    
+    
+    
+    func searchForSubject(subjectName: String, completion: @escaping((Bool,String?) -> ())) {
+        
+        
+        objectOfHomeNetwork.getSearchSubjectName(subName: subjectName){ complitionData, completionCondition, completionError in
+            
+            DispatchQueue.main.async {
+                if completionError == nil{
+                    
+                    if completionCondition == true{
+                        
+                        if let data1 = complitionData{
+                            
+                            var idIsIs = 0
+                            var nameIs = ""
+                            for i in data1{
+                                
+                                guard let data2 = i["subjectName"] as? String else{ print("1100")
+                                    return}
+                                guard let data3 = i["subjectId"] as? Int else{ print("2200")
+                                    return }
+                                
+                                idIsIs = data3
+                                nameIs = data2
+                                
+                                
+                            }
+                            
+                            self.objectOfAboutSUbjectViewModel.callApiForSubjectdetails(subjectIdToSend: idIsIs){ completionStatus in
+                                
+                                if completionStatus == true{
+                                    
+                                    completion(true,nameIs)
+                                    
+                                }else{
+                                    
+                                    completion(false,nil)
+                                }
+                                
+                                
+                                
+                            }
+                            
+                            
+                    }
+                        
+                        
+                    }else{
+                        
+                        completion(false,nil)
+                        
+                    }
+                    
+                }else{
+                    
+                    
+                    
+                }
+            }
+            
+            
+            
+        }
+        
         
     }
     
