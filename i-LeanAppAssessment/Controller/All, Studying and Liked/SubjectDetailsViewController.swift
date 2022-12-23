@@ -20,6 +20,9 @@ class SubjectDetailsViewController: UIViewController {
     
     @IBOutlet weak var subjectNAmeToShow: UILabel!
     
+    var x1 = 0
+    
+    
     var subjectIdFromSUbjectlist = 0
     var subjectNameToSend = ""
     override func viewDidLoad() {
@@ -48,6 +51,7 @@ class SubjectDetailsViewController: UIViewController {
         if let vc = segue.destination as? AboutSubjectViewController{
         vc.subIdIs = subjectIdFromSUbjectlist
             vc.subjectNameIs = subjectNameToSend
+            vc.x2 = x1
         }
     }
     @IBAction func allbuttonTapped(_ sender: Any) {

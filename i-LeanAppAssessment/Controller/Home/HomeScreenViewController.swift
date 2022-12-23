@@ -30,6 +30,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         navigationController?.navigationBar.isHidden = true
 
+        ConfigureTapGesture()
         searchField.delegate = self
         didloadNameApiCall()
 
@@ -91,41 +92,20 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         
-        objectOfHomeViewModel.searchForSubject(subjectName: searchField.text?.lowercased() ?? ""){ condition in
-            
-            if condition == true{
-                
-                
-            }else{
-                
-                
-            }
-            
-            
-        }
         
-        
-        searchField.endEditing(true)
-        
-        
-        
-        print("button",searchField.text! )
-                searchField.text = ""
-
-        
+        searchApiCall()
         
     }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchApiCall()
         searchField.endEditing(true)
         print("return",searchField.text! )
                 searchField.text = ""
 
         return true
     }
-    
-    
  
 }
 
@@ -164,7 +144,7 @@ extension HomeScreenViewController{
     
     func didloadNOtificationStatusApiCall() {
         
-        var call = getToken()
+        let call = getToken()
 
         
         if call != ""{
@@ -203,7 +183,7 @@ extension HomeScreenViewController{
     
     func didLoadCurrentlyStudying()  {
         
-        var call = getToken()
+        let call = getToken()
 
         
         if call != ""{
@@ -244,7 +224,7 @@ extension HomeScreenViewController{
     
     func didloadNameApiCall() {
         
-        var call = getToken()
+        let call = getToken()
 
 
         if call != ""{
@@ -300,7 +280,7 @@ extension HomeScreenViewController{
     
     func viewWillAppearApicall() {
         
-        var call = getToken()
+        let call = getToken()
         
         
         if call != ""{
@@ -337,6 +317,58 @@ extension HomeScreenViewController{
     
     
     
+    
+    func searchApiCall()  {
+        
+        let loader = self.loader()
+        objectOfHomeViewModel.searchForSubject(subjectName: searchField.text?.lowercased() ?? ""){ condition, dataIs in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+            if condition == true{
+                
+                let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as? SubjectDetailsViewController
+                
+                if let vc = detailsVc {
+                    
+                    vc.x1 = 1
+                    vc.subjectNameToSend = dataIs ?? ""
+                    
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+                
+            }else{
+                
+                let noSearch = self.storyboard?.instantiateViewController(withIdentifier: "SearchResultViewController") as? SearchResultViewController
+                
+                if let vc = noSearch{
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                }
+            }
+            
+        }
+        }
+        
+        
+        searchField.endEditing(true)
+        
+        
+        
+        print("button",searchField.text! )
+                searchField.text = ""
+
+        
+        
+        
+        
+    }
+    
+    
+    
     func getToken() -> String {
         
         var id = ""
@@ -362,4 +394,32 @@ extension HomeScreenViewController{
     }
     
     
+    
+    
+    func alertMessage(message: String){
+        
+            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
+        
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+            self.present(alert,animated: true, completion: nil)
+        }
+    
+    
+    private func ConfigureTapGesture(){
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleTap))
+
+        view.addGestureRecognizer(tapGesture)
+
+    }
+ 
+    
+    @objc func handleTap(){
+
+        print("handle tap was called")
+
+        view.endEditing(true)
+
+    }
 }

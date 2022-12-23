@@ -104,7 +104,7 @@ class HomeViewModel {
     
     
     
-    func searchForSubject(subjectName: String, completion: @escaping((Bool) -> ())) {
+    func searchForSubject(subjectName: String, completion: @escaping((Bool,String?) -> ())) {
         
         
         objectOfHomeNetwork.getSearchSubjectName(subName: subjectName){ complitionData, completionCondition, completionError in
@@ -117,14 +117,16 @@ class HomeViewModel {
                         if let data1 = complitionData{
                             
                             var idIsIs = 0
-                            
+                            var nameIs = ""
                             for i in data1{
                                 
-                                guard let data2 = i["subjectName"] as? String else{ return}
-                                guard let data3 = i["subjectId"] as? String else{ return }
+                                guard let data2 = i["subjectName"] as? String else{ print("1100")
+                                    return}
+                                guard let data3 = i["subjectId"] as? Int else{ print("2200")
+                                    return }
                                 
-                                idIsIs = Int(data3) ?? 0
-                                
+                                idIsIs = data3
+                                nameIs = data2
                                 
                                 
                             }
@@ -133,11 +135,11 @@ class HomeViewModel {
                                 
                                 if completionStatus == true{
                                     
-                                    completion(true)
+                                    completion(true,nameIs)
                                     
                                 }else{
                                     
-                                    completion(false)
+                                    completion(false,nil)
                                 }
                                 
                                 
@@ -150,7 +152,7 @@ class HomeViewModel {
                         
                     }else{
                         
-                        completion(false)
+                        completion(false,nil)
                         
                     }
                     

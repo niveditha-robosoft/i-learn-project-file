@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KVQ-hh-O8q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8cj-Zx-EkX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -1757,12 +1757,12 @@ you can search below.</string>
         <!--Search Result View Controller-->
         <scene sceneID="ZBm-Gv-cDy">
             <objects>
-                <viewController storyboardIdentifier="SearchResultViewController" id="a5s-BY-YvK" customClass="SearchResultViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="a5s-BY-YvK" customClass="SearchResultViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i13-Dw-qZA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnX-HD-yRU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="NnX-HD-yRU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60z-WN-NVX">
@@ -1804,17 +1804,6 @@ you can search below.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bg1-uG-4hZ">
                                                 <rect key="frame" x="31" y="785.5" width="352" height="70.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iET-7Z-Dpn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="274" height="70"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="274" id="qa3-QU-E1L"/>
-                                                            <constraint firstAttribute="height" constant="70" id="sQ4-W7-PJw"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="zqL-1m-4Ry"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTl-65-wRc">
                                                         <rect key="frame" x="292" y="10" width="50" height="50.5"/>
                                                         <constraints>
@@ -1822,16 +1811,23 @@ you can search below.</string>
                                                         </constraints>
                                                         <state key="normal" image="icn_search"/>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7M-1L-uPo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="292" height="70.5"/>
+                                                        <connections>
+                                                            <action selector="goBackToHomeScreen:" destination="a5s-BY-YvK" eventType="touchUpInside" id="yoe-gk-ffd"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="iET-7Z-Dpn" firstAttribute="leading" secondItem="Bg1-uG-4hZ" secondAttribute="leading" id="4fZ-Cd-rA4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="iET-7Z-Dpn" secondAttribute="trailing" constant="78" id="TCf-08-DVW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="x7M-1L-uPo" secondAttribute="bottom" id="29s-ah-bCK"/>
                                                     <constraint firstItem="kTl-65-wRc" firstAttribute="top" secondItem="Bg1-uG-4hZ" secondAttribute="top" constant="10" id="Tgg-AL-V5b"/>
                                                     <constraint firstAttribute="bottom" secondItem="kTl-65-wRc" secondAttribute="bottom" constant="10" id="WLv-zk-khv"/>
                                                     <constraint firstAttribute="width" constant="352" id="cto-cq-hQ5"/>
+                                                    <constraint firstItem="x7M-1L-uPo" firstAttribute="leading" secondItem="Bg1-uG-4hZ" secondAttribute="leading" id="d0i-gZ-pbF"/>
                                                     <constraint firstAttribute="trailing" secondItem="kTl-65-wRc" secondAttribute="trailing" constant="10" id="dPy-dF-kev"/>
-                                                    <constraint firstItem="iET-7Z-Dpn" firstAttribute="top" secondItem="Bg1-uG-4hZ" secondAttribute="top" id="yiy-VA-qsB"/>
+                                                    <constraint firstItem="kTl-65-wRc" firstAttribute="leading" secondItem="x7M-1L-uPo" secondAttribute="trailing" id="jh2-Vy-TEX"/>
+                                                    <constraint firstItem="x7M-1L-uPo" firstAttribute="top" secondItem="Bg1-uG-4hZ" secondAttribute="top" id="rPf-DU-KuA"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search not found please try again " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="An6-Wx-v0c">
@@ -1888,6 +1884,9 @@ you can search below.</string>
                             <constraint firstAttribute="trailing" secondItem="NnX-HD-yRU" secondAttribute="trailing" id="vCD-Ra-GYY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchView" destination="Bg1-uG-4hZ" id="7f4-lh-2V6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sx1-HN-rWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5348,7 +5347,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="AboutSubjectViewController" id="8vN-PY-cni" customClass="AboutSubjectViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHK-d5-i0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kP-Mjh">
@@ -5636,7 +5635,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="StudyingViewController" id="ctg-2g-pB3" customClass="StudyingViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-Lz-xgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-1n-Eo0">
@@ -5667,7 +5666,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="LikedViewController" id="X8h-yW-QKo" customClass="LikedViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIY-Yt-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mo-im-4yf">
