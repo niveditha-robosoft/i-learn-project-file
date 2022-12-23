@@ -78,7 +78,6 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
 //    }
     
    
-    */
     override func viewDidAppear(_ animated: Bool) {
         
         tabBarController?.tabBar.isHidden = false

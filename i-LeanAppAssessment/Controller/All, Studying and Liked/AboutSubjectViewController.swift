@@ -80,12 +80,30 @@ extension AboutSubjectViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       var call = getToken()
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
-        if call != ""{
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return }
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return }
+        
+        print("token",receivedToken)
+        
+        print("call token is \(receivedToken)")
+        if receivedToken != ""{
             
             let loader =   self.loader()
-            objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: call, lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
+            objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: receivedToken, lessonIdToSend: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId){ completionResponce in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -104,7 +122,7 @@ extension AboutSubjectViewController{
             
         }else{
             
-            let refreshAlert = UIAlertController(title: "ALERT", message: "You are not loged in to tha application to access the all features of the app SIGN IN first", preferredStyle: UIAlertController.Style.alert)
+            let refreshAlert = UIAlertController(title: "ALERT", message: "To access the course please sign in or create an account", preferredStyle: UIAlertController.Style.alert)
 
                     refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
 
@@ -113,7 +131,7 @@ extension AboutSubjectViewController{
                         if let vc = signInVc{
                             
                             
-                            self.navigationController?.popToViewController(vc, animated: true)
+                            self.present(vc, animated: true, completion: nil)
                             
                         }
                         print("Handle Ok logic here")
@@ -261,28 +279,6 @@ extension AboutSubjectViewController{
 
 extension AboutSubjectViewController{
     
-    func getToken() -> String {
-        
-        var id = ""
-       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
-        
-        if let idIs = userIdIs as? Int{
-            
-            id = String(idIs)
-            
-        }
-        print("stored user id : \(id)")
 
-        
-        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
-            return ""}
-
-        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
-            return ""}
-        
-        print("token",receivedToken)
-        
-        return receivedToken
-    }
     
 }

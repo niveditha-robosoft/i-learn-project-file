@@ -201,13 +201,14 @@ class LessonDetailsViewController: UIViewController {
     }
     
     @IBAction func rightButtonTapped(_ sender: Any) {
-        print("button Clicked")
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
+        print("button Clicked")
+       
         currentPageNo += 1
         print("current page",currentPageNo)
-        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ [self] data in
-            
+        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend:"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"){ [self] data in
+         
             if data == true{
                     
                 
@@ -277,7 +278,7 @@ class LessonDetailsViewController: UIViewController {
         self.objectOfLessonViewModel.photoIs.removeAll()
         currentPageNo -= 1
         if currentPageNo != 0 {
-            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ data in
+            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"){ data in
                 
                 if data == true{
                    
