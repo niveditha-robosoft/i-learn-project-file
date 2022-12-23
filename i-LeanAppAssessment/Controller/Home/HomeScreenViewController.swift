@@ -156,12 +156,15 @@ extension HomeScreenViewController{
     
     func didloadNOtificationStatusApiCall() {
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil{
+        var call = getToken()
+
+        
+        if call != ""{
             
-            let loader =   self.loader()
+            let loader = self.loader()
             
             
-            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -192,10 +195,13 @@ extension HomeScreenViewController{
     
     func didLoadCurrentlyStudying()  {
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil{
+        var call = getToken()
+
+        
+        if call != ""{
             
             let loader =   self.loader()
-            objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: call){ status in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -229,32 +235,17 @@ extension HomeScreenViewController{
     
     
     func didloadNameApiCall() {
-        var id = ""
-       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
-        if let idIs = userIdIs as? Int{
-            
-            id = String(idIs)
-            
-        }
-        print("stored user id : \(id)")
+        var call = getToken()
 
-        
-        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
-            return}
 
-        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
-            return }
-        
-        print("token",receivedToken)
-
-        if receivedToken != ""{
+        if call != ""{
 
             print("API CALL API CALL API CALL")
 
             let loader =   self.loader()
 
-            objectOfHomeViewModel.getUserName(tokenTosend: receivedToken){ status in
+            objectOfHomeViewModel.getUserName(tokenTosend: call){ status in
 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -301,11 +292,14 @@ extension HomeScreenViewController{
     
     func viewWillAppearApicall() {
         
-        if objectOfSignInViewModel.userDetails.last?.token != nil{
+        var call = getToken()
+        
+        
+        if call != ""{
             
             let loader =   self.loader()
             
-            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ status in
+            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -333,6 +327,31 @@ extension HomeScreenViewController{
         
     }
     
+    
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
     
     
 }

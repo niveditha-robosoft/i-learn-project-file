@@ -76,6 +76,9 @@ class AboutSubjectNetwork {
         
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
+        
+        request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
+
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
 
         guard let data = data, error == nil else{

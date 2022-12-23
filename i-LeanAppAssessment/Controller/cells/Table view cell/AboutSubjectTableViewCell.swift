@@ -17,11 +17,12 @@ class AboutSubjectTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var cellBackgroundView: UIView!
     
+    @IBOutlet weak var cellTapView: UIView!
     
-    func setRadious(x: Int) {
+    func setRadious(x: Bool) {
         
         
-        if x == 1{
+        if x == true{
             
         statusLabel.layer.masksToBounds = true
             statusLabel.layer.cornerRadius = 6.0

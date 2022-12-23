@@ -13,6 +13,7 @@ class AboutHeaderCell: UITableViewCell {
     @IBOutlet weak var lessonNumber: UILabel!
     @IBOutlet weak var headerBackgroundView: UIView!
     @IBOutlet weak var progressView: AboutHeaderProgress!
+    @IBOutlet weak var headerTopView: UIView!
     
     
     var timer: Timer!
@@ -50,4 +51,9 @@ class AboutHeaderCell: UITableViewCell {
         headerBackgroundView.layer.cornerRadius = 18.0
         headerBackgroundView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
+    
+    
+    
+    
+    
 }
