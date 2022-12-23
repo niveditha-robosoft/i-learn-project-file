@@ -9,7 +9,7 @@ import Foundation
 class ResultNetworkManager {
     func postData(url: String,parameters: [String:Any],completion: @escaping(Any? , Error?) -> Void) {
         
-        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNzM4OTg4LCJpYXQiOjE2NzE3MDI5ODh9.DxtuMaBjTs-gG1UQfhCoURMtjDplmaypAt7c5Rvem5pLP5MUASzLkruO-j78aVshBPwMaZgfVV68GhN1IqhmDg"
+        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxODEzMjc0LCJpYXQiOjE2NzE3NzcyNzR9.AXk1xZMVA7HgktHklalRfLhqStxVe1ci6UTmu25zAEuEUCqJ6BSXrniMHSKlr2Ob0mFojgco287wb8mr5_uThw"
         var request = URLRequest(url: URL(string: url)!)
         
         request.httpMethod = "POST"
@@ -34,7 +34,7 @@ class ResultNetworkManager {
                     do
                     {
                         
-                     if let jsonData = try JSONSerialization.jsonObject(with:data, options: .mutableContainers) as? [String:Any]{
+                        if let jsonData = try JSONSerialization.jsonObject(with:data, options: .mutableContainers) as? [String:Any]{
                             print(jsonData)
                             completion(jsonData,nil)
                         }

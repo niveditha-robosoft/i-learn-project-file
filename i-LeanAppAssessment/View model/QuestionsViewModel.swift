@@ -16,7 +16,7 @@ class QuestionsViewModel {
     
     var answersList = [Int: Answer]()
     
-    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNzIxNDYyLCJpYXQiOjE2NzE2ODU0NjJ9.TA6Gxcnbr4ItfelrdBw4CDUMYjYqSIwUcNoGUciJtidBHlMebDyE_iXscb-0dRoqfpatoZdOGBwBJCcUrbn4Qg"
+    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxODA5MjU4LCJpYXQiOjE2NzE3NzMyNTh9.KvcDyuoOprD47LW2_9osj6i3JtzFXvJHpVkTYWvSZuY3DtTtq3j967y-4YANzIZW7bhjs_eOLK4o7s8dC66wlg"
     
     func fetchQuestions(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
         let networkManager = QuestionsNetworkManager()

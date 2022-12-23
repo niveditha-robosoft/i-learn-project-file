@@ -13,10 +13,9 @@ class QuestionsNetworkManager{
             data, response, error in
             if let apiData = data {
                 do {
-                    
                     if let jsonData = try JSONSerialization.jsonObject(with: apiData, options: .mutableContainers)
                         as? [[String:Any]]{
-                       print(jsonData)
+                        print(jsonData)
                         completion(jsonData,nil)
                     }
                     else{

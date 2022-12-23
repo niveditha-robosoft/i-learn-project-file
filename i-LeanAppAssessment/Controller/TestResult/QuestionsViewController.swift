@@ -24,7 +24,7 @@ class QuestionsViewController: UIViewController {
     var viewModel2 = QuestionListViewModel.shared
     var updateTime = 60
     var currentPage = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
@@ -55,11 +55,8 @@ class QuestionsViewController: UIViewController {
                     {
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
-
                 }
-                    
             }
-
         }
     }
     
@@ -73,7 +70,6 @@ class QuestionsViewController: UIViewController {
                 self.questionCountsLabel.text = String(nextItem.row + 1) +  " " + "of" + " " + String(viewModel.questionsWithOptionList.count) + " " + "question"
             }
         }
-        
     }
     
     @IBAction func rightMoveClicked(_ sender: Any) {
@@ -98,8 +94,8 @@ class QuestionsViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionListViewController") as? QuestionListViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    
-          }
+        
+    }
     
     @IBAction func questionsListButtonClicked(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionListViewController") as? QuestionListViewController {
@@ -140,7 +136,6 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         let size = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
         return CGSize(width: size, height: 700)
     }
-    
 }
 
 extension QuestionsViewController: pushtoNextVc{

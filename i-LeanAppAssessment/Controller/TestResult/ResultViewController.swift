@@ -12,7 +12,7 @@ class ResultViewController: UIViewController {
     var viewModel = ResultViewModel.shared
     var viewModel2 = TestViewController()
     
-    @IBOutlet weak var progressBar: ProgressBarView!
+    @IBOutlet weak var progressBar: ProgressBarViewTwo!
     @IBOutlet weak var creditLabel: UIView!
     @IBOutlet weak var tryAgain: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -61,7 +61,7 @@ class ResultViewController: UIViewController {
     
     @IBAction func tryAgainButtonTapped(_ sender: Any) {
         viewModel.tryAgainClick += 1
-       // viewModel.tryAgainClick = 0
+        // viewModel.tryAgainClick = 0
         answerList.removeAll()
         viewModel.assignAnswer()
         print(viewModel.tryAgainClick,"tryginclic")

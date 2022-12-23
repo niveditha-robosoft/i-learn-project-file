@@ -8,7 +8,7 @@
 import Foundation
 class ResultViewModel {
     var tryAgainClick = 0
-
+    
     var url = "https://app-e-learning-221207163844.azurewebsites.net/user/submitTest"
     
     var parameters: [String: Any] = [
@@ -28,7 +28,7 @@ class ResultViewModel {
     
     
     static let shared = ResultViewModel()
-    var resultList = [ResultListModel]()
+    var resultList = [ResultModel]()
     
     private init() {
     }

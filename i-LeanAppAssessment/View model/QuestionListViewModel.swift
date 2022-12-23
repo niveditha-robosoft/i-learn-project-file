@@ -9,20 +9,20 @@ import Foundation
 class QuestionListViewModel {
     static var shared = QuestionListViewModel()
     var highlightIndex: [Int] = []
-     var questionListKey = "testId"
-     var questionListValue = 429
-     var questionListArray = [QuestionList]()
-     var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNzIxNDYyLCJpYXQiOjE2NzE2ODU0NjJ9.TA6Gxcnbr4ItfelrdBw4CDUMYjYqSIwUcNoGUciJtidBHlMebDyE_iXscb-0dRoqfpatoZdOGBwBJCcUrbn4Qg"
+    var questionListKey = "testId"
+    var questionListValue = 429
+    var questionListArray = [QuestionList]()
+    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNjU0MzQ4LCJpYXQiOjE2NzE2MTgzNDh9.R6EDjSYk5zjT8WNEkOAq2oKN2FJcUy7ILffDmspoRrO6kF03SuI4TruV6PlEibjO6nFf5a8h5xn_9Xf8rbUGpw"
     
     func fetchQuestionList(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
-         let networkManager = QuestionListNetworkManager()
-         let request = NSMutableURLRequest(url: NSURL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/questions?\(key)=\(value)")! as URL)
-         request.httpMethod = "GET"
+        let networkManager = QuestionListNetworkManager()
+        let request = NSMutableURLRequest(url: NSURL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/questions?\(key)=\(value)")! as URL)
+        request.httpMethod = "GET"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-         request.allHTTPHeaderFields = nil
+        request.allHTTPHeaderFields = nil
         networkManager.fetchQuestionList(at: request) { [self]data,error in
             
-             if let apiData = data{
+            if let apiData = data{
                 self.questionListArray.removeAll()
                 guard let questions = apiData as?  [[String: Any]] else {return}
                 for question in questions{
@@ -32,10 +32,10 @@ class QuestionListViewModel {
                     print(questionName)
                     let questionList = QuestionList(questionId: questionId, questionName: questionName)
                     self.questionListArray.append(questionList)
-                completion(true,nil)
-             }
-         }
+                    completion(true,nil)
+                }
+            }
             
-     }
-}
+        }
+    }
 }
