@@ -121,14 +121,10 @@ extension AboutSubjectViewController{
 
                     refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
 
-                        let signInVc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
                         
-                        if let vc = signInVc{
-                            
-                            
-                            self.navigationController?.popToViewController(vc, animated: true)
-                            
-                        }
+                        self.objectOfUserDefaults.set(1, forKey: "SignInStatus")
+                        
+                        self.navigationController?.popToRootViewController(animated: true)
                         print("Handle Ok logic here")
 
                     }))

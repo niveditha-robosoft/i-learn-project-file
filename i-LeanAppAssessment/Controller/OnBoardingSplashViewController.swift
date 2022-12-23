@@ -18,10 +18,13 @@ class OnBoardingSplashViewController: UIViewController {
         var value = 0
         let valueIs = userHelp.value(forKey: "Status")
         
+        
         if let value1 = valueIs as? Int{
             
             value = value1
         }
+        
+
         
         
         if value == 3{
@@ -35,7 +38,7 @@ class OnBoardingSplashViewController: UIViewController {
                 
             }
    
-        } else if value == 1 || value  == 2{
+        } else if value == 1 || value  == 2 || value == 4{
             
             
             let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
@@ -60,7 +63,60 @@ class OnBoardingSplashViewController: UIViewController {
             
   
         }
+        
+        
  
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        var value2 = 0
+        var value02 = 0
+        
+        let signOutData = userHelp.value(forKey: "SignOutYes")
+        let signInIs = userHelp.value(forKey: "SignInStatus")
+
+        if let value0 = signOutData as? Int{
+            
+            value2 = value0
+        }
+        
+        if let value = signInIs as? Int{
+
+            value02 = value
+        }
+        
+        print("Hi Hi load")
+        
+        if value2 == 1{
+            
+            print("Hi Hi load 1")
+            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
+            
+            if let vc = signInPage{
+                
+                print("Hi Hi load 2")
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
+            
+        }
+        
+        userHelp.set(0, forKey: "SignOutYes")
+        
+        
+        if value02 == 1 {
+
+            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
+
+            if let vc = signInPage{
+
+                print("Hi Hi load sign in ")
+                self.navigationController?.pushViewController(vc, animated: true)
+
+            }
+        }
     }
     
 

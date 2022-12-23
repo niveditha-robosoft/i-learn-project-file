@@ -26,15 +26,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     
     var activeTextField : UITextField? = nil
 
+
     let yourAttributes: [NSAttributedString.Key: Any] = [
           .font: UIFont.systemFont(ofSize: 16),
           .underlineStyle: NSUnderlineStyle.single.rawValue
       ]
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         let attributeString = NSMutableAttributedString(
                 string: "Skip",
@@ -60,43 +62,101 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
         
+        var valueIs = 0
+
         
-        let loader =   self.loader()
-        
-        objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
+        if let value01 = userDefault.value(forKey: "SignInStatus") as? Int{
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if reposeIs == true{
-                    
-                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
-                    TabBarViewController
+            valueIs = value01
+        }
 
-                    if let vc = HomeVc{
+        if valueIs == 1{
+            
+            let loader =   self.loader()
+            
+            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if reposeIs == true{
+                        
+                        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as?
+                        SubjectDetailsViewController
 
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
+                        if let vc = HomeVc{
 
-                    print("hi000000 ")
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
 
-                    
-                    
-                }else if reposeIs == false{
-                    DispatchQueue.main.async {
-                        print("hi hi ")
-                        self.alertMessage(message: "Invalid user name or password try again")
-                    }
-                    
-                    
-                    
-                }else{
-                    DispatchQueue.main.async {
-                        self.alertMessage(message: "Try to sign up")
+                        print("hi000000 ")
+
+                        
+                        
+                    }else if reposeIs == false{
+                        DispatchQueue.main.async {
+                            print("hi hi ")
+                            self.alertMessage(message: "Invalid user name or password try again")
+                        }
+                        
+                        
+                        
+                    }else{
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Try to sign up")
+                        }
                     }
                 }
-            }
 
+            }
+            
+            
+        }else{
+            
+            let loader =   self.loader()
+            
+            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if reposeIs == true{
+                        
+                        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
+                        TabBarViewController
+
+                        if let vc = HomeVc{
+
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+
+                        print("hi000000 ")
+
+                        
+                        
+                    }else if reposeIs == false{
+                        DispatchQueue.main.async {
+                            print("hi hi ")
+                            self.alertMessage(message: "Invalid user name or password try again")
+                        }
+                        
+                        
+                        
+                    }else{
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Try to sign up")
+                        }
+                    }
+                }
+
+            }
+            
+            
+            
         }
+        
+        
+        
+        
+        
         
                 
         

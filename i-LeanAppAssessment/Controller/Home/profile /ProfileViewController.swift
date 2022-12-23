@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         didloadChanges()
         
-        didLoadApiCall()
+//        didLoadApiCall()
         
     }
     
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
 
         viewWillwApperChanges()
         
-        viewWillAppeareApiCall()
+//        viewWillAppeareApiCall()
     }
     
     
@@ -197,21 +197,24 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
-        print("1")
-        for controller in self.navigationController!.viewControllers as Array {
-            print("2")
-            if controller.isKind(of: SignInViewController.self) {
-                print("3")
-            self.navigationController!.popToViewController(controller, animated: false)
-                print("4")
-                break
-
-            }
-
-    }
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
-       
-
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+        
+        
+        objectOfUserDefaults.set(1, forKey: "SignOutYes")
+        objectOfUserDefaults.set(4, forKey: "Status")
+        print(objectOfUserDefaults.value(forKey: "SignOutYes"))
+        
+        objectOfKeyChain.deletePassword(userId: id)
+        
+        self.navigationController?.popToRootViewController(animated: true)
         
         print("Yessssssssssssssssssss")
     }

@@ -32,13 +32,13 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
 
         ConfigureTapGesture()
         searchField.delegate = self
-        didloadNameApiCall()
+//        didloadNameApiCall()
 
-        didloadChanges()
+//        didloadChanges()
  
 //        didloadNOtificationStatusApiCall()
         
-        didLoadCurrentlyStudying()
+//        didLoadCurrentlyStudying()
         
         if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
             navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -55,13 +55,13 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         tabBarController?.tabBar.isHidden = false
 
-        viewWillAppearApicall()
-        
-        didLoadCurrentlyStudying()
-        
-        didloadNameApiCall()
-        
-        viewWillAppearChanges()
+//        viewWillAppearApicall()
+//        
+//        didLoadCurrentlyStudying()
+//        
+//        didloadNameApiCall()
+//        
+//        viewWillAppearChanges()
 
         if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
             navigationController?.interactivePopGestureRecognizer?.isEnabled = false

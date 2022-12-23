@@ -85,7 +85,21 @@ class SubjectDetailsViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        print("go to home screen")
+        
+        for controller in self.navigationController!.viewControllers as Array {
+            
+            if controller.isKind(of: TabBarViewController.self) {
+                
+                self.navigationController!.popToViewController(controller, animated: false)
+                
+                break
+                
+            }
+            
+        }
+        
     }
     
 }
