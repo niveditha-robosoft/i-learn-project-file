@@ -49,7 +49,11 @@ class LessonTestViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         testVc = segue.destination as? TestViewController
+        lessonVc = segue.destination as? LessonViewController
+
     }
+    
+
     func getTestByLesson(){
         TestViewModel.shared.fetchQuestions(key: TestViewModel.shared.testByLessonKey, value: TestViewModel.shared.testByLessonValue) { (test, error) in
             print(TestViewModel.shared.testList)
@@ -78,7 +82,6 @@ class LessonTestViewController: UIViewController {
         lessonContainerView.isHidden = true
         lessonButton.setTitleColor(#colorLiteral(red: 0.6250110865, green: 0.6290901303, blue: 0.6430234909, alpha: 1), for: .normal)
         testButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
-        wrongButton.setImage(#imageLiteral(resourceName: "btn_signin"), for: .normal)
         testVc?.tableView.reloadData()
         view.bringSubviewToFront(testContainerView)
     }

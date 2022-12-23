@@ -32,6 +32,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -56,7 +57,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
              if let vc = lessondetailVc {
-                 vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: ObjectOfSignInVIewMOdel.userDetails[0].token){ (Bool) in
+                 vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"){ (Bool) in
                          if Bool {
                              vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                              vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
