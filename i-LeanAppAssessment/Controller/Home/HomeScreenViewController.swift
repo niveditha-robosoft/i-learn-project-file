@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
     var objectOfNotificationViewMOdel = NotificationViewMOdel.objectOfViewModel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
@@ -30,6 +30,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         navigationController?.navigationBar.isHidden = true
 
+        searchField.delegate = self
         didloadNameApiCall()
 
         didloadChanges()
@@ -46,36 +47,6 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-    
-    
-//    func save() {
-//        do{
-//
-//            try KeyChainManagesr.saveData(userId: "i23", userToken: "naanu".data(using: .utf8) ?? Data())
-//        }
-//        catch{
-//
-//            print(error)
-//
-//        }
-//    }
-//
-//    func getIt() {
-//
-//        guard let data =  KeyChainManagesr.getData(userId: "i23") else{
-//
-//            print("Failed to read password")
-//
-//            return
-//
-//        }
-//
-//
-//        let tokenIs = String(decoding: data, as: UTF8.self)
-//
-//        print("Getted data : \(tokenIs)")
-//
-//    }
     
    
     
@@ -117,6 +88,43 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        
+        objectOfHomeViewModel.searchForSubject(subjectName: searchField.text?.lowercased() ?? ""){ condition in
+            
+            if condition == true{
+                
+                
+            }else{
+                
+                
+            }
+            
+            
+        }
+        
+        
+        searchField.endEditing(true)
+        
+        
+        
+        print("button",searchField.text! )
+                searchField.text = ""
+
+        
+        
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true)
+        print("return",searchField.text! )
+                searchField.text = ""
+
+        return true
+    }
+    
     
  
 }

@@ -19,9 +19,7 @@ class HomeNetwork {
                 
         request.httpMethod = "GET"
 
-        var tok = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbnVzaGthMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNTQ4MTkyLCJpYXQiOjE2NzE1MTIxOTJ9.OL25fDfAQIh_QrK1CxXfixf20X47sWrXcLVXR-wF_gXt7upNa4PnuRmoG_19qVotbPMooXvFg8_lAl9EL5vTlA"
-        
-        request.setValue("Bearer \(tok)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
     
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
@@ -115,4 +113,56 @@ class HomeNetwork {
     }
     
     
+    func getSearchSubjectName(subName: String, completion: @escaping(([[String: Any]]?, Bool, Error? ) -> ())) {
+        
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/search?option=\(subName)") else{
+            return
+        }
+        
+        var request = URLRequest(url: url)
+                
+        request.httpMethod = "GET"
+    
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
+                
+                guard let data = data, error == nil else{
+                    print("Error is: \(error?.localizedDescription)")
+                    return
+                }
+              
+                if let responsIs = responce as? HTTPURLResponse{
+
+                    print("user name responce",responsIs.statusCode)
+                    if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
+
+                        do{
+                            let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+
+                            if let dataIs = responsData as? [[String: Any]]{
+                                
+                                print("searchData  : ",dataIs)
+                                
+                                completion(dataIs,true,nil)
+                                
+                            }
+
+                        }
+                    }else if (responsIs.statusCode == 400) {
+                        
+                        completion(nil,false,nil)
+                    }
+
+                }
+ 
+            })
+            
+            task.resume()
+        
+    }
+    
+    
+    
 }
+
+
+

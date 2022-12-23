@@ -392,13 +392,6 @@
 			path = "Plist Manager";
 			sourceTree = "<group>";
 		};
-		77A2525E2951F32C006BAC2D /* User Default */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "User Default";
-			sourceTree = "<group>";
-		};
 		77AEE5C5294DB2AB00906FE4 /* TestResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +450,6 @@
 		77F6FA5A293F060100EBD0A9 /* i-LeanAppAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				77A2525E2951F32C006BAC2D /* User Default */,
 				77A2523F2951BAB0006BAC2D /* Plist Manager */,
 				77AEE5D3294DC16500906FE4 /* Progress bar  */,
 				779C8FD62946E2FD00B233EF /* Key chain */,
