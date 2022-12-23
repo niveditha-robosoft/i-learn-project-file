@@ -130,9 +130,6 @@
 		7D0264E02954A5450097FCF6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264DF2954A5450097FCF6 /* Answer.swift */; };
 		7D0264E62954AC740097FCF6 /* OptionsCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264E52954AC740097FCF6 /* OptionsCustomButton.swift */; };
 		7D1D013A293F242C00D98E7A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D0139293F242C00D98E7A /* SignInViewController.swift */; };
-		83B538212952C54600658A32 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538202952C54600658A32 /* SkipCustomButtob.swift */; };
-		83B538242952C58700658A32 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538232952C58700658A32 /* SkipButton.swift */; };
-		83B538292952C5DE00658A32 /* KeyChainFIle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538282952C5DE00658A32 /* KeyChainFIle.swift */; };
 		7DB5A7FC295489A100513255 /* KeyChainFIle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A7FB295489A100513255 /* KeyChainFIle.swift */; };
 		7DB5A800295489E800513255 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A7FF295489E800513255 /* SkipButton.swift */; };
 		7DB5A80329548A3100513255 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A80229548A3100513255 /* SkipCustomButtob.swift */; };
@@ -150,9 +147,12 @@
 		7DB5A82729548C5F00513255 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A82629548C5F00513255 /* ResultViewController.swift */; };
 		7DB5A82A29548C6200513255 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A82929548C6200513255 /* TestViewController.swift */; };
 		7DB5A82D29548C6600513255 /* TimeOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A82C29548C6600513255 /* TimeOutViewController.swift */; };
-		7DB5A83029548C7B00513255 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A82F29548C7B00513255 /* TestTableViewCell.swift */; };
 		7DB5A83329548C9400513255 /* QuestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A83229548C9400513255 /* QuestionListTableViewCell.swift */; };
 		7DB5A83629548C9F00513255 /* QuestionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A83529548C9F00513255 /* QuestionsCollectionViewCell.swift */; };
+		83587A842955C9F50015C05C /* keyfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83587A832955C9F50015C05C /* keyfile.swift */; };
+		83B538212952C54600658A32 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538202952C54600658A32 /* SkipCustomButtob.swift */; };
+		83B538242952C58700658A32 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538232952C58700658A32 /* SkipButton.swift */; };
+		83B538612955A88B00658A32 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B538602955A88B00658A32 /* TestTableViewCell.swift */; };
 		83FE355E294729A500B557CC /* LessonTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE355D294729A500B557CC /* LessonTestViewController.swift */; };
 		83FE3561294729B500B557CC /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE3560294729B500B557CC /* LessonViewController.swift */; };
 		83FE3567294729E600B557CC /* LessonableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE3566294729E600B557CC /* LessonableViewCell.swift */; };
@@ -287,9 +287,6 @@
 		7D0264DF2954A5450097FCF6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		7D0264E52954AC740097FCF6 /* OptionsCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCustomButton.swift; sourceTree = "<group>"; };
 		7D1D0139293F242C00D98E7A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		83B538202952C54600658A32 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipCustomButtob.swift; sourceTree = "<group>"; };
-		83B538232952C58700658A32 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
-		83B538282952C5DE00658A32 /* KeyChainFIle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFIle.swift; sourceTree = "<group>"; };
 		7DB5A7FB295489A100513255 /* KeyChainFIle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFIle.swift; sourceTree = "<group>"; };
 		7DB5A7FF295489E800513255 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
 		7DB5A80229548A3100513255 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipCustomButtob.swift; sourceTree = "<group>"; };
@@ -307,9 +304,12 @@
 		7DB5A82629548C5F00513255 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		7DB5A82929548C6200513255 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7DB5A82C29548C6600513255 /* TimeOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOutViewController.swift; sourceTree = "<group>"; };
-		7DB5A82F29548C7B00513255 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTableViewCell.swift; path = ../../../../../ILEARNPP123/ILEARNPP123/TestTableViewCell.swift; sourceTree = "<group>"; };
 		7DB5A83229548C9400513255 /* QuestionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListTableViewCell.swift; sourceTree = "<group>"; };
 		7DB5A83529548C9F00513255 /* QuestionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		83587A832955C9F50015C05C /* keyfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyfile.swift; sourceTree = "<group>"; };
+		83B538202952C54600658A32 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipCustomButtob.swift; sourceTree = "<group>"; };
+		83B538232952C58700658A32 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
+		83B538602955A88B00658A32 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		83FE355D294729A500B557CC /* LessonTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTestViewController.swift; sourceTree = "<group>"; };
 		83FE3560294729B500B557CC /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		83FE3566294729E600B557CC /* LessonableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonableViewCell.swift; sourceTree = "<group>"; };
@@ -412,26 +412,9 @@
 				7DB5A83229548C9400513255 /* QuestionListTableViewCell.swift */,
 				77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */,
 				7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */,
-				7DB5A82F29548C7B00513255 /* TestTableViewCell.swift */,
+				83B538602955A88B00658A32 /* TestTableViewCell.swift */,
 			);
 			path = "Table view cell";
-			sourceTree = "<group>";
-		};
-		779C8FD62946E2FD00B233EF /* Key chain */ = {
-			isa = PBXGroup;
-			children = (
-				7DB5A7FB295489A100513255 /* KeyChainFIle.swift */,
-			);
-			path = "Key chain";
-			sourceTree = "<group>";
-		};
-		77A2523F2951BAB0006BAC2D /* Plist Manager */ = {
-			isa = PBXGroup;
-			children = (
-				77A252402951BAD6006BAC2D /* PlistManager.swift */,
-				77A252432951BEE2006BAC2D /* SkipStatus.plist */,
-			);
-			path = "Plist Manager";
 			sourceTree = "<group>";
 		};
 		77AEE5C5294DB2AB00906FE4 /* TestResult */ = {
@@ -486,6 +469,7 @@
 			children = (
 				77F6FA5A293F060100EBD0A9 /* i-LeanAppAssessment */,
 				77F6FA59293F060100EBD0A9 /* Products */,
+				83B5385E2955A59E00658A32 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,8 +484,7 @@
 		77F6FA5A293F060100EBD0A9 /* i-LeanAppAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				83B538272952C5C200658A32 /* KeyChain */,
-				77A2523F2951BAB0006BAC2D /* Plist Manager */,
+				83587A822955C9E10015C05C /* key */,
 				77AEE5D3294DC16500906FE4 /* Progress bar  */,
 				77C73D952944AA49003031EF /* Custom button */,
 				77F6FAE8293F204D00EBD0A9 /* Files */,
@@ -704,12 +687,20 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
-		83B538272952C5C200658A32 /* KeyChain */ = {
+		83587A822955C9E10015C05C /* key */ = {
 			isa = PBXGroup;
 			children = (
-				83B538282952C5DE00658A32 /* KeyChainFIle.swift */,
+				83587A832955C9F50015C05C /* keyfile.swift */,
 			);
-			path = KeyChain;
+			path = key;
+			sourceTree = "<group>";
+		};
+		83B5385E2955A59E00658A32 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				7DB5A7FB295489A100513255 /* KeyChainFIle.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		83FE355B2947296B00B557CC /* Lesson */ = {
@@ -843,10 +834,10 @@
 				7D0264DD2954A4120097FCF6 /* QuestionList.swift in Sources */,
 				77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */,
 				7715F0122942146300E04728 /* varificationNetwork.swift in Sources */,
-				7DB5A83029548C7B00513255 /* TestTableViewCell.swift in Sources */,
 				7D0264E02954A5450097FCF6 /* Answer.swift in Sources */,
 				83FE358529473F8700B557CC /* LessonModel.swift in Sources */,
 				777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */,
+				83587A842955C9F50015C05C /* keyfile.swift in Sources */,
 				7781D69B294DDCF80020D973 /* ResultsTableViewCell.swift in Sources */,
 				7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */,
 				77C73D932944A945003031EF /* LikedViewController.swift in Sources */,
@@ -855,11 +846,9 @@
 				77AEE5A3294DA7B500906FE4 /* AboutHeaderCell.swift in Sources */,
 				7D0264D729549ED30097FCF6 /* Test.swift in Sources */,
 				77517EC0293F7FD8002FED03 /* SignUpViewController.swift in Sources */,
-				77A252412951BAD6006BAC2D /* PlistManager.swift in Sources */,
 				777F16EE294AEA1B0010D807 /* ProfileViewModel.swift in Sources */,
 				7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */,
 				77AEE5BC294DB0DA00906FE4 /* BottomUpCollectionViewCell.swift in Sources */,
-				83B538292952C5DE00658A32 /* KeyChainFIle.swift in Sources */,
 				7DB5A82729548C5F00513255 /* ResultViewController.swift in Sources */,
 				7DB5A81E29548C5200513255 /* PopUpViewController.swift in Sources */,
 				7781D69E294DEB930020D973 /* ResultModel.swift in Sources */,
@@ -919,7 +908,6 @@
 				7DB5A83329548C9400513255 /* QuestionListTableViewCell.swift in Sources */,
 				77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */,
 				77A0571E29545647004C0365 /* OnBoardingSplashViewController.swift in Sources */,
-				83FE3564294729C000B557CC /* TestViewController.swift in Sources */,
 				7DB5A80629548BEF00513255 /* TestNetworkManager.swift in Sources */,
 				777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */,
 				83FE357729472C1700B557CC /* CustomButton.swift in Sources */,
@@ -928,6 +916,7 @@
 				77BE85A4294CA68500676F5B /* NotificationViewModel.swift in Sources */,
 				77F6FA5E293F060100EBD0A9 /* SceneDelegate.swift in Sources */,
 				7DB5A82A29548C6200513255 /* TestViewController.swift in Sources */,
+				83B538612955A88B00658A32 /* TestTableViewCell.swift in Sources */,
 				77BE85A7294CA75100676F5B /* NotificationNetwork.swift in Sources */,
 				777F16FA294B3F870010D807 /* ProfileEditViewModel.swift in Sources */,
 				83FE358229473B9800B557CC /* LessonViewModel.swift in Sources */,
