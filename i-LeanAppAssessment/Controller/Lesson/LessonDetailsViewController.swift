@@ -16,6 +16,9 @@ class LessonDetailsViewController: UIViewController {
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     var numarr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     
     var unitId = 0
@@ -196,13 +199,17 @@ class LessonDetailsViewController: UIViewController {
     }
     
     @IBAction func rightButtonTapped(_ sender: Any) {
+        
+        var tokenIs = getToken()
+
+        
         print("button Clicked")
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
         print("button Clicked")
         currentPageNo += 1
         print("current page",currentPageNo)
-        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"){ [self] data in
+        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ [self] data in
             
             if data == true{
                     
@@ -270,11 +277,13 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func leftButtonTapped(_ sender: Any) {
       
+        var tokenIs = getToken()
+        
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
         currentPageNo -= 1
         if currentPageNo != 0 {
-            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"){ data in
+            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ data in
                 
                 if data == true{
                    
@@ -351,7 +360,10 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func okButtontapped(_ sender: Any) {
         
-        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: objectOFSignInViewMOdel.userDetails[0].token){ data in
+        var tokenIs = getToken()
+        
+        
+        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: tokenIs){ data in
             if data == true {
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
@@ -429,3 +441,32 @@ extension LessonDetailsViewController{
 }
 }
 
+extension LessonDetailsViewController{
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
+    
+    
+    
+}
