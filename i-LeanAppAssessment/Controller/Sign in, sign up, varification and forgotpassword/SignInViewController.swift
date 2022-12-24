@@ -62,55 +62,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
         
-        var valueIs = 0
-
-        
-        if let value01 = userDefault.value(forKey: "SignInStatus") as? Int{
-            
-            valueIs = value01
-        }
-
-        if valueIs == 1{
-            
-            let loader =   self.loader()
-            
-            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
-                
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
-                    if reposeIs == true{
-                        
-                        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as?
-                        SubjectDetailsViewController
-
-                        if let vc = HomeVc{
-
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-
-                        print("hi000000 ")
-
-                        
-                        
-                    }else if reposeIs == false{
-                        DispatchQueue.main.async {
-                            print("hi hi ")
-                            self.alertMessage(message: "Invalid user name or password try again")
-                        }
-                        
-                        
-                        
-                    }else{
-                        DispatchQueue.main.async {
-                            self.alertMessage(message: "Try to sign up")
-                        }
-                    }
-                }
-
-            }
-            
-            
-        }else{
             
             let loader =   self.loader()
             
@@ -149,16 +100,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
 
             }
             
-            
-            
-        }
-        
-        
-        
-        
-        
-        
-                
+
         
         
         

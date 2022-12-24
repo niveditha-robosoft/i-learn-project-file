@@ -31,7 +31,7 @@ class SignInViewModel {
                     guard let data3 = completionData["userId"] as? Int else{ return}
                     
                     let objectOfKeyChain = KeyChain()
-                    objectOfKeyChain.saveData(userId: String(data3), data: "".data(using: .utf8) ?? Data())
+                    objectOfKeyChain.deletePassword(userId: String(data3))
                     objectOfKeyChain.saveData(userId: String(data3), data: data1.data(using: .utf8) ?? Data())
                     self.objectOfUserDefault.setValue(data3, forKeyPath: "userId")
                     print("")

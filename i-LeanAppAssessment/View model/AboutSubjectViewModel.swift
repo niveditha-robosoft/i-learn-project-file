@@ -82,12 +82,18 @@ class AboutSUbjectViewModel {
                         print("1")
                         for i in data1 {
                             
-                            guard let data2 = i["lessonId"] as? Int else{ return}
-                            guard let data3 = i["lessonNumber"] as? String else{ return}
-                            guard let data4 = i["lessonName"] as? String else{ return}
-                            guard let data5 = i["noOfUnits"] as? Int else{ return}
-                            guard let data6 = i["level"] as? String else{ return}
-                            guard let data7 = i["percentage"] as? Int else{ return}
+                            guard let data2 = i["lessonId"] as? Int else{print("10")
+                                return}
+                            guard let data3 = i["lessonNumber"] as? String else{print("11")
+                                return}
+                            guard let data4 = i["lessonName"] as? String else{print("12")
+                                return}
+                            guard let data5 = i["noOfUnits"] as? Int else{print("13")
+                                return}
+                            guard let data6 = i["level"] as? String else{print("14")
+                                return}
+                            guard let data7 = i["percentage"] as? Int else{print("15")
+                                return}
                             let lesson = lessonModel(lessonId: data2, lessonNumber: data3, lessonName: data4, noOfUnits: data5, level: data6, percentage: data7)
                             
                             self.lessonDetails.append(lesson)
