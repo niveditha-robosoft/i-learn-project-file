@@ -26,7 +26,24 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
 
+        callApi()
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.isHidden = true
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        callApi()
+
+    }
+    
+    func callApi() {
         if x2 == 1{
             
             collectionView.reloadData()
@@ -53,20 +70,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
             }
             
         }
-        
-        
-       
-      
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.isHidden = true
-        // Do any additional setup after loading the view.
     }
-    
 
 }
 

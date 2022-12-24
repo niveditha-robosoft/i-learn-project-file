@@ -15,6 +15,11 @@
 		7715F00F294212EC00E04728 /* varifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */; };
 		7715F0122942146300E04728 /* varificationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F0112942146300E04728 /* varificationNetwork.swift */; };
 		7747B5DB295715E60028AAE3 /* StudyingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */; };
+		7747B5E12957350B0028AAE3 /* LikedUnitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5E02957350B0028AAE3 /* LikedUnitViewModel.swift */; };
+		7747B5E4295735820028AAE3 /* LikedInitApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5E3295735820028AAE3 /* LikedInitApiManager.swift */; };
+		7747B5E7295738EB0028AAE3 /* LikedUnitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5E6295738EB0028AAE3 /* LikedUnitModel.swift */; };
+		7747B5EA29573AC70028AAE3 /* LikedUnitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5E929573AC70028AAE3 /* LikedUnitsTableViewCell.swift */; };
+		7747B5EE29573E910028AAE3 /* AboutSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5ED29573E910028AAE3 /* AboutSubjectViewController.swift */; };
 		77517EC0293F7FD8002FED03 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EBF293F7FD8002FED03 /* SignUpViewController.swift */; };
 		77517EC3293F7FDE002FED03 /* VarifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EC2293F7FDE002FED03 /* VarifyAccountViewController.swift */; };
 		77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EC5293F8841002FED03 /* HomeScreenViewController.swift */; };
@@ -37,7 +42,6 @@
 		7781D6A1294DFCCD0020D973 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A0294DFCCD0020D973 /* HomeViewModel.swift */; };
 		7781D6A4294DFE970020D973 /* HomeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A3294DFE970020D973 /* HomeNetwork.swift */; };
 		7781D6A7294E01F00020D973 /* CurrentyStudyingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781D6A6294E01F00020D973 /* CurrentyStudyingModel.swift */; };
-		7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */; };
 		7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */; };
 		7786FC962945B0F700A0B956 /* AboutSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */; };
 		778E6B4929445F0200A44471 /* CreatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */; };
@@ -170,6 +174,11 @@
 		7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = varifyAccountViewModel.swift; sourceTree = "<group>"; };
 		7715F0112942146300E04728 /* varificationNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = varificationNetwork.swift; sourceTree = "<group>"; };
 		7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingTableViewCell.swift; sourceTree = "<group>"; };
+		7747B5E02957350B0028AAE3 /* LikedUnitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedUnitViewModel.swift; sourceTree = "<group>"; };
+		7747B5E3295735820028AAE3 /* LikedInitApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedInitApiManager.swift; sourceTree = "<group>"; };
+		7747B5E6295738EB0028AAE3 /* LikedUnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedUnitModel.swift; sourceTree = "<group>"; };
+		7747B5E929573AC70028AAE3 /* LikedUnitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedUnitsTableViewCell.swift; sourceTree = "<group>"; };
+		7747B5ED29573E910028AAE3 /* AboutSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutSubjectViewController.swift; sourceTree = "<group>"; };
 		77517EBF293F7FD8002FED03 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		77517EC2293F7FDE002FED03 /* VarifyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarifyAccountViewController.swift; sourceTree = "<group>"; };
 		77517EC5293F8841002FED03 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +201,6 @@
 		7781D6A0294DFCCD0020D973 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7781D6A3294DFE970020D973 /* HomeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetwork.swift; sourceTree = "<group>"; };
 		7781D6A6294E01F00020D973 /* CurrentyStudyingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentyStudyingModel.swift; sourceTree = "<group>"; };
-		7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectViewController.swift; sourceTree = "<group>"; };
 		7786FC8F2945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewModel.swift; sourceTree = "<group>"; };
@@ -382,7 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				77C73D892944A1CB003031EF /* SubjectDetailsViewController.swift */,
-				7786FC8B2945A8F200A0B956 /* AboutSubjectViewController.swift */,
+				7747B5ED29573E910028AAE3 /* AboutSubjectViewController.swift */,
 				77C73D8F2944A8E5003031EF /* StudyingViewController.swift */,
 				77C73D922944A945003031EF /* LikedViewController.swift */,
 			);
@@ -414,6 +422,7 @@
 				7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */,
 				77C7C8802955A73F001D1D8F /* TestTableViewCell.swift */,
 				7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */,
+				7747B5E929573AC70028AAE3 /* LikedUnitsTableViewCell.swift */,
 			);
 			path = "Table view cell";
 			sourceTree = "<group>";
@@ -645,6 +654,7 @@
 				7D0264D92954A0D50097FCF6 /* QuestionsWithOptions.swift */,
 				7D0264DC2954A4120097FCF6 /* QuestionList.swift */,
 				7D0264DF2954A5450097FCF6 /* Answer.swift */,
+				7747B5E6295738EB0028AAE3 /* LikedUnitModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +678,7 @@
 				7DB5A81A29548C2F00513255 /* QuestionsViewModel.swift */,
 				7DB5A81729548C2B00513255 /* QuestionListViewModel.swift */,
 				7DB5A81429548C2500513255 /* ResultViewModel.swift */,
+				7747B5E02957350B0028AAE3 /* LikedUnitViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -688,6 +699,7 @@
 				7DB5A80829548BF800513255 /* QuestionsNetworkManager.swift */,
 				7DB5A80B29548C0300513255 /* QuestionListNetworkManager.swift */,
 				7DB5A80E29548C0900513255 /* ResultNetworkManager.swift */,
+				7747B5E3295735820028AAE3 /* LikedInitApiManager.swift */,
 			);
 			path = "Api Network";
 			sourceTree = "<group>";
@@ -832,7 +844,9 @@
 				7DB5A82429548C5B00513255 /* QuestionsViewController.swift in Sources */,
 				7D1D013A293F242C00D98E7A /* SignInViewController.swift in Sources */,
 				7786FC902945ABC200A0B956 /* AboutSubjectCollectionViewCell.swift in Sources */,
+				7747B5EA29573AC70028AAE3 /* LikedUnitsTableViewCell.swift in Sources */,
 				7D0264DD2954A4120097FCF6 /* QuestionList.swift in Sources */,
+				7747B5E4295735820028AAE3 /* LikedInitApiManager.swift in Sources */,
 				77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */,
 				7715F0122942146300E04728 /* varificationNetwork.swift in Sources */,
 				7D0264E02954A5450097FCF6 /* Answer.swift in Sources */,
@@ -853,6 +867,7 @@
 				77AEE5BC294DB0DA00906FE4 /* BottomUpCollectionViewCell.swift in Sources */,
 				7DB5A82729548C5F00513255 /* ResultViewController.swift in Sources */,
 				7DB5A81E29548C5200513255 /* PopUpViewController.swift in Sources */,
+				7747B5E7295738EB0028AAE3 /* LikedUnitModel.swift in Sources */,
 				7781D69E294DEB930020D973 /* ResultModel.swift in Sources */,
 				77F6FA5C293F060100EBD0A9 /* AppDelegate.swift in Sources */,
 				777F16FD294B42060010D807 /* EditProfileNetwork.swift in Sources */,
@@ -881,11 +896,12 @@
 				77AEE5CF294DB3A200906FE4 /* ProgressBarViewTwo.swift in Sources */,
 				7DB5A80F29548C0900513255 /* ResultNetworkManager.swift in Sources */,
 				7DB5A81829548C2B00513255 /* QuestionListViewModel.swift in Sources */,
-				7786FC8C2945A8F200A0B956 /* AboutSubjectViewController.swift in Sources */,
 				7D0264E62954AC740097FCF6 /* OptionsCustomButton.swift in Sources */,
 				77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */,
 				7D0264DA2954A0D50097FCF6 /* QuestionsWithOptions.swift in Sources */,
+				7747B5E12957350B0028AAE3 /* LikedUnitViewModel.swift in Sources */,
 				77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */,
+				7747B5EE29573E910028AAE3 /* AboutSubjectViewController.swift in Sources */,
 				77AEE599294DA2CD00906FE4 /* SubjectListNetwork.swift in Sources */,
 				775C2BF829408A5C003E7405 /* OnBoardingOneViewController.swift in Sources */,
 				77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */,

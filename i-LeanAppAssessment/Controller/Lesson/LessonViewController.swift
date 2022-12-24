@@ -22,9 +22,6 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
     
-    var objectOfUserDefaults = UserDefaults()
-    var objectOfKeyChain = KeyChain()
-    
     var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel

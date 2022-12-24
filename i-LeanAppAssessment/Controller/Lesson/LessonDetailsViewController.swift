@@ -23,7 +23,7 @@ class LessonDetailsViewController: UIViewController {
     
     var unitId = 0
     var lessonNum = ""
-
+    
     var currentPageNo = 1
     var SelectedCellLabel = 0
     var totalePages = 0
@@ -148,6 +148,32 @@ class LessonDetailsViewController: UIViewController {
     private var isBottomSheetShown = false
     
     @IBAction func likeButtonTapped(_ sender: Any) {
+        
+        var tokenIs = getToken()
+
+        
+        objectOfLessonViewModel.likedLessonDetailsToSend(tokenToSend: tokenIs, unitIdToSend: unitId){ status in
+            
+            if status == true{
+                
+                self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                
+            }else{
+                
+                self.likeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     @IBAction func goToPageButton(_ sender: Any) {
@@ -357,6 +383,10 @@ class LessonDetailsViewController: UIViewController {
         
         
     }
+    
+    
+    
+    
     
     @IBAction func okButtontapped(_ sender: Any) {
         

@@ -54,4 +54,31 @@ class LessonDetailViewModel{
         }
       
 }
+    
+    
+    func likedLessonDetailsToSend(tokenToSend: String, unitIdToSend: Int, completion: @escaping((Bool) -> ())) {
+        objOfLessonDetailNetwotk.likedUnitData(token: tokenToSend, unitId: unitIdToSend){ completionCondition, completionError in
+            
+            DispatchQueue.main.async {
+                
+                
+                if completionError == nil{
+                    
+                    
+                    completion(true)
+                    
+                }else{
+                    
+                    completion(false)
+                    
+                }
+            }
+            
+            
+        }
+    }
+    
+    
+    
+    
 }

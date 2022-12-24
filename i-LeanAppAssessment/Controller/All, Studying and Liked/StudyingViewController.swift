@@ -18,32 +18,23 @@ class StudyingViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var tokenIs = getToken()
+        callApi()
         
         tableView.delegate = self
         tableView.dataSource = self
-        objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: tokenIs){ status in
-            
-            if status == true{
-                
-                self.tableView.reloadData()
-                self.contFindLabel.isHidden = true
-            }else{
-                
-                self.contFindLabel.isHidden = false
-                self.tableView.isHidden = true
+        
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        callApi()
 
-            }
-            
-        }
-        
-        
     }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return objectOfHomeViewModel.currentyStudyingData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +53,32 @@ class StudyingViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
         
+        
+    }
+    
+    
+    func callApi() {
+        
+        let tokenIs = getToken()
+
+        let loader =   self.loader()
+
+        objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: tokenIs){ status in
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+            if status == true{
+                
+                self.tableView.reloadData()
+                self.contFindLabel.isHidden = true
+            }else{
+                
+                self.contFindLabel.isHidden = false
+                self.tableView.isHidden = true
+
+            }
+            
+        }
+        }
         
     }
 }
