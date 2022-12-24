@@ -24,7 +24,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
     var lessonDetails = [Lesson]()
-    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "img_pp"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "img_arrow_right_maincta"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "logo_ilearn"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_notificationsettings")]
+    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)")].randomElement()
     var levelLbl: UILabel!
     var titleLabl : UILabel!
     var descriptionLbl: UILabel!

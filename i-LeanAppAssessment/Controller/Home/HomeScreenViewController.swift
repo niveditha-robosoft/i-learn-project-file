@@ -74,7 +74,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeScreenCollectionViewCell
-        cell.image.image = imageis[indexPath.row]
+        cell.image.image =  getImage(urlString: objectOfHomeViewModel.currentyStudyingData[indexPath.row].subject_image)
         cell.subjectName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName.uppercased()
         cell.chapterName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName
         cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
@@ -421,5 +421,23 @@ extension HomeScreenViewController{
 
         view.endEditing(true)
 
+    }
+    
+    func getImage(urlString: String) -> UIImage {
+        
+        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "img_geography-1") }
+        
+        let imageData = try?
+        Data(contentsOf: imageUrl)
+        
+        if let imageData = imageData{
+            
+            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "img_geography-1") }
+            
+            return image
+        }
+        
+        return #imageLiteral(resourceName: "img_geography")
+        
     }
 }

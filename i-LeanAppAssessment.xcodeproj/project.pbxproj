@@ -14,6 +14,7 @@
 		7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F00B2941F65300E04728 /* TabBarViewController.swift */; };
 		7715F00F294212EC00E04728 /* varifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */; };
 		7715F0122942146300E04728 /* varificationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F0112942146300E04728 /* varificationNetwork.swift */; };
+		7747B5DB295715E60028AAE3 /* StudyingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */; };
 		77517EC0293F7FD8002FED03 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EBF293F7FD8002FED03 /* SignUpViewController.swift */; };
 		77517EC3293F7FDE002FED03 /* VarifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EC2293F7FDE002FED03 /* VarifyAccountViewController.swift */; };
 		77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77517EC5293F8841002FED03 /* HomeScreenViewController.swift */; };
@@ -168,6 +169,7 @@
 		7715F00B2941F65300E04728 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = varifyAccountViewModel.swift; sourceTree = "<group>"; };
 		7715F0112942146300E04728 /* varificationNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = varificationNetwork.swift; sourceTree = "<group>"; };
+		7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingTableViewCell.swift; sourceTree = "<group>"; };
 		77517EBF293F7FD8002FED03 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		77517EC2293F7FDE002FED03 /* VarifyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarifyAccountViewController.swift; sourceTree = "<group>"; };
 		77517EC5293F8841002FED03 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				77DFCF2629499CB0002F1CFC /* AudioTableViewCell.swift */,
 				7781D69A294DDCF80020D973 /* ResultsTableViewCell.swift */,
 				77C7C8802955A73F001D1D8F /* TestTableViewCell.swift */,
+				7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */,
 			);
 			path = "Table view cell";
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 				77A252412951BAD6006BAC2D /* PlistManager.swift in Sources */,
 				777F16EE294AEA1B0010D807 /* ProfileViewModel.swift in Sources */,
 				7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */,
+				7747B5DB295715E60028AAE3 /* StudyingTableViewCell.swift in Sources */,
 				77AEE5BC294DB0DA00906FE4 /* BottomUpCollectionViewCell.swift in Sources */,
 				7DB5A82729548C5F00513255 /* ResultViewController.swift in Sources */,
 				7DB5A81E29548C5200513255 /* PopUpViewController.swift in Sources */,

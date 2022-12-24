@@ -15,7 +15,6 @@ class SearchResultViewController: UIViewController {
         
         searchView.layer.cornerRadius = 14.0
         
-        // Do any additional setup after loading the view.
     }
     @IBAction func backtoHomeScreen(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
