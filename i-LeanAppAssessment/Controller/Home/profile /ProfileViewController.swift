@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         didloadChanges()
         
-//        didLoadApiCall()
+        didLoadApiCall()
         
     }
     
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
 
         viewWillwApperChanges()
         
-//        viewWillAppeareApiCall()
+        viewWillAppeareApiCall()
     }
     
     
@@ -197,12 +197,12 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
-        var id = ""
-       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        var id = 0
         
-        if let idIs = userIdIs as? Int{
+        print("user id to print: \(objectOfUserDefaults.value(forKey: "userId"))")
+        if let idIs =  objectOfUserDefaults.value(forKey: "userId") as? Int{
             
-            id = String(idIs)
+            id = idIs
             
         }
         print("stored user id : \(id)")
@@ -210,10 +210,10 @@ class ProfileViewController: UIViewController {
         
         objectOfUserDefaults.set(1, forKey: "SignOutYes")
         objectOfUserDefaults.set(4, forKey: "Status")
-        print(objectOfUserDefaults.value(forKey: "SignOutYes"))
+        print("SignOutYes",objectOfUserDefaults.value(forKey: "SignOutYes")!)
         
-        objectOfKeyChain.deletePassword(userId: id)
-        
+        objectOfKeyChain.deletePassword(userId: String(id))
+        objectOfUserDefaults.set(0, forKey: "userId")
         self.navigationController?.popToRootViewController(animated: true)
         
         print("Yessssssssssssssssssss")

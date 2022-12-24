@@ -230,7 +230,7 @@ extension AboutSubjectViewController{
             vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
             vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
             vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
-            vc.subjectName = subjectNameIs
+            vc.subjectNameIs = subjectNameIs
             self.navigationController?.pushViewController(vc, animated: true)
 
        }

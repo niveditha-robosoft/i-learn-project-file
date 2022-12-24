@@ -55,6 +55,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         CongfigureTextFields()
 
         ConfigureTapGesture()
+        
+        if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
 
     }
     

@@ -9,6 +9,7 @@ import UIKit
 protocol dismissVc {
     
     func dismiss()
+    
     }
 
 
@@ -17,6 +18,8 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
     
 //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
+    
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
@@ -35,10 +38,16 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        print("appeared", unitDetailsIS.count)
         return unitDetailsIS.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
