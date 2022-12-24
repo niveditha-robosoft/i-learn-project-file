@@ -197,21 +197,24 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
-        print("1")
-        for controller in self.navigationController!.viewControllers as Array {
-            print("2")
-            if controller.isKind(of: SignInViewController.self) {
-                print("3")
-            self.navigationController!.popToViewController(controller, animated: false)
-                print("4")
-                break
-
-            }
-
-    }
+        var id = 0
         
-       
-
+        print("user id to print: \(objectOfUserDefaults.value(forKey: "userId"))")
+        if let idIs =  objectOfUserDefaults.value(forKey: "userId") as? Int{
+            
+            id = idIs
+            
+        }
+        print("stored user id : \(id)")
+        
+        
+        objectOfUserDefaults.set(1, forKey: "SignOutYes")
+        objectOfUserDefaults.set(4, forKey: "Status")
+        print("SignOutYes",objectOfUserDefaults.value(forKey: "SignOutYes")!)
+        
+        objectOfKeyChain.deletePassword(userId: String(id))
+        objectOfUserDefaults.set(0, forKey: "userId")
+        self.navigationController?.popToRootViewController(animated: true)
         
         print("Yessssssssssssssssssss")
     }

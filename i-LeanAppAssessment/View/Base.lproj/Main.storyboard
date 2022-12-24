@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Rubik-Light.ttf">
+            <string>Rubik-Light</string>
+        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -19,7 +22,6 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
-            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
         <array key="TimesNewRoman.ttf">
@@ -216,7 +218,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="5Rp-rj-1ZZ">
             <objects>
-                <viewController restorationIdentifier="SignInViewController" storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" id="FK9-Tr-5gw" customClass="SignInViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" id="FK9-Tr-5gw" customClass="SignInViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eb1-SR-PVa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4719,6 +4721,9 @@ attempted.</string>
                                                     <constraint firstAttribute="width" constant="33" id="HAz-X7-N9K"/>
                                                 </constraints>
                                                 <state key="normal" image="btn_back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="Qdx-T8-VNV" eventType="touchUpInside" id="Cwl-Vt-67A"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduction To Biology" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRb-KK-evK">
                                                 <rect key="frame" x="100.5" y="66" width="213" height="19"/>
@@ -4863,6 +4868,7 @@ Food Chain</string>
                         <outlet property="lessonContainerView" destination="ZQl-kD-xFA" id="gbA-XL-Cs3"/>
                         <outlet property="lessonName" destination="cbz-gs-PnP" id="f0f-z7-zAe"/>
                         <outlet property="lessonNumber" destination="OVG-vE-VJL" id="C72-3L-uBl"/>
+                        <outlet property="subjectName" destination="MRb-KK-evK" id="dVg-ns-cSC"/>
                         <outlet property="testButton" destination="kCd-Cn-bGX" id="H82-45-zdQ"/>
                         <outlet property="testContainerView" destination="bWp-tw-Hnb" id="mUZ-Cd-DVP"/>
                         <outlet property="wrongButton" destination="92h-aY-XL3" id="aru-ar-Ry1"/>

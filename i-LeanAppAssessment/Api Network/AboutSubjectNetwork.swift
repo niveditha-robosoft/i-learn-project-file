@@ -65,16 +65,14 @@ class AboutSubjectNetwork {
     func callApiForDetailsOfTheLesson(tokenIs: String,lessonId: Int, completion: @escaping(([[String: Any]],Error?) -> ())) {
         
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/LessonsAndUnit?chapterId=\(lessonId)") else{return}
-        
-        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuaXZlZGl0aGFuYWlrMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxODA4MDI5LCJpYXQiOjE2NzE3NzIwMjl9.L7soks2aRmLmvjGpEACMf-ym3RkH_mOvkgXuQZLVGQQl1ew-85UMUNWU3Cw5QjyY42aLVw4sMB5EIdycVzC01Q"
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/LessonsAndUnit?chapterId=\(lessonId)") else{return}
         
         
         var request = URLRequest(url: url)
 
         request.httpMethod = "GET"
         
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
 
         
         //request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
