@@ -15,6 +15,9 @@ protocol dismissVc {
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
     
 //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
@@ -38,6 +41,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -86,6 +90,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 extension LessonViewController{
     
+    
     func getToken() -> String {
         
         var id = ""
@@ -109,6 +114,7 @@ extension LessonViewController{
         
         return receivedToken
     }
+    
     
     
 }

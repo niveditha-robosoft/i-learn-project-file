@@ -652,10 +652,10 @@
 		77F6FADC293F1FC800EBD0A9 /* View model */ = {
 			isa = PBXGroup;
 			children = (
-				77AEE59C294DA69800906FE4 /* AboutSubjectViewModel.swift */,
 				77AEE592294DA28B00906FE4 /* SubjecListViewModel.swift */,
 				77F6FADD293F1FF400EBD0A9 /* signUpViewModel.swift */,
 				777886252940DCA9001E7E1F /* signInViewModel.swift */,
+				77AEE59C294DA69800906FE4 /* AboutSubjectViewModel.swift */,
 				7715F00E294212EC00E04728 /* varifyAccountViewModel.swift */,
 				778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */,
 				83FE358129473B9800B557CC /* LessonViewModel.swift */,
