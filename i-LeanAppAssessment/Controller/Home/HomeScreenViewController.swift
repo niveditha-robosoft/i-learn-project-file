@@ -36,7 +36,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
 
        // didloadChanges()
  
-//        didloadNOtificationStatusApiCall()
+        didloadNOtificationStatusApiCall()
         
       //  didLoadCurrentlyStudying()
         
