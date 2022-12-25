@@ -66,16 +66,26 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         var tokenIs = getToken()
             
+
             let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
              if let vc = lessondetailVc {
+                let loader = self.loader()
+
                  vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
+                    
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                    
+                    
                          if Bool {
                              vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                              vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
                              self.navigationController?.pushViewController(vc, animated: true)
                          }
+                 }
                 
                    }
 

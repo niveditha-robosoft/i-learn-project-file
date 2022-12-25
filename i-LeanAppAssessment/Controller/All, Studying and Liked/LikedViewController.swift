@@ -36,9 +36,9 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LikedUnitsTableViewCell
         cell.subjectImage.image = #imageLiteral(resourceName: "imgpsh_fullsize_anim")
-        cell.subjectName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName
-        cell.lessonName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName
-        cell.unitName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitName
+        cell.subjectName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName.uppercased()
+        cell.lessonName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName.capitalized
+        cell.unitName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitName.capitalized
         return cell
     }
     

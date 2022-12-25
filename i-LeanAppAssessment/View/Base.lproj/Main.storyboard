@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Light.ttf">
-            <string>Rubik-Light</string>
-        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -22,6 +19,7 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
+            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
         <array key="TimesNewRoman.ttf">
@@ -888,7 +886,7 @@ Account</string>
                                                     <constraint firstAttribute="width" constant="76" id="ATe-Xt-hU4"/>
                                                     <constraint firstAttribute="height" constant="76" id="RRD-Vx-oX9"/>
                                                 </constraints>
-                                                <state key="normal" image="btn_signin (1)"/>
+                                                <state key="normal" image="btn_signin (1)-2"/>
                                                 <connections>
                                                     <action selector="goToHomeScreenWhenTapped:" destination="1Xi-Ix-IhY" eventType="touchUpInside" id="mmk-ZH-o7t"/>
                                                 </connections>
@@ -1527,7 +1525,7 @@ you can search below.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="sex-1R-iPD"/>
                                                         </constraints>
-                                                        <state key="normal" image="icn_search"/>
+                                                        <state key="normal" image="Screenshot 2022-12-25 at 11.49.44 AM"/>
                                                         <connections>
                                                             <action selector="searchButtonTapped:" destination="F0Q-vC-g8c" eventType="touchUpInside" id="84q-se-9xY"/>
                                                         </connections>
@@ -1811,7 +1809,7 @@ you can search below.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Mi7-o2-Rty"/>
                                                         </constraints>
-                                                        <state key="normal" image="icn_search"/>
+                                                        <state key="normal" image="Screenshot 2022-12-25 at 11.49.44 AM"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7M-1L-uPo">
                                                         <rect key="frame" x="0.0" y="0.0" width="292" height="70.5"/>
@@ -4658,7 +4656,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Substances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-po-b93">
-                                                            <rect key="frame" x="104" y="60" width="165.5" height="26"/>
+                                                            <rect key="frame" x="104" y="60" width="175" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="26" id="Mhf-q9-hP1"/>
                                                             </constraints>
@@ -4667,7 +4665,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes and sources." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-XM-wSD">
-                                                            <rect key="frame" x="104" y="92" width="153" height="19"/>
+                                                            <rect key="frame" x="104" y="92" width="151.5" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="nmD-JG-TtT"/>
                                                             </constraints>
@@ -5380,7 +5378,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="AboutSubjectViewController" id="8vN-PY-cni" customClass="AboutSubjectViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHK-d5-i0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kP-Mjh">
@@ -5422,7 +5420,7 @@ the image below implies?</string>
                                                                 <constraint firstItem="7Hs-er-P9c" firstAttribute="top" secondItem="8Fe-y2-wsy" secondAttribute="top" constant="22" id="Fuw-fd-2Gt"/>
                                                                 <constraint firstAttribute="height" constant="95" id="IHE-TS-UYx"/>
                                                                 <constraint firstItem="7Hs-er-P9c" firstAttribute="centerX" secondItem="8Fe-y2-wsy" secondAttribute="centerX" id="LSJ-Pm-ob8"/>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="hvQ-lc-jJX"/>
+                                                                <constraint firstAttribute="height" constant="95" id="hvQ-lc-jJX"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFU-CN-LIs">
@@ -5668,7 +5666,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="StudyingViewController" id="ctg-2g-pB3" customClass="StudyingViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-Lz-xgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con't found any currenty studying subjects :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW9-lC-S6s">
@@ -5778,7 +5776,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="LikedViewController" id="X8h-yW-QKo" customClass="LikedViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIY-Yt-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Liked Chapters Found  : (" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-FE-Utt">
@@ -6164,6 +6162,7 @@ the image below implies?</string>
     </scenes>
     <resources>
         <image name="MicrosoftTeams-image (4)" width="414" height="896"/>
+        <image name="Screenshot 2022-12-25 at 11.49.44 AM" width="114" height="112"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="btn_back" width="23" height="20"/>
         <image name="btn_cancel" width="23" height="24"/>
@@ -6175,6 +6174,7 @@ the image below implies?</string>
         <image name="btn_prev_lesson" width="27" height="22"/>
         <image name="btn_signin" width="116" height="116"/>
         <image name="btn_signin (1)" width="116" height="116"/>
+        <image name="btn_signin (1)-2" width="116" height="116"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
@@ -6186,7 +6186,6 @@ the image below implies?</string>
         <image name="icn_notificationsettings" width="18" height="22"/>
         <image name="icn_quslist" width="22" height="27"/>
         <image name="icn_reults" width="16" height="22"/>
-        <image name="icn_search" width="90" height="90"/>
         <image name="icn_timer" width="24" height="23"/>
         <image name="img_arrow_right_maincta" width="24" height="24"/>
         <image name="img_bird" width="350" height="180"/>
