@@ -7,7 +7,7 @@
 
 import Foundation
 class LessonDetailNetwork{
-    func apiCallForLessonDetails(urlIs: String ,token: String, completion: @escaping(([String:Any], Error?) -> ())){
+    func apiCallForLessonDetails(urlIs: String ,token: String, completion: @escaping(([String:Any]?,Bool, Error?) -> ())){
         guard let url = URL(string: urlIs) else{return}
         
         var request = URLRequest(url: url)
@@ -40,19 +40,14 @@ class LessonDetailNetwork{
                         if let datais = responsData as? [String: Any]{
                             
                             print("fsdfsfsdgsgsfg",datais)
-                            completion(datais,nil)
+                            completion(datais,true,nil)
                         }
 
-            }catch{
-                        
-                       completion(["": ""], error)
-                        print(error)
-                        
-                    }
+            }
 
-                }else{
+                }else if responsIs.statusCode == 400 {
 
-                    completion(["": ""], error)
+                    completion(nil, false, error)
                     print("Responce Error is: ", error?.localizedDescription)
 
                         }

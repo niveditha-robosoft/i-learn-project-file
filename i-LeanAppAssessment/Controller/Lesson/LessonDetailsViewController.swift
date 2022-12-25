@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 class LessonDetailsViewController: UIViewController {
-   // var  objectFromLessonViewModel = LessonViewModel()
+    // var  objectFromLessonViewModel = LessonViewModel()
     var objectOfLessonViewModel = LessonDetailViewModel.objectOfLessonDetailViewModel
     var objectOFSignInViewMOdel = SignInViewModel.objectOfViewModel
     
@@ -54,14 +54,25 @@ class LessonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentPageNo >= 1{
+            
+            leftButton.isEnabled = true
+            
+        }else{
+            
+            leftButton.isEnabled = false
+            
+            
+        }
+        
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
-
+        
         self.bottomView.layer.cornerRadius = 20
-               self.bottomView.clipsToBounds = true
-               
-               self.buttonMain.layer.cornerRadius = 10
-               self.buttonMain.clipsToBounds = true
+        self.bottomView.clipsToBounds = true
+        
+        self.buttonMain.layer.cornerRadius = 10
+        self.buttonMain.clipsToBounds = true
         collectionView.delegate = self
         collectionView.dataSource = self
         DispatchQueue.main.async {
@@ -89,46 +100,46 @@ class LessonDetailsViewController: UIViewController {
                 if i.unitImage != ""{
                     
                     print("i am in side the loop1111 ,\(self.objectOfLessonViewModel.lessonDetail.last?.unitImage)")
-        
-                  
+                    
+                    
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: i.unitImage)
                     print("116")
                     self.videoHeight.constant = 0
-                  //  self.unitvideoDetailIs.isHidden = true
+                    //  self.unitvideoDetailIs.isHidden = true
                     self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
-                  
-                     
+                    
+                    
                 }else {
                     
                     print("i am in side the loop1111 ,\(self.objectOfLessonViewModel.lessonDetail.last?.unitVideo)")
-                                   
-                                     
-                                      self.imageViewHeight.constant = 0
+                    
+                    
+                    self.imageViewHeight.constant = 0
                     self.startVideo(videoString: i.unitVideo)
-                                      self.videoHeight.constant = 200
+                    self.videoHeight.constant = 200
                     self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
-                  
-                  
+                    
+                    
                 }
                 
                 
                 if  i.unitVideo != "" {
                     print("i am in side the loop122232222323")
-                                
-                                       
-                                        self.imageViewHeight.constant = 0
-                                        self.videoHeight.constant = 0
-                   // self.unitDetailImageIs.isHidden = true
+                    
+                    
+                    self.imageViewHeight.constant = 0
+                    self.videoHeight.constant = 0
+                    // self.unitDetailImageIs.isHidden = true
                     
                 }
                 else {
                     
-                   
+                    
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
-                  // self.unitvideoDetailIs.isHidden = true
-                   // self.unitDetailImageIs.isHidden = true
+                    // self.unitvideoDetailIs.isHidden = true
+                    // self.unitDetailImageIs.isHidden = true
                 }
                 self.titleLabel.text = i.pageTitle
                 self.contentTextView.text = i.unitDescription
@@ -136,13 +147,35 @@ class LessonDetailsViewController: UIViewController {
                 self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
             }
         }
-       
+        
         
         cancelButton.layer.borderColor = #colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1)
         cancelButton.layer.borderWidth = 2
         cancelButton.layer.cornerRadius = 13
         okButton.layer.cornerRadius = 13
         selectedPageLabel.text = "of \(totalePages) pages"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if currentPageNo > totalePages{
+            
+            rightButton.isEnabled = false
+            
+        }else{
+            
+            rightButton.isEnabled = true
+        }
+        if currentPageNo >= 1{
+            
+            leftButton.isEnabled = true
+            
+        }else{
+            
+            leftButton.isEnabled = false
+            
+            
+        }
     }
     
     private var isBottomSheetShown = false
@@ -150,20 +183,24 @@ class LessonDetailsViewController: UIViewController {
     @IBAction func likeButtonTapped(_ sender: Any) {
         
         var tokenIs = getToken()
-
+        
+        let loader = self.loader()
         
         objectOfLessonViewModel.likedLessonDetailsToSend(tokenToSend: tokenIs, unitIdToSend: unitId){ status in
-            
-            if status == true{
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
                 
-                self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                
-            }else{
-                
-                self.likeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                if status == true{
+                    
+                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                    
+                }else{
+                    
+                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    
+                }
                 
             }
-            
             
         }
         
@@ -178,46 +215,46 @@ class LessonDetailsViewController: UIViewController {
     }
     @IBAction func goToPageButton(_ sender: Any) {
         if (isBottomSheetShown)
-                {
-                   
-                    UIView.animate(withDuration: 0.1, animations: {
-                        
-                        self.heightConstraint.constant = 420
-                        self.view.layoutIfNeeded()
-                    }) { (status) in
-                        self.isBottomSheetShown = false
-                        
-                        UIView.animate(withDuration: 0.1, animations: {
-                            self.heightConstraint.constant = 0
-                        
-                            self.view.layoutIfNeeded()
-                        }) { (status) in
-                           
-                        }
-                     
-                    }
-                }
-                else{
-                  
+        {
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                
+                self.heightConstraint.constant = 420
+                self.view.layoutIfNeeded()
+            }) { (status) in
+                self.isBottomSheetShown = false
+                
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.heightConstraint.constant = 0
                     
-                    UIView.animate(withDuration: 0.1, animations: {
-                        self.heightConstraint.constant = 420
+                    self.view.layoutIfNeeded()
+                }) { (status) in
                     
-                        self.view.layoutIfNeeded()
-                    }) { (status) in
-                      
-                        self.isBottomSheetShown = true
-                        
-                        UIView.animate(withDuration: 0.1, animations: {
-                            self.heightConstraint.constant = 400
-                            
-                            self.view.layoutIfNeeded()
-                        }) { (status) in
-                            
-                        }
-                    }
                 }
                 
+            }
+        }
+        else{
+            
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                self.heightConstraint.constant = 420
+                
+                self.view.layoutIfNeeded()
+            }) { (status) in
+                
+                self.isBottomSheetShown = true
+                
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.heightConstraint.constant = 400
+                    
+                    self.view.layoutIfNeeded()
+                }) { (status) in
+                    
+                }
+            }
+        }
+        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -226,159 +263,182 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func rightButtonTapped(_ sender: Any) {
         
-        var tokenIs = getToken()
-
         
-        print("button Clicked")
+        
+        var tokenIs = getToken()
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
-        print("button Clicked")
+        
         currentPageNo += 1
-        print("current page",currentPageNo)
-        objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ [self] data in
+        
+        
+        print("right button tapped number : \(currentPageNo)")
+        if currentPageNo <= totalePages{
             
-            if data == true{
-                    
+            
+            print("if loop olage bandidini page numbner : \(currentPageNo)")
+            let loader = self.loader()
+            print("api sending page number is : \(currentPageNo)")
+            objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ [self] data in
                 
-                print("")
-                print("current page",currentPageNo)
-                print("I.image is is : \(objectOfLessonViewModel.lessonDetail.last?.unitImage)")
-                print("i. video is is : \(objectOfLessonViewModel.lessonDetail.last?.unitVideo)")
-                print("")
-
-                if  objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
                     
-                    print("i am in side the loop1111")
-                 
-                  
-                    self.imageViewHeight.constant = 197
-                    self.unitDetailImageIs.image = getImage(urlString: objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
-                    print("115")
-                    self.videoHeight.constant = 0
-                    //self.unitvideoDetailIs.isHidden = true
-
-                }else{
-                    print("i am in side the loop122232222323")
-               
+                    print("api responce is : \(data)")
+                    if data == true{
+                        
+                        print("api responce is and if loop in side : \(data)")
+                        if  objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
+                            
+                            
+                            self.imageViewHeight.constant = 197
+                            self.unitDetailImageIs.image = getImage(urlString: objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
+                            self.videoHeight.constant = 0
+                            
+                        }else{
+                            
+                            
+                            self.imageViewHeight.constant = 0
+                            self.videoHeight.constant = 0
+                            // unitvideoDetailIs.isHidden = true
+                            // self.unitDetailImageIs.isHidden = true
+                        }
+                        
+                        if objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
+                            
+                            
+                            self.imageViewHeight.constant = 0
+                            startVideo(videoString: objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
+                            self.videoHeight.constant = 200
+                            //  self.unitDetailImageIs.isHidden = true
+                        }else{
+                            
+                            
+                            self.imageViewHeight.constant = 0
+                            self.videoHeight.constant = 0
+                            //  self.unitvideoDetailIs.isHidden = true
+                            // unitDetailImageIs.isHidden = true
+                        }
+                        
+                        
+                        
+                        
+                        self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
+                        self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
+                        self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
+                        self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
+                        //self.viewDidLoad()
+                        
+                    }else{
+                        print("api responce is and else loop in side : \(data)")
+                        
+                        
+                        DispatchQueue.main.async {
+                            
+                            alertMessage(message: "Sorry somthing went wrong unable to fetch data try after some time ...!!!")
+                            
+                            
+                        }
+                        
+                        
+                        
+                    }
                     
-                    self.imageViewHeight.constant = 0
-                    self.videoHeight.constant = 0
-                  // unitvideoDetailIs.isHidden = true
-                   // self.unitDetailImageIs.isHidden = true
                 }
-                
-                if objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
-                 
-                   
-                    self.imageViewHeight.constant = 0
-                    startVideo(videoString: objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
-                    self.videoHeight.constant = 200
-                  //  self.unitDetailImageIs.isHidden = true
-                }else{
-                
-                   
-                    self.imageViewHeight.constant = 0
-                    self.videoHeight.constant = 0
-                  //  self.unitvideoDetailIs.isHidden = true
-                   // unitDetailImageIs.isHidden = true
-                }
-                
-
-                
-                
-                self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
-                self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
-                self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
-                self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
-                //self.viewDidLoad()
-                
-            }else{
                 
             }
             
+            
+        }else{
+            
+            
         }
-       
+        
+        
+        
         
     }
     
     @IBAction func leftButtonTapped(_ sender: Any) {
-      
+        
         var tokenIs = getToken()
         
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
         currentPageNo -= 1
+        
         if currentPageNo != 0 {
+            
+            let loader = self.loader()
+            
             objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ data in
                 
-                if data == true{
-                   
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
                     
-                    print("current page",self.currentPageNo)
-                    print("I.image is is : \(self.objectOfLessonViewModel.lessonDetail.last?.unitImage)")
-                    print("i. video is is : \(self.objectOfLessonViewModel.lessonDetail.last?.unitVideo)")
-                    print("")
-
-                    if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
+                    if data == true{
                         
-                        print("i am in side the loop1111")
                         
-                
-                        self.imageViewHeight.constant = 197
-                       self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
-                       
-                        print("114")
-                        self.videoHeight.constant = 0
-                      //  self.unitvideoDetailIs.isHidden = true
-
-                    }else{
-                        print("i am in side the loop122232222323")
-                   
-                        self.imageViewHeight.constant = 0
-                        self.videoHeight.constant = 0
-                      //  self.unitDetailImageIs.isHidden = true
-                       // self.unitvideoDetailIs.isHidden = true
-                    }
-                    
-                    if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
-                  
-                      
-                        self.imageViewHeight.constant = 0
-                        self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
-                       self.videoHeight.constant = 200
-                        //self.unitDetailImageIs.isHidden = true
-                    }else{
-                     
-                      
-                        self.imageViewHeight.constant = 0
-                        self.videoHeight.constant = 0
-                    //    self.unitDetailImageIs.isHidden = true
-                     //   self.unitvideoDetailIs.isHidden = true
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
+                        if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
+                            
+                            print("i am in side the loop1111")
+                            
+                            
+                            self.imageViewHeight.constant = 197
+                            self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
+                            
+                            print("114")
+                            self.videoHeight.constant = 0
+                            //  self.unitvideoDetailIs.isHidden = true
+                            
+                        }else{
+                            print("i am in side the loop122232222323")
+                            
+                            self.imageViewHeight.constant = 0
+                            self.videoHeight.constant = 0
+                            //  self.unitDetailImageIs.isHidden = true
+                            // self.unitvideoDetailIs.isHidden = true
+                        }
+                        
+                        if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
+                            
+                            
+                            self.imageViewHeight.constant = 0
+                            self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
+                            self.videoHeight.constant = 200
+                            //self.unitDetailImageIs.isHidden = true
+                        }else{
+                            
+                            
+                            self.imageViewHeight.constant = 0
+                            self.videoHeight.constant = 0
+                            //    self.unitDetailImageIs.isHidden = true
+                            //   self.unitvideoDetailIs.isHidden = true
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                         self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                         
-                    self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
-                    
-                    
-                }else{
-                    
+                        self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
+                        
+                        
+                    }else{
+                        
+                    }
                 }
-                
             }
         }else{
             
         }
-      
         
         
-      
+        
+        
         
         
         
@@ -389,14 +449,54 @@ class LessonDetailsViewController: UIViewController {
     
     
     @IBAction func okButtontapped(_ sender: Any) {
-        
+        self.objectOfLessonViewModel.videoIs.removeAll()
+        self.objectOfLessonViewModel.photoIs.removeAll()
         var tokenIs = getToken()
         
+        currentPageNo = SelectedCellLabel
         
         objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: tokenIs){ data in
             if data == true {
+                
+                if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
+                    
+                    
+                    self.imageViewHeight.constant = 197
+                    self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
+                    self.videoHeight.constant = 0
+                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
+
+                    
+                }else{
+                    
+                    
+                    self.imageViewHeight.constant = 0
+                    self.videoHeight.constant = 0
+                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
+
+                    // unitvideoDetailIs.isHidden = true
+                    // self.unitDetailImageIs.isHidden = true
+                }
+                
+                if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
+                    
+                    
+                    self.imageViewHeight.constant = 0
+                    self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
+                    self.videoHeight.constant = 200
+                    //  self.unitDetailImageIs.isHidden = true
+                }else{
+                    
+                    
+                    self.imageViewHeight.constant = 0
+                    self.videoHeight.constant = 0
+                    //  self.unitvideoDetailIs.isHidden = true
+                    // unitDetailImageIs.isHidden = true
+                }
+                
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
+                self.unitDetailImageIs.image = UIImage( contentsOfFile: self.objectOfLessonViewModel.lessonDetail.last!.unitImage)
             }
         }
         self.heightConstraint.constant = 0
@@ -405,6 +505,9 @@ class LessonDetailsViewController: UIViewController {
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.heightConstraint.constant = 0
+        okButton.isEnabled = false
+        cancelButton.isEnabled = false
+        collectionView.isHidden = true
     }
 }
 extension LessonDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -415,7 +518,7 @@ extension LessonDetailsViewController: UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BottomUpCollectionViewCell
         cell.numberLabel.text = String(numarr[indexPath.row])
-
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -426,49 +529,34 @@ extension LessonDetailsViewController: UICollectionViewDelegate,UICollectionView
 }
 extension LessonDetailsViewController{
     func getImage(urlString: String) -> UIImage {
-
-            
-
-            guard let imageUrl = URL(string: urlString) else { return  #imageLiteral(resourceName: "img_bird") }
-
-            print("111")
-
-            let imageData = try?
-
-            Data(contentsOf: imageUrl)
-
-        print("112")
-
-            if let imageData = imageData{
-
+        
+        guard let imageUrl = URL(string: urlString) else { return  #imageLiteral(resourceName: "img_bird") }
                 
-
-                guard let image = UIImage(data: imageData) else { return  #imageLiteral(resourceName: "img_pp-1") }
-
-                print("113")
-
-                return image
-
-            }
-
+        let imageData = try?
             
+            Data(contentsOf: imageUrl)
+                
+        if let imageData = imageData{
 
-            return  #imageLiteral(resourceName: "img_bird")
-
+            guard let image = UIImage(data: imageData) else { return  #imageLiteral(resourceName: "img_pp-1") }
             
-
+            
+            return image
+            
         }
-  
+        return  #imageLiteral(resourceName: "img_bird")
+    }
+    
     func startVideo(videoString: String){
         if let url = URL(string: videoString){
             player = AVPlayer(url:url)
-        avpController.player = player
-        self.addChild(avpController)
-        avpController.view.frame = self.unitvideoDetailIs.bounds
-        self.unitvideoDetailIs.addSubview(avpController.view)
+            avpController.player = player
+            self.addChild(avpController)
+            avpController.view.frame = self.unitvideoDetailIs.bounds
+            self.unitvideoDetailIs.addSubview(avpController.view)
         }
-    
-}
+        
+    }
 }
 
 extension LessonDetailsViewController{
@@ -476,25 +564,28 @@ extension LessonDetailsViewController{
     func getToken() -> String {
         
         var id = ""
-       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
         if let idIs = userIdIs as? Int{
-            
             id = String(idIs)
-            
         }
-        print("stored user id : \(id)")
-
-        
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
-
+        
         guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
             return ""}
-        
-        print("token",receivedToken)
-        
+                
         return receivedToken
+    }
+    
+    
+    func alertMessage(message: String){
+        
+        let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        self.present(alert,animated: true, completion: nil)
     }
     
     
