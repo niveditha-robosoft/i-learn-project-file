@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Rubik-Light.ttf">
+            <string>Rubik-Light</string>
+        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -19,7 +22,6 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
-            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
         <array key="TimesNewRoman.ttf">
@@ -4656,7 +4658,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Substances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-po-b93">
-                                                            <rect key="frame" x="104" y="60" width="175" height="26"/>
+                                                            <rect key="frame" x="104" y="60" width="165.5" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="26" id="Mhf-q9-hP1"/>
                                                             </constraints>
@@ -4665,7 +4667,7 @@ attempted.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes and sources." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-XM-wSD">
-                                                            <rect key="frame" x="104" y="92" width="151.5" height="19"/>
+                                                            <rect key="frame" x="104" y="92" width="153" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="nmD-JG-TtT"/>
                                                             </constraints>

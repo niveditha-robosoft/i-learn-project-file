@@ -19,7 +19,6 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        callApi()
         tableView.delegate = self
         tableView.dataSource = self
     }

@@ -26,7 +26,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
 
-        callApi()
+//        callApi()
 
         collectionView.delegate = self
         collectionView.dataSource = self
