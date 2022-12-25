@@ -15,7 +15,9 @@ class TestViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var testTitleLbl: UILabel!
     
-    var descriptionLbl: UILabel!    
+    var descriptionLbl: UILabel!
+    
+//    let alert = UIAlertController(title: "Alert", message: "Complete the unit", preferredStyle: .alert.)
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

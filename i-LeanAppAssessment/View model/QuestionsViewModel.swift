@@ -15,14 +15,18 @@ class QuestionsViewModel {
     var questionsWithOptionList = [QuestionsWithOptions]()
     
     var answersList = [Int: Answer]()
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
     
-    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxODA5MjU4LCJpYXQiOjE2NzE3NzMyNTh9.KvcDyuoOprD47LW2_9osj6i3JtzFXvJHpVkTYWvSZuY3DtTtq3j967y-4YANzIZW7bhjs_eOLK4o7s8dC66wlg"
+   
     
     func fetchQuestions(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
+        
+        var tokenIs = getToken()
         let networkManager = QuestionsNetworkManager()
         let request = NSMutableURLRequest(url: NSURL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/question-with-options?\(key)=\(value)")! as URL)
         request.httpMethod = "GET"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
         request.allHTTPHeaderFields = nil
         networkManager.fetchList1(at: request) { [self]data,error in
             if let apiData = data{
@@ -55,4 +59,35 @@ class QuestionsViewModel {
     func sendAnswer() {
         
     }
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token  123",receivedToken)
+        
+        return receivedToken
+    }
+    
+    
+    
+    
+    
+    
+    
 }

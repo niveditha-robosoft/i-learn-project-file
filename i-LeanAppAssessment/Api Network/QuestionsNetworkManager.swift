@@ -9,6 +9,7 @@ import Foundation
 import Foundation
 class QuestionsNetworkManager{
     func fetchList1(at url: NSMutableURLRequest, completion: @escaping ([[String:Any]]?,Error?) -> Void) {
+        
         let task = URLSession.shared.dataTask(with: url as URLRequest) {
             data, response, error in
             if let apiData = data {
@@ -20,6 +21,7 @@ class QuestionsNetworkManager{
                     }
                     else{
                         print("failed")
+                        
                     }
                 }
                 catch{
