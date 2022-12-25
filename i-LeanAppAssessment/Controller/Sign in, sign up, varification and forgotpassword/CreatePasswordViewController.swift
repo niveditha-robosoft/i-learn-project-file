@@ -63,13 +63,14 @@ class CreatePasswordViewController: UIViewController {
         
         print("reset butto tapped", mobile_EmailToSend)
         
-        var condition = isValidPassword(pass1: newPasswordTextField.text ?? "")
+        let condition = isValidPassword(pass1: newPasswordTextField.text ?? "")
         
         if condition == true{
             
             enteredCreatePassword = newPasswordTextField.text ?? ""
-//                print("Strong password is been created")
+            
         }else{
+            
             enteredCreatePassword = ""
             
             self.alertMessage(message: "Create a strong password")
@@ -111,19 +112,15 @@ class CreatePasswordViewController: UIViewController {
                 }
   
             }
-            
-                    
-            
-            
-   
-            
+ 
         }else{
             
-            self.alertMessage(message: "New password and confirmed password is not matching")
+            DispatchQueue.main.async {
+                self.alertMessage(message: "New password and confirmed password is not matching")
+
+            }
             
         }
-        
-        
         
     }
     
@@ -131,14 +128,11 @@ class CreatePasswordViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
 
 }
 
 
 extension CreatePasswordViewController{
-    
     
     public func isValidPassword(pass1: String) -> Bool {
 
@@ -147,14 +141,5 @@ extension CreatePasswordViewController{
             return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: pass1)
 
         }
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
+
 }

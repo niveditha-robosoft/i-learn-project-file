@@ -46,9 +46,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
 
 
 extension NotificationViewController{
-    
 
-    
     func didloadChanges() {
         
         var call = getToken()
@@ -57,7 +55,6 @@ extension NotificationViewController{
             
             let loader =   self.loader()
 
-            
             objectOfNotificationViewMOdel.callApiForNotificationData(tokenToSend: call){ status in
                 
                 DispatchQueue.main.async {
@@ -98,16 +95,13 @@ extension NotificationViewController{
             id = String(idIs)
             
         }
-        print("stored user id : \(id)")
 
-        
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
 
         guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
             return ""}
         
-        print("token",receivedToken)
         
         return receivedToken
     }

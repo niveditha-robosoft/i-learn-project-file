@@ -62,7 +62,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if  nameText.text != "" && mobile_EmailText.text != "" && confirmPasswordText.text != "" && createPasswordText.text != ""  {
             
-//            self.passwordToSend = confirmPasswordText.text ?? ""
             signUpDoneAndGoToVarificationScreenButton.isEnabled = true
             signUpDoneAndGoToVarificationScreenButton.setImage(#imageLiteral(resourceName: "btn_signin-2"), for: .normal)
 
@@ -117,7 +116,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if condition == true{
             
             enteredCreatePassword = createPasswordText.text ?? ""
-//                print("Strong password is been created")
         }else{
             enteredCreatePassword = ""
             
@@ -143,19 +141,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     
                     mobile_EmailToSend = "+91\(number)"
                 }else{
-                    
-                    
-                    
+   
                 }
                
-                }
+            }
             else{
                 
                 alertMessage(message: "Enter a valid mobile number")
             }
 
 
-            }
+        }
         
         
         
@@ -173,7 +169,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                     if responsIs == true{
 
-
                         let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
 
                         if let vc = varifyVc {
@@ -181,15 +176,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
                             self.navigationController?.pushViewController(vc, animated: true)
 
-                            }
+                        }
 
+                    }else if responsIs == false{
 
-                        }else if responsIs == false{
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "This Email or Mobile number already exists try another one")
 
-                            DispatchQueue.main.async {
-                                self.alertMessage(message: "This Email or Mobile number already exists try another one")
-
-                            }
+                        }
 
 
                         } else{
@@ -199,9 +193,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                             }
                         }
-                    }
-
                 }
+
+            }
    
             mobile_EmailToSend = ""
         }else{
@@ -211,7 +205,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
 
     }
-    
 
 }
 
@@ -235,18 +228,7 @@ extension SignUpViewController{
             return emailPred.evaluate(with: email)
 
         }
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
-    
-    
+   
     @objc func keyboardWillShow(notification: NSNotification) {
             
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
@@ -307,8 +289,6 @@ extension SignUpViewController{
 
     @objc func handleTap(){
 
-        print("handle tap was called")
-
         view.endEditing(true)
 
     }
@@ -367,21 +347,44 @@ extension SignUpViewController{
 
 
 extension UIViewController{
+    
     func loader() -> UIAlertController {
+        
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        
             loadingIndicator.hidesWhenStopped = true
+        
             loadingIndicator.style = UIActivityIndicatorView.Style.large
+        
             loadingIndicator.startAnimating()
+        
             alert.view.addSubview(loadingIndicator)
+        
             present(alert, animated: true, completion: nil)
+        
             return alert
+        
         }
         
         func stopLoader(loader : UIAlertController) {
+            
             DispatchQueue.main.async {
+                
                 loader.dismiss(animated: true, completion: nil)
+                
             }
+            
+        }
+    
+    func alertMessage(message: String){
+        
+            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
+        
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+            self.present(alert,animated: true, completion: nil)
         }
     
     

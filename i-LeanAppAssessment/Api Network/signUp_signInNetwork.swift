@@ -36,7 +36,7 @@ class SignUpAndSignInApiNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Sign up Error is: \(error?.localizedDescription)")
+                    print("Sign up Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
                 
@@ -60,7 +60,7 @@ class SignUpAndSignInApiNetwork {
                     }else if responsIs.statusCode == 400{
                         completion(false,error)
                     }else{
-                        print("Sign up Responce Error is: ", error?.localizedDescription)
+                        print("Sign up Responce Error is: ", error?.localizedDescription ?? "Error...?")
                     }
 
                 }
@@ -74,7 +74,7 @@ class SignUpAndSignInApiNetwork {
     
     
     
-    func postTheSignInDataToApi(mobilenumber_EmailToSend: String, passwordToSend: String, completion: @escaping(([String: Any],Bool,Error?) -> ())) {
+    func postTheSignInDataToApi(mobilenumber_EmailToSend: String, passwordToSend: String, completion: @escaping(([String: Any]?,Bool,Error?) -> ())) {
 
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/login") else{
             return
@@ -98,6 +98,7 @@ class SignUpAndSignInApiNetwork {
 
                 guard let data = data, error == nil else{
                     print("Error is: \(String(describing: error?.localizedDescription))")
+                    completion(nil,false,error)
                     return
                 }
 
@@ -118,12 +119,12 @@ class SignUpAndSignInApiNetwork {
                         }
                     }else if responsIs.statusCode == 400{
                         
-                        completion(["": ""],false,nil)
+                        completion(nil,false,nil)
 
                         
                     }else{
                         
-                        print(" Sign in Http Responce Error is: ", error?.localizedDescription)
+                        print(" Sign in Http Responce Error is: ", error?.localizedDescription ?? "Error..?")
                         
                     }
 

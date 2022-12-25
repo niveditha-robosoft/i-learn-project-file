@@ -12,6 +12,9 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var objectOfProfileViewMOdel = ProfileViewMOdel.objectOfViewMOdel
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
 
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     @IBOutlet weak var subjectsDropDown: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,12 +25,18 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.subjectsDropDown.layer.borderColor =  UIColor(red: 76/255, green: 147/255, blue: 255/255, alpha: 1.0).cgColor
         tableView.delegate = self
         tableView.dataSource = self
+  
+    }
+    
+    
+    func callApi() {
 
+        let call = getToken()
         
-        if objectOfSignInViewModel.userDetails.last?.token != ""{
+        if call != ""{
             
             let loader =   self.loader()
-            objectOfProfileViewMOdel.getResultDetails(tokenToSend: objectOfSignInViewModel.userDetails.last?.token ?? ""){ stsus in
+            objectOfProfileViewMOdel.getResultDetails(tokenToSend: call){ stsus in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
@@ -48,14 +57,10 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
         }
-        
-        
-        
-        
-        
-        
-        
+  
     }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objectOfProfileViewMOdel.resultData.count
     }
@@ -80,15 +85,24 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
    
     }
     
-    
-    func alertMessage(message: String){
+    func getToken() -> String {
         
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
         }
-    
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+                
+        return receivedToken
+    }
     
 }

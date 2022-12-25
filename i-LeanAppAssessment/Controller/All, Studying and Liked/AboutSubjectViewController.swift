@@ -257,17 +257,7 @@ extension AboutSubjectViewController{
         return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
         
     }
-    
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
+
 }
 
 extension AboutSubjectViewController{
