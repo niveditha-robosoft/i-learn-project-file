@@ -15,6 +15,9 @@ protocol dismissVc {
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
     
 //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
@@ -24,7 +27,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
     var lessonDetails = [Lesson]()
-    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "img_pp"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "img_arrow_right_maincta"),#imageLiteral(resourceName: "icn_reults"),#imageLiteral(resourceName: "logo_ilearn"),#imageLiteral(resourceName: "imgpsh_fullsize_anim"),#imageLiteral(resourceName: "icn_notificationsettings")]
+    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)")]
     var levelLbl: UILabel!
     var titleLabl : UILabel!
     var descriptionLbl: UILabel!
@@ -35,6 +38,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,10 +66,11 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        var tokenIs = getToken()
             
             let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
              if let vc = lessondetailVc {
-                 vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: ObjectOfSignInVIewMOdel.userDetails[0].token){ (Bool) in
+                 vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
                          if Bool {
                              vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                              vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
@@ -78,4 +83,35 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
  
 }
 
+}
+
+extension LessonViewController{
+    
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        print("stored user id : \(id)")
+
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
+    
+    
+    
 }

@@ -21,7 +21,6 @@ class AboutSUbjectViewModel {
             
             self.subjectDetailsArray.removeAll()
             
-            print("subjectDetailsArray is is : \(self.subjectDetailsArray.count)")
             DispatchQueue.main.async {
                 if completionErrorIS == nil{
                     

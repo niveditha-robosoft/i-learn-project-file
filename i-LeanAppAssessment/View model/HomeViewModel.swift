@@ -38,8 +38,8 @@ class HomeViewModel {
                                 guard let data1 = i["chapterName"] as? String else{ return}
                                 guard let data2 = i["subjectName"] as? String else{ return}
                                 guard let data3 = i["percentage"] as? Int else{ return}
-
-                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: data3)
+                                guard let data4 = i["subject_image"] as? String else{ return}
+                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: data3, subject_image: data4)
                                 
                                 self.currentyStudyingData.append(current)
                                 

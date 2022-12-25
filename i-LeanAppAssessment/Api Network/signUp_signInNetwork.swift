@@ -36,7 +36,7 @@ class SignUpAndSignInApiNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Sign up Error is: \(error?.localizedDescription)")
                     return
                 }
                 
@@ -97,7 +97,7 @@ class SignUpAndSignInApiNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
 
