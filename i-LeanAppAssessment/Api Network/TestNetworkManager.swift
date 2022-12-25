@@ -12,18 +12,27 @@ class TestNetworkManager{
             data, response, error in
             if let apiData = data {
                 do {
+                   
                     if let jsonData = try JSONSerialization.jsonObject(with: apiData, options: .mutableContainers)
                         as? [[String:Any]]{
                         print(jsonData)
                         completion(jsonData,nil)
                     }
                     else{
-                        print("failed")
+                        if let res = response as? HTTPURLResponse {
+                            print(res.statusCode, "statuscode")
+                            
+                            let body = String(data: data!, encoding: .nonLossyASCII)
+                            print("Response body: \(String(describing: body))")
+                        }
+                        print("fails")
                     }
                 }
                 catch{
                     print(error.localizedDescription, "this error")
                 }
+            } else {
+                print("no data")
             }
         }
         task.resume()

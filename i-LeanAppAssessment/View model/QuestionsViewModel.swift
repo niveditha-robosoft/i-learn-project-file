@@ -20,7 +20,7 @@ class QuestionsViewModel {
     
    
     
-    func fetchQuestions(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
+    func fetchQuestions(key: String, value: Int, completion: @escaping((String, Int, Bool?, Error?) -> Void)){
         
         var tokenIs = getToken()
         let networkManager = QuestionsNetworkManager()
@@ -28,7 +28,7 @@ class QuestionsViewModel {
         request.httpMethod = "GET"
         request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
         request.allHTTPHeaderFields = nil
-        networkManager.fetchList1(at: request) { [self]data,error in
+        networkManager.fetchList1(at: request) { [self]message,statusCode, data, error in
             if let apiData = data{
                 self.questionsWithOptionList.removeAll()
                 guard let questionsWithOption = apiData as?  [[String: Any]] else {return}
@@ -52,8 +52,9 @@ class QuestionsViewModel {
                     let answer = Answer(testId: 429, lessonId: 29, questionId: questionId, givenAnswer: "")
                     self.answersList[questionId] = answer
                 }
-                completion(true,nil)
+//                completion(message,statusCode,true,nil)
             }
+            completion(message,statusCode,true,nil)
         }
     }
     func sendAnswer() {

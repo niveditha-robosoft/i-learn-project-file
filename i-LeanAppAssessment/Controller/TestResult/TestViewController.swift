@@ -25,6 +25,15 @@ class TestViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
     }
+    func showAlert(message: String) {
+        print("alert called")
+        var msg = String(message.split(separator: ":").last ?? "undefined error")
+        msg.remove(at: msg.index(before: msg.endIndex))
+        let alert = UIAlertController(title: "Alert", message: msg.capitalized, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(TestViewModel.shared.testList.count)
@@ -47,7 +56,11 @@ extension TestViewController: beginTest {
     
     func testBegin() {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
-        vc.viewModel.fetchQuestions(key: "testId", value: 429) { [self] (data, error) in
+        vc.viewModel.fetchQuestions(key: "testId", value: 429) { [self] (message,statusCode,data, error) in
+            if statusCode != 200 {
+                DispatchQueue.main.async {showAlert(message: message)}
+                return
+            }
             DispatchQueue.main.async{
                 if data! {
                 }
