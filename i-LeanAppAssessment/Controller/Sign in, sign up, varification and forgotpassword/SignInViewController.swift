@@ -245,8 +245,6 @@ extension SignInViewController{
 
     @objc func handleTap(){
 
-        print("handle tap was called")
-
         view.endEditing(true)
 
     }

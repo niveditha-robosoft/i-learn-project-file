@@ -67,15 +67,42 @@ class LessonDetailViewModel{
     
     
     func likedLessonDetailsToSend(tokenToSend: String, unitIdToSend: Int, completion: @escaping((Bool) -> ())) {
-        objOfLessonDetailNetwotk.likedUnitData(token: tokenToSend, unitId: unitIdToSend){ completionCondition, completionError in
+        objOfLessonDetailNetwotk.likedUnitData(token: tokenToSend, unitId: unitIdToSend){ completionData, completionCondition, completionError in
             
             DispatchQueue.main.async {
                 
                 
                 if completionError == nil{
                     
+                    if completionCondition == true{
+                        
+                        if let data0 = completionData{
+                         
+                            var stringIs = ""
+                            if let data1 = data0["message"] as? String{
+                                
+                                stringIs = data1
+                                
+                            }
+                            
+                            if stringIs == "unit added to liked list" {
+                                
+                                completion(true)
+                                
+                            }else{
+                                
+                                completion(false)
+                            }
+                            
+                        }
+                        
+
+                    }else{
+                        
+                        completion(false)
+
+                    }
                     
-                    completion(true)
                     
                 }else{
                     

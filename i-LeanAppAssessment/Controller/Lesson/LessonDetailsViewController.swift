@@ -148,9 +148,13 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func likeButtonTapped(_ sender: Any) {
         
-        let tokenIs = getToken()
         
         let loader = self.loader()
+        
+        let tokenIs = getToken()
+
+        print("sending unit id : \(unitId)")
+        print("Sending token is : \(tokenIs)")
         
         objectOfLessonViewModel.likedLessonDetailsToSend(tokenToSend: tokenIs, unitIdToSend: unitId){ status in
             DispatchQueue.main.async() {
@@ -162,7 +166,7 @@ class LessonDetailsViewController: UIViewController {
                     
                 }else{
                     
-                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.9643666148, green: 0.9724945426, blue: 0.9806874394, alpha: 1)
                     
                 }
                 

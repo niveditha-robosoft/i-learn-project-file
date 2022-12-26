@@ -39,6 +39,7 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.subjectName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName.uppercased()
         cell.lessonName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName.capitalized
         cell.unitName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitName.capitalized
+        cell.setCornerRadius()
         return cell
     }
     
@@ -48,20 +49,26 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let loader =   self.loader()
 
-        
         objectOfLikedUnitViewMOdel.likedUnitsData(tokenToSend: tokenToSend){ status in
             
             DispatchQueue.main.async() {
                 self.stopLoader(loader: loader)
             if status == true{
                 
-                self.tableView.reloadData()
-                self.noLikedUnits.isHidden = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.noLikedUnits.isHidden = true
+                }
+                
                 
             }else{
                 
-                self.tableView.isHidden = true
-                self.noLikedUnits.isHidden = false
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = true
+                    self.noLikedUnits.isHidden = false
+                }
+                
                 
             }
         }

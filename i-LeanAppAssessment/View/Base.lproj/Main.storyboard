@@ -4236,6 +4236,7 @@ attempted.</string>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstItem="WcR-fl-1Zd" firstAttribute="top" secondItem="c2g-5Y-fG0" secondAttribute="top" id="1YQ-Tu-X3r"/>
                                                         <constraint firstAttribute="bottom" secondItem="WcR-fl-1Zd" secondAttribute="bottom" constant="16" id="MIU-RY-pZa"/>
@@ -4269,7 +4270,7 @@ attempted.</string>
                         <viewLayoutGuide key="safeArea" id="vmo-AP-Gg1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="4hq-F0-KBe"/>
+                    <tabBarItem key="tabBarItem" title="" image="pip" catalog="system" id="4hq-F0-KBe"/>
                     <navigationItem key="navigationItem" id="8pp-9v-kfR"/>
                     <connections>
                         <outlet property="tableView" destination="SdQ-zu-SgX" id="7JS-cc-eBG"/>
@@ -4800,7 +4801,7 @@ Food Chain</string>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="cMJ-b6-7hC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="16"/>
-                                                        <state key="normal" title="Lessons">
+                                                        <state key="normal" title="LESSONS">
                                                             <color key="titleColor" red="0.29803921568627451" green="0.57647058823529407" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -4816,7 +4817,7 @@ Food Chain</string>
                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="51" id="vmu-Je-JuH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="16"/>
-                                                        <state key="normal" title="Test">
+                                                        <state key="normal" title="TEST">
                                                             <color key="titleColor" red="0.29803921568627451" green="0.57647058823529407" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -5679,9 +5680,9 @@ the image below implies?</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L7o-O8-Vsd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L7o-O8-Vsd">
                                 <rect key="frame" x="29.5" y="0.0" width="355" height="640.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="161" id="EUf-N8-EbO" customClass="StudyingTableViewCell" customModule="i_LeanAppAssessment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="161"/>
@@ -5721,7 +5722,7 @@ the image below implies?</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="vZK-8b-rKb" secondAttribute="trailing" constant="132" id="1wf-gK-M4M"/>
                                                         <constraint firstItem="vZK-8b-rKb" firstAttribute="top" secondItem="D4c-gn-tSQ" secondAttribute="bottom" constant="6" id="Nmz-kO-H33"/>
@@ -5734,6 +5735,7 @@ the image below implies?</string>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="brI-wF-fxF" firstAttribute="top" secondItem="POf-kg-Qot" secondAttribute="top" id="Ipj-qG-qB8"/>
                                                 <constraint firstAttribute="bottom" secondItem="brI-wF-fxF" secondAttribute="bottom" constant="20" id="Nfp-Fn-Tem"/>
@@ -5741,6 +5743,7 @@ the image below implies?</string>
                                                 <constraint firstItem="brI-wF-fxF" firstAttribute="leading" secondItem="POf-kg-Qot" secondAttribute="leading" id="ee7-q8-rw7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="backView" destination="brI-wF-fxF" id="e2i-nL-4NV"/>
                                             <outlet property="lessonName" destination="vZK-8b-rKb" id="RvQ-BY-hag"/>
@@ -5752,7 +5755,7 @@ the image below implies?</string>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GZd-Yf-3r1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96436661479999997" green="0.97249454260000001" blue="0.98068743940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GZd-Yf-3r1" firstAttribute="trailing" secondItem="L7o-O8-Vsd" secondAttribute="trailing" constant="29.5" id="8wr-Ex-HbB"/>
                             <constraint firstItem="L7o-O8-Vsd" firstAttribute="leading" secondItem="GZd-Yf-3r1" secondAttribute="leading" constant="29.5" id="DGo-L7-bWu"/>
@@ -5789,9 +5792,9 @@ the image below implies?</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JuW-6Z-szh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JuW-6Z-szh">
                                 <rect key="frame" x="29.5" y="44" width="355" height="596.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="161" id="ohf-sP-0pU" customClass="LikedUnitsTableViewCell" customModule="i_LeanAppAssessment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="161"/>
@@ -5810,7 +5813,7 @@ the image below implies?</string>
                                                                 <constraint firstAttribute="height" constant="52" id="Oyj-YQ-CNA"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
                                                             <rect key="frame" x="104" y="35" width="79.5" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79.5" id="9jh-st-x8b"/>
@@ -5820,42 +5823,44 @@ the image below implies?</string>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwN-Zd-8Wn">
-                                                            <rect key="frame" x="104" y="67" width="119" height="19"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwN-Zd-8Wn">
+                                                            <rect key="frame" x="104" y="67" width="251" height="19"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="19" id="P78-4l-NtS"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="119" id="R5u-G6-1gL"/>
+                                                                <constraint firstAttribute="height" constant="19" id="g6k-4A-H8O"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="251" id="oKZ-t5-Sql"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.94044306506849318" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWB-vy-hbb">
-                                                            <rect key="frame" x="104" y="92" width="42" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWB-vy-hbb">
+                                                            <rect key="frame" x="104" y="92" width="251" height="17"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="3jv-D0-lNp"/>
-                                                                <constraint firstAttribute="height" constant="17" id="Rji-BR-cxx"/>
+                                                                <constraint firstAttribute="height" constant="17" id="3X8-lk-spq"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="251" id="WPn-n9-fRV"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="top" secondItem="vwN-Zd-8Wn" secondAttribute="bottom" constant="6" id="18I-rr-O2M"/>
-                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="104" id="2Gt-np-faf"/>
+                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="top" secondItem="U8u-Q5-IAh" secondAttribute="bottom" constant="6" id="1zj-Qi-t0G"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vwN-Zd-8Wn" secondAttribute="trailing" id="2QT-uR-ynz"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="33" id="7NC-xi-eGz"/>
                                                         <constraint firstItem="U8u-Q5-IAh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="9KC-pt-A9h"/>
-                                                        <constraint firstAttribute="trailing" secondItem="vwN-Zd-8Wn" secondAttribute="trailing" constant="132" id="Cjk-Aa-e7k"/>
+                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="NsT-1N-dvM"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="leading" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="26" id="T0G-ok-rBd"/>
+                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="20" symbolic="YES" id="Ydo-7q-Czi"/>
+                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="top" secondItem="vwN-Zd-8Wn" secondAttribute="bottom" constant="6" id="a0Y-tu-71r"/>
                                                         <constraint firstItem="U8u-Q5-IAh" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="35" id="dQO-br-lnw"/>
                                                         <constraint firstAttribute="trailing" secondItem="U8u-Q5-IAh" secondAttribute="trailing" constant="171.5" id="oNt-iP-rwb"/>
-                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="top" secondItem="U8u-Q5-IAh" secondAttribute="bottom" constant="6" id="qgs-c2-bJv"/>
-                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="xKk-mz-ztX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GWB-vy-hbb" secondAttribute="trailing" id="tWx-ok-OhS"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="ffv-pt-SIN" firstAttribute="top" secondItem="TE2-eW-qBD" secondAttribute="top" id="R45-8y-1jL"/>
                                                 <constraint firstAttribute="bottom" secondItem="ffv-pt-SIN" secondAttribute="bottom" constant="20" id="WWv-NP-LLB"/>
@@ -5863,7 +5868,9 @@ the image below implies?</string>
                                                 <constraint firstAttribute="trailing" secondItem="ffv-pt-SIN" secondAttribute="trailing" id="y0H-Rw-8XB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="backView" destination="ffv-pt-SIN" id="qdx-gS-3Ap"/>
                                             <outlet property="lessonName" destination="vwN-Zd-8Wn" id="Gq3-VZ-iK6"/>
                                             <outlet property="subjectImage" destination="F4b-zf-54Z" id="sfM-ns-cXY"/>
                                             <outlet property="subjectName" destination="U8u-Q5-IAh" id="xMa-vW-9nQ"/>
@@ -5874,7 +5881,7 @@ the image below implies?</string>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="83l-cb-aXe"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96436661479999997" green="0.97249454260000001" blue="0.98068743940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3Wa-FE-Utt" firstAttribute="centerY" secondItem="pIY-Yt-bJV" secondAttribute="centerY" id="DdS-AC-g9W"/>
                             <constraint firstItem="JuW-6Z-szh" firstAttribute="top" secondItem="pIY-Yt-bJV" secondAttribute="topMargin" id="jQT-ZX-OkX"/>
@@ -6194,9 +6201,9 @@ the image below implies?</string>
         <image name="img_ilearn_logo_main" width="129" height="152"/>
         <image name="img_searchresultnotfound" width="229" height="294"/>
         <image name="imgpsh_fullsize_anim" width="413" height="417"/>
-        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="logo_ilearn" width="39" height="29"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="pip" catalog="system" width="128" height="96"/>
         <image name="play-play-button2" width="35" height="35"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

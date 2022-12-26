@@ -21,7 +21,7 @@ class LessonDetailNetwork{
 
         guard let data = data, error == nil else{
 
-                print("Error is print this: \(error?.localizedDescription)")
+            print("Error is print this: \(String(describing: error?.localizedDescription))")
 
                     return
 
@@ -48,7 +48,7 @@ class LessonDetailNetwork{
                 }else if responsIs.statusCode == 400 {
 
                     completion(nil, false, error)
-                    print("Responce Error is: ", error?.localizedDescription)
+                    print("Responce Error is: ", error?.localizedDescription ?? "Error...!!!")
 
                         }
 
@@ -61,14 +61,14 @@ class LessonDetailNetwork{
     }
     
     
-    func likedUnitData(token: String, unitId: Int, completion: @escaping((Bool,Error?) -> ())) {
+    func likedUnitData(token: String, unitId: Int, completion: @escaping(([String: Any]?,Bool,Error?) -> ())) {
         
-        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likedUnit?unitId=\(String(unitId))") else{return}
+        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likeUnit?unitId=\(unitId)") else{return}
         
         var request = URLRequest(url: url)
         
         
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         
@@ -76,7 +76,7 @@ class LessonDetailNetwork{
             
             guard let data = data, error == nil else{
                 
-                print("Error is print this: \(error?.localizedDescription)")
+                print("Error is print this: \(String(describing: error?.localizedDescription))")
                 
                 return
                 
@@ -92,16 +92,18 @@ class LessonDetailNetwork{
                         
                         let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
                         
-                        if let datais = responsData as? [String: Any]{
+                        if let dataIs = responsData as? [String: Any]{
                             
-                            completion(true,nil)
+                            print("data is is is is : \(dataIs)")
+                            completion(dataIs,true,nil)
+                            
                         }
                         
                     }
                     
-                }else{
-                    completion(false,nil)
-                    print("Responce Error is: ", error?.localizedDescription)
+                }else if responsIs.statusCode == 400 {
+                    completion(nil,false,nil)
+                    print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     
                 }
                 
