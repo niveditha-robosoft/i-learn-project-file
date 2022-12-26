@@ -20,8 +20,8 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
-    @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchField: CustomeTextField!
+    @IBOutlet weak var searchView: CustomSearchViewShadow!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var currentyStudyingLabel: UILabel!
     
@@ -76,6 +76,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
         cell.contentBackgroundView.layer.masksToBounds = true
         cell.contentBackgroundView.layer.cornerRadius = 15.0
+        cell.contentBackgroundShadow()
         cell.progrssBar.progress = Float(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)/Float(100)
         return cell
     }
@@ -120,13 +121,13 @@ extension HomeScreenViewController: UICollectionViewDelegateFlowLayout{
 extension HomeScreenViewController{
     
     func didloadChanges()  {
-        
+ 
         collectionView.isHidden = true
         currentyStudyingLabel.isHidden = true
-        searchField.borderStyle = .none
-        notificationIndicator.layer.masksToBounds = true
-        notificationIndicator.layer.cornerRadius = 3.5
-        searchView.layer.cornerRadius = 14.0
+//        searchField.borderStyle = .none
+//        notificationIndicator.layer.masksToBounds = true
+//        notificationIndicator.layer.cornerRadius = 3.5
+//        searchView.layer.cornerRadius = 18.0
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -219,7 +220,7 @@ extension HomeScreenViewController{
 
                 }else{
                     DispatchQueue.main.async {
-                        self.alertMessage(message: "Toke expired pleace sign in again")
+                        self.alertMessage(message: "Token expired pleace sign in again")
                     }
 
                 }
@@ -369,8 +370,6 @@ extension HomeScreenViewController{
             id = String(idIs)
             
         }
-        print("stored user id : \(id)")
-
         
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}

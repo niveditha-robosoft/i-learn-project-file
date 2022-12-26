@@ -39,7 +39,6 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.subjectName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName.uppercased()
         cell.lessonName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName.capitalized
         cell.unitName.text = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitName.capitalized
-        cell.setCornerRadius()
         return cell
     }
     

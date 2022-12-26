@@ -11,7 +11,7 @@ class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var sendButton: UIButton!
     
-    @IBOutlet weak var mobileNumberOrEmailField: UITextField!
+    @IBOutlet weak var mobileNumberOrEmailField: CustomeTextField!
     
     
     var emailAndMobileData = ""
@@ -21,7 +21,6 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sendButton.layer.cornerRadius = 20
-        mobileNumberOrEmailField.borderStyle = .none
 
     }
     

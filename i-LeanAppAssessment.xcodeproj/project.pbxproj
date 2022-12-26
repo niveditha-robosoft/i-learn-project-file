@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		77065569294341C00018056D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77065568294341C00018056D /* ForgotPasswordViewController.swift */; };
 		7706556C294341D10018056D /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706556B294341D10018056D /* CreatePasswordViewController.swift */; };
+		77082C692959948E005C3097 /* TextFIeldBorderHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77082C682959948E005C3097 /* TextFIeldBorderHide.swift */; };
+		77082C6D295997F3005C3097 /* CustomVarifyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77082C6C295997F3005C3097 /* CustomVarifyTextField.swift */; };
+		77082C712959A839005C3097 /* CustomSearchViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77082C702959A839005C3097 /* CustomSearchViewShadow.swift */; };
+		77082C742959AA28005C3097 /* TableCellCornerRadious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77082C732959AA28005C3097 /* TableCellCornerRadious.swift */; };
 		7715F0002941AAB800E04728 /* subjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715EFFF2941AAB800E04728 /* subjectsTableViewCell.swift */; };
 		7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F0082941ADEE00E04728 /* ProfileViewController.swift */; };
 		7715F00C2941F65300E04728 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F00B2941F65300E04728 /* TabBarViewController.swift */; };
@@ -168,6 +172,10 @@
 /* Begin PBXFileReference section */
 		77065568294341C00018056D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		7706556B294341D10018056D /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
+		77082C682959948E005C3097 /* TextFIeldBorderHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFIeldBorderHide.swift; sourceTree = "<group>"; };
+		77082C6C295997F3005C3097 /* CustomVarifyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVarifyTextField.swift; sourceTree = "<group>"; };
+		77082C702959A839005C3097 /* CustomSearchViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchViewShadow.swift; sourceTree = "<group>"; };
+		77082C732959AA28005C3097 /* TableCellCornerRadious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellCornerRadious.swift; sourceTree = "<group>"; };
 		7715EFFF2941AAB800E04728 /* subjectsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subjectsTableViewCell.swift; sourceTree = "<group>"; };
 		7715F0082941ADEE00E04728 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7715F00B2941F65300E04728 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +345,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77082C6729599468005C3097 /* custom class */ = {
+			isa = PBXGroup;
+			children = (
+				77082C682959948E005C3097 /* TextFIeldBorderHide.swift */,
+				77082C6C295997F3005C3097 /* CustomVarifyTextField.swift */,
+				77082C702959A839005C3097 /* CustomSearchViewShadow.swift */,
+				77082C732959AA28005C3097 /* TableCellCornerRadious.swift */,
+			);
+			path = "custom class";
+			sourceTree = "<group>";
+		};
 		775C2BF229404CFF003E7405 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +527,7 @@
 		77F6FA5A293F060100EBD0A9 /* i-LeanAppAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				77082C6729599468005C3097 /* custom class */,
 				77A2523F2951BAB0006BAC2D /* Plist Manager */,
 				77AEE5D3294DC16500906FE4 /* Progress bar  */,
 				779C8FD62946E2FD00B233EF /* Key chain */,
@@ -903,6 +923,7 @@
 				77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */,
 				7747B5EE29573E910028AAE3 /* AboutSubjectViewController.swift in Sources */,
 				77AEE599294DA2CD00906FE4 /* SubjectListNetwork.swift in Sources */,
+				77082C742959AA28005C3097 /* TableCellCornerRadious.swift in Sources */,
 				775C2BF829408A5C003E7405 /* OnBoardingOneViewController.swift in Sources */,
 				77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */,
 				777F16F2294AEFB90010D807 /* ProfileNetwork.swift in Sources */,
@@ -923,13 +944,16 @@
 				7781D6A7294E01F00020D973 /* CurrentyStudyingModel.swift in Sources */,
 				77AEE5B6294DADB500906FE4 /* LessonDetailsViewController.swift in Sources */,
 				7DB5A83329548C9400513255 /* QuestionListTableViewCell.swift in Sources */,
+				77082C6D295997F3005C3097 /* CustomVarifyTextField.swift in Sources */,
 				77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */,
 				77A0571E29545647004C0365 /* OnBoardingSplashViewController.swift in Sources */,
 				7DB5A80629548BEF00513255 /* TestNetworkManager.swift in Sources */,
 				777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */,
 				83FE357729472C1700B557CC /* CustomButton.swift in Sources */,
 				77AEE59D294DA69800906FE4 /* AboutSubjectViewModel.swift in Sources */,
+				77082C712959A839005C3097 /* CustomSearchViewShadow.swift in Sources */,
 				77BE859F294C9AD700676F5B /* UserDataModel.swift in Sources */,
+				77082C692959948E005C3097 /* TextFIeldBorderHide.swift in Sources */,
 				77BE85A4294CA68500676F5B /* NotificationViewModel.swift in Sources */,
 				77F6FA5E293F060100EBD0A9 /* SceneDelegate.swift in Sources */,
 				7DB5A82A29548C6200513255 /* TestViewController.swift in Sources */,
