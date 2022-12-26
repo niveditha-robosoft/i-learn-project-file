@@ -4067,7 +4067,7 @@ attempted.</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yg6-X6-cVZ">
                                                         <rect key="frame" x="-1" y="-1" width="130" height="130"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_pp" translatesAutoresizingMaskIntoConstraints="NO" id="bz1-iJ-qkw">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws" translatesAutoresizingMaskIntoConstraints="NO" id="bz1-iJ-qkw">
                                                                 <rect key="frame" x="5" y="5" width="120" height="120"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </imageView>
@@ -5378,7 +5378,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="AboutSubjectViewController" id="8vN-PY-cni" customClass="AboutSubjectViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHK-d5-i0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kP-Mjh">
@@ -5666,7 +5666,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="StudyingViewController" id="ctg-2g-pB3" customClass="StudyingViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-Lz-xgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con't found any currenty studying subjects :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW9-lC-S6s">
@@ -5776,7 +5776,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="LikedViewController" id="X8h-yW-QKo" customClass="LikedViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIY-Yt-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Liked Chapters Found  : (" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-FE-Utt">
@@ -6161,6 +6161,7 @@ the image below implies?</string>
         </scene>
     </scenes>
     <resources>
+        <image name="360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws" width="360" height="360"/>
         <image name="MicrosoftTeams-image (4)" width="414" height="896"/>
         <image name="Screenshot 2022-12-25 at 11.49.44 AM" width="114" height="112"/>
         <image name="bell" catalog="system" width="128" height="124"/>
@@ -6191,7 +6192,6 @@ the image below implies?</string>
         <image name="img_bird" width="350" height="180"/>
         <image name="img_carrot_up" width="18" height="12"/>
         <image name="img_ilearn_logo_main" width="129" height="152"/>
-        <image name="img_pp" width="94" height="92"/>
         <image name="img_searchresultnotfound" width="229" height="294"/>
         <image name="imgpsh_fullsize_anim" width="413" height="417"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
