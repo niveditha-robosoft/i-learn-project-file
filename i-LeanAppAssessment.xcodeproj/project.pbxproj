@@ -136,6 +136,7 @@
 		77F6FADE293F1FF400EBD0A9 /* signUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FADD293F1FF400EBD0A9 /* signUpViewModel.swift */; };
 		77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FAE1293F200800EBD0A9 /* signUpModel.swift */; };
 		77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6FAE5293F204100EBD0A9 /* signUp_signInNetwork.swift */; };
+		77FFAE5F2959D4F4003009EC /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FFAE5E2959D4F4003009EC /* ProfileScreenView.swift */; };
 		7D0264D729549ED30097FCF6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264D629549ED30097FCF6 /* Test.swift */; };
 		7D0264DA2954A0D50097FCF6 /* QuestionsWithOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264D92954A0D50097FCF6 /* QuestionsWithOptions.swift */; };
 		7D0264DD2954A4120097FCF6 /* QuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264DC2954A4120097FCF6 /* QuestionList.swift */; };
@@ -301,6 +302,7 @@
 		77F6FADD293F1FF400EBD0A9 /* signUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewModel.swift; sourceTree = "<group>"; };
 		77F6FAE1293F200800EBD0A9 /* signUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpModel.swift; sourceTree = "<group>"; };
 		77F6FAE5293F204100EBD0A9 /* signUp_signInNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp_signInNetwork.swift; sourceTree = "<group>"; };
+		77FFAE5E2959D4F4003009EC /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		7D0264D629549ED30097FCF6 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7D0264D92954A0D50097FCF6 /* QuestionsWithOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsWithOptions.swift; sourceTree = "<group>"; };
 		7D0264DC2954A4120097FCF6 /* QuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionList.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				77082C6C295997F3005C3097 /* CustomVarifyTextField.swift */,
 				77082C702959A839005C3097 /* CustomSearchViewShadow.swift */,
 				77082C732959AA28005C3097 /* TableCellCornerRadious.swift */,
+				77FFAE5E2959D4F4003009EC /* ProfileScreenView.swift */,
 			);
 			path = "custom class";
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				77BE85AA294CABA900676F5B /* NotificationMOdel.swift in Sources */,
 				7DB5A81529548C2500513255 /* ResultViewModel.swift in Sources */,
 				77AEE5C8294DB2AB00906FE4 /* TestResultTimeoutViewController.swift in Sources */,
+				77FFAE5F2959D4F4003009EC /* ProfileScreenView.swift in Sources */,
 				77517EC3293F7FDE002FED03 /* VarifyAccountViewController.swift in Sources */,
 				77AEE596294DA2B700906FE4 /* SubjectListModel.swift in Sources */,
 				77AEE5A0294DA6B300906FE4 /* AboutSubjectNetwork.swift in Sources */,

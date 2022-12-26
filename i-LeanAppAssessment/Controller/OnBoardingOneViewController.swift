@@ -111,7 +111,7 @@ extension OnBoardingOneViewController: UICollectionViewDelegate,UICollectionView
             + flowLayout.sectionInset.right
             
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-        let size = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
+        let _ = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
         return CGSize(width: collectionView.frame.width , height: collectionView.frame.height)
     }
     

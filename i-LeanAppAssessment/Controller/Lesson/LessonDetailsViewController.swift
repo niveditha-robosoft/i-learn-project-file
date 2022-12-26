@@ -70,6 +70,15 @@ class LessonDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             for i in self.objectOfLessonViewModel.lessonDetail{
                 
+                if i.isLiked == "liked"{
+                    
+                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.803833425, green: 0.8039723635, blue: 0.8038246036, alpha: 1)
+                }else{
+                    
+                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.9643666148, green: 0.9724945426, blue: 0.9806874394, alpha: 1)
+                    
+                }
+                
                 if (self.lessonNum == "LessonNo 1"){
                     self.unitTitleLabel.text = "L1:\(i.pageTitle)"
                     

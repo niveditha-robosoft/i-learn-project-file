@@ -9,7 +9,7 @@ import Foundation
 class ResultNetworkManager {
     func postData(url: String,parameters: [String:Any],completion: @escaping(Any? , Error?) -> Void) {
         
-        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxODEzMjc0LCJpYXQiOjE2NzE3NzcyNzR9.AXk1xZMVA7HgktHklalRfLhqStxVe1ci6UTmu25zAEuEUCqJ6BSXrniMHSKlr2Ob0mFojgco287wb8mr5_uThw"
+        let token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxODEzMjc0LCJpYXQiOjE2NzE3NzcyNzR9.AXk1xZMVA7HgktHklalRfLhqStxVe1ci6UTmu25zAEuEUCqJ6BSXrniMHSKlr2Ob0mFojgco287wb8mr5_uThw"
         var request = URLRequest(url: URL(string: url)!)
         
         request.httpMethod = "POST"

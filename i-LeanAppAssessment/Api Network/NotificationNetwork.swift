@@ -25,7 +25,7 @@ class NotificationNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               
@@ -37,7 +37,7 @@ class NotificationNetwork {
                         do{
                             let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
  
-                                print("Notification ststus  : ",responsData)
+                            print("Notification ststus  : ",responsData ?? "Error...!")
 
                                 completion(true,nil)
                           
@@ -73,7 +73,7 @@ class NotificationNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               

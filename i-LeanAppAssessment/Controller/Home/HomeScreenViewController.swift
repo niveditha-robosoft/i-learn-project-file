@@ -124,10 +124,6 @@ extension HomeScreenViewController{
  
         collectionView.isHidden = true
         currentyStudyingLabel.isHidden = true
-//        searchField.borderStyle = .none
-//        notificationIndicator.layer.masksToBounds = true
-//        notificationIndicator.layer.cornerRadius = 3.5
-//        searchView.layer.cornerRadius = 18.0
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -153,7 +149,6 @@ extension HomeScreenViewController{
                     }else{
                         
                         self.notificationIndicator.isHidden = true
-
                         
                     }
                 }
@@ -220,7 +215,29 @@ extension HomeScreenViewController{
 
                 }else{
                     DispatchQueue.main.async {
-                        self.alertMessage(message: "Token expired pleace sign in again")
+                        let refreshAlert = UIAlertController(title: "ALERT", message: "Token expired pleace sign in again", preferredStyle: UIAlertController.Style.alert)
+
+                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+
+                                    
+                                    self.objectOfUserDefaults.set(1, forKey: "SignInStatus")
+                                    
+                                    self.navigationController?.popToRootViewController(animated: true)
+                                    print("Handle Ok logic here")
+
+                                }))
+
+
+
+                                refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+
+                                      print("Handle Cancel Logic here")
+
+                                }))
+
+
+
+                        self.present(refreshAlert, animated: true, completion: nil)
                     }
 
                 }

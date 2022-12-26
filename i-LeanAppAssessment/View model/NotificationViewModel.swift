@@ -52,7 +52,7 @@ class NotificationViewMOdel {
         
                 if notificationError == nil{
                     
-                    if let data0 = notificationData as? [[String: Any]]{
+                    if let data0 = notificationData {
                         
                         for i in data0{
                             

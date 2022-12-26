@@ -26,7 +26,7 @@ class VarificationNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               
@@ -78,7 +78,7 @@ class VarificationNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
                 
@@ -104,7 +104,7 @@ class VarificationNetwork {
                         
                     }else{
                         completion(false,error)
-                        print("Varify error Responce Error is: ", error?.localizedDescription)
+                        print("Varify error Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     }
 
                 }
@@ -132,7 +132,7 @@ class VarificationNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
                 
@@ -159,7 +159,7 @@ class VarificationNetwork {
 
                     }else{
                         completion(false,error)
-                        print("Create pass word Responce Error is: ", error?.localizedDescription)
+                        print("Create pass word Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     }
 
                 }
