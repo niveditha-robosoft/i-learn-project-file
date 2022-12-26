@@ -49,10 +49,9 @@ class QuestionsViewModel {
                     //print(filePath)
                     let questionWithOptionsLists1 = QuestionsWithOptions(questionName: questionName, questionId: questionId, option1: option1, option2: option2, option3: option3, option4: option4)
                     self.questionsWithOptionList.append(questionWithOptionsLists1)
-                    let answer = Answer(testId: 429, lessonId: 29, questionId: questionId, givenAnswer: "")
+                    let answer = Answer(testId: questionValue, lessonId: 29, questionId: questionId, givenAnswer: "")
                     self.answersList[questionId] = answer
                 }
-//                completion(message,statusCode,true,nil)
             }
             completion(message,statusCode,true,nil)
         }
@@ -63,17 +62,15 @@ class QuestionsViewModel {
     
     func getToken() -> String {
         
-        var id = ""
+       var id = ""
        let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
         if let idIs = userIdIs as? Int{
-            
             id = String(idIs)
-            
         }
+        
         print("stored user id : \(id)")
 
-        
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
 
