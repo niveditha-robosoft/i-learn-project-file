@@ -103,6 +103,10 @@ class HomeNetwork {
                     }else if (responsIs.statusCode == 400) {
                         
                         completion(nil,false,nil)
+                    } else if responsIs.statusCode == 400{
+                        
+                        completion(nil,false,nil)
+                        
                     }
 
                 }

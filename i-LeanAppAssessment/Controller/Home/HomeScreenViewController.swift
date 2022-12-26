@@ -218,7 +218,9 @@ extension HomeScreenViewController{
                     self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName)"
 
                 }else{
-
+                    DispatchQueue.main.async {
+                        self.alertMessage(message: "Toke expired pleace sign in again")
+                    }
 
                 }
 
