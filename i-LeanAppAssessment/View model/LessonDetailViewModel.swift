@@ -20,7 +20,7 @@ class LessonDetailViewModel{
                     if conditionIs == true{
                     
                         if let data = dataIs {
-                            guard let title = data["title"] as? String else { print("1")
+                            guard let title = data["title"] as? String else { completion(false)
                                 return
                             }
                             if  let photo = data["imageFile"] as? String {
@@ -30,16 +30,16 @@ class LessonDetailViewModel{
                                 self.videoIs = video
                                 
                             }
-                            guard let description = data["description"] as?  String else{
+                            guard let description = data["description"] as?  String else{ completion(false)
                                 return
                             }
-                            guard let pageNo = data["pageId"] as? Int else{
+                            guard let pageNo = data["pageId"] as? Int else{ completion(false)
                                 return
                             }
-                            guard let unitNo = data["unitId"] as? Int else  {
+                            guard let unitNo = data["unitId"] as? Int else  { completion(false)
                                 return
                             }
-                            guard let likeStatus = data["liked"] as? String else{
+                            guard let likeStatus = data["liked"] as? String else{ completion(false)
                                 return
                             }
                             print("")

@@ -62,7 +62,7 @@ class AboutSubjectNetwork {
        
     
     
-    func callApiForDetailsOfTheLesson(tokenIs: String,lessonId: Int, completion: @escaping(([[String: Any]],Error?) -> ())) {
+    func callApiForDetailsOfTheLesson(tokenIs: String,lessonId: Int, completion: @escaping(([[String: Any]]?,Bool,Error?) -> ())) {
         
         
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/LessonsAndUnit?chapterId=\(lessonId)") else{return}
@@ -100,14 +100,14 @@ class AboutSubjectNetwork {
                             if let datais = responsData as? [[String: Any]]{
                                 
                                 print("lessonData")
-                                completion(datais,nil)
+                                completion(datais,true,nil)
                             }
 
                         }
 
                     }else{
 
-                        completion([["": ""]], error)
+                        completion(nil, false, error)
                         print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
 
                             }

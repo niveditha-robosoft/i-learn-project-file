@@ -46,33 +46,47 @@ class NotificationViewMOdel {
     
     func callApiForNotificationData(tokenToSend: String, completion: @escaping((Bool) -> ())) {
         
-        objectOfNotificationNetwork.notificationDataApi(token: tokenToSend){ notificationData, notificationError in
+        objectOfNotificationNetwork.notificationDataApi(token: tokenToSend){ notificationData, completionCondition , notificationError in
             
             DispatchQueue.main.async {
         
                 if notificationError == nil{
                     
-                    if let data0 = notificationData {
+                    if completionCondition == true{
                         
-                        for i in data0{
+                        if let data0 = notificationData {
                             
-                            guard let data1 = i["notificationId"] as? Int else{ return}
-                            guard let data2 = i["title"] as? String else{ return}
-                            guard let data3 = i["message"] as? String else{ return}
-                            guard let data4 = i["localDateTime"] as? String else{ return}
+                            for i in data0{
+                                
+                                guard let data1 = i["notificationId"] as? Int else{ completion(false)
+                                    return}
+                                guard let data2 = i["title"] as? String else{ completion(false)
+                                    return}
+                                guard let data3 = i["message"] as? String else{ completion(false)
+                                    return}
+                                guard let data4 = i["localDateTime"] as? String else{ completion(false)
+                                    return}
 
-                            let notification = NotificationModel(notificationId: data1, title: data2, message: data3, localDateTime: data4)
-                            
-                            self.notificationDataToShow.append(notification)
-                            completion(true)
+                                let notification = NotificationModel(notificationId: data1, title: data2, message: data3, localDateTime: data4)
+                                
+                                self.notificationDataToShow.append(notification)
+                                completion(true)
+                            }
+       
                         }
-   
+                        
+                    }else{
+                        
+                        completion(false)
+                        
                     }
+                    
+                    
                     
                     
                 }else{
                     
-                    completion(true)
+                    completion(false)
 
                     
                 }

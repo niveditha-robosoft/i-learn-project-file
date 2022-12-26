@@ -264,6 +264,9 @@ extension ProfileViewController{
                         
                     }else{
                         
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Error while loading the data ...!!!")
+                        }
                         
                     }
                 }

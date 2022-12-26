@@ -34,10 +34,14 @@ class HomeViewModel {
                             
                             for i in data0{
                                 
-                                guard let data1 = i["chapterName"] as? String else{ return}
-                                guard let data2 = i["subjectName"] as? String else{ return}
-                                guard let data3 = i["percentage"] as? Int else{ return}
-                                guard let data4 = i["subject_image"] as? String else{ return}
+                                guard let data1 = i["chapterName"] as? String else{ completion(false)
+                                    return}
+                                guard let data2 = i["subjectName"] as? String else{ completion(false)
+                                    return}
+                                guard let data3 = i["percentage"] as? Int else{ completion(false)
+                                    return}
+                                guard let data4 = i["subject_image"] as? String else{ completion(false)
+                                    return}
                                 let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: data3, subject_image: data4)
                                 
                                 self.currentyStudyingData.append(current)
@@ -119,9 +123,9 @@ class HomeViewModel {
                             var nameIs = ""
                             for i in data1{
                                 
-                                guard let data2 = i["subjectName"] as? String else{ print("1100")
+                                guard let data2 = i["subjectName"] as? String else{ completion(false,nil)
                                     return}
-                                guard let data3 = i["subjectId"] as? Int else{ print("2200")
+                                guard let data3 = i["subjectId"] as? Int else{ completion(false,nil)
                                     return }
                                 
                                 idIsIs = data3

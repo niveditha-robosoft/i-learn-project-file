@@ -81,7 +81,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
   
                     }else if reposeIs == false && responceCondition == 0{
                         DispatchQueue.main.async {
-                            self.alertMessage(message: "Invalid User Name or Password Try Again")
+                            self.alertMessage(message: "Invalid User Name or Password Try Again or Try to Sign Up")
                         }
                         
                         

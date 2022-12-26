@@ -39,7 +39,7 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
                     self.tableView.reloadData()
                 }
                 else{
-                    
+                    self.alertMessage(message: "Error while loading the data try after some time ...!!!")
                 }
             }
 

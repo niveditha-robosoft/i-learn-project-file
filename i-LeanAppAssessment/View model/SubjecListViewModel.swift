@@ -23,20 +23,21 @@ class SubjectListViewModel{
                 if errorIs == nil{
                     
 
-                    guard let data1 = dataIs as? [[String:Any]] else {
+                    guard let data1 = dataIs as? [[String:Any]] else { completion(false)
                         return
                     }
                     for i in data1 {
-                        guard let data2 = i["subjectName"] as? String else {
+                        guard let data2 = i["subjectName"] as? String else { completion(false)
                             return
                         }
                         
                         
-                        guard let dataId = i["subjectId"] as? Int else {
+                        guard let dataId = i["subjectId"] as? Int else { completion(false)
                             return
                         }
                         
-                        guard let subImage = i["subjectImage"] as? String else{ return}
+                        guard let subImage = i["subjectImage"] as? String else{ completion(false)
+                            return}
                         
                         let sub = SubjectListModel(subjectName: data2, subjectId: dataId, subjectImage: subImage)
                         self.subjectListDetail.append(sub)
@@ -45,7 +46,6 @@ class SubjectListViewModel{
                    completion(true)
                 }else{
                     completion(false)
-                    print("error received")
                 }
             }
             

@@ -281,14 +281,9 @@ class LessonDetailsViewController: UIViewController {
         
         currentPageNo += 1
         
-        
-        print("right button tapped number : \(currentPageNo)")
         if currentPageNo <= totalePages{
             
-            
-            print("if loop olage bandidini page numbner : \(currentPageNo)")
             let loader = self.loader()
-            print("api sending page number is : \(currentPageNo)")
             objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ [self] data in
                 
                 DispatchQueue.main.async() {
@@ -343,8 +338,6 @@ class LessonDetailsViewController: UIViewController {
                         //self.viewDidLoad()
                         
                     }else{
-                        print("api responce is and else loop in side : \(data)")
-                        
                         
                         DispatchQueue.main.async {
                             
@@ -365,7 +358,7 @@ class LessonDetailsViewController: UIViewController {
             
         }else{
             
-            
+            alertMessage(message: "Error while loading the data ...!!!")
         }
         
         
@@ -447,12 +440,16 @@ class LessonDetailsViewController: UIViewController {
                         
                     }else{
                         
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Sorry somthing went wrong unable to fetch data try after some time ...!!!")
+                        }
                     }
                 }
             }
             disableLeftButton()
         }else{
             
+            alertMessage(message: "Error while loading the data ...!!!")
         }
         
         
@@ -474,7 +471,12 @@ class LessonDetailsViewController: UIViewController {
         
         currentPageNo = SelectedCellLabel
         
+        let loader = self.loader()
+
         objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: tokenIs){ data in
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+            
             if data == true {
                 
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
@@ -516,6 +518,13 @@ class LessonDetailsViewController: UIViewController {
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                 self.unitDetailImageIs.image = UIImage( contentsOfFile: self.objectOfLessonViewModel.lessonDetail.last!.unitImage)
+            }else{
+                
+                DispatchQueue.main.async {
+                    self.alertMessage(message: "Sorry somthing went wrong unable to fetch data try after some time ...!!!")
+                }
+                
+            }
             }
         }
         self.heightConstraint.constant = 0

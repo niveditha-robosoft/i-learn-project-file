@@ -33,7 +33,6 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
         tableView.dataSource = self
 
         tableView.isHidden = true
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +110,9 @@ extension AboutSubjectViewController{
                         
                     }else{
                         
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Error while loaing the data try after some time ...!!!")
+                        }
 
                     }
                 }

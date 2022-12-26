@@ -57,7 +57,7 @@ class NotificationNetwork {
         
     }
     
-    func notificationDataApi(token: String, completion: @escaping(([[String: Any]]?, Error?) -> ())) {
+    func notificationDataApi(token: String, completion: @escaping(([[String: Any]]?,Bool, Error?) -> ())) {
         
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/Notifications?limit=10&page=0") else{
             return
@@ -90,14 +90,14 @@ class NotificationNetwork {
                                 
                                 print("Notification data is : ",dataIs)
                                 
-                                completion(dataIs,nil)
+                                completion(dataIs,true,nil)
                             }
                             
                             
                         }
                     }else if (responsIs.statusCode == 400) {
                         
-                        completion(nil,error)
+                        completion(nil,false,error)
                     }
 
                 }

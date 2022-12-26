@@ -158,6 +158,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             let loader =   self.loader()
             
+            
             objectOfSignUpViewModel.ViewModelPostTheDataToApi(name: nameToSend.lowercased(), mobilenumber_Email: mobile_EmailToSend, password: enteredCreatePassword){ responsIs in
 
                 DispatchQueue.main.async() {
@@ -165,10 +166,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                     if responsIs == true{
 
+                        print("sending email : \(self.mobile_EmailToSend)")
                         let varifyVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
 
                         if let vc = varifyVc {
 
+                            print("opt mail to send : \(self.mobile_EmailToSend)")
                             vc.signUpMobile_EmailIsIS = self.mobile_EmailToSend
                             self.navigationController?.pushViewController(vc, animated: true)
 
@@ -193,7 +196,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
             }
    
-            mobile_EmailToSend = ""
         }else{
             
             self.alertMessage(message: "Create password and confirm passwod asre not matching try again")

@@ -36,6 +36,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("email sending : \(signUpMobile_EmailIsIS)")
         invalidPinView.isHidden = true
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
      

@@ -31,13 +31,20 @@ class ProfileViewMOdel {
                         
                         
                         
-                            guard let dataId = data["profileId"] as? Int64 else{  return}
-                            guard let dataEmail = data["source"] as? String else{  return}
-                            guard let dataName = data["name"] as? String else{  return}
-                            guard let dataImage = data["profileImage"] as? String else{ return}
-                            guard let dataChapterCompleted = data["chapterCompleted"] as? Int else{ return}
-                            guard let dataAverageTestScore = data["averageTestScore"] as? Int else{  return}
-                            guard let dataHighestTestScore = data["highestTestScore"] as? Int else{ return}
+                            guard let dataId = data["profileId"] as? Int64 else{ complition(false)
+                                return}
+                            guard let dataEmail = data["source"] as? String else{ complition(false)
+                                return}
+                            guard let dataName = data["name"] as? String else{ complition(false)
+                                return}
+                            guard let dataImage = data["profileImage"] as? String else{ complition(false)
+                                return}
+                            guard let dataChapterCompleted = data["chapterCompleted"] as? Int else{complition(false)
+                                return}
+                            guard let dataAverageTestScore = data["averageTestScore"] as? Int else{ complition(false)
+                                return}
+                            guard let dataHighestTestScore = data["highestTestScore"] as? Int else{complition(false)
+                                return}
                             
                             
                         let pro = ProfileModel(id: Int64(Int(dataId)), email: dataEmail, name: dataName, chapter: dataChapterCompleted, average: dataAverageTestScore, highest: dataHighestTestScore, profileIMage: dataImage)
@@ -77,24 +84,22 @@ class ProfileViewMOdel {
                         for i in dataIs{
                             
 
-                            guard let data1 = i["subjectName"] as? String else{
+                            guard let data1 = i["subjectName"] as? String else{ completion(false)
                                 return}
-                            guard let data2 = i["lessonNumber"] as? String else{
+                            guard let data2 = i["lessonNumber"] as? String else{ completion(false)
                                 return}
-                            guard let data3 = i["testName"] as? String else{
+                            guard let data3 = i["testName"] as? String else{ completion(false)
                                 return}
-                            guard let data4 = i["rightAnswerCount"] as? Int else{
+                            guard let data4 = i["rightAnswerCount"] as? Int else{ completion(false)
                                 return}
-                            guard let data5 = i["questionsAttempted"] as? Int else{
+                            guard let data5 = i["questionsAttempted"] as? Int else{ completion(false)
                                 return}
-                            guard let data6 = i["totalQuestions"] as? Int else{
+                            guard let data6 = i["totalQuestions"] as? Int else{ completion(false)
                                 return}
-                            guard let data7 = i["percentage"] as? Int else{
+                            guard let data7 = i["percentage"] as? Int else{ completion(false)
                                 return}
-                            guard (i["testId"] as? Int) != nil else{ 
+                            guard (i["testId"] as? Int) != nil else{ completion(false)
                                 return}
-
-                            print("16")
 
                             let result = ResultModel(subjectName: data1, lessonNumber: data2, lessonName: data3, rightAnswreCount: data4, questionsAttempted: data5, totalPercentage: data7, totalQuestions: data6)
                             

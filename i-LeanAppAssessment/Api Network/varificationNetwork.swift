@@ -18,8 +18,9 @@ class VarificationNetwork {
         
         var request = URLRequest(url: url)
         
+        print("otp email : \(sendDataToApi)")
         request.httpMethod = "GET"
-
+        
         request.setValue(sendDataToApi, forHTTPHeaderField: "source")
         
     

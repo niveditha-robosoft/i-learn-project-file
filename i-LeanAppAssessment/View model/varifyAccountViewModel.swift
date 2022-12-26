@@ -26,11 +26,7 @@ class VarifyAccountViewModel {
                     }else{
                         completion(false)
                     }
-                    
-                    
-                    
-                    
-                    
+    
                 }
                 
                 

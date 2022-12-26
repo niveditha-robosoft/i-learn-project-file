@@ -51,11 +51,11 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         tabBarController?.tabBar.isHidden = false
 
+        didloadNameApiCall()
+
         viewWillAppearApicall()
         
         didLoadCurrentlyStudying()
-        
-        didloadNameApiCall()
         
         viewWillAppearChanges()
 
@@ -211,7 +211,7 @@ extension HomeScreenViewController{
                     self.stopLoader(loader: loader)
 
                 if status == true{
-                    self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName)"
+                    self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName.capitalized)"
 
                 }else{
                     DispatchQueue.main.async {

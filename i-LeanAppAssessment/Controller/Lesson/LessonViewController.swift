@@ -38,7 +38,6 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -84,6 +83,12 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                  vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                                  vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
                                  self.navigationController?.pushViewController(vc, animated: true)
+                             }else{
+                                
+                                DispatchQueue.main.async {
+                                    self.alertMessage(message: "Error while loading the data try later ...!!!")
+                                }
+                                
                              }
                      }
                     
