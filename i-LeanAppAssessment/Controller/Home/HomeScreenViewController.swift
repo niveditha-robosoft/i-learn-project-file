@@ -250,10 +250,6 @@ extension HomeScreenViewController{
         }else{
 
         }
-        
-        
-        
-        
     }
     
     func viewWillAppearChanges() {
