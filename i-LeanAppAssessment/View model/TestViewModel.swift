@@ -13,8 +13,7 @@ class TestViewModel {
     var testByLessonValue = 28
     var questionValue = 166
     var testList = [Test]()
-    
-    
+        
     func fetchQuestions(key: String, value: Int, completion: @escaping(([Test]?, Error) -> Void)){
         let networkManager = TestNetworkManager()
         let request = NSMutableURLRequest(url: NSURL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/view/testByLesson?\(key)=\(value)")! as URL)
@@ -48,6 +47,7 @@ class TestViewModel {
         
         print(testList)
     }
+    
     
     func assignQuestionKeyValue(key: String, value: Int) {
         questionKey = key
