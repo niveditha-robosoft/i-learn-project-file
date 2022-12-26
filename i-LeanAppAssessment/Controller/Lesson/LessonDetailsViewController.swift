@@ -54,16 +54,8 @@ class LessonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if currentPageNo >= 1{
-            
-            leftButton.isEnabled = true
-            
-        }else{
-            
-            leftButton.isEnabled = false
-            
-            
-        }
+        
+        leftButton.isEnabled = false
         
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
@@ -99,9 +91,6 @@ class LessonDetailsViewController: UIViewController {
                 print("")
                 if i.unitImage != ""{
                     
-                    print("i am in side the loop1111 ,\(self.objectOfLessonViewModel.lessonDetail.last?.unitImage)")
-                    
-                    
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: i.unitImage)
                     print("116")
@@ -111,10 +100,7 @@ class LessonDetailsViewController: UIViewController {
                     
                     
                 }else {
-                    
-                    print("i am in side the loop1111 ,\(self.objectOfLessonViewModel.lessonDetail.last?.unitVideo)")
-                    
-                    
+
                     self.imageViewHeight.constant = 0
                     self.startVideo(videoString: i.unitVideo)
                     self.videoHeight.constant = 200
@@ -157,32 +143,12 @@ class LessonDetailsViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if currentPageNo > totalePages{
-            
-            rightButton.isEnabled = false
-            
-        }else{
-            
-            rightButton.isEnabled = true
-        }
-        if currentPageNo >= 1{
-            
-            leftButton.isEnabled = true
-            
-        }else{
-            
-            leftButton.isEnabled = false
-            
-            
-        }
-    }
     
     private var isBottomSheetShown = false
     
     @IBAction func likeButtonTapped(_ sender: Any) {
         
-        var tokenIs = getToken()
+        let tokenIs = getToken()
         
         let loader = self.loader()
         
@@ -203,14 +169,7 @@ class LessonDetailsViewController: UIViewController {
             }
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
+ 
         
     }
     @IBAction func goToPageButton(_ sender: Any) {
@@ -261,11 +220,48 @@ class LessonDetailsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    func disableRightButton() {
+        
+        if currentPageNo >= totalePages{
+            
+            rightButton.isEnabled = false
+            leftButton.isEnabled = true
+        }else{
+            
+            rightButton.isEnabled = true
+            leftButton.isEnabled = true
+
+        }
+    }
+    
+    func disableLeftButton() {
+        
+        if currentPageNo >= 1{
+            
+            rightButton.isEnabled = true
+            leftButton.isEnabled = true
+        }else{
+            
+            rightButton.isEnabled = false
+            leftButton.isEnabled = true
+
+        }
+        
+        if currentPageNo == 1{
+            
+            leftButton.isEnabled = false
+        }else{
+            
+            leftButton.isEnabled = true
+
+        }
+        
+    }
+    
     @IBAction func rightButtonTapped(_ sender: Any) {
         
-        
-        
-        var tokenIs = getToken()
+        let tokenIs = getToken()
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
         
@@ -348,6 +344,7 @@ class LessonDetailsViewController: UIViewController {
                 
             }
             
+            disableRightButton()
             
         }else{
             
@@ -361,7 +358,7 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func leftButtonTapped(_ sender: Any) {
         
-        var tokenIs = getToken()
+        let tokenIs = getToken()
         
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
@@ -432,6 +429,7 @@ class LessonDetailsViewController: UIViewController {
                     }
                 }
             }
+            disableLeftButton()
         }else{
             
         }
@@ -451,7 +449,7 @@ class LessonDetailsViewController: UIViewController {
     @IBAction func okButtontapped(_ sender: Any) {
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
-        var tokenIs = getToken()
+        let tokenIs = getToken()
         
         currentPageNo = SelectedCellLabel
         
