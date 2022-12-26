@@ -56,7 +56,7 @@ extension TestViewController: beginTest {
     
     func testBegin() {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
-        vc.viewModel.fetchQuestions(key: "testId", value: 429) { [self] (message,statusCode,data, error) in
+        vc.viewModel.fetchQuestions(key: "testId", value: QuestionsViewModel.shared.questionValue) { [self] (message,statusCode,data, error) in
             if statusCode != 200 {
                 DispatchQueue.main.async {showAlert(message: message)}
                 return
