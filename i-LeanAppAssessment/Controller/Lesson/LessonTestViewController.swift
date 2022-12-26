@@ -9,8 +9,9 @@ import UIKit
 class LessonTestViewController: UIViewController {
     var lessonVc :LessonViewController?
     var lessonNameIs = ""
-    
+    var lessonId:Int?
     var lessonNumberIs = ""
+    var realLessonId: Int?
     
     var unitDetails = [UnitModel]()
     
@@ -31,13 +32,13 @@ class LessonTestViewController: UIViewController {
     @IBOutlet weak var lessonNumber: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isLessonShown{
             testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
             lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
             testContainerView.isHidden = true
             lessonContainerView.isHidden = false
             view.bringSubviewToFront(lessonContainerView)
-
         }
         else{
             lessonButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
@@ -45,8 +46,8 @@ class LessonTestViewController: UIViewController {
             testContainerView.isHidden = false
             lessonContainerView.isHidden = true
             view.bringSubviewToFront(testContainerView)
-
         }
+        
         subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
         lessonName.text = lessonNameIs
         lessonNumber.text = lessonNumberIs
@@ -55,39 +56,22 @@ class LessonTestViewController: UIViewController {
         testContainerView.isHidden = true
         lessonContainerView.isHidden = false
         view.bringSubviewToFront(lessonContainerView)
-        
-        
-        getTestByLesson()
         lessonButton.roundCorners(corners: [.bottomLeft,.topLeft], radius: 12)
         testButton.roundCorners(corners: [.bottomRight,.topRight], radius: 12)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         testVc = segue.destination as? TestViewController
-        
-        
+        testVc?.lessonId = self.realLessonId
+        testVc?.chapterId = self.lessonId
+        AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
         lessonVc = segue.destination as? LessonViewController
         lessonVc?.unitDetailsIS = unitDetails
     }
     
-
-    func getTestByLesson(){
-        TestViewModel.shared.fetchQuestions(key: TestViewModel.shared.testByLessonKey, value: TestViewModel.shared.testByLessonValue) { (test, error) in
-            print(TestViewModel.shared.testList)
-            
-        }
-    }
-    
-    func getQuestions(){
-        TestViewModel.shared.fetchQuestions(key: TestViewModel.shared.questionKey, value: TestViewModel.shared.questionValue) { (test, error) in
-            
-        }
-    }
-    
-    
     @IBAction func lessonButtonTapped(_ sender: Any) {
         showLesson()
     }
-    
     
     @IBAction func testButtonTapped(_ sender: Any) {
         showTest()
@@ -101,6 +85,7 @@ class LessonTestViewController: UIViewController {
         testVc?.tableView.reloadData()
         view.bringSubviewToFront(testContainerView)
     }
+    
     func showLesson() {
         testContainerView.isHidden = true
         lessonContainerView.isHidden = false
@@ -111,10 +96,6 @@ class LessonTestViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-        
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
-    
 }

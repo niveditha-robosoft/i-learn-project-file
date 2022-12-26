@@ -17,7 +17,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     let questionListVM = QuestionListViewModel.shared
     
-    let testVM = TestViewModel.shared
+//    let testVM = TestViewModel.shared
     
     let submitVM = ResultViewModel.shared
     

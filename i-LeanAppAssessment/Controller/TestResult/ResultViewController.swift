@@ -11,7 +11,7 @@ class ResultViewController: UIViewController {
     
     var viewModel = ResultViewModel.shared
     var viewModel2 = TestViewController()
-    
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel
     @IBOutlet weak var progressBar: ProgressBarViewTwo!
     @IBOutlet weak var creditLabel: UIView!
     @IBOutlet weak var tryAgain: UIButton!
@@ -67,10 +67,23 @@ class ResultViewController: UIViewController {
         print(viewModel.tryAgainClick,"tryginclic")
         if viewModel.tryAgainClick > 2 {
             let alert = UIAlertController(title: "Alert", message: "You can only attempt the test three times", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in 
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as! LessonTestViewController
-                vc.isLessonShown = false
-                self.navigationController?.pushViewController(vc, animated: true)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self]_ in
+//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as! LessonTestViewController
+                
+//                vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
+//                vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
+//                vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
+//                vc.subjectNameIs = subjectNameIs
+//                vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
+//                objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
+//
+//                vc.lessonId = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
+//                self.navigationController?.pushViewController(vc, animated: true)
+                
+                
+//                vc.isLessonShown = false
+//                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.popToViewController(objectOfAboutSUbjectViewModel.currentLessonVC, animated: false)
             }))
             self.present(alert, animated: true)
             
@@ -79,7 +92,7 @@ class ResultViewController: UIViewController {
         else {
             print("elseconditiom")
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
-            vc.viewModel2.fetchQuestionList(key: "testId", value: 429) { [self] (data, error) in
+            vc.viewModel2.fetchQuestionList(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { [self] (data, error) in
                 if data! {
                 }
                 print(vc.viewModel2.questionListArray.count)

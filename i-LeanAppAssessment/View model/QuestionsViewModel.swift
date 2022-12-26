@@ -8,15 +8,15 @@
 import Foundation
 class QuestionsViewModel {
     static var shared = QuestionsViewModel()
-    
+    var objectOfKeyChain = KeyChain()
     var questionKey = "testId"
-    var questionValue = 429  //166
+     var questionValue = 429  //166
     
     var questionsWithOptionList = [QuestionsWithOptions]()
     
     var answersList = [Int: Answer]()
     var objectOfUserDefaults = UserDefaults()
-    var objectOfKeyChain = KeyChain()
+    
     
    
     
@@ -49,7 +49,7 @@ class QuestionsViewModel {
                     //print(filePath)
                     let questionWithOptionsLists1 = QuestionsWithOptions(questionName: questionName, questionId: questionId, option1: option1, option2: option2, option3: option3, option4: option4)
                     self.questionsWithOptionList.append(questionWithOptionsLists1)
-                    let answer = Answer(testId: questionValue, lessonId: 29, questionId: questionId, givenAnswer: "")
+                    let answer = Answer(testId: questionValue, lessonId: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId, questionId: questionId, givenAnswer: "")
                     self.answersList[questionId] = answer
                 }
             }

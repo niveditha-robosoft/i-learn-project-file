@@ -9,7 +9,7 @@ import UIKit
 
 protocol beginTest {
 
-    func testBegin()
+    func testBegin(index: IndexPath, testId: Int)
 
 }
 
@@ -28,8 +28,8 @@ class TestTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     @IBOutlet weak var beginTestButton: UIButton!
-
-    
+    var index: IndexPath?
+    var testId: Int?
 
     var delegate: beginTest?
 
@@ -57,7 +57,7 @@ class TestTableViewCell: UITableViewCell {
 
     @IBAction func beginTestButtonClicked(_ sender: Any) {
 
-        delegate?.testBegin()
+        delegate?.testBegin(index: index!, testId: testId!)
 
     }
 

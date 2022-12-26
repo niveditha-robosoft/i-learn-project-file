@@ -16,9 +16,11 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
+    var lessonId: Int?
+    var testId: Int?
     var timer: Timer?
     var elapsedTime: TimeInterval = 0
-    let duration: TimeInterval = 3600
+    let duration: TimeInterval = 600
     var viewModel = QuestionsViewModel.shared
     private var isPopUpShown = false
     var viewModel2 = QuestionListViewModel.shared
@@ -29,6 +31,11 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        viewModel.fetchQuestions(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { (message, statusCode, data, error) in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
         print(viewModel.questionsWithOptionList.count,"count from options")
         print(viewModel2.questionListArray.count,"countFor qu")
         self.questionCountsLabel.text = String(currentPage+1) +  " " + "of" + " " + String(viewModel.questionsWithOptionList.count) + " " + "question"
@@ -49,7 +56,6 @@ class QuestionsViewController: UIViewController {
             timer = nil
             let vc = storyboard?.instantiateViewController(withIdentifier: "TimeOutViewController") as! TimeOutViewController
             ResultViewModel.shared.getResult { (sucess, error) in
-                print("hgcvkjtyu")
                 if sucess! {
                     DispatchQueue.main.async
                     {
@@ -115,10 +121,12 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return QuestionsCollectionViewCell()}
         print( viewModel.questionsWithOptionList[indexPath.row].questionName)
         cell.currentQuestionID = viewModel.questionsWithOptionList[indexPath.row].questionId
+        cell.currentTestID = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId
         print(viewModel.questionsWithOptionList[indexPath.row].questionId, "question id")
-        // cell.currentTestID = viewModel.questionsWithOptionList[indexPath.row].testId
-        cell.currentTestID = 429
-        cell.currentLessonID = 31
+       
+        //cell.currentTestID = 429
+        cell.currentLessonID = lessonId ?? 0
+        
         cell.question.text = viewModel.questionsWithOptionList[indexPath.row].questionName
         cell.optionA.setTitle(viewModel.questionsWithOptionList[indexPath.row].option1, for: .normal)
         cell.optionB.setTitle(viewModel.questionsWithOptionList[indexPath.row].option2, for: .normal)

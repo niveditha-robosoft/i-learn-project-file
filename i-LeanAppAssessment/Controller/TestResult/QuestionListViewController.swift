@@ -26,7 +26,7 @@ class QuestionListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.fetchQuestionList(key: "testId", value: 429) { [self] (data, error) in
+        viewModel.fetchQuestionList(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { [self] (data, error) in
             DispatchQueue.main.async{
                 if data! {
                     print(viewModel.questionListArray.count,"apidata")

@@ -12,11 +12,11 @@ class ResultViewModel {
     var url = "https://app-e-learning-221207163844.azurewebsites.net/user/submitTest"
     
     var parameters: [String: Any] = [
-        "testId":429,
-        "lessonId": 31,
+        "testId": 0,
+        "lessonId": 0,
         "questionAnswerResponses": [
-            "questionId":430,
-            "givenAnswer": "'prepositions or verbs'"
+            "questionId":0,
+            "givenAnswer": "prepositions or verbs"
         ]
     ]
     
@@ -35,7 +35,8 @@ class ResultViewModel {
     
     func assignParameters(testId: Int,lessonId: Int) {
         parameters["testId"] = testId
-        parameters["lessonId"] = lessonId
+        AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId = testId
+        parameters["lessonId"] = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId
         assignAnswer()
     }
     

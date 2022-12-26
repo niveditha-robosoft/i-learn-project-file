@@ -12,7 +12,7 @@ class LessonDetailsViewController: UIViewController {
     var objectOfLessonViewModel = LessonDetailViewModel.objectOfLessonDetailViewModel
     var objectOFSignInViewMOdel = SignInViewModel.objectOfViewModel
     
-    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
     

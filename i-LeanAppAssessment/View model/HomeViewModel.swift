@@ -10,8 +10,7 @@ import Foundation
 
 class HomeViewModel {
     
-    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfViewmodel
-    
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel
     static var objectOfViewModel = HomeViewModel()
     
     var objectOfHomeNetwork = HomeNetwork()

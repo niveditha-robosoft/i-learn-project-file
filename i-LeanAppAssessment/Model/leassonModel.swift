@@ -10,6 +10,7 @@ import Foundation
 class lessonModel {
     
     var unitDetails = [UnitModel]()
+   // var testDetails = [Test]()
 
     
     var lessonId: Int

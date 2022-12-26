@@ -12,7 +12,7 @@ class QuestionListViewModel {
     var questionListKey = "testId"
     var questionListValue = 429
     var questionListArray = [QuestionList]()
-    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYW1yYXRoYXVpMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNjU0MzQ4LCJpYXQiOjE2NzE2MTgzNDh9.R6EDjSYk5zjT8WNEkOAq2oKN2FJcUy7ILffDmspoRrO6kF03SuI4TruV6PlEibjO6nFf5a8h5xn_9Xf8rbUGpw"
+    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGV0dHlzaHJ1c2h0aTE0M0BnbWFpbC5jb20iLCJleHAiOjE2NzIwODA3NDYsImlhdCI6MTY3MjA0NDc0Nn0.xjCdP5gqln_oLrfq2D9SQfb7rcftJBqjmmVuBkGILZUZDA-KpQYERCjjlmli4jH5vo_leZVDGaV5SZMoaaWOnQ"
     
     func fetchQuestionList(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
         let networkManager = QuestionListNetworkManager()

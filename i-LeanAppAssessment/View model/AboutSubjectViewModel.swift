@@ -9,11 +9,16 @@ import Foundation
 
 
 class AboutSUbjectViewModel {
-
+    static var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var subjectDetailsArray = [SubjectDetailsModel]()
+    var testIdArray = [Test]()
     var lessonDetails = [lessonModel]()
-    
-    static var objectOfViewmodel = AboutSUbjectViewModel()
+    var testDetails = [Test]()
+    var currentTestId = 0
+    var currentLessonId = 0
+    var currentChapterId = 0
+    var currentLessonVC: LessonTestViewController = LessonTestViewController()
+    //static var objectOfViewmodel = AboutSUbjectViewModel()
     var objectOfAboutSubjectNetwork = AboutSubjectNetwork()
     func callApiForSubjectdetails(subjectIdToSend: Int, completion: @escaping((Bool) -> ())) {
         
@@ -101,16 +106,16 @@ class AboutSUbjectViewModel {
                             if let data7 = i["unitList"] as? [[String: Any]]{
                                 
                                 print("3", data7)
-
+                                
                                 for j in data7{
-                                   
+                                    
                                     print("for loop")
                                     
                                     guard let data11 = j["unitId"] as? Int else{ print("001")
                                         return}
                                     guard let data12 = j["unitName"] as? String else{print("002")
                                         return}
-                                    guard let data13 = j["unitOverview"] as? String else{ print("003")
+                                    guard let data13 = j["unitOverview"] as? String else{ print("unitOverview")
                                         return}
                                     guard let data14 = j["level"] as? String else{ print("004")
                                         return}
@@ -122,11 +127,11 @@ class AboutSUbjectViewModel {
                                     lesson.unitDetails.append(unit)
                                     
                                 }
-    
+                                
                             }
                             
                         }
-      
+                        
                         completion(true)
                     }
                     
@@ -139,8 +144,55 @@ class AboutSUbjectViewModel {
                 }
             }
             
-           
             
+            
+        }
+        
+    }
+    func fetchTestDetails(tokenToSenf: String,lessonIdToSend: Int, completion: @escaping((Bool) -> ())) {
+        objectOfAboutSubjectNetwork.callApiForDetailsOfTheLesson(tokenIs: tokenToSenf,lessonId: lessonIdToSend){ responceData, responceError in
+            
+            self.testDetails.removeAll()
+            
+            DispatchQueue.main.async {
+                if responceError == nil{
+                    if let data1 = responceData as? [[String: Any]]{
+                        print("1")
+                        for i in data1 {
+                            
+                            print("2")
+                            if let testData = i["test"] as? [[String: Any]]{
+                                
+                               
+                                for j in testData{
+                                    print("for loop")
+                                    guard let testId = j["testId"] as? Int else{ print("001")
+                                        return}
+                                    guard let level = j["level"] as? String else{print("002")
+                                        return}
+                                    guard let testName = j["testName"] as? String else{ print("00333")
+                                        return}
+                                    guard let noOfAttempts = j["noOfAttempts"] as? Int else{ print("004")
+                                        return}
+                                    guard let duration = j["duration"] as? Int else{ print("005")
+                                        return}
+                                    guard let totalQuestions = j["totalQuestions"] as? Int else{print("006")
+                                        return}
+                                    guard let marks = j["marks"] as? Int else{print("006")
+                                        return}
+                                    let testData = Test(testId: testId, testName: testName, duration: duration, totalQuestions: totalQuestions, level: level, marks: marks)
+                                    self.testDetails.append(testData)
+                                    
+                                }
+                            }
+                        }
+                        completion(true)
+                    }
+                }else{
+                    print("false is here")
+                    completion(false)
+                }
+            }
         }
         
     }
