@@ -29,16 +29,15 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
-
         ConfigureTapGesture()
         searchField.delegate = self
-     //   didloadNameApiCall()
+        didloadNameApiCall()
 
-       // didloadChanges()
+        didloadChanges()
  
         didloadNOtificationStatusApiCall()
         
-      //  didLoadCurrentlyStudying()
+        didLoadCurrentlyStudying()
         
         if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
             navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -47,10 +46,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         
     }
-    
-    
-   
-    
+
     override func viewDidAppear(_ animated: Bool) {
         
         tabBarController?.tabBar.isHidden = false
@@ -91,8 +87,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
-        
-        
+
         searchApiCall()
         
     }
@@ -101,8 +96,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchApiCall()
         searchField.endEditing(true)
-        print("return",searchField.text! )
-                searchField.text = ""
+        searchField.text = ""
 
         return true
     }
@@ -133,19 +127,14 @@ extension HomeScreenViewController{
         notificationIndicator.layer.masksToBounds = true
         notificationIndicator.layer.cornerRadius = 3.5
         searchView.layer.cornerRadius = 14.0
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-
         
     }
     
     
     func didloadNOtificationStatusApiCall() {
-        
         let call = getToken()
-
         
         if call != ""{
             
@@ -170,21 +159,15 @@ extension HomeScreenViewController{
       
             }
             
-            
         }else{
             
-            
         }
-        
-        
-        
-   
+
     }
     
     func didLoadCurrentlyStudying()  {
         
         let call = getToken()
-
         
         if call != ""{
             
@@ -204,21 +187,16 @@ extension HomeScreenViewController{
                     self.collectionView.isHidden = true
                     self.currentyStudyingLabel.isHidden = true
                     
-                    
                 }
                 
                 }
                 
             }
-            
-            
-            
+
         }else{
             
         }
-        
-        
-        
+ 
     }
     
     
@@ -228,8 +206,6 @@ extension HomeScreenViewController{
 
 
         if call != ""{
-
-            print("API CALL API CALL API CALL")
 
             let loader =   self.loader()
 
@@ -263,25 +239,19 @@ extension HomeScreenViewController{
     func viewWillAppearChanges() {
         
         collectionView.isHidden = false
-        
         searchField.borderStyle = .none
         notificationIndicator.layer.masksToBounds = true
         notificationIndicator.layer.cornerRadius = 3.5
         searchView.layer.cornerRadius = 14.0
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         
     }
     
-    
-    
-    
     func viewWillAppearApicall() {
         
         let call = getToken()
-        
         
         if call != ""{
             
@@ -299,7 +269,6 @@ extension HomeScreenViewController{
                         
                         self.notificationIndicator.isHidden = true
 
-                        
                     }
                 }
       
@@ -309,15 +278,9 @@ extension HomeScreenViewController{
         }else{
             
         }
-        
-        
-        
-        
+  
     }
-    
-    
-    
-    
+
     func searchApiCall()  {
         
         let loader = self.loader()
@@ -351,23 +314,48 @@ extension HomeScreenViewController{
             }
             
         }
+            
         }
-        
-        
+ 
         searchField.endEditing(true)
-        
-        
-        
-        print("button",searchField.text! )
-                searchField.text = ""
 
+        searchField.text = ""
+
+    }
+
+
+    private func ConfigureTapGesture(){
         
-        
-        
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleTap))
+
+        view.addGestureRecognizer(tapGesture)
+
+    }
+ 
+    
+    @objc func handleTap(){
+
+        view.endEditing(true)
+
     }
     
-    
+    func getImage(urlString: String) -> UIImage {
+        
+        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "img_geography-1") }
+        
+        let imageData = try?
+        Data(contentsOf: imageUrl)
+        
+        if let imageData = imageData{
+            
+            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "img_geography-1") }
+            
+            return image
+        }
+        
+        return #imageLiteral(resourceName: "img_geography")
+        
+    }
     
     func getToken() -> String {
         
@@ -393,51 +381,5 @@ extension HomeScreenViewController{
         return receivedToken
     }
     
-    
-    
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
-    
-    private func ConfigureTapGesture(){
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleTap))
-
-        view.addGestureRecognizer(tapGesture)
-
-    }
- 
-    
-    @objc func handleTap(){
-
-        print("handle tap was called")
-
-        view.endEditing(true)
-
-    }
-    
-    func getImage(urlString: String) -> UIImage {
-        
-        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "img_geography-1") }
-        
-        let imageData = try?
-        Data(contentsOf: imageUrl)
-        
-        if let imageData = imageData{
-            
-            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "img_geography-1") }
-            
-            return image
-        }
-        
-        return #imageLiteral(resourceName: "img_geography")
-        
-    }
 }
+

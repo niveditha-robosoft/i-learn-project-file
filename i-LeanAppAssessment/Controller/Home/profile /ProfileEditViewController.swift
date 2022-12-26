@@ -18,14 +18,10 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     @IBOutlet weak var chapterCompleted: UILabel!
     @IBOutlet weak var averageScore: UILabel!
     @IBOutlet weak var highestScore: UILabel!
-    
-    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var mailField: UITextField!
-    
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var image2View: UIView!
-    
     @IBOutlet weak var profileIMage: UIImageView!
     
     var profileImageIs = #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
@@ -42,9 +38,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
         tabBarController?.tabBar.isHidden = true
 
         didloadChanges()
-        
-       
- 
+  
     }
 
 
@@ -61,7 +55,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
     
     @IBAction func updateEditButtonTapped(_ sender: UIButton) {
         
-       var call = getToken()
+        let call = getToken()
         
         if call != ""{
           
@@ -85,10 +79,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
             
         }else{
             
-            
         }
-        
-        
 
     }
     
@@ -103,16 +94,7 @@ class ProfileEditViewController: UIViewController ,UINavigationControllerDelegat
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true)
     }
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
+
 }
 
 extension ProfileEditViewController{
@@ -158,17 +140,13 @@ extension ProfileEditViewController{
             id = String(idIs)
             
         }
-        print("stored user id : \(id)")
-
         
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
 
         guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
             return ""}
-        
-        print("token",receivedToken)
-        
+                
         return receivedToken
     }
     

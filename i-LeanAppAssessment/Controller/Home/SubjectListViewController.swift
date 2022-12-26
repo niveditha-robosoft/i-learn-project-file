@@ -13,16 +13,24 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
    
     var objectOfSubjectViewModel = SubjectListViewModel.objectOfViewModel
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        
+        callApi()
+
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+        callApi()
+    }
+    
+    func callApi() {
         let loader =   self.loader()
-        
         objectOfSubjectViewModel.subjectDetail(){ condition in
             
             DispatchQueue.main.async() {
@@ -36,14 +44,8 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
             }
 
         }
-
     }
-
     
-    override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
-
-    }
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return objectOfSubjectViewModel.subjectListDetail.count
@@ -60,16 +62,13 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("HI HI HI i am here ....!")
-        
+                
         let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "SubjectDetailsViewController") as? SubjectDetailsViewController
         
         if let vc = detailsVc {
             
             vc.subjectIdFromSUbjectlist = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectId
             vc.subjectNameToSend = objectOfSubjectViewModel.subjectListDetail[indexPath.row].subjectName
-            
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -79,19 +78,19 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     func getImage(urlString: String) -> UIImage {
         
-        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") }
+        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "img_geography") }
         
         let imageData = try?
         Data(contentsOf: imageUrl)
         
         if let imageData = imageData{
             
-            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws") }
+            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "img_geography-1") }
             
             return image
         }
         
-        return #imageLiteral(resourceName: "360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws")
+        return #imageLiteral(resourceName: "img_geography-1")
         
     }
 

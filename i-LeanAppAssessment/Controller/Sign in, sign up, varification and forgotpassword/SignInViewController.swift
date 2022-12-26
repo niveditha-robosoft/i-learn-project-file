@@ -69,11 +69,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
             
             let loader =   self.loader()
             
-            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs in
+            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs, responceCondition in
                 
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
-                    if reposeIs == true{
+                    if reposeIs == true && responceCondition == 0{
                         
                         let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
                         TabBarViewController
@@ -83,21 +83,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
 
-                        print("hi000000 ")
-
-                        
-                        
-                    }else if reposeIs == false{
+  
+                    }else if reposeIs == false && responceCondition == 0{
                         DispatchQueue.main.async {
-                            print("hi hi ")
-                            self.alertMessage(message: "Invalid user name or password try again")
+                            self.alertMessage(message: "Invalid User Name or Password Try Again")
                         }
                         
                         
                         
                     }else{
                         DispatchQueue.main.async {
-                            self.alertMessage(message: "Try to sign up")
+                            self.alertMessage(message: "Try to Sign Up")
                         }
                     }
                 }
@@ -185,18 +181,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         }
         
     }
-    
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
 
-   
 }
 
 

@@ -34,17 +34,12 @@ class ForgotPasswordViewController: UIViewController {
 
             if mobileNumberOrEmailField.text?.count == 10 && Int(mobileNumberOrEmailField.text ?? "") != nil {
 
-                print("YOOU HAVE ENTERED MOBILE NUMBER FORGOT : ",mobileNumberOrEmailField.text)
-                
                 let loader =   self.loader()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                            self.stopLoader(loader: loader)
-                        }
-         
-                
+
                 objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend:"+91\(emailAndMobileData)"){ varifivationResponce in
 
-                    
+                    DispatchQueue.main.async {
+                        self.stopLoader(loader: loader)
                     if varifivationResponce == true {
 
                         let otpVc = self.storyboard?.instantiateViewController(withIdentifier: "VarifyAccountViewController") as? VarifyAccountViewController
@@ -67,6 +62,7 @@ class ForgotPasswordViewController: UIViewController {
                         
                     }
 
+                }
                 }
             }else{
 
@@ -113,17 +109,6 @@ class ForgotPasswordViewController: UIViewController {
     @IBAction func backbuttonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    func alertMessage(message: String){
-        
-            let alert = UIAlertController(title: "ALERT", message: message, preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
-            self.present(alert,animated: true, completion: nil)
-        }
-    
-
 
 }
 

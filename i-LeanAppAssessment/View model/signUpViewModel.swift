@@ -29,13 +29,12 @@ class SignUpViewModel {
                     
                     completion(false)
                 }
-               
-                
-                
+
                 
             }
             else{
                 
+                completion(false)
                 
             }
         }

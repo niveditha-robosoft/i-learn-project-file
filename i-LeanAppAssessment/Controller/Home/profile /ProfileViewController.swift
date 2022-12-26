@@ -182,16 +182,11 @@ class ProfileViewController: UIViewController {
         bottomView.isHidden = true
        
         edit_LogoutBackgroundView.isHidden = true
-//        homeBackgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         tabBarController?.tabBar.isHidden = false
         homeBackgroundView.backgroundColor = #colorLiteral(red: 0.9641161561, green: 0.9801463485, blue: 1, alpha: 1)
         chapterView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         averageVIew.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         highestView.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
-        
-        
-        print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-        
         
     }
     
@@ -199,24 +194,18 @@ class ProfileViewController: UIViewController {
         
         var id = 0
         
-        print("user id to print: \(objectOfUserDefaults.value(forKey: "userId"))")
         if let idIs =  objectOfUserDefaults.value(forKey: "userId") as? Int{
             
             id = idIs
             
         }
-        print("stored user id : \(id)")
-        
-        
+
         objectOfUserDefaults.set(1, forKey: "SignOutYes")
         objectOfUserDefaults.set(4, forKey: "Status")
-        print("SignOutYes",objectOfUserDefaults.value(forKey: "SignOutYes")!)
-        
         objectOfKeyChain.deletePassword(userId: String(id))
         objectOfUserDefaults.set(0, forKey: "userId")
         self.navigationController?.popToRootViewController(animated: true)
         
-        print("Yessssssssssssssssssss")
     }
     
     
@@ -255,7 +244,7 @@ extension ProfileViewController{
     
     func didLoadApiCall() {
         
-        var call = getToken()
+        let call = getToken()
 
         
         if call != "" {
@@ -347,7 +336,7 @@ extension ProfileViewController{
     
     func viewWillAppeareApiCall() {
         
-        var call = getToken()
+        let call = getToken()
         
         if call != ""{
             
@@ -400,17 +389,13 @@ extension ProfileViewController{
             id = String(idIs)
             
         }
-        print("stored user id : \(id)")
-
         
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
 
         guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
             return ""}
-        
-        print("token",receivedToken)
-        
+                
         return receivedToken
     }
     
