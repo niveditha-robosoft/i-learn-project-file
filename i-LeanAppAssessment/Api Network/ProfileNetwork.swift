@@ -25,7 +25,7 @@ class ProfileNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Profile Api Error is: \(error?.localizedDescription)")
+                    print("Profile Api Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               
@@ -78,7 +78,7 @@ class ProfileNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Result is: \(error?.localizedDescription)")
+                    print("Result is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               

@@ -12,8 +12,8 @@ class CreatePasswordViewController: UIViewController {
     var objectOfCreatePasswordViewModel = CreatePasswordViewModel.objrctOfViewModel
     
     @IBOutlet weak var resetPasswordButton: UIButton!
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var confirmPAsswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: CustomeTextField!
+    @IBOutlet weak var confirmPAsswordTextField: CustomeTextField!
     
     var mobile_EmailToSend = ""
     
@@ -24,8 +24,6 @@ class CreatePasswordViewController: UIViewController {
         self.resetPasswordButton.layer.cornerRadius = 5.0
         resetPasswordButton.isEnabled = false
         resetPasswordButton.alpha = 0.5
-       
-        print("load data", mobile_EmailToSend)
     }
     
     @IBAction func newPassword(_ sender: Any) {

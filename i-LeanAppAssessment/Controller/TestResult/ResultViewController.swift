@@ -32,6 +32,10 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tryAgain.layer.shadowColor = UIColor(red: 76/255, green: 147/255, blue: 255/255, alpha: 0.05).cgColor
+        tryAgain.layer.shadowOpacity = 100
+        tryAgain.layer.shadowRadius = 5
+        tryAgain.layer.shadowOffset = CGSize(width: 0, height: 2)
         tryAgain.layer.cornerRadius = 12
         creditLabel.layer.cornerRadius = 20
         arrowRightButton.layer.cornerRadius = 11.9

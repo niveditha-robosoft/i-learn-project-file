@@ -14,9 +14,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     
     var objectOfSignInViewModel = SignInViewModel.objectOfViewModel
     
-    @IBOutlet weak var mobileEmailTextField: UITextField!
+    @IBOutlet weak var mobileEmailTextField: CustomeTextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: CustomeTextField!
     
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -36,8 +36,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let attributeString = NSMutableAttributedString(
                 string: "Skip",
                 attributes: yourAttributes
@@ -47,11 +45,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         signInSkipButton.setAttributedTitle(attributeString, for: .normal)
         signInSkipButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 16)
         
-//        navigationController?.navigationBar.isHidden = true
         statusOftheButton()
-        mobileEmailTextField.borderStyle = .none
-        passwordTextField.borderStyle = .none
-        
+
         CongfigureTextFields()
 
         ConfigureTapGesture()
@@ -172,12 +167,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         if mobileEmailTextField.text != "" && passwordTextField.text != ""{
             
             gotoHomeScreenWhenButtonTappedInSigninScreenButton.isEnabled = true
-            gotoHomeScreenWhenButtonTappedInSigninScreenButton.setImage(#imageLiteral(resourceName: "btn_signin-2"), for: .normal)
+            gotoHomeScreenWhenButtonTappedInSigninScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.53.37 AM"), for: .normal)
             
         }else{
             
             self.gotoHomeScreenWhenButtonTappedInSigninScreenButton.isEnabled = false
-            self.gotoHomeScreenWhenButtonTappedInSigninScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
+            self.gotoHomeScreenWhenButtonTappedInSigninScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
         }
         
     }
@@ -244,8 +239,6 @@ extension SignInViewController{
     }
 
     @objc func handleTap(){
-
-        print("handle tap was called")
 
         view.endEditing(true)
 

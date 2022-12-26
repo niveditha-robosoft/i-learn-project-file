@@ -20,8 +20,8 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var notificationIndicator: UILabel!
-    @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchField: CustomeTextField!
+    @IBOutlet weak var searchView: CustomSearchViewShadow!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var currentyStudyingLabel: UILabel!
     
@@ -76,6 +76,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.progressPercentage.text = "\(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)%"
         cell.contentBackgroundView.layer.masksToBounds = true
         cell.contentBackgroundView.layer.cornerRadius = 15.0
+        cell.contentBackgroundShadow()
         cell.progrssBar.progress = Float(objectOfHomeViewModel.currentyStudyingData[indexPath.row].percentahge)/Float(100)
         return cell
     }
@@ -120,13 +121,9 @@ extension HomeScreenViewController: UICollectionViewDelegateFlowLayout{
 extension HomeScreenViewController{
     
     func didloadChanges()  {
-        
+ 
         collectionView.isHidden = true
         currentyStudyingLabel.isHidden = true
-        searchField.borderStyle = .none
-        notificationIndicator.layer.masksToBounds = true
-        notificationIndicator.layer.cornerRadius = 3.5
-        searchView.layer.cornerRadius = 14.0
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -152,7 +149,6 @@ extension HomeScreenViewController{
                     }else{
                         
                         self.notificationIndicator.isHidden = true
-
                         
                     }
                 }
@@ -218,7 +214,31 @@ extension HomeScreenViewController{
                     self.userNameLabel.text = "Hi, \(self.objectOfHomeViewModel.userName)"
 
                 }else{
+                    DispatchQueue.main.async {
+                        let refreshAlert = UIAlertController(title: "ALERT", message: "Token expired pleace sign in again", preferredStyle: UIAlertController.Style.alert)
 
+                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+
+                                    
+                                    self.objectOfUserDefaults.set(1, forKey: "SignInStatus")
+                                    
+                                    self.navigationController?.popToRootViewController(animated: true)
+                                    print("Handle Ok logic here")
+
+                                }))
+
+
+
+                                refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+
+                                      print("Handle Cancel Logic here")
+
+                                }))
+
+
+
+                        self.present(refreshAlert, animated: true, completion: nil)
+                    }
 
                 }
 
@@ -367,8 +387,6 @@ extension HomeScreenViewController{
             id = String(idIs)
             
         }
-        print("stored user id : \(id)")
-
         
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}

@@ -13,10 +13,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var nameText: UITextField!
-    @IBOutlet weak var mobile_EmailText: UITextField!
-    @IBOutlet weak var createPasswordText: UITextField!
-    @IBOutlet weak var confirmPasswordText: UITextField!
+    @IBOutlet weak var nameText: CustomeTextField!
+    @IBOutlet weak var mobile_EmailText: CustomeTextField!
+    @IBOutlet weak var createPasswordText: CustomeTextField!
+    @IBOutlet weak var confirmPasswordText: CustomeTextField!
     @IBOutlet weak var signUpDoneAndGoToVarificationScreenButton: UIButton!
     
     
@@ -34,7 +34,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-   
         
         let attributeString = NSMutableAttributedString(
                 string: "Sign in",
@@ -43,9 +42,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         signInButton.tintColor = #colorLiteral(red: 0.2980392157, green: 0.5764705882, blue: 1, alpha: 1)
         nameText.borderStyle = .none
-        mobile_EmailText.borderStyle = .none
-        createPasswordText.borderStyle = .none
-        confirmPasswordText.borderStyle = .none
         signInButton.setAttributedTitle(attributeString, for: .normal)
         signInButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 16)
 
@@ -63,12 +59,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if  nameText.text != "" && mobile_EmailText.text != "" && confirmPasswordText.text != "" && createPasswordText.text != ""  {
             
             signUpDoneAndGoToVarificationScreenButton.isEnabled = true
-            signUpDoneAndGoToVarificationScreenButton.setImage(#imageLiteral(resourceName: "btn_signin-2"), for: .normal)
+            signUpDoneAndGoToVarificationScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.53.37 AM"), for: .normal)
 
         }else{
             
             signUpDoneAndGoToVarificationScreenButton.isEnabled = false
-            signUpDoneAndGoToVarificationScreenButton.setImage(#imageLiteral(resourceName: "btn_signin (1)"), for: .normal)
+            signUpDoneAndGoToVarificationScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
             
         }
         

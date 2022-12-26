@@ -17,9 +17,9 @@ class ProfileViewController: UIViewController {
     var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
     
-    @IBOutlet weak var chapterView: UIView!
-    @IBOutlet weak var averageVIew: UIView!
-    @IBOutlet weak var highestView: UIView!
+    @IBOutlet weak var chapterView: ProfileScreenView!
+    @IBOutlet weak var averageVIew: ProfileScreenView!
+    @IBOutlet weak var highestView: ProfileScreenView!
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userMailId: UILabel!
@@ -216,9 +216,6 @@ extension ProfileViewController{
     
     func didloadChanges() {
         
-        highestView.layer.cornerRadius = 9.0
-        averageVIew.layer.cornerRadius = 9.0
-        chapterView.layer.cornerRadius = 9.0
         imageView.layer.cornerRadius = imageView.bounds.width/2
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = imageView.bounds
@@ -305,9 +302,6 @@ extension ProfileViewController{
     
     func viewWillwApperChanges() {
         
-        highestView.layer.cornerRadius = 9.0
-        averageVIew.layer.cornerRadius = 9.0
-        chapterView.layer.cornerRadius = 9.0
         bottomView.isHidden = true
         imageView.layer.cornerRadius = imageView.bounds.width/2
         let gradientLayer = CAGradientLayer()

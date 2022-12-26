@@ -44,7 +44,6 @@ class StudyingViewController: UIViewController, UITableViewDelegate, UITableView
             cell.subjectImage.image = getImage(urlString: objectOfHomeViewModel.currentyStudyingData[indexPath.row].subject_image)
             cell.subjectName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName.uppercased()
             cell.lessonName.text = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName.capitalized
-            cell.setCornerRadius()
         }else{
             
             

@@ -49,7 +49,7 @@ extension NotificationViewController{
 
     func didloadChanges() {
         
-        var call = getToken()
+        let call = getToken()
         
         if call != ""{
             

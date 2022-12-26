@@ -30,6 +30,11 @@ class TimeOutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        takeNewTestButton.layer.shadowColor = UIColor(red: 76/255, green: 147/255, blue: 255/255, alpha: 0.05).cgColor
+        takeNewTestButton.layer.shadowOpacity = 100
+        takeNewTestButton.layer.shadowRadius = 5
+        takeNewTestButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+
         percentageLabel.text = "\(percentge)"
         numberOfQuestionsAttempted.text = "\(viewModel.questionsAttempts) of \(viewModel.totalQuestion)"
     }

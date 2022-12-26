@@ -16,12 +16,12 @@ class SubjectListNetwork {
             return
         }
         
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
  
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
                 
@@ -42,7 +42,7 @@ class SubjectListNetwork {
                         }
                     }else{
                         completion([["": ""]],error)
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     }
 
                 }

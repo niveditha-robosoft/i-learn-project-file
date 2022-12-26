@@ -11,7 +11,7 @@ class LikedInitApiManager {
 
     func likedUnitApi(token: String, completion: @escaping(([[String: Any]]?,Bool,Error?) -> ())) {
         
-        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/likedChapter") else{return}
+        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likedUnit") else{return}
         
         var request = URLRequest(url: url)
         
@@ -24,7 +24,7 @@ class LikedInitApiManager {
             
             guard let data = data, error == nil else{
                 
-                print("Error is print this: \(error?.localizedDescription)")
+                print("Error is print this: \(String(describing: error?.localizedDescription))")
                 
                 return
                 
@@ -47,9 +47,9 @@ class LikedInitApiManager {
                         
                     }
                     
-                }else{
+                }else if (responsIs.statusCode == 400){
                     completion(nil,false,nil)
-                    print("Responce Error is: ", error?.localizedDescription)
+                    print("Responce Error is: ", error?.localizedDescription ?? "Error...!!!")
                     
                 }
                 

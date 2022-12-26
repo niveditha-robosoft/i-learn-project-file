@@ -13,5 +13,7 @@ class LikedUnitsTableViewCell: UITableViewCell {
     @IBOutlet weak var subjectName: UILabel!
     @IBOutlet weak var lessonName: UILabel!
     @IBOutlet weak var unitName: UILabel!
+    @IBOutlet weak var backView: TableCellCornerRadius!
+    
     
 }

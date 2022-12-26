@@ -25,7 +25,7 @@ class HomeNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               
@@ -79,7 +79,7 @@ class HomeNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               
@@ -103,6 +103,10 @@ class HomeNetwork {
                     }else if (responsIs.statusCode == 400) {
                         
                         completion(nil,false,nil)
+                    } else if responsIs.statusCode == 400{
+                        
+                        completion(nil,false,nil)
+                        
                     }
 
                 }
@@ -126,7 +130,7 @@ class HomeNetwork {
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
                 guard let data = data, error == nil else{
-                    print("Error is: \(error?.localizedDescription)")
+                    print("Error is: \(String(describing: error?.localizedDescription))")
                     return
                 }
               

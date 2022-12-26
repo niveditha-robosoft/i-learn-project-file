@@ -22,7 +22,7 @@ class AboutSubjectNetwork {
 
         guard let data = data, error == nil else{
 
-                print("Error is print this: \(error?.localizedDescription)")
+            print("Error is print this: \(String(describing: error?.localizedDescription))")
 
                     return
 
@@ -48,7 +48,7 @@ class AboutSubjectNetwork {
                     }else if (responsIs.statusCode == 400){
 
                         completion(nil, false , error)
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
 
                             }
 
@@ -81,7 +81,7 @@ class AboutSubjectNetwork {
 
         guard let data = data, error == nil else{
 
-                print("Error is print this: \(error?.localizedDescription)")
+            print("Error is print this: \(String(describing: error?.localizedDescription))")
 
                     return
 
@@ -103,17 +103,12 @@ class AboutSubjectNetwork {
                                 completion(datais,nil)
                             }
 
-                        }catch{
-                            
-                            completion([["": ""]], error)
-                            print(error)
-                            
                         }
 
                     }else{
 
                         completion([["": ""]], error)
-                        print("Responce Error is: ", error?.localizedDescription)
+                        print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
 
                             }
 

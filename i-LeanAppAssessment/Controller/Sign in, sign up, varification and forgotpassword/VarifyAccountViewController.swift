@@ -12,10 +12,10 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var resendButton: UIButton!
     @IBOutlet weak var invalidPinView: UIView!
-    @IBOutlet weak var firstFieldText: UITextField!
-    @IBOutlet weak var secondFieldText: UITextField!
-    @IBOutlet weak var thirdFieldText: UITextField!
-    @IBOutlet weak var fourthFieldText: UITextField!
+    @IBOutlet weak var firstFieldText: CustomVarifyTextField!
+    @IBOutlet weak var secondFieldText: CustomVarifyTextField!
+    @IBOutlet weak var thirdFieldText: CustomVarifyTextField!
+    @IBOutlet weak var fourthFieldText: CustomVarifyTextField!
     @IBOutlet weak var goToHomeScreenButton: UIButton!
 
     var activeTextField : UITextField? = nil
@@ -35,9 +35,8 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         invalidPinView.isHidden = true
-        hideError()
         objectOfVarifyAccountViewModel.callApiForVarificationCode(dataTosend: signUpMobile_EmailIsIS){ varifivationResponce in
      
         }
@@ -51,18 +50,6 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
              )
 
         resendButton.setAttributedTitle(attributeString, for: .normal)
-
-        // Do any additional setup after loading the view.
-        roundLabel.layer.masksToBounds = true
-        roundLabel.layer.cornerRadius = 8.0
-        
-        firstFieldText.delegate = self
-
-        secondFieldText.delegate = self
-        
-        thirdFieldText.delegate = self
-
-        fourthFieldText.delegate = self
         
         CongfigureTextFields()
 
@@ -86,7 +73,7 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     func enableTheButtonToMoveToHomeScreen() {
         
         hideError()
-        goToHomeScreenButton.isEnabled = true
+        goToHomeScreenButton.isEnabled = false
         goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.53.37 AM"), for: .normal)
         
         
@@ -94,18 +81,11 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     
     func hideError() {
         
-        firstFieldText.layer.borderWidth = 2.0
-        firstFieldText.layer.cornerRadius = 8.0
-        firstFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        secondFieldText.layer.cornerRadius = 8.0
-        secondFieldText.layer.borderWidth = 2.0
-        secondFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        thirdFieldText.layer.cornerRadius = 8.0
-        thirdFieldText.layer.borderWidth = 2.0
-        thirdFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        fourthFieldText.layer.cornerRadius = 8.0
-        fourthFieldText.layer.borderWidth = 2.0
-        fourthFieldText.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.53.37 AM"), for: .normal)
+        firstFieldText.hideError()
+        secondFieldText.hideError()
+        thirdFieldText.hideError()
+        fourthFieldText.hideError()
         invalidPinView.isHidden = true
     }
     
@@ -115,18 +95,10 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
         
         goToHomeScreenButton.isEnabled = false
         goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
-        firstFieldText.layer.borderWidth = 2.0
-        firstFieldText.layer.cornerRadius = 8.0
-        secondFieldText.layer.cornerRadius = 8.0
-        thirdFieldText.layer.cornerRadius = 8.0
-        fourthFieldText.layer.cornerRadius = 8.0
-        firstFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
-        secondFieldText.layer.borderWidth = 2.0
-        secondFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
-        thirdFieldText.layer.borderWidth = 2.0
-        thirdFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
-        fourthFieldText.layer.borderWidth = 2.0
-        fourthFieldText.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.568627451, blue: 0.568627451, alpha: 1)
+        firstFieldText.showError()
+        secondFieldText.showError()
+        thirdFieldText.showError()
+        fourthFieldText.showError()
         invalidPinView.isHidden = false
         
     }
@@ -160,6 +132,8 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func firstField(_ sender: Any) {
+        hideError()
+
         
         if firstFieldText.text != "" && secondFieldText.text != "" && thirdFieldText.text != "" && fourthFieldText.text != ""{
             
@@ -173,10 +147,11 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
             
         }
-        hideError()
     }
     
     @IBAction func secondField(_ sender: Any) {
+        hideError()
+
         if firstFieldText.text != "" && secondFieldText.text != "" && thirdFieldText.text != "" && fourthFieldText.text != ""{
             
             goToHomeScreenButton.isEnabled = true
@@ -189,10 +164,12 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
             
         }
-        hideError()
     }
     
     @IBAction func thirdField(_ sender: Any) {
+        
+        hideError()
+
         if firstFieldText.text != "" && secondFieldText.text != "" && thirdFieldText.text != "" && fourthFieldText.text != ""{
             
             goToHomeScreenButton.isEnabled = true
@@ -205,7 +182,6 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             goToHomeScreenButton.setImage(#imageLiteral(resourceName: "Screenshot 2022-12-25 at 11.52.06 AM"), for: .normal)
             
         }
-        hideError()
     }
     
     
@@ -281,6 +257,9 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
 
     @IBAction func lastFieldvarification(_ sender: Any) {
         
+        hideError()
+
+        
         if firstFieldText.text != "" && secondFieldText.text != "" && thirdFieldText.text != "" && fourthFieldText.text != ""{
             
             goToHomeScreenButton.isEnabled = true
@@ -294,7 +273,6 @@ class VarifyAccountViewController: UIViewController, UITextFieldDelegate{
             
         }
  
-        hideError()
 
     }
 

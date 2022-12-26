@@ -24,12 +24,10 @@ class SubjectListViewModel{
                     
 
                     guard let data1 = dataIs as? [[String:Any]] else {
-//                        print("nodata")
                         return
                     }
                     for i in data1 {
                         guard let data2 = i["subjectName"] as? String else {
-//                            print("no data")
                             return
                         }
                         

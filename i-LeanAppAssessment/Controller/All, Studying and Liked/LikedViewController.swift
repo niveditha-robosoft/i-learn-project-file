@@ -48,20 +48,26 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let loader =   self.loader()
 
-        
         objectOfLikedUnitViewMOdel.likedUnitsData(tokenToSend: tokenToSend){ status in
             
             DispatchQueue.main.async() {
                 self.stopLoader(loader: loader)
             if status == true{
                 
-                self.tableView.reloadData()
-                self.noLikedUnits.isHidden = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.noLikedUnits.isHidden = true
+                }
+                
                 
             }else{
                 
-                self.tableView.isHidden = true
-                self.noLikedUnits.isHidden = false
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = true
+                    self.noLikedUnits.isHidden = false
+                }
+                
                 
             }
         }

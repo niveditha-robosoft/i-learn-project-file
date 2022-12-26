@@ -95,7 +95,7 @@ extension AboutSubjectViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       var call = getToken()
+        let call = getToken()
         
         if call != "" {
             
@@ -171,9 +171,7 @@ extension AboutSubjectViewController{
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        print("number of sections : \(objectOfAboutSUbjectViewModel.lessonDetails.count)")
-        
+                
         return objectOfAboutSUbjectViewModel.lessonDetails.count
 
     }
@@ -183,7 +181,7 @@ extension AboutSubjectViewController{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
 
-        return objectOfAboutSUbjectViewModel.lessonDetails.last?.unitDetails.count ?? 0
+        return objectOfAboutSUbjectViewModel.lessonDetails[section].unitDetails.count 
     }
     
    

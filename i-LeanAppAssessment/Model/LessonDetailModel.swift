@@ -13,13 +13,15 @@ class LessonDetailModel{
     var unitVideo: String
     var unitDescription: String
     var unitNum: Int
-    init(pageNum: Int,pageTitle: String,unitImage: String,unitDescription: String,unitNum: Int,unitVideo: String) {
+    var isLiked: String
+    init(pageNum: Int,pageTitle: String,unitImage: String,unitDescription: String,unitNum: Int,unitVideo: String,isLiked: String) {
         self.pageNum = pageNum
         self.pageTitle = pageTitle
         self.unitImage = unitImage
         self.unitDescription = unitDescription
         self.unitNum = unitNum
         self.unitVideo = unitVideo
+        self.isLiked = isLiked
     }
     
 }

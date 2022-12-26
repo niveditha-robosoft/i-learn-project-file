@@ -34,6 +34,13 @@ class OnBoardingOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nextButton.layer.shadowColor = UIColor(red: 76, green: 147, blue: 255, alpha: 0.4).cgColor
+
+        nextButton.layer.shadowOpacity = 100
+
+        nextButton.layer.shadowRadius = 5
+
+        nextButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         if navigationController?.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) ?? false {
             navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         }
@@ -104,7 +111,7 @@ extension OnBoardingOneViewController: UICollectionViewDelegate,UICollectionView
             + flowLayout.sectionInset.right
             
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-        let size = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
+        let _ = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
         return CGSize(width: collectionView.frame.width , height: collectionView.frame.height)
     }
     

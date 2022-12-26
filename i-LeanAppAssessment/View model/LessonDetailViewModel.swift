@@ -39,11 +39,14 @@ class LessonDetailViewModel{
                             guard let unitNo = data["unitId"] as? Int else  {
                                 return
                             }
+                            guard let likeStatus = data["liked"] as? String else{
+                                return
+                            }
                             print("")
                             print("photo is is : \(self.photoIs)")
                             print("video is is : \(self.videoIs)")
                             print("")
-                            let lessonDetails = LessonDetailModel(pageNum: pageNo, pageTitle: title, unitImage: self.photoIs, unitDescription: description, unitNum: unitNo, unitVideo: self.videoIs)
+                            let lessonDetails = LessonDetailModel(pageNum: pageNo, pageTitle: title, unitImage: self.photoIs, unitDescription: description, unitNum: unitNo, unitVideo: self.videoIs, isLiked: likeStatus)
                             self.lessonDetail.append(lessonDetails)
 
                         }
@@ -67,15 +70,42 @@ class LessonDetailViewModel{
     
     
     func likedLessonDetailsToSend(tokenToSend: String, unitIdToSend: Int, completion: @escaping((Bool) -> ())) {
-        objOfLessonDetailNetwotk.likedUnitData(token: tokenToSend, unitId: unitIdToSend){ completionCondition, completionError in
+        objOfLessonDetailNetwotk.likedUnitData(token: tokenToSend, unitId: unitIdToSend){ completionData, completionCondition, completionError in
             
             DispatchQueue.main.async {
                 
                 
                 if completionError == nil{
                     
+                    if completionCondition == true{
+                        
+                        if let data0 = completionData{
+                         
+                            var stringIs = ""
+                            if let data1 = data0["message"] as? String{
+                                
+                                stringIs = data1
+                                
+                            }
+                            
+                            if stringIs == "unit added to liked list" {
+                                
+                                completion(true)
+                                
+                            }else{
+                                
+                                completion(false)
+                            }
+                            
+                        }
+                        
+
+                    }else{
+                        
+                        completion(false)
+
+                    }
                     
-                    completion(true)
                     
                 }else{
                     

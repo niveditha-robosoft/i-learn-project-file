@@ -8,7 +8,7 @@
 import UIKit
 
 class ResultsTableViewCell: UITableViewCell {
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardView: TableCellCornerRadius!
     @IBOutlet weak var subjectName: UILabel!
     @IBOutlet weak var lessonNumber: UILabel!
     @IBOutlet weak var lessonName: UILabel!

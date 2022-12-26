@@ -31,7 +31,7 @@ class AboutSUbjectViewModel {
                     
                     if completionStatus == true{
                         
-                        if let data1 = completionDatais as? [[String: Any]] {
+                        if let data1 = completionDatais{
                             
                             for i in data1{
                                 
