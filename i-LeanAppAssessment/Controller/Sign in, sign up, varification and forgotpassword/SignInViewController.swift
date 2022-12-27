@@ -41,6 +41,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
                 attributes: yourAttributes
              )
         
+        mobileEmailTextField.delegate = self
+        passwordTextField.delegate = self
         
         signInSkipButton.setAttributedTitle(attributeString, for: .normal)
         signInSkipButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 16)
@@ -64,6 +66,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         callApi()
     
     }
+    
     
     @IBAction func signUpButtonTappedInSignInScreen(_ sender: UIButton) {
         
@@ -252,7 +255,7 @@ extension SignInViewController{
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
+        
         if textField == mobileEmailTextField {
             
            textField.resignFirstResponder()

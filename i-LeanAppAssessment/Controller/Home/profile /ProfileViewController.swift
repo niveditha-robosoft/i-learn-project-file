@@ -64,15 +64,6 @@ class ProfileViewController: UIViewController {
         viewWillAppeareApiCall()
     }
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        tabBarController?.tabBar.isHidden = false
-//
-//        viewWillwApperChanges()
-//
-//        viewWillAppeareApiCall()
-//    }
 
     @IBAction func edit_LogOutButtonTapped(_ sender: UIButton) {
 
