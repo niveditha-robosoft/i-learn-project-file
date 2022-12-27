@@ -54,6 +54,8 @@ class TestViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.index = indexPath
         cell.testId = vm.testDetails[indexPath.row].testId
         print("testID", vm.testDetails[indexPath.row].testId)
+        cell.lessonId = aboutSubjectVM.lessonDetails[indexPath.section].lessonId
+        print("lessonIDFinal",aboutSubjectVM.lessonDetails[indexPath.section].lessonId )
         cell.generateDescription(duration: vm.testDetails[indexPath.row].duration, numberOfQuestion: vm.testDetails[indexPath.row].totalQuestions, marks: vm.testDetails[indexPath.row].marks)
         cell.delegate = self
         return cell

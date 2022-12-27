@@ -58,6 +58,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         if let optionText = selectedOption.title(for: .normal){
             questionVM.answersList[currentQuestionID] = Answer(testId: currentTestID, lessonId: currentLessonID, questionId: currentQuestionID, givenAnswer: optionText)
             print("TESTIDDD", currentTestID)
+            print("LESSONIDDD", currentLessonID)
+
+            
         }
         switch selectedOption {
         case optionA:
