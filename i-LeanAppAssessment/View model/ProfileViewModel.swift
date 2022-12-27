@@ -28,7 +28,7 @@ class ProfileViewMOdel {
                 if error == nil{
                     if boolCondition == true{
                         
-                        
+                        var imageIs = "https://qph.cf2.quoracdn.net/main-qimg-2b21b9dd05c757fe30231fac65b504dd"
                         
                         
                             guard let dataId = data["profileId"] as? Int64 else{ complition(false)
@@ -37,8 +37,10 @@ class ProfileViewMOdel {
                                 return}
                             guard let dataName = data["name"] as? String else{ complition(false)
                                 return}
-                            guard let dataImage = data["profileImage"] as? String else{ complition(false)
-                                return}
+                        if let dataImage = data["profileImage"] as? String{
+                            
+                            imageIs = dataImage
+                        }
                             guard let dataChapterCompleted = data["chapterCompleted"] as? Int else{complition(false)
                                 return}
                             guard let dataAverageTestScore = data["averageTestScore"] as? Int else{ complition(false)
@@ -47,7 +49,7 @@ class ProfileViewMOdel {
                                 return}
                             
                             
-                        let pro = ProfileModel(id: Int64(Int(dataId)), email: dataEmail, name: dataName, chapter: dataChapterCompleted, average: dataAverageTestScore, highest: dataHighestTestScore, profileIMage: dataImage)
+                        let pro = ProfileModel(id: Int64(Int(dataId)), email: dataEmail, name: dataName, chapter: dataChapterCompleted, average: dataAverageTestScore, highest: dataHighestTestScore, profileIMage: imageIs)
                             
                             self.profileData.append(pro)
                             

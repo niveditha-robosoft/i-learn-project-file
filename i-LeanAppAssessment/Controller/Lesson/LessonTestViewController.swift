@@ -49,7 +49,7 @@ class LessonTestViewController: UIViewController {
         }
         
         subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
-        lessonName.text = lessonNameIs
+        lessonName.text = lessonNameIs.capitalized
         lessonNumber.text = lessonNumberIs
         testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
         lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
