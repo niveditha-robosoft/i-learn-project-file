@@ -15,6 +15,17 @@ protocol dismissVc {
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var userId2 = 0
+    var subjectId2 = 0
+    var chapterId2 = 0
+    var lessonId2 = 0
+    
+    var subjectName2 = ""
+    var chapterName2 = ""
+    var lessonName2 = ""
+    
+    
+    
     var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
     
@@ -80,6 +91,15 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         
                              if Bool {
+                                
+                                vc.unitName = self.unitDetailsIS[indexPath.row].unitName
+                                vc.subName = self.subjectName2
+                                vc.chapName = self.chapterName2
+                                vc.lessonName = self.lessonName2
+                                vc.userId = self.userId2
+                                vc.subjectId = self.subjectId2
+                                vc.chapterId = self.chapterId2
+                                vc.lessonId = self.lessonId2
                                  vc.unitId = self.unitDetailsIS[indexPath.row].unitId
                                  vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
                                  self.navigationController?.pushViewController(vc, animated: true)

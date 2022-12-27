@@ -29,7 +29,9 @@ class ProfileViewMOdel {
                     if boolCondition == true{
                         
                         var imageIs = "https://qph.cf2.quoracdn.net/main-qimg-2b21b9dd05c757fe30231fac65b504dd"
-                        
+                        var comp = 00
+                        var avg = 00
+                        var high = 00
                         
                             guard let dataId = data["profileId"] as? Int64 else{ complition(false)
                                 return}
@@ -41,15 +43,25 @@ class ProfileViewMOdel {
                             
                             imageIs = dataImage
                         }
-                            guard let dataChapterCompleted = data["chapterCompleted"] as? Int else{complition(false)
-                                return}
-                            guard let dataAverageTestScore = data["averageTestScore"] as? Int else{ complition(false)
-                                return}
-                            guard let dataHighestTestScore = data["highestTestScore"] as? Int else{complition(false)
-                                return}
+                        
+                        if let dataChapterCompleted = data["chapterCompleted"] as? Int {
+                            
+                            comp = dataChapterCompleted
+                            
+                        }
+                        
+                            if let dataAverageTestScore = data["averageTestScore"] as? Int {
+                                
+                                avg = dataAverageTestScore
+                                
+                                }
+                            if let dataHighestTestScore = data["highestTestScore"] as? Int {
+                                
+                                high = dataHighestTestScore
+                            }
                             
                             
-                        let pro = ProfileModel(id: Int64(Int(dataId)), email: dataEmail, name: dataName, chapter: dataChapterCompleted, average: dataAverageTestScore, highest: dataHighestTestScore, profileIMage: imageIs)
+                        let pro = ProfileModel(id: Int64(Int(dataId)), email: dataEmail, name: dataName, chapter: comp, average: avg, highest: high, profileIMage: imageIs)
                             
                             self.profileData.append(pro)
                             

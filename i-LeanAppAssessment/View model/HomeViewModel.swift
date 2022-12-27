@@ -34,16 +34,29 @@ class HomeViewModel {
                             
                             for i in data0{
                                 
-                                guard let data1 = i["chapterName"] as? String else{ completion(false)
-                                    return}
-                                guard let data2 = i["subjectName"] as? String else{ completion(false)
-                                    return}
-                                guard let data3 = i["percentage"] as? Int else{ completion(false)
-                                    return}
-                                guard let data4 = i["subject_image"] as? String else{ completion(false)
-                                    return}
-                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: data3, subject_image: data4)
+                                var percentage = 0
+                                var imageIs = "https://img.freepik.com/free-vector/magnifying-glass-school-subjects_23-2147493132.jpg?w=2000"
                                 
+                                guard let data1 = i["chapterName"] as? String else{ print("1")
+                                    completion(false)
+                                    return}
+                                guard let data2 = i["subjectName"] as? String else{ print("2")
+                                    completion(false)
+                                    return}
+                                if let data3 = i["lessonPercentage"] as? Int {
+                                    
+                                    percentage = data3
+                                    
+                                    
+                                }
+                                if let data4 = i["subjectImage"] as? String {
+                                    
+                                    imageIs = data4
+                                    
+                                    
+                                }
+                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: percentage, subject_image: imageIs)
+                             
                                 self.currentyStudyingData.append(current)
                                 
                             }

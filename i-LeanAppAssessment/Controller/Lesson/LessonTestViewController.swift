@@ -7,6 +7,19 @@
 import UIKit
 
 class LessonTestViewController: UIViewController {
+    
+    var subjectName1 = ""
+    var chapterName1 = ""
+    var lessonName1 = ""
+    
+    
+    var userId1 = 0
+    var subjectId1 = 0
+    var chapterId1 = 0
+    var lessonId1 = 0
+    
+    
+    
     var lessonVc :LessonViewController?
     var lessonNameIs = ""
     var lessonId:Int?
@@ -67,6 +80,16 @@ class LessonTestViewController: UIViewController {
         testVc?.chapterId = self.lessonId
         AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
         lessonVc = segue.destination as? LessonViewController
+        
+        
+        
+        lessonVc?.subjectName2 = subjectName1
+        lessonVc?.chapterName2 = chapterName1
+        lessonVc?.lessonName2 = lessonName1
+        lessonVc?.userId2 = userId1
+        lessonVc?.subjectId2 = subjectId1
+        lessonVc?.chapterId2 = chapterId1
+        lessonVc?.lessonId2 = lessonId1
         lessonVc?.unitDetailsIS = unitDetails
     }
     

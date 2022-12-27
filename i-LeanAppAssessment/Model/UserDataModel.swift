@@ -12,12 +12,10 @@ class UserDataModel {
     
     var userName: String
     var userId: Int
-    var token: String
     
-    init(userName: String,userId: Int,token: String) {
+    init(userName: String,userId: Int) {
         self.userName = userName
         self.userId = userId
-        self.token = token
     }
     
     

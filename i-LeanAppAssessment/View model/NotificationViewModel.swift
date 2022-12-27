@@ -48,6 +48,8 @@ class NotificationViewMOdel {
         
         objectOfNotificationNetwork.notificationDataApi(token: tokenToSend){ notificationData, completionCondition , notificationError in
             
+            self.notificationDataToShow.removeAll()
+            
             DispatchQueue.main.async {
         
                 if notificationError == nil{
