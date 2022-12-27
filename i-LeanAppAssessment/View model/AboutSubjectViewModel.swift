@@ -81,7 +81,7 @@ class AboutSUbjectViewModel {
             
             self.lessonDetails.removeAll()
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 if responceError == nil{
                     
                     if responceStatus == true{
@@ -93,6 +93,7 @@ class AboutSUbjectViewModel {
                                 
                                 guard let data2 = i["lessonId"] as? Int else{completion(false)
                                     return}
+                                print(data2,"lessonID from api")
                                 guard let data3 = i["lessonNumber"] as? String else{completion(false)
                                     return}
                                 guard let data4 = i["lessonName"] as? String else{completion(false)
@@ -136,7 +137,9 @@ class AboutSUbjectViewModel {
                                 }
                                 
                             }
-                            
+                            for lesson in lessonDetails {
+                                print(lesson.lessonId,"is lessonID is fine in lesson details list")
+                            }
                             completion(true)
                         }
                         
@@ -169,13 +172,8 @@ class AboutSUbjectViewModel {
                     if responceStatus == true{
                         
                         if let data1 = responceData{
-                            print("1")
                             for i in data1 {
-                                
-                                print("2")
                                 if let testData = i["test"] as? [[String: Any]]{
-                                    
-                                   
                                     for j in testData{
                                         print("for loop")
                                         guard let testId = j["testId"] as? Int else{completion(false)
@@ -194,6 +192,7 @@ class AboutSUbjectViewModel {
                                             return}
                                         let testData = Test(testId: testId, testName: testName, duration: duration, totalQuestions: totalQuestions, level: level, marks: marks)
                                         self.testDetails.append(testData)
+                                        print("testData", testData.testId)
                                         
                                     }
                                 }

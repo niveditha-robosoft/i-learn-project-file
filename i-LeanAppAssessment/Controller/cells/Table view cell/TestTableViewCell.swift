@@ -30,6 +30,7 @@ class TestTableViewCell: UITableViewCell {
     @IBOutlet weak var beginTestButton: UIButton!
     var index: IndexPath?
     var testId: Int?
+    var lessonId: Int?
 
     var delegate: beginTest?
 
