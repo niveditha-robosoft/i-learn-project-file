@@ -300,14 +300,13 @@ class LessonDetailsViewController: UIViewController {
                             self.unitDetailImageIs.image = getImage(urlString: objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
                             self.videoHeight.constant = 0
                             self.unitvideoDetailIs.isHidden = false
-
+                           
 
                         }else{
 
                          
                             self.imageViewHeight.constant = 0
                             self.videoHeight.constant = 0
-
 
                         }
 
@@ -328,9 +327,7 @@ class LessonDetailsViewController: UIViewController {
 
                         }
                        
-                        
-                        
-                        
+
                         self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                         self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                         self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
@@ -361,9 +358,7 @@ class LessonDetailsViewController: UIViewController {
             alertMessage(message: "Error while loading the data ...!!!")
         }
         
-        
-        
-        
+   
     }
     
     @IBAction func leftButtonTapped(_ sender: Any) {
@@ -385,8 +380,7 @@ class LessonDetailsViewController: UIViewController {
                     self.stopLoader(loader: loader)
                     
                     if data == true{
-                        
-                        
+                                             
                         if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
 
                             print("i am in side the loop1111")
@@ -464,13 +458,12 @@ class LessonDetailsViewController: UIViewController {
     
     
     
-    @IBAction func okButtontapped(_ sender: Any) {
+    @IBAction func okButtontapped(_ sender: UIButton) {
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
         let tokenIs = getToken()
         
         currentPageNo = SelectedCellLabel
-        
         let loader = self.loader()
 
         objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: tokenIs){ data in
@@ -479,24 +472,27 @@ class LessonDetailsViewController: UIViewController {
             
             if data == true {
                 
-                if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
-                    
-                    
+              
+                if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != "" {
+                    print("\(self.unitvideoDetailIs)")
+                    self.unitvideoDetailIs.isHidden = true
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
                     self.videoHeight.constant = 0
-                 //   self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
-
+                   self.unitvideoDetailIs.isHidden = true
+                    self.unitDetailImageIs.isHidden = false
+                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
                     
                 }else{
                     
-                    
+                   self.unitvideoDetailIs.isHidden = true
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
-                   // self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
+                    self.unitDetailImageIs.isHidden = true
+                  
+                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
 
-                    //self.unitvideoDetailIs.isHidden = true
-                    // self.unitDetailImageIs.isHidden = true
+                   
                 }
                 
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
@@ -505,15 +501,20 @@ class LessonDetailsViewController: UIViewController {
                     self.imageViewHeight.constant = 0
                     self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
                     self.videoHeight.constant = 200
-                     // self.unitDetailImageIs.isHidden = true
+                    self.unitvideoDetailIs.isHidden = false
+                    self.unitDetailImageIs.isHidden = true
                 }else{
                     
-                    
+                   // self.unitDetailImageIs.isHidden = false
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
-                      //self.unitvideoDetailIs.isHidden = true
-                   // self.unitDetailImageIs.isHidden = true
+                      self.unitvideoDetailIs.isHidden = true
+                    self.unitDetailImageIs.isHidden = true
+                   
+                
+                    
                 }
+               
                 
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
