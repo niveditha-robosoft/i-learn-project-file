@@ -1976,6 +1976,7 @@ you can search below.</string>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="5nM-eX-kAi" firstAttribute="top" secondItem="Kqz-iP-PgW" secondAttribute="bottom" constant="30" id="5qU-o8-3Hu"/>
+                                            <constraint firstItem="wvM-yS-EYk" firstAttribute="top" secondItem="Kqz-iP-PgW" secondAttribute="bottom" constant="232" id="5tx-eV-Ti5"/>
                                             <constraint firstItem="Kqz-iP-PgW" firstAttribute="top" secondItem="tzj-UT-JAf" secondAttribute="top" constant="30" id="DLa-yt-4DG"/>
                                             <constraint firstAttribute="trailing" secondItem="wvM-yS-EYk" secondAttribute="trailing" constant="32" id="E0p-Uc-kJi"/>
                                             <constraint firstAttribute="trailing" secondItem="5nM-eX-kAi" secondAttribute="trailing" constant="32" id="EIs-TR-SSV"/>
@@ -2283,6 +2284,7 @@ you can search below.</string>
                         <outlet property="cancelButton" destination="aCh-SC-aw9" id="YaH-CA-pbQ"/>
                         <outlet property="collectionView" destination="LKC-KR-nZL" id="Omr-Qq-uak"/>
                         <outlet property="contentTextView" destination="wvM-yS-EYk" id="Nr6-JA-ECi"/>
+                        <outlet property="contentViewHeight" destination="5tx-eV-Ti5" id="AD4-Fi-laX"/>
                         <outlet property="currentPage" destination="O6F-kk-ZYw" id="9Ch-Pz-J09"/>
                         <outlet property="heightConstraint" destination="asj-6z-9Wv" id="wcc-Cv-G41"/>
                         <outlet property="imageViewHeight" destination="PVT-yI-Bqp" id="w5t-2c-3hm"/>
@@ -5828,8 +5830,8 @@ the image below implies?</string>
                                                                 <constraint firstAttribute="height" constant="52" id="Oyj-YQ-CNA"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
-                                                            <rect key="frame" x="104" y="35" width="79.5" height="26"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Biology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
+                                                            <rect key="frame" x="104" y="35" width="243" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79.5" id="9jh-st-x8b"/>
                                                                 <constraint firstAttribute="height" constant="26" id="kC2-Ee-BzD"/>
@@ -5864,13 +5866,13 @@ the image below implies?</string>
                                                         <constraint firstItem="vwN-Zd-8Wn" firstAttribute="top" secondItem="U8u-Q5-IAh" secondAttribute="bottom" constant="6" id="1zj-Qi-t0G"/>
                                                         <constraint firstAttribute="trailing" secondItem="vwN-Zd-8Wn" secondAttribute="trailing" id="2QT-uR-ynz"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="33" id="7NC-xi-eGz"/>
-                                                        <constraint firstItem="U8u-Q5-IAh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="9KC-pt-A9h"/>
-                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="NsT-1N-dvM"/>
+                                                        <constraint firstItem="U8u-Q5-IAh" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="9KC-pt-A9h"/>
+                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="9ou-Ae-pcq"/>
+                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="NsT-1N-dvM"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="leading" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="26" id="T0G-ok-rBd"/>
-                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="20" symbolic="YES" id="Ydo-7q-Czi"/>
                                                         <constraint firstItem="GWB-vy-hbb" firstAttribute="top" secondItem="vwN-Zd-8Wn" secondAttribute="bottom" constant="6" id="a0Y-tu-71r"/>
                                                         <constraint firstItem="U8u-Q5-IAh" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="35" id="dQO-br-lnw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="U8u-Q5-IAh" secondAttribute="trailing" constant="171.5" id="oNt-iP-rwb"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U8u-Q5-IAh" secondAttribute="trailing" constant="8" id="oNt-iP-rwb"/>
                                                         <constraint firstAttribute="trailing" secondItem="GWB-vy-hbb" secondAttribute="trailing" id="tWx-ok-OhS"/>
                                                     </constraints>
                                                 </view>

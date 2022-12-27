@@ -192,20 +192,48 @@ class ProfileViewController: UIViewController {
     
     @IBAction func signOutYesButtonTapped(_ sender: UIButton) {
         
-        var id = 0
+        let call = getToken()
         
-        if let idIs =  objectOfUserDefaults.value(forKey: "userId") as? Int{
+        if call != ""{
             
-            id = idIs
+            let loader =   self.loader()
+
+            objectOfProfileViewMOdel.signOutApiCall(tokenToSend: call){ status in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                
+                if status == true{
+                    
+                    var id = 0
+                    
+                    if let idIs =  self.objectOfUserDefaults.value(forKey: "userId") as? Int{
+                        
+                        id = idIs
+                        
+                    }
+
+                    self.objectOfUserDefaults.set(1, forKey: "SignOutYes")
+                    self.objectOfUserDefaults.set(4, forKey: "Status")
+                    self.objectOfKeyChain.deletePassword(userId: String(id))
+                    self.objectOfUserDefaults.set(0, forKey: "userId")
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                    
+                }else{
+                   
+                    self.alertMessage(message: "Something went wrong while sign out try again")
+                    
+                }
+            }
+                
+            }
+            
+        }else{
+            
             
         }
-
-        objectOfUserDefaults.set(1, forKey: "SignOutYes")
-        objectOfUserDefaults.set(4, forKey: "Status")
-        objectOfKeyChain.deletePassword(userId: String(id))
-        objectOfUserDefaults.set(0, forKey: "userId")
-        self.navigationController?.popToRootViewController(animated: true)
-        
+  
     }
     
     
