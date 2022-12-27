@@ -29,9 +29,9 @@ class TestTableViewCell: UITableViewCell {
 
     @IBOutlet weak var beginTestButton: UIButton!
     var index: IndexPath?
-    var testId: Int?
+   // var testId: Int?
     var lessonId: Int?
-
+    var finalTestId: Int?
     var delegate: beginTest?
 
     
@@ -58,7 +58,7 @@ class TestTableViewCell: UITableViewCell {
 
     @IBAction func beginTestButtonClicked(_ sender: Any) {
 
-        delegate?.testBegin(index: index!, testId: testId!)
+        delegate?.testBegin(index: index!, testId: finalTestId!)
 
     }
 

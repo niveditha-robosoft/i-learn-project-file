@@ -166,7 +166,7 @@ class AboutSUbjectViewModel {
             
             self.testDetails.removeAll()
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 if responceError == nil{
                     
                     if responceStatus == true{
@@ -192,11 +192,16 @@ class AboutSUbjectViewModel {
                                             return}
                                         let testData = Test(testId: testId, testName: testName, duration: duration, totalQuestions: totalQuestions, level: level, marks: marks)
                                         self.testDetails.append(testData)
+                                        
                                         print("testData", testData.testId)
                                         
                                     }
                                 }
                             }
+                            for test in self.testDetails{
+                                print(test.testId,"TestID From API")
+                            }
+                            //print(currentTestId)
                             completion(true)
                         }
                         

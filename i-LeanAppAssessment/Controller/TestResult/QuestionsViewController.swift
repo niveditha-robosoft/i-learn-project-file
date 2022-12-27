@@ -31,8 +31,9 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        viewModel.fetchQuestions(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { (message, statusCode, data, error) in
+        viewModel.fetchQuestions(key: "testId", value: testId ?? 0) { (message, statusCode, data, error) in
             DispatchQueue.main.async {
+                print(self.testId,"questionVCCC")
                 self.collectionView.reloadData()
             }
         }
@@ -121,7 +122,7 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return QuestionsCollectionViewCell()}
         print( viewModel.questionsWithOptionList[indexPath.row].questionName)
         cell.currentQuestionID = viewModel.questionsWithOptionList[indexPath.row].questionId
-        cell.currentTestID = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId
+        cell.currentTestID = testId ?? 0
         print(viewModel.questionsWithOptionList[indexPath.row].questionId, "question id")
        
         //cell.currentTestID = 429

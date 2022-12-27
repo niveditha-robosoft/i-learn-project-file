@@ -19,7 +19,7 @@ class QuestionListNetworkManager{
                         completion(jsonData,nil)
                     }
                     else{
-                        print(error!.localizedDescription)
+                        print(error?.localizedDescription)
                     }
                 }
                 catch{

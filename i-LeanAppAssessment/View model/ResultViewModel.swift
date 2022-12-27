@@ -35,7 +35,7 @@ class ResultViewModel {
     
     func assignParameters(testId: Int,lessonId: Int) {
         parameters["testId"] = testId
-        AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId = testId
+        print(testId,"currentTestID is updated or not")
         parameters["lessonId"] = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId
         assignAnswer()
     }
