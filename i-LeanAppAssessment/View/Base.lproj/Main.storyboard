@@ -5830,8 +5830,8 @@ the image below implies?</string>
                                                                 <constraint firstAttribute="height" constant="52" id="Oyj-YQ-CNA"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
-                                                            <rect key="frame" x="104" y="35" width="79.5" height="26"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Biology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-Q5-IAh">
+                                                            <rect key="frame" x="104" y="35" width="243" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79.5" id="9jh-st-x8b"/>
                                                                 <constraint firstAttribute="height" constant="26" id="kC2-Ee-BzD"/>
@@ -5866,13 +5866,13 @@ the image below implies?</string>
                                                         <constraint firstItem="vwN-Zd-8Wn" firstAttribute="top" secondItem="U8u-Q5-IAh" secondAttribute="bottom" constant="6" id="1zj-Qi-t0G"/>
                                                         <constraint firstAttribute="trailing" secondItem="vwN-Zd-8Wn" secondAttribute="trailing" id="2QT-uR-ynz"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="33" id="7NC-xi-eGz"/>
-                                                        <constraint firstItem="U8u-Q5-IAh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="9KC-pt-A9h"/>
-                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="8" symbolic="YES" id="NsT-1N-dvM"/>
+                                                        <constraint firstItem="U8u-Q5-IAh" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="9KC-pt-A9h"/>
+                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="9ou-Ae-pcq"/>
+                                                        <constraint firstItem="vwN-Zd-8Wn" firstAttribute="leading" secondItem="F4b-zf-54Z" secondAttribute="trailing" constant="26" id="NsT-1N-dvM"/>
                                                         <constraint firstItem="F4b-zf-54Z" firstAttribute="leading" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="26" id="T0G-ok-rBd"/>
-                                                        <constraint firstItem="GWB-vy-hbb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ffv-pt-SIN" secondAttribute="leading" constant="20" symbolic="YES" id="Ydo-7q-Czi"/>
                                                         <constraint firstItem="GWB-vy-hbb" firstAttribute="top" secondItem="vwN-Zd-8Wn" secondAttribute="bottom" constant="6" id="a0Y-tu-71r"/>
                                                         <constraint firstItem="U8u-Q5-IAh" firstAttribute="top" secondItem="ffv-pt-SIN" secondAttribute="top" constant="35" id="dQO-br-lnw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="U8u-Q5-IAh" secondAttribute="trailing" constant="171.5" id="oNt-iP-rwb"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U8u-Q5-IAh" secondAttribute="trailing" constant="8" id="oNt-iP-rwb"/>
                                                         <constraint firstAttribute="trailing" secondItem="GWB-vy-hbb" secondAttribute="trailing" id="tWx-ok-OhS"/>
                                                     </constraints>
                                                 </view>
