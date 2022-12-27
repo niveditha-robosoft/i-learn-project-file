@@ -12,6 +12,7 @@ class LessonTestViewController: UIViewController {
     var lessonId:Int?
     var lessonNumberIs = ""
     var realLessonId: Int?
+    var finalLessonId: Int?
     
     var unitDetails = [UnitModel]()
     
