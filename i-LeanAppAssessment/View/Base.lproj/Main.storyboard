@@ -1976,6 +1976,7 @@ you can search below.</string>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="5nM-eX-kAi" firstAttribute="top" secondItem="Kqz-iP-PgW" secondAttribute="bottom" constant="30" id="5qU-o8-3Hu"/>
+                                            <constraint firstItem="wvM-yS-EYk" firstAttribute="top" secondItem="Kqz-iP-PgW" secondAttribute="bottom" constant="232" id="5tx-eV-Ti5"/>
                                             <constraint firstItem="Kqz-iP-PgW" firstAttribute="top" secondItem="tzj-UT-JAf" secondAttribute="top" constant="30" id="DLa-yt-4DG"/>
                                             <constraint firstAttribute="trailing" secondItem="wvM-yS-EYk" secondAttribute="trailing" constant="32" id="E0p-Uc-kJi"/>
                                             <constraint firstAttribute="trailing" secondItem="5nM-eX-kAi" secondAttribute="trailing" constant="32" id="EIs-TR-SSV"/>
@@ -2283,6 +2284,7 @@ you can search below.</string>
                         <outlet property="cancelButton" destination="aCh-SC-aw9" id="YaH-CA-pbQ"/>
                         <outlet property="collectionView" destination="LKC-KR-nZL" id="Omr-Qq-uak"/>
                         <outlet property="contentTextView" destination="wvM-yS-EYk" id="Nr6-JA-ECi"/>
+                        <outlet property="contentViewHeight" destination="5tx-eV-Ti5" id="AD4-Fi-laX"/>
                         <outlet property="currentPage" destination="O6F-kk-ZYw" id="9Ch-Pz-J09"/>
                         <outlet property="heightConstraint" destination="asj-6z-9Wv" id="wcc-Cv-G41"/>
                         <outlet property="imageViewHeight" destination="PVT-yI-Bqp" id="w5t-2c-3hm"/>
