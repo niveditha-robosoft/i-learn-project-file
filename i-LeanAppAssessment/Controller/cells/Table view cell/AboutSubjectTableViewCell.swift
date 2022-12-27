@@ -19,6 +19,7 @@ class AboutSubjectTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellTapView: UIView!
     
+    var lessonID123: Int?
     func setRadious(x: Bool) {
         
         

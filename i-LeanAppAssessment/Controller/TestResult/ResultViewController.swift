@@ -11,6 +11,7 @@ class ResultViewController: UIViewController {
     
     var viewModel = ResultViewModel.shared
     var viewModel2 = TestViewController()
+    var vm3 = QuestionsViewController()
     var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel
     @IBOutlet weak var progressBar: ProgressBarViewTwo!
     @IBOutlet weak var creditLabel: UIView!
@@ -96,7 +97,7 @@ class ResultViewController: UIViewController {
         else {
             print("elseconditiom")
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
-            vc.viewModel2.fetchQuestionList(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { [self] (data, error) in
+            vc.viewModel2.fetchQuestionList(key: "testId", value: vm3.testId ?? 0) { [self] (data, error) in
                 if data! {
                 }
                 print(vc.viewModel2.questionListArray.count)
