@@ -485,7 +485,7 @@ class LessonDetailsViewController: UIViewController {
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
                     self.videoHeight.constant = 0
-                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
+                 //   self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
 
                     
                 }else{
@@ -493,10 +493,10 @@ class LessonDetailsViewController: UIViewController {
                     
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
-                    self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
+                   // self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
 
-                    self.unitvideoDetailIs.isHidden = true
-                     self.unitDetailImageIs.isHidden = true
+                    //self.unitvideoDetailIs.isHidden = true
+                    // self.unitDetailImageIs.isHidden = true
                 }
                 
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
@@ -505,14 +505,14 @@ class LessonDetailsViewController: UIViewController {
                     self.imageViewHeight.constant = 0
                     self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
                     self.videoHeight.constant = 200
-                      self.unitDetailImageIs.isHidden = true
+                     // self.unitDetailImageIs.isHidden = true
                 }else{
                     
                     
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
-                      self.unitvideoDetailIs.isHidden = true
-                    self.unitDetailImageIs.isHidden = true
+                      //self.unitvideoDetailIs.isHidden = true
+                   // self.unitDetailImageIs.isHidden = true
                 }
                 
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
