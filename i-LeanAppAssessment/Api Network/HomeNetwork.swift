@@ -39,8 +39,6 @@ class HomeNetwork {
 
                             if let dataIs = responsData as? [[String: Any]]{
                                 
-                                print("Currenty studying data  : ",dataIs)
-
                                 completion(dataIs,true,nil)
                                 
                             }

@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Light.ttf">
-            <string>Rubik-Light</string>
-        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -22,6 +19,7 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
+            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
         <array key="TimesNewRoman.ttf">
@@ -109,17 +107,17 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn from anywhere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWk-7f-uyU">
-                                                                    <rect key="frame" x="56" y="556" width="291" height="33"/>
+                                                                    <rect key="frame" x="61" y="556" width="291" height="33"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="33" id="7sJ-DH-FJt"/>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="gEP-0y-8Ve"/>
+                                                                        <constraint firstAttribute="width" constant="291" id="o1O-iA-BuU"/>
+                                                                        <constraint firstAttribute="height" constant="33" id="ynA-vt-WIU"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="28"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGg-TQ-xs8">
-                                                                    <rect key="frame" x="51.5" y="603" width="310" height="41"/>
+                                                                    <rect key="frame" x="56.5" y="603" width="300" height="41"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="310" id="ElO-81-3pf"/>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="dDk-Tc-wzh"/>
@@ -144,17 +142,16 @@
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="XWk-7f-uyU" firstAttribute="centerX" secondItem="RfQ-Bw-Dsi" secondAttribute="centerX" id="3pQ-Ql-Rlq"/>
                                                                 <constraint firstAttribute="trailing" secondItem="xKe-B8-nww" secondAttribute="trailing" id="Cq8-eC-HSQ"/>
                                                                 <constraint firstItem="iGg-TQ-xs8" firstAttribute="centerX" secondItem="RfQ-Bw-Dsi" secondAttribute="centerX" id="IkI-OI-90z"/>
                                                                 <constraint firstAttribute="trailing" secondItem="L1h-Ij-X7K" secondAttribute="trailing" constant="50" id="JAi-7v-S8P"/>
                                                                 <constraint firstItem="L1h-Ij-X7K" firstAttribute="top" secondItem="RfQ-Bw-Dsi" secondAttribute="top" constant="30" id="MKG-qm-fZj"/>
-                                                                <constraint firstAttribute="trailing" secondItem="XWk-7f-uyU" secondAttribute="trailing" constant="66" id="Q0L-d6-bhW"/>
+                                                                <constraint firstItem="XWk-7f-uyU" firstAttribute="top" secondItem="xKe-B8-nww" secondAttribute="bottom" constant="61" id="Mi2-XJ-fos"/>
+                                                                <constraint firstItem="iGg-TQ-xs8" firstAttribute="top" secondItem="XWk-7f-uyU" secondAttribute="bottom" constant="14" id="QDF-Qr-cZl"/>
                                                                 <constraint firstItem="xKe-B8-nww" firstAttribute="leading" secondItem="RfQ-Bw-Dsi" secondAttribute="leading" id="Qof-vC-KTQ"/>
                                                                 <constraint firstItem="L1h-Ij-X7K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RfQ-Bw-Dsi" secondAttribute="leading" constant="20" symbolic="YES" id="R0k-mP-RPH"/>
-                                                                <constraint firstItem="iGg-TQ-xs8" firstAttribute="top" secondItem="XWk-7f-uyU" secondAttribute="bottom" constant="14" id="ae9-AG-gzd"/>
                                                                 <constraint firstItem="xKe-B8-nww" firstAttribute="top" secondItem="RfQ-Bw-Dsi" secondAttribute="top" id="cT9-Ix-2yu"/>
-                                                                <constraint firstItem="XWk-7f-uyU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RfQ-Bw-Dsi" secondAttribute="leading" constant="20" symbolic="YES" id="d7T-hL-9Pf"/>
-                                                                <constraint firstItem="XWk-7f-uyU" firstAttribute="top" secondItem="xKe-B8-nww" secondAttribute="bottom" constant="61" id="xxM-VF-xCr"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="413" height="731"/>
@@ -453,7 +450,7 @@ Back</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-g9-Rw5">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="922"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MicrosoftTeams-image (4)" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-Wz-5Qh">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MicrosoftTeams-image (4)" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-Wz-5Qh">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="922"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_ilearn" translatesAutoresizingMaskIntoConstraints="NO" id="QM0-dn-QnO">
@@ -616,14 +613,18 @@ Account</string>
                                             <constraint firstAttribute="trailing" secondItem="Qug-Wz-5Qh" secondAttribute="trailing" id="EuI-Qz-ysM"/>
                                             <constraint firstItem="n5i-YQ-TOP" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="GtC-VR-tT3"/>
                                             <constraint firstItem="wdx-6n-0vl" firstAttribute="top" secondItem="n5i-YQ-TOP" secondAttribute="bottom" constant="40" id="Ik7-hI-aSH"/>
+                                            <constraint firstItem="uuT-sn-BC3" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="KPl-X2-OfD"/>
                                             <constraint firstItem="Xy0-xB-ISL" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="LgD-Fy-Fo3"/>
                                             <constraint firstItem="Eal-w0-nN7" firstAttribute="top" secondItem="eYC-Hf-zpd" secondAttribute="bottom" constant="40" id="Lwf-b1-nqB"/>
                                             <constraint firstItem="QM0-dn-QnO" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="51" id="M47-Q6-DmU"/>
                                             <constraint firstItem="yjt-Ni-FQu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KF4-95-77k" secondAttribute="trailing" constant="8" symbolic="YES" id="Mpw-Er-waV"/>
                                             <constraint firstItem="ZDt-Av-GPG" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="Mpx-7f-edv"/>
+                                            <constraint firstItem="i9y-hX-kaL" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="Mrx-HZ-nO1"/>
                                             <constraint firstItem="uuT-sn-BC3" firstAttribute="top" secondItem="8HR-hO-Wbs" secondAttribute="bottom" constant="129" id="NS6-uc-Zc2"/>
                                             <constraint firstAttribute="height" constant="922" id="R7E-oy-VNt"/>
                                             <constraint firstItem="KF4-95-77k" firstAttribute="top" secondItem="Xy0-xB-ISL" secondAttribute="bottom" constant="53" id="SjG-tH-aNR"/>
+                                            <constraint firstItem="Eal-w0-nN7" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="Ttd-ou-LRp"/>
+                                            <constraint firstAttribute="trailing" secondItem="wdx-6n-0vl" secondAttribute="trailing" constant="50" id="WWH-Dr-eLQ"/>
                                             <constraint firstItem="QM0-dn-QnO" firstAttribute="top" secondItem="dLc-g9-Rw5" secondAttribute="top" constant="75" id="a31-wA-6DQ"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8HR-hO-Wbs" secondAttribute="trailing" constant="20" symbolic="YES" id="bLg-To-qK6"/>
                                             <constraint firstAttribute="trailing" secondItem="Xy0-xB-ISL" secondAttribute="trailing" constant="50" id="cwB-X2-SAE"/>
@@ -633,6 +634,7 @@ Account</string>
                                             <constraint firstItem="ZCb-I9-inr" firstAttribute="leading" secondItem="ZDt-Av-GPG" secondAttribute="trailing" id="j4p-bh-R1T"/>
                                             <constraint firstItem="uuT-sn-BC3" firstAttribute="centerX" secondItem="dLc-g9-Rw5" secondAttribute="centerX" id="krQ-QU-ckh"/>
                                             <constraint firstItem="YQ1-ld-HM1" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="laN-rp-awG"/>
+                                            <constraint firstItem="wdx-6n-0vl" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="m1W-xc-42J"/>
                                             <constraint firstAttribute="trailing" secondItem="eYC-Hf-zpd" secondAttribute="trailing" constant="50" id="n3W-uS-mnw"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZCb-I9-inr" secondAttribute="trailing" constant="20" symbolic="YES" id="pDv-5g-0zJ"/>
                                             <constraint firstItem="8HR-hO-Wbs" firstAttribute="leading" secondItem="dLc-g9-Rw5" secondAttribute="leading" constant="50" id="qm3-gU-6ob"/>
@@ -645,8 +647,10 @@ Account</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dLc-g9-Rw5" firstAttribute="leading" secondItem="V5p-7b-JNc" secondAttribute="leading" id="5hQ-zA-heE"/>
+                                    <constraint firstAttribute="trailing" secondItem="dLc-g9-Rw5" secondAttribute="trailing" id="8cW-gW-r9b"/>
                                     <constraint firstItem="dLc-g9-Rw5" firstAttribute="width" secondItem="V5p-7b-JNc" secondAttribute="width" id="P0R-46-FBD"/>
                                     <constraint firstAttribute="bottom" secondItem="dLc-g9-Rw5" secondAttribute="bottom" constant="4" id="PNp-Zi-wx1"/>
+                                    <constraint firstItem="dLc-g9-Rw5" firstAttribute="leading" secondItem="V5p-7b-JNc" secondAttribute="leading" id="bUx-Nc-O35"/>
                                     <constraint firstItem="dLc-g9-Rw5" firstAttribute="top" secondItem="V5p-7b-JNc" secondAttribute="top" id="hcR-rR-lSX"/>
                                     <constraint firstAttribute="trailing" secondItem="dLc-g9-Rw5" secondAttribute="trailing" id="zdO-bu-UYh"/>
                                 </constraints>
@@ -690,7 +694,7 @@ Account</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gn-Mt-gTS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="892"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MicrosoftTeams-image (4)" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-Cb-RG4">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MicrosoftTeams-image (4)" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-Cb-RG4">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="892"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-eJ-6Cb">
@@ -1924,7 +1928,7 @@ you can search below.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Bm-6p-jRq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bm-6p-jRq">
                                 <rect key="frame" x="0.0" y="99" width="414" height="797"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzj-UT-JAf">
@@ -2846,7 +2850,7 @@ you can search below.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="wkk-C0-Qfl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="wkk-C0-Qfl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-dF-guV">
@@ -5572,10 +5576,10 @@ the image below implies?</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-1P-sun">
-                                                            <rect key="frame" x="62" y="17" width="293" height="46"/>
+                                                            <rect key="frame" x="63" y="17" width="292" height="46"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balanced Diet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXN-3S-GDD">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="292" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="lmA-0P-h8K"/>
                                                                     </constraints>
@@ -5584,7 +5588,7 @@ the image below implies?</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sources of food substance." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0x-wr-mRl">
-                                                                    <rect key="frame" x="0.0" y="27" width="293" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="27" width="292" height="19"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="19" id="bYn-ek-EF9"/>
                                                                     </constraints>
@@ -5600,8 +5604,6 @@ the image below implies?</string>
                                                                 <constraint firstItem="HXN-3S-GDD" firstAttribute="leading" secondItem="HRC-1P-sun" secondAttribute="leading" id="Xcs-Ej-FBe"/>
                                                                 <constraint firstAttribute="trailing" secondItem="r0x-wr-mRl" secondAttribute="trailing" id="a3l-yd-eSe"/>
                                                                 <constraint firstAttribute="width" constant="293" id="ft0-1b-R9l"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="h3F-nB-8gg"/>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="oO7-TW-MMC"/>
                                                                 <constraint firstAttribute="bottom" secondItem="r0x-wr-mRl" secondAttribute="bottom" id="weE-Nc-r2d"/>
                                                                 <constraint firstItem="HXN-3S-GDD" firstAttribute="top" secondItem="HRC-1P-sun" secondAttribute="top" id="z2B-KN-erc"/>
                                                                 <constraint firstAttribute="height" constant="46" id="z42-0V-R0f"/>
@@ -5612,7 +5614,7 @@ the image below implies?</string>
                                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="12" id="Ebm-SH-2g5"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="13" id="P8x-uE-icR"/>
+                                                                <constraint firstAttribute="width" constant="13" id="P8x-uE-icR"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -5629,7 +5631,7 @@ the image below implies?</string>
                                                         <constraint firstItem="HRC-1P-sun" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="17" id="F1H-GH-546"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="top" secondItem="xMs-wC-vTI" secondAttribute="top" constant="25" id="G55-Uj-qc8"/>
                                                         <constraint firstItem="yNJ-ao-8pP" firstAttribute="leading" secondItem="xMs-wC-vTI" secondAttribute="leading" id="YeW-IT-esn"/>
-                                                        <constraint firstItem="HRC-1P-sun" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eKq-qZ-fOc" secondAttribute="trailing" constant="8" symbolic="YES" id="aLr-KK-DpN"/>
+                                                        <constraint firstItem="HRC-1P-sun" firstAttribute="leading" secondItem="eKq-qZ-fOc" secondAttribute="trailing" constant="25" id="aLr-KK-DpN"/>
                                                         <constraint firstItem="eKq-qZ-fOc" firstAttribute="leading" secondItem="xMs-wC-vTI" secondAttribute="leading" constant="25" id="bUk-AZ-oge"/>
                                                         <constraint firstAttribute="bottom" secondItem="yNJ-ao-8pP" secondAttribute="bottom" id="cyO-9K-Pb2"/>
                                                         <constraint firstAttribute="bottom" secondItem="HRC-1P-sun" secondAttribute="bottom" constant="17" id="qaS-Bg-dJC"/>
@@ -5719,7 +5721,7 @@ the image below implies?</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4c-gn-tSQ">
-                                                            <rect key="frame" x="104" y="35" width="79.5" height="26"/>
+                                                            <rect key="frame" x="104" y="35" width="251" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="VYZ-CB-1wm"/>
                                                                 <constraint firstAttribute="height" constant="26" id="dIC-BB-9oV"/>
@@ -5729,10 +5731,10 @@ the image below implies?</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZK-8b-rKb">
-                                                            <rect key="frame" x="104" y="67" width="119" height="19"/>
+                                                            <rect key="frame" x="104" y="67" width="251" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="4Yp-ak-jl6"/>
-                                                                <constraint firstAttribute="height" constant="19" id="ROm-KO-8dO"/>
+                                                                <constraint firstAttribute="height" constant="26" id="ROm-KO-8dO"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.7283550941780822" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -5741,13 +5743,16 @@ the image below implies?</string>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="vZK-8b-rKb" secondAttribute="trailing" constant="132" id="1wf-gK-M4M"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vZK-8b-rKb" secondAttribute="trailing" id="1wf-gK-M4M"/>
                                                         <constraint firstItem="vZK-8b-rKb" firstAttribute="top" secondItem="D4c-gn-tSQ" secondAttribute="bottom" constant="6" id="Nmz-kO-H33"/>
+                                                        <constraint firstItem="vZK-8b-rKb" firstAttribute="trailing" secondItem="D4c-gn-tSQ" secondAttribute="trailing" id="Q7D-1A-DgE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vZK-8b-rKb" secondAttribute="trailing" id="QG4-5B-HpT"/>
+                                                        <constraint firstItem="vZK-8b-rKb" firstAttribute="leading" secondItem="D4c-gn-tSQ" secondAttribute="leading" id="WA6-K2-xJW"/>
                                                         <constraint firstItem="D4c-gn-tSQ" firstAttribute="top" secondItem="brI-wF-fxF" secondAttribute="top" constant="35" id="WcY-dO-XTx"/>
-                                                        <constraint firstItem="vZK-8b-rKb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t5W-od-H9B" secondAttribute="trailing" constant="8" symbolic="YES" id="ZrF-gD-YPK"/>
-                                                        <constraint firstItem="D4c-gn-tSQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t5W-od-H9B" secondAttribute="trailing" constant="8" symbolic="YES" id="ZuF-cp-9yt"/>
+                                                        <constraint firstItem="vZK-8b-rKb" firstAttribute="leading" secondItem="t5W-od-H9B" secondAttribute="trailing" constant="26" id="ZrF-gD-YPK"/>
+                                                        <constraint firstItem="D4c-gn-tSQ" firstAttribute="leading" secondItem="t5W-od-H9B" secondAttribute="trailing" constant="26" id="ZuF-cp-9yt"/>
                                                         <constraint firstItem="t5W-od-H9B" firstAttribute="leading" secondItem="brI-wF-fxF" secondAttribute="leading" constant="26" id="c87-Yl-gwf"/>
-                                                        <constraint firstAttribute="trailing" secondItem="D4c-gn-tSQ" secondAttribute="trailing" constant="171.5" id="ey4-wZ-Zxn"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D4c-gn-tSQ" secondAttribute="trailing" id="ey4-wZ-Zxn"/>
                                                         <constraint firstItem="t5W-od-H9B" firstAttribute="top" secondItem="brI-wF-fxF" secondAttribute="top" constant="33" id="gbF-Wh-66g"/>
                                                     </constraints>
                                                 </view>
@@ -5789,7 +5794,7 @@ the image below implies?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OS4-Mc-M1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9393" y="-10"/>
+            <point key="canvasLocation" x="9392.753623188406" y="-10.379464285714285"/>
         </scene>
         <!--Liked View Controller-->
         <scene sceneID="pH4-hb-twq">

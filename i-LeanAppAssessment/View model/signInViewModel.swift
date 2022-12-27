@@ -43,7 +43,7 @@ class SignInViewModel {
                         print("user Token : \(data1)")
                         print("")
 
-                        let user = UserDataModel(userName: data2, userId: data3, token: data1)
+                        let user = UserDataModel(userName: data2, userId: data3)
                         
                         self.userDetails.append(user)
                     }

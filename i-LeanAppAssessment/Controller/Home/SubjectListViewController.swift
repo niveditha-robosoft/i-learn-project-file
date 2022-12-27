@@ -26,7 +26,6 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
-        callApi()
     }
     
     func callApi() {
@@ -48,6 +47,7 @@ class SubjectListViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("count is is : \(objectOfSubjectViewModel.subjectListDetail.count)")
     return objectOfSubjectViewModel.subjectListDetail.count
 }
 

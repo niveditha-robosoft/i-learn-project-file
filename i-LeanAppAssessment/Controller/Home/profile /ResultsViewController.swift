@@ -26,6 +26,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
   
+        callApi()
     }
     
     
@@ -46,7 +47,10 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                 }
                 else{
-                    self.alertMessage(message: "No result is available...!")
+                    DispatchQueue.main.async {
+                        self.alertMessage(message: "No result is available...!")
+
+                    }
                     
                 }
                 }

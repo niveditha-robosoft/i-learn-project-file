@@ -8,7 +8,21 @@
 import UIKit
 import AVKit
 class LessonDetailsViewController: UIViewController {
+    
+    var userId = 0
+    var subjectId = 0
+    var chapterId = 0
+    var lessonId = 0
+    var unitId = 0
+
+    var subName = ""
+    var chapName = ""
+    var lessonName = ""
+    var unitName = ""
+    
+    
     // var  objectFromLessonViewModel = LessonViewModel()
+    var objectOfUserCurrentlyStudyingDataViewMOdel = UserCurrentlyStudyingDataViewMOdel.objectOfViewModel
     var objectOfLessonViewModel = LessonDetailViewModel.objectOfLessonDetailViewModel
     var objectOFSignInViewMOdel = SignInViewModel.objectOfViewModel
     
@@ -21,7 +35,6 @@ class LessonDetailsViewController: UIViewController {
     
     var numarr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     
-    var unitId = 0
     var lessonNum = ""
     
     var currentPageNo = 1
@@ -54,6 +67,11 @@ class LessonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let id =  objectOfUserDefaults.value(forKey: "userId") as? Int{
+            
+            userId = id
+        }
         
         leftButton.isEnabled = false
         
@@ -238,6 +256,11 @@ class LessonDetailsViewController: UIViewController {
     func disableRightButton() {
         
         if currentPageNo >= totalePages{
+            userDataSendingFunction()
+
+            let userData = CurrentlyStudyingData(subjectName: subName, chapterName: chapName, lessonName: lessonName, unitName: unitName)
+            
+            objectOfUserCurrentlyStudyingDataViewMOdel.studying.append(userData)
             
             rightButton.isEnabled = false
             leftButton.isEnabled = true
@@ -253,6 +276,7 @@ class LessonDetailsViewController: UIViewController {
         
         if currentPageNo >= 1{
             
+
             rightButton.isEnabled = true
             leftButton.isEnabled = true
         }else{
@@ -275,27 +299,34 @@ class LessonDetailsViewController: UIViewController {
     
     @IBAction func rightButtonTapped(_ sender: Any) {
         
+//        print("userId : \(userId)\nsubjectId : \(subjectId)\nchapterId : \(chapterId)\nlessonId :\(lessonId)\nunitId : \(unitId)")
+        
+        
+        
+        
         let tokenIs = getToken()
         self.objectOfLessonViewModel.videoIs.removeAll()
         self.objectOfLessonViewModel.photoIs.removeAll()
-        
+
         currentPageNo += 1
         
+
         if currentPageNo <= totalePages{
             
+
             let loader = self.loader()
             objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(currentPageNo)", tokenTOSend: tokenIs){ [self] data in
-                
+
                 DispatchQueue.main.async() {
                     self.stopLoader(loader: loader)
-                    
+
                     print("api responce is : \(data)")
                     if data == true{
-                        
+
                         print("api responce is and if loop in side : \(data)")
                         if  objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
 
-                    
+
                             self.imageViewHeight.constant = 197
                             self.unitDetailImageIs.image = getImage(urlString: objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
                             self.videoHeight.constant = 0
@@ -304,7 +335,7 @@ class LessonDetailsViewController: UIViewController {
 
                         }else{
 
-                         
+
                             self.imageViewHeight.constant = 0
                             self.videoHeight.constant = 0
 
@@ -327,40 +358,60 @@ class LessonDetailsViewController: UIViewController {
 
 
                         }
-                       
-                        
-                        
-                        
+
+
+
+
                         self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                         self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                         self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
                         self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
                         //self.viewDidLoad()
-                        
+
                     }else{
-                        
+
                         DispatchQueue.main.async {
-                            
+
                             alertMessage(message: "Sorry somthing went wrong unable to fetch data try after some time ...!!!")
-                            
-                            
+
+
                         }
-                        
-                        
-                        
+
+
+
                     }
-                    
+
                 }
-                
+
             }
-            
+
             disableRightButton()
-            
+
         }else{
-            
+
             alertMessage(message: "Error while loading the data ...!!!")
         }
         
+        
+        
+        
+    }
+    
+    
+    func userDataSendingFunction()  {
+        
+        let tokenIs = getToken()
+        objectOfUserCurrentlyStudyingDataViewMOdel.sendUserdata(token: tokenIs, userId: userId, subjectId: subjectId, chapterId: chapterId, lessonId: lessonId, unitId: unitId){ status in
+            
+            if status == true{
+                
+                print("trure")
+            }else{
+                
+                print("false")
+            }
+            
+        }
         
         
         
