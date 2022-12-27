@@ -60,8 +60,9 @@ class ProfileViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
 
         viewWillwApperChanges()
+        didLoadApiCall()
         
-        viewWillAppeareApiCall()
+//        viewWillAppeareApiCall()
     }
     
 
@@ -373,7 +374,9 @@ extension ProfileViewController{
                         self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
                         
                     }else{
-                        
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Error while loading the data...!!!")
+                        }
                     }
                 }
 

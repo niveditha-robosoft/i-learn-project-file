@@ -65,6 +65,10 @@ extension NotificationViewController{
                         
                     }else{
                         
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "There are no recent notifications...")
+                        }
+                        
                         
                     }
                 }
