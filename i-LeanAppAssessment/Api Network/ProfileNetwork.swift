@@ -71,9 +71,8 @@ class ProfileNetwork {
         
         request.httpMethod = "GET"
         
-        let tokenISIS = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbnVzaGthMThAZ21haWwuY29tIiwiZXhwIjoxNjcxNDg0NDY4LCJpYXQiOjE2NzE0NDg0Njh9.1-caAwyYUIv5yfMiXeuh8qPOVx6jUaGDLcZOfzAx5-B8CzugbhJ0EtWWckqnAZVKi88wLXYdjNV8l8OoxcKTNQ"
 
-        request.setValue("Bearer \(tokenISIS)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     
             let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
                 
@@ -115,6 +114,50 @@ class ProfileNetwork {
     
     
     
+    func callSignOutApi(token: String, completion: @escaping((Bool, Error?) -> ())){
+        
+        
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/logout") else{
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { data, responce, error in
+                
+                guard let data = data, error == nil else{
+                    print("Result is: \(String(describing: error?.localizedDescription))")
+                    return
+                }
+              
+                if let responsIs = responce as? HTTPURLResponse{
+
+                    print("Result api responce",responsIs.statusCode)
+                    if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
+
+                        do{
+                            let responsData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+
+                            completion(true,nil)
+ 
+                        }
+                    }else {
+                        
+                        completion(false,error)
+                    }
+
+                }
+ 
+            })
+            
+            task.resume()
+        
+        
+    }
     
     
     

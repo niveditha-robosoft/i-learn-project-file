@@ -123,4 +123,26 @@ class ProfileViewMOdel {
         
     }
  
+    
+    func signOutApiCall(tokenToSend: String, completion: @escaping((Bool) -> ())) {
+        
+        objectOfProfileNetwork.callSignOutApi(token: tokenToSend){ completionStatus, completionerror in
+            
+            if completionerror == nil{
+                
+                if completionStatus == true{
+                    
+                    completion(true)
+                }else{
+                    
+                   completion(false)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
 }

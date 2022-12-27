@@ -61,44 +61,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func gotoHomeScreenWhenButtonTappedInSigninScreen(_ sender: UIButton) {
         
-            
-            let loader =   self.loader()
-            
-            objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs, responceCondition in
-                
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
-                    if reposeIs == true && responceCondition == 0{
-                        
-                        let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
-                        TabBarViewController
-
-                        if let vc = HomeVc{
-
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-
-  
-                    }else if reposeIs == false && responceCondition == 0{
-                        DispatchQueue.main.async {
-                            self.alertMessage(message: "Invalid User Name or Password Try Again or Try to Sign Up")
-                        }
-                        
-                        
-                        
-                    }else{
-                        DispatchQueue.main.async {
-                            self.alertMessage(message: "Try to Sign Up")
-                        }
-                    }
-                }
-
-            }
-            
-
-        
-        
-        
+        callApi()
+    
     }
     
     @IBAction func signUpButtonTappedInSignInScreen(_ sender: UIButton) {
@@ -160,6 +124,47 @@ class SignInViewController: UIViewController, UITextFieldDelegate{
         
         
     }
+    
+    
+    func callApi() {
+        
+        let loader =   self.loader()
+        
+        objectOfSignInViewModel.requestApiForSignIn(mobile_email: mobileEmailTextField.text ?? "", password: passwordTextField.text ?? ""){ reposeIs, responceCondition in
+            
+            DispatchQueue.main.async() {
+                self.stopLoader(loader: loader)
+                if reposeIs == true && responceCondition == 0{
+                    
+                    let HomeVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as?
+                    TabBarViewController
+
+                    if let vc = HomeVc{
+
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+
+
+                }else if reposeIs == false && responceCondition == 0{
+                    DispatchQueue.main.async {
+                        self.alertMessage(message: "Invalid User Name or Password Try Again or Try to Sign Up")
+                    }
+                    
+                    
+                    
+                }else{
+                    DispatchQueue.main.async {
+                        self.alertMessage(message: "Try to Sign Up")
+                    }
+                }
+            }
+
+        }
+        
+        
+        
+    }
+    
     
     
     func statusOftheButton() {

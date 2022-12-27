@@ -12,7 +12,7 @@ class VarificationNetwork {
     
     func apiCallForVarificationCode(sendDataToApi: String, completion: @escaping((Bool, Error?) -> ())) {
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/forgot") else{
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/account-verify") else{
             return
         }
         
@@ -64,7 +64,7 @@ class VarificationNetwork {
     
     func varifyTheOtp(sendmobile_email: String, sendOtp: Int, completion: @escaping((Bool, Error?) -> ())) {
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/verify") else{
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/auth/otp-verify") else{
             return
         }
         
