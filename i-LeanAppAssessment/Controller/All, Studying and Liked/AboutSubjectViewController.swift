@@ -16,6 +16,9 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     var chapterIdIs = 0
     var chapteName = ""
     var lessonId = 0
+    
+    var didTap = false
+    
     var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
     var chapterId: Int?
@@ -42,9 +45,19 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+                
         callApi()
+        let call = getToken()
 
+        if didTap == true {
+            
+            print("Hi hi hin hi hnin ih ih ih ih ih ih ")
+            collectionViewDidTapApi(tolenIs : call, chapterIdIs: chapterIdIs)
+            
+            didTap = false
+        }
+        
+        
     }
     
     func callApi() {
@@ -110,6 +123,7 @@ extension AboutSubjectViewController{
             
             collectionViewDidTapApi(tolenIs : call, chapterIdIs: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId)
             
+            didTap = true
             self.chapterIdIs = self.objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
 
             
@@ -263,8 +277,8 @@ extension AboutSubjectViewController{
             vc.subjectNameIs = subjectNameIs
 //            vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
 //            print(vc.realLessonId,"reallessonID")
-            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
-            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
+//            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
+//            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
             objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
             print(objectOfAboutSUbjectViewModel.currentLessonId,"currentlessonid")
 
