@@ -29,18 +29,22 @@ class LikedUnitViewMOdel {
                             
                             for i in data {
                                 
-                                guard let data1 = i["subjectName"] as? String else{ print("like 1")
+                                guard let data1 = i["subjectName"] as? String else{ completion(false)
                                     return}
-                                guard let data2 = i["lessonName"] as? String else{ print("like 2")
+                                guard let data2 = i["lessonName"] as? String else{ completion(false)
                                     return}
-                                guard let data3 = i["unitName"] as? String else{ print("like 3")
+                                guard let data3 = i["unitName"] as? String else{ completion(false)
                                     return}
 //                                guard let data4 = i["unitOverView"] as? String else{ print("like 4")
 //                                    return}
+                                guard let data4 = i["chapterId"] as? Int else{ completion(false)
+                                    return
+                                    
+                                }
                                 
                                 print("liked unit details is : \(data1)\n\(data2)\n\(data3)")
                                 
-                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4")
+                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4", chapterId: data4)
                                 
                                 self.lokedUnitDetails.append(unit)
                                 

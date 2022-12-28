@@ -50,6 +50,8 @@
 		7786FC962945B0F700A0B956 /* AboutSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */; };
 		778E6B4929445F0200A44471 /* CreatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */; };
 		77A0571E29545647004C0365 /* OnBoardingSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A0571D29545647004C0365 /* OnBoardingSplashViewController.swift */; };
+		77A0CDF7295C048700C0E2C1 /* LikedUnitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A0CDF6295C048700C0E2C1 /* LikedUnitDetailViewModel.swift */; };
+		77A0CDFA295C050E00C0E2C1 /* LikedUnitDetailNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A0CDF9295C050E00C0E2C1 /* LikedUnitDetailNetworkManager.swift */; };
 		77A252412951BAD6006BAC2D /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A252402951BAD6006BAC2D /* PlistManager.swift */; };
 		77A252442951BEE2006BAC2D /* SkipStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A252432951BEE2006BAC2D /* SkipStatus.plist */; };
 		77AEE593294DA28B00906FE4 /* SubjecListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEE592294DA28B00906FE4 /* SubjecListViewModel.swift */; };
@@ -217,6 +219,8 @@
 		7786FC952945B0F700A0B956 /* AboutSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		778E6B4829445F0200A44471 /* CreatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewModel.swift; sourceTree = "<group>"; };
 		77A0571D29545647004C0365 /* OnBoardingSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSplashViewController.swift; sourceTree = "<group>"; };
+		77A0CDF6295C048700C0E2C1 /* LikedUnitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedUnitDetailViewModel.swift; sourceTree = "<group>"; };
+		77A0CDF9295C050E00C0E2C1 /* LikedUnitDetailNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedUnitDetailNetworkManager.swift; sourceTree = "<group>"; };
 		77A252402951BAD6006BAC2D /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		77A252432951BEE2006BAC2D /* SkipStatus.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SkipStatus.plist; sourceTree = "<group>"; };
 		77AEE592294DA28B00906FE4 /* SubjecListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjecListViewModel.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 				7DB5A81429548C2500513255 /* ResultViewModel.swift */,
 				7747B5E02957350B0028AAE3 /* LikedUnitViewModel.swift */,
 				77F61C1A295AE32B00CE12AB /* UserCurrentlyStudyingData.swift */,
+				77A0CDF6295C048700C0E2C1 /* LikedUnitDetailViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				7DB5A80E29548C0900513255 /* ResultNetworkManager.swift */,
 				7747B5E3295735820028AAE3 /* LikedInitApiManager.swift */,
 				77F61C1D295AE41000CE12AB /* SendUserDataNetworkmanager.swift */,
+				77A0CDF9295C050E00C0E2C1 /* LikedUnitDetailNetworkManager.swift */,
 			);
 			path = "Api Network";
 			sourceTree = "<group>";
@@ -882,6 +888,7 @@
 				77F2A0172941A8670034CFB6 /* SubjectListViewController.swift in Sources */,
 				7715F0122942146300E04728 /* varificationNetwork.swift in Sources */,
 				7D0264E02954A5450097FCF6 /* Answer.swift in Sources */,
+				77A0CDF7295C048700C0E2C1 /* LikedUnitDetailViewModel.swift in Sources */,
 				83FE358529473F8700B557CC /* LessonModel.swift in Sources */,
 				777FB2A9294857B100718711 /* LessonDetailVideoAudioViewController.swift in Sources */,
 				7781D69B294DDCF80020D973 /* ResultsTableViewCell.swift in Sources */,
@@ -950,6 +957,7 @@
 				77F6FAE2293F200800EBD0A9 /* signUpModel.swift in Sources */,
 				7DB5A82129548C5700513255 /* QuestionListViewController.swift in Sources */,
 				775C2BF429404D31003E7405 /* HomeScreenCollectionViewCell.swift in Sources */,
+				77A0CDFA295C050E00C0E2C1 /* LikedUnitDetailNetworkManager.swift in Sources */,
 				7781D6A4294DFE970020D973 /* HomeNetwork.swift in Sources */,
 				77DFCF2D2949FC1C002F1CFC /* ProfileEditViewController.swift in Sources */,
 				7DB5A81229548C2000513255 /* TestViewModel.swift in Sources */,

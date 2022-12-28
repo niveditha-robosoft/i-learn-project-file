@@ -13,12 +13,14 @@ class LikedUnitModel {
     var lessonName: String
     var unitName: String
     var unitOverView: String
+    var chapterId: Int
     
-    init(subjectName: String,lessonName: String,unitName: String,unitOverView: String) {
+    init(subjectName: String,lessonName: String,unitName: String,unitOverView: String,chapterId: Int) {
         self.subjectName = subjectName
         self.lessonName = lessonName
         self.unitName = unitName
         self.unitOverView = unitOverView
+        self.chapterId = chapterId
         
     }
 }

@@ -24,10 +24,12 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var chapterName2 = ""
     var lessonName2 = ""
     
-    
-    
+    var likedChapterIdIs = 0
+    var statusX = 0
     var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
+    
+    var objectOfLikedUnitDetailViewModel = LikedUnitDetailViewModel.obkectOfViewModel
     
     var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
     
@@ -52,69 +54,129 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
+        
+        if statusX == 1{
+            
+            let tokenIs = getToken()
+            objectOfLikedUnitDetailViewModel.likedUnitDetails(tokenIs: tokenIs, chapterIdIs: likedChapterIdIs)
+            
+            
+            
+            tableView.reloadData()
+
+        }else{
+            
+            tableView.reloadData()
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        if statusX == 1{
+            
+            tableView.reloadData()
+
+        }else{
+            
+            tableView.reloadData()
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("appeared", unitDetailsIS.count)
-        return unitDetailsIS.count
+        if statusX == 0{
+            
+            return unitDetailsIS.count
+
+        }else if statusX == 1{
+            
+            
+        }else{
+            
+            
+        }
+        
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
-        cell.customizeView()
-        cell.lessonImage.image = lessonImg[indexPath.row]
-        cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName.capitalized
-        cell.levelLabel.text = unitDetailsIS[indexPath.row].level.uppercased()
-        cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview.capitalized
-        return cell
+        
+        if statusX == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
+            cell.customizeView()
+            cell.lessonImage.image = lessonImg[indexPath.row]
+            cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName.capitalized
+            cell.levelLabel.text = unitDetailsIS[indexPath.row].level.uppercased()
+            cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview.capitalized
+            return cell
+        }else{
+           
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
+            cell.customizeView()
+            return cell
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if unitDetailsIS[indexPath.row].totalPages != 0 {
             
-            let tokenIs = getToken()
+            if statusX == 0{
+               
                 
-                let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
-                 if let vc = lessondetailVc {
-                    let loader = self.loader()
-
-                     vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
-                        
-                        DispatchQueue.main.async() {
-                            self.stopLoader(loader: loader)
-                        
-                        
-                             if Bool {
-                                
-                                vc.unitName = self.unitDetailsIS[indexPath.row].unitName
-                                vc.subName = self.subjectName2
-                                vc.chapName = self.chapterName2
-                                vc.lessonName = self.lessonName2
-                                vc.userId = self.userId2
-                                vc.subjectId = self.subjectId2
-                                vc.chapterId = self.chapterId2
-                                vc.lessonId = self.lessonId2
-                                 vc.unitId = self.unitDetailsIS[indexPath.row].unitId
-                                 vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
-                                 self.navigationController?.pushViewController(vc, animated: true)
-                             }else{
-                                
-                                DispatchQueue.main.async {
-                                    self.alertMessage(message: "Error while loading the data try later ...!!!")
-                                }
-                                
-                             }
-                     }
+                let tokenIs = getToken()
                     
-                       }
+                    let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
+                     if let vc = lessondetailVc {
+                        let loader = self.loader()
 
-             }
+                         vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
+                            
+                            DispatchQueue.main.async() {
+                                self.stopLoader(loader: loader)
+                            
+                            
+                                 if Bool {
+                                    
+                                    vc.unitName = self.unitDetailsIS[indexPath.row].unitName
+                                    vc.subName = self.subjectName2
+                                    vc.chapName = self.chapterName2
+                                    vc.lessonName = self.lessonName2
+                                    vc.userId = self.userId2
+                                    vc.subjectId = self.subjectId2
+                                    vc.chapterId = self.chapterId2
+                                    vc.lessonId = self.lessonId2
+                                     vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+                                     vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                                     self.navigationController?.pushViewController(vc, animated: true)
+                                 }else{
+                                    
+                                    DispatchQueue.main.async {
+                                        self.alertMessage(message: "Error while loading the data try later ...!!!")
+                                    }
+                                    
+                                 }
+                         }
+                        
+                           }
+
+                 }
+                
+            }else{
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+            
+            
             
         }else{
             

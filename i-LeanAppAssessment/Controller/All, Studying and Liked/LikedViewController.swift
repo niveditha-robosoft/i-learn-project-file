@@ -42,6 +42,21 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("id id id : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].chapterId)")
+        
+        
+        let detailVc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as? LessonTestViewController
+        
+        if let vc = detailVc{
+            
+            vc.statusXY = 1
+            vc.likedChapterId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].chapterId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
     func callApi() {
         
         let tokenToSend = getToken()

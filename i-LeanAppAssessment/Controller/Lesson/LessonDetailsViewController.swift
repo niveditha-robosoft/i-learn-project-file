@@ -518,14 +518,21 @@ class LessonDetailsViewController: UIViewController {
         
         currentPageNo = SelectedCellLabel
         let loader = self.loader()
+        
+        if SelectedCellLabel == totalePages{
+            
+            userDataSendingFunction()
+
+            
+        }
 
         objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitId)&limit=1&page=\(String(SelectedCellLabel))", tokenTOSend: tokenIs){ data in
             DispatchQueue.main.async() {
                 self.stopLoader(loader: loader)
-            
+
             if data == true {
-                
-              
+
+
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != "" {
                     print("\(self.unitvideoDetailIs)")
                     self.unitvideoDetailIs.isHidden = true
@@ -535,49 +542,49 @@ class LessonDetailsViewController: UIViewController {
                    self.unitvideoDetailIs.isHidden = true
                     self.unitDetailImageIs.isHidden = false
                     self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
-                    
+
                 }else{
-                    
+
                    self.unitvideoDetailIs.isHidden = true
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
                     self.unitDetailImageIs.isHidden = true
-                  
+
                     self.contentViewHeight.priority = UILayoutPriority(rawValue: 750)
 
-                   
+
                 }
-                
+
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitVideo != ""{
-                    
-                    
+
+
                     self.imageViewHeight.constant = 0
                     self.startVideo(videoString: self.objectOfLessonViewModel.lessonDetail.last?.unitVideo ?? "")
                     self.videoHeight.constant = 200
                     self.unitvideoDetailIs.isHidden = false
                     self.unitDetailImageIs.isHidden = true
                 }else{
-                    
+
                    // self.unitDetailImageIs.isHidden = false
                     self.imageViewHeight.constant = 0
                     self.videoHeight.constant = 0
                       self.unitvideoDetailIs.isHidden = true
                     self.unitDetailImageIs.isHidden = true
-                   
-                
-                    
+
+
+
                 }
-               
-                
+
+
                 self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                 self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                 self.unitDetailImageIs.image = UIImage( contentsOfFile: self.objectOfLessonViewModel.lessonDetail.last!.unitImage)
             }else{
-                
+
                 DispatchQueue.main.async {
                     self.alertMessage(message: "Sorry somthing went wrong unable to fetch data try after some time ...!!!")
                 }
-                
+
             }
             }
         }

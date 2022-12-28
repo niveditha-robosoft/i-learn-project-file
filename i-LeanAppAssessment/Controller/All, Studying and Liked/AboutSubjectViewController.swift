@@ -35,6 +35,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
         
+        didTap = false
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -51,10 +52,8 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
 
         if didTap == true {
             
-            print("Hi hi hin hi hnin ih ih ih ih ih ih ")
             collectionViewDidTapApi(tolenIs : call, chapterIdIs: chapterIdIs)
             
-            didTap = false
         }
         
         

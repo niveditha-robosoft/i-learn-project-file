@@ -8,6 +8,10 @@ import UIKit
 
 class LessonTestViewController: UIViewController {
     
+    var likedChapterId = 0
+    var statusXY = 0
+    
+    
     var subjectName1 = ""
     var chapterName1 = ""
     var lessonName1 = ""
@@ -81,7 +85,8 @@ class LessonTestViewController: UIViewController {
         AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
         lessonVc = segue.destination as? LessonViewController
         
-        
+        lessonVc?.likedChapterIdIs = likedChapterId
+        lessonVc?.statusX = statusXY
         
         lessonVc?.subjectName2 = subjectName1
         lessonVc?.chapterName2 = chapterName1

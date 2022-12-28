@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "552FCE14-63E7-4E1F-B403-ABEE2BC9D6CC"
+            uuid = "B491EEDB-B9B6-4F6F-8417-925713F2A60C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "i-LeanAppAssessment/Api Network/varificationNetwork.swift"
+            filePath = "i-LeanAppAssessment/Controller/All, Studying and Liked/LikedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "apiCallForVarificationCode(sendDataToApi:completion:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
