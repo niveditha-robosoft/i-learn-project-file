@@ -105,8 +105,8 @@ extension AboutSubjectViewController{
         cell.image.image = getImage(urlString: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterImage)
         cell.labelText.text = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterName
         cell.imageBackgroundView.layer.backgroundColor = backgroundColour[indexPath.row]
-        cell.backView.layer.masksToBounds = true
-        cell.backView.layer.cornerRadius = 15.0
+//        cell.backView.layer.masksToBounds = true
+//        cell.backView.layer.cornerRadius = 16.0
         return cell
         
     }

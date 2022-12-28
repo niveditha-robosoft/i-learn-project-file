@@ -1,13 +1,13 @@
 //
-//  AboutHeaderCell.swift
+//  StudyingHeaderTableViewCell.swift
 //  i-LeanAppAssessment
 //
-//  Created by Niveditha Naik on 14/12/22.
+//  Created by Harsha R Mundaragi on 28/12/22.
 //
 
 import UIKit
 
-class AboutHeaderCell: UITableViewCell {
+class StudyingHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lessonname: UILabel!
     @IBOutlet weak var lessonNumber: UILabel!
@@ -52,7 +52,5 @@ class AboutHeaderCell: UITableViewCell {
     }
     
     
-    
-    
-    
+
 }
