@@ -315,7 +315,7 @@ extension StudyingViewController{
             vc.lessonName1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
                 
                 
-//            vc.subjectId1 = subIdIs
+            vc.subjectId1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectId
             vc.chapterId1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterId
             vc.lessonId1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
                         
