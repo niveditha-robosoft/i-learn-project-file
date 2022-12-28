@@ -13,12 +13,16 @@ class CurrentlyStudyingModel {
     var chapterName: String
     var percentahge: Int
     var subject_image: String
+    var chapterId: Int
     
-    init(subjectName: String,chapterName: String,percentahge: Int,subject_image: String) {
+    
+    
+    init(subjectName: String,chapterName: String,percentahge: Int,subject_image: String,chapterId: Int) {
         self.subjectName = subjectName
         self.chapterName = chapterName
         self.percentahge = percentahge
         self.subject_image = subject_image
+        self.chapterId = chapterId
     }
     
     

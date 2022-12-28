@@ -55,7 +55,11 @@ class HomeViewModel {
                                     
                                     
                                 }
-                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: percentage, subject_image: imageIs)
+                                
+                                guard let data55 = i["chapterId"] as? Int else{  completion(false)
+                                    return
+                                }
+                                let current = CurrentlyStudyingModel(subjectName: data2, chapterName: data1, percentahge: percentage, subject_image: imageIs, chapterId: data55)
                              
                                 self.currentyStudyingData.append(current)
                                 

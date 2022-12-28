@@ -32,6 +32,9 @@
 		775C2BFB29408A65003E7405 /* OnBoardinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2BFA29408A65003E7405 /* OnBoardinCollectionViewCell.swift */; };
 		775C2BFE29408A72003E7405 /* OnBoardingSlide .swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2BFD29408A72003E7405 /* OnBoardingSlide .swift */; };
 		7770E6E6295C1F8700A10067 /* likedUnitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770E6E5295C1F8700A10067 /* likedUnitDataModel.swift */; };
+		7770E6EB295C4B7000A10067 /* StudyingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770E6EA295C4B7000A10067 /* StudyingCollectionViewCell.swift */; };
+		7770E6EE295C553800A10067 /* StudyingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770E6ED295C553800A10067 /* StudyingHeaderTableViewCell.swift */; };
+		7770E6F1295C557200A10067 /* StudyingBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770E6F0295C557200A10067 /* StudyingBodyTableViewCell.swift */; };
 		777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886222940AC28001E7E1F /* SearchResultViewController.swift */; };
 		777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886252940DCA9001E7E1F /* signInViewModel.swift */; };
 		777ADEBD29502E5500175BF1 /* AboutSubjectHeaderProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */; };
@@ -202,6 +205,9 @@
 		775C2BFA29408A65003E7405 /* OnBoardinCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardinCollectionViewCell.swift; sourceTree = "<group>"; };
 		775C2BFD29408A72003E7405 /* OnBoardingSlide .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardingSlide .swift"; sourceTree = "<group>"; };
 		7770E6E5295C1F8700A10067 /* likedUnitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likedUnitDataModel.swift; sourceTree = "<group>"; };
+		7770E6EA295C4B7000A10067 /* StudyingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingCollectionViewCell.swift; sourceTree = "<group>"; };
+		7770E6ED295C553800A10067 /* StudyingHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		7770E6F0295C557200A10067 /* StudyingBodyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyingBodyTableViewCell.swift; sourceTree = "<group>"; };
 		777886222940AC28001E7E1F /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		777886252940DCA9001E7E1F /* signInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInViewModel.swift; sourceTree = "<group>"; };
 		777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectHeaderProgress.swift; sourceTree = "<group>"; };
@@ -439,6 +445,7 @@
 				775C2BFA29408A65003E7405 /* OnBoardinCollectionViewCell.swift */,
 				77AEE5BB294DB0DA00906FE4 /* BottomUpCollectionViewCell.swift */,
 				7DB5A83529548C9F00513255 /* QuestionsCollectionViewCell.swift */,
+				7770E6EA295C4B7000A10067 /* StudyingCollectionViewCell.swift */,
 			);
 			path = "Collection view cell";
 			sourceTree = "<group>";
@@ -457,6 +464,8 @@
 				77C7C8802955A73F001D1D8F /* TestTableViewCell.swift */,
 				7747B5DA295715E60028AAE3 /* StudyingTableViewCell.swift */,
 				7747B5E929573AC70028AAE3 /* LikedUnitsTableViewCell.swift */,
+				7770E6ED295C553800A10067 /* StudyingHeaderTableViewCell.swift */,
+				7770E6F0295C557200A10067 /* StudyingBodyTableViewCell.swift */,
 			);
 			path = "Table view cell";
 			sourceTree = "<group>";
@@ -897,11 +906,13 @@
 				7781D69B294DDCF80020D973 /* ResultsTableViewCell.swift in Sources */,
 				7715F0092941ADEE00E04728 /* ProfileViewController.swift in Sources */,
 				77C73D932944A945003031EF /* LikedViewController.swift in Sources */,
+				7770E6EB295C4B7000A10067 /* StudyingCollectionViewCell.swift in Sources */,
 				777F16F7294B009D0010D807 /* ProfileModel.swift in Sources */,
 				7706556C294341D10018056D /* CreatePasswordViewController.swift in Sources */,
 				77AEE5A3294DA7B500906FE4 /* AboutHeaderCell.swift in Sources */,
 				7D0264D729549ED30097FCF6 /* Test.swift in Sources */,
 				77517EC0293F7FD8002FED03 /* SignUpViewController.swift in Sources */,
+				7770E6EE295C553800A10067 /* StudyingHeaderTableViewCell.swift in Sources */,
 				77A252412951BAD6006BAC2D /* PlistManager.swift in Sources */,
 				77F61C1B295AE32B00CE12AB /* UserCurrentlyStudyingData.swift in Sources */,
 				77F61C21295B14F000CE12AB /* CurrentlyStudyingData.swift in Sources */,
@@ -941,6 +952,7 @@
 				7715F00F294212EC00E04728 /* varifyAccountViewModel.swift in Sources */,
 				77AEE5CF294DB3A200906FE4 /* ProgressBarViewTwo.swift in Sources */,
 				7DB5A80F29548C0900513255 /* ResultNetworkManager.swift in Sources */,
+				7770E6F1295C557200A10067 /* StudyingBodyTableViewCell.swift in Sources */,
 				7DB5A81829548C2B00513255 /* QuestionListViewModel.swift in Sources */,
 				7D0264E62954AC740097FCF6 /* OptionsCustomButton.swift in Sources */,
 				77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */,
