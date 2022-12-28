@@ -19,21 +19,14 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var subjectId2 = 0
     var chapterId2 = 0
     var lessonId2 = 0
-    
-    var subjectName2 = ""
+        var subjectName2 = ""
     var chapterName2 = ""
     var lessonName2 = ""
-    
-    
-    
-    var objectOfUserDefaults = UserDefaults()
+               var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
-    
-    var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
-    
-//    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
-    
-    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
+        var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
+    //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
+        var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
@@ -42,11 +35,8 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var levelLbl: UILabel!
     var titleLabl : UILabel!
     var descriptionLbl: UILabel!
-    
-    
-    var delegate: dismissVc?
-    
-    @IBOutlet weak var tableView: UITableView!
+            var delegate: dismissVc?
+        @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -121,9 +111,8 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.alertMessage(message: "Sorry this unit does not contain any lesson details try after some time ...!!!")
             
         }
-        
- 
-}
+       
+ }
 
 }
 
