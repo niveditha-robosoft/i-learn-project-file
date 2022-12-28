@@ -112,15 +112,12 @@ class LessonDetailsViewController: UIViewController {
                 else{
                     self.unitTitleLabel.text = "L4:\(i.pageTitle)"
                 }
-                print("")
-                print("I.image is is : \(i.unitImage)")
-                print("i. video is is : \(i.unitVideo)")
-                print("")
-                if i.unitImage != ""{
+                             
+                        if i.unitImage != ""{
 
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: i.unitImage)
-                    print("116")
+                
                     self.videoHeight.constant = 0
                   
                     self.contentViewHeight.priority = UILayoutPriority(rawValue: 1000)
@@ -140,7 +137,7 @@ class LessonDetailsViewController: UIViewController {
 
 
                 if  i.unitVideo != "" {
-                    print("i am in side the loop122232222323")
+                    
 
                 
                     self.imageViewHeight.constant = 0
@@ -365,7 +362,7 @@ class LessonDetailsViewController: UIViewController {
                         self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription
                         self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
                         self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
-                        //self.viewDidLoad()
+                    
 
                     }else{
 
@@ -436,20 +433,19 @@ class LessonDetailsViewController: UIViewController {
                                              
                         if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != ""{
 
-                            print("i am in side the loop1111")
+                         
 
                             self.unitvideoDetailIs.isHidden = true
                             self.imageViewHeight.constant = 197
                             self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")
                           
-                            print("114")
                             self.videoHeight.constant = 0
 
 
 
 
                         }else{
-                            print("i am in side the loop122232222323")
+                           
                            
                             self.imageViewHeight.constant = 0
                             self.videoHeight.constant = 0
@@ -534,7 +530,7 @@ class LessonDetailsViewController: UIViewController {
 
 
                 if self.objectOfLessonViewModel.lessonDetail.last?.unitImage != "" {
-                    print("\(self.unitvideoDetailIs)")
+                 
                     self.unitvideoDetailIs.isHidden = true
                     self.imageViewHeight.constant = 197
                     self.unitDetailImageIs.image = self.getImage(urlString: self.objectOfLessonViewModel.lessonDetail.last?.unitImage ?? "")

@@ -39,7 +39,7 @@ class LessonDetailNetwork{
 
                         if let datais = responsData as? [String: Any]{
                             
-                            print("fsdfsfsdgsgsfg",datais)
+                          
                             completion(datais,true,nil)
                         }
 
