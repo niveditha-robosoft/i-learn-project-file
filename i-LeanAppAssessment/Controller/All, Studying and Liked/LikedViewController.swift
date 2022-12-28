@@ -43,7 +43,7 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("id id id : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].chapterId)")
+        print("id id id : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonId)")
         
         
         let detailVc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as? LessonTestViewController
@@ -51,7 +51,12 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let vc = detailVc{
             
             vc.statusXY = 1
-            vc.likedChapterId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].chapterId
+            
+            print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")
+            vc.likedLessonNUmber = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber
+            vc.likedSubject = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName
+            vc.likedLessonId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonId
+            vc.likedLessonName = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

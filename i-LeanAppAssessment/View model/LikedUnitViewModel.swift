@@ -19,6 +19,9 @@ class LikedUnitViewMOdel {
     
     func likedUnitsData(tokenToSend: String, completion: @escaping((Bool) -> ())) {
         obejctOfLikedInitApiManager.likedUnitApi(token: tokenToSend){ completionData, completionStatus, completionError in
+            
+            self.lokedUnitDetails.removeAll()
+            
             DispatchQueue.main.async {
                 
                 if completionError == nil{
@@ -37,14 +40,17 @@ class LikedUnitViewMOdel {
                                     return}
 //                                guard let data4 = i["unitOverView"] as? String else{ print("like 4")
 //                                    return}
-                                guard let data4 = i["chapterId"] as? Int else{ completion(false)
+                                guard let data4 = i["lessonId"] as? Int else{ completion(false)
                                     return
                                     
+                                }
+                                guard let data5 = i["lessonNumber"] as? String else{ completion(false)
+                                    return
                                 }
                                 
                                 print("liked unit details is : \(data1)\n\(data2)\n\(data3)")
                                 
-                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4", chapterId: data4)
+                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4", lessonId: data4, lessonNumber: data5)
                                 
                                 self.lokedUnitDetails.append(unit)
                                 

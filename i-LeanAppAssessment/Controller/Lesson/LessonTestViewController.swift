@@ -8,7 +8,10 @@ import UIKit
 
 class LessonTestViewController: UIViewController {
     
-    var likedChapterId = 0
+    var likedSubject = ""
+    var likedLessonNUmber = ""
+    var likedLessonName = ""
+    var likedLessonId = 0
     var statusXY = 0
     
     
@@ -51,6 +54,20 @@ class LessonTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if statusXY == 1{
+            
+            subjectName.text = "INTRODUCTION TO \(likedSubject.uppercased())"
+            lessonName.text = likedLessonName
+            lessonNumber.text = likedLessonNUmber
+            
+        }else{
+            subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
+            lessonName.text = lessonNameIs.capitalized
+            lessonNumber.text = lessonNumberIs
+            
+        }
+        
+        
         if isLessonShown{
             testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
             lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
@@ -66,9 +83,7 @@ class LessonTestViewController: UIViewController {
             view.bringSubviewToFront(testContainerView)
         }
         
-        subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
-        lessonName.text = lessonNameIs.capitalized
-        lessonNumber.text = lessonNumberIs
+        
         testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
         lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
         testContainerView.isHidden = true
@@ -85,7 +100,8 @@ class LessonTestViewController: UIViewController {
         AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
         lessonVc = segue.destination as? LessonViewController
         
-        lessonVc?.likedChapterIdIs = likedChapterId
+        lessonVc?.likedLessonName = likedLessonName
+        lessonVc?.likedLessonIdIdIs = likedLessonId
         lessonVc?.statusX = statusXY
         
         lessonVc?.subjectName2 = subjectName1

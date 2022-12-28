@@ -133,65 +133,72 @@ extension HomeScreenViewController{
     func didloadNOtificationStatusApiCall() {
         let call = getToken()
         
-        if call != ""{
-            
-            let loader = self.loader()
-            
-            
-            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
+        DispatchQueue.main.async {
+            if call != ""{
                 
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
-                    if status == true{
-                        
-                        self.notificationIndicator.isHidden = false
+                let loader = self.loader()
+                
+                
+                self.objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
+                    
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                        if status == true{
+                            
+                            self.notificationIndicator.isHidden = false
 
-                    }else{
-                        
-                        self.notificationIndicator.isHidden = true
-                        
+                        }else{
+                            
+                            self.notificationIndicator.isHidden = true
+                            
+                        }
                     }
+          
                 }
-      
+                
+            }else{
+                
             }
-            
-        }else{
-            
-        }
 
+        }
+        
+        
     }
     
     func didLoadCurrentlyStudying()  {
         
-        let call = getToken()
-        
-        if call != ""{
+        DispatchQueue.main.async {
+            let call = self.getToken()
             
-            let loader =   self.loader()
-            objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: call){ status in
+            if call != ""{
                 
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
-                if status == true{
+                let loader =   self.loader()
+                self.objectOfHomeViewModel.callApiForCurrentStudyingDetails(tokenToSend: call){ status in
                     
-                    self.collectionView.isHidden = false
-                    self.currentyStudyingLabel.isHidden = false
-                    self.collectionView.reloadData()
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                    if status == true{
+                        
+                        self.collectionView.isHidden = false
+                        self.currentyStudyingLabel.isHidden = false
+                        self.collectionView.reloadData()
+                        
+                    }else{
+                        
+                        self.collectionView.isHidden = true
+                        self.currentyStudyingLabel.isHidden = true
+                        
+                    }
                     
-                }else{
-                    
-                    self.collectionView.isHidden = true
-                    self.currentyStudyingLabel.isHidden = true
+                    }
                     
                 }
-                
-                }
+
+            }else{
                 
             }
-
-        }else{
-            
         }
+        
  
     }
     
@@ -267,33 +274,37 @@ extension HomeScreenViewController{
     
     func viewWillAppearApicall() {
         
-        let call = getToken()
-        
-        if call != ""{
+        DispatchQueue.main.async {
+            let call = self.getToken()
             
-            let loader =   self.loader()
-            
-            objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
+            if call != ""{
                 
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
-                    if status == true{
-                        
-                        self.notificationIndicator.isHidden = false
+                let loader =   self.loader()
+                
+                self.objectOfNotificationViewMOdel.callApiFornotificationStatus(tokenToSend: call){ status in
+                    
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                        if status == true{
+                            
+                            self.notificationIndicator.isHidden = false
 
-                    }else{
-                        
-                        self.notificationIndicator.isHidden = true
+                        }else{
+                            
+                            self.notificationIndicator.isHidden = true
 
+                        }
                     }
+          
                 }
-      
+                
+                
+            }else{
+                
             }
-            
-            
-        }else{
-            
         }
+        
+        
   
     }
 

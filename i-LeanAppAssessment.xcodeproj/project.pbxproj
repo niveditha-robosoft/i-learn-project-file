@@ -31,6 +31,7 @@
 		775C2BF829408A5C003E7405 /* OnBoardingOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2BF729408A5C003E7405 /* OnBoardingOneViewController.swift */; };
 		775C2BFB29408A65003E7405 /* OnBoardinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2BFA29408A65003E7405 /* OnBoardinCollectionViewCell.swift */; };
 		775C2BFE29408A72003E7405 /* OnBoardingSlide .swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2BFD29408A72003E7405 /* OnBoardingSlide .swift */; };
+		7770E6E6295C1F8700A10067 /* likedUnitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770E6E5295C1F8700A10067 /* likedUnitDataModel.swift */; };
 		777886232940AC28001E7E1F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886222940AC28001E7E1F /* SearchResultViewController.swift */; };
 		777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777886252940DCA9001E7E1F /* signInViewModel.swift */; };
 		777ADEBD29502E5500175BF1 /* AboutSubjectHeaderProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */; };
@@ -200,6 +201,7 @@
 		775C2BF729408A5C003E7405 /* OnBoardingOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingOneViewController.swift; sourceTree = "<group>"; };
 		775C2BFA29408A65003E7405 /* OnBoardinCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardinCollectionViewCell.swift; sourceTree = "<group>"; };
 		775C2BFD29408A72003E7405 /* OnBoardingSlide .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnBoardingSlide .swift"; sourceTree = "<group>"; };
+		7770E6E5295C1F8700A10067 /* likedUnitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likedUnitDataModel.swift; sourceTree = "<group>"; };
 		777886222940AC28001E7E1F /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		777886252940DCA9001E7E1F /* signInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInViewModel.swift; sourceTree = "<group>"; };
 		777ADEBC29502E5500175BF1 /* AboutSubjectHeaderProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSubjectHeaderProgress.swift; sourceTree = "<group>"; };
@@ -389,8 +391,8 @@
 		7786FC832945A6FF00A0B956 /* Sign in, sign up, varification and forgotpassword */ = {
 			isa = PBXGroup;
 			children = (
-				7D1D0139293F242C00D98E7A /* SignInViewController.swift */,
 				77517EBF293F7FD8002FED03 /* SignUpViewController.swift */,
+				7D1D0139293F242C00D98E7A /* SignInViewController.swift */,
 				77517EC2293F7FDE002FED03 /* VarifyAccountViewController.swift */,
 				77065568294341C00018056D /* ForgotPasswordViewController.swift */,
 				7706556B294341D10018056D /* CreatePasswordViewController.swift */,
@@ -689,6 +691,7 @@
 				7D0264DF2954A5450097FCF6 /* Answer.swift */,
 				7747B5E6295738EB0028AAE3 /* LikedUnitModel.swift */,
 				77F61C20295B14F000CE12AB /* CurrentlyStudyingData.swift */,
+				7770E6E5295C1F8700A10067 /* likedUnitDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -942,6 +945,7 @@
 				7D0264E62954AC740097FCF6 /* OptionsCustomButton.swift in Sources */,
 				77F6FAE6293F204100EBD0A9 /* signUp_signInNetwork.swift in Sources */,
 				7D0264DA2954A0D50097FCF6 /* QuestionsWithOptions.swift in Sources */,
+				7770E6E6295C1F8700A10067 /* likedUnitDataModel.swift in Sources */,
 				7747B5E12957350B0028AAE3 /* LikedUnitViewModel.swift in Sources */,
 				77517EC6293F8841002FED03 /* HomeScreenViewController.swift in Sources */,
 				7747B5EE29573E910028AAE3 /* AboutSubjectViewController.swift in Sources */,

@@ -12,7 +12,8 @@ class LikedUnitDetailNetworkManager {
     func getLikedUnitDetails(token: String, chapterId: Int, completion: @escaping(([[String: Any]]?,Bool,Error?) -> ())) {
         
         
-        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/LessonsAndUnit?chapterId=\(chapterId)") else{
+        
+        guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/unitByLesson?lessonId=\(String(chapterId))") else{
             return
         }
         
@@ -42,6 +43,7 @@ class LikedUnitDetailNetworkManager {
                                 
                                 print("Send otp data : ",data1)
 
+                                completion(data1,true,nil)
                                 
                             }
                             
@@ -49,6 +51,8 @@ class LikedUnitDetailNetworkManager {
                         }
                     }else if (responsIs.statusCode == 400) {
                         
+                        completion(nil,false,error)
+
                     }
 
                 }

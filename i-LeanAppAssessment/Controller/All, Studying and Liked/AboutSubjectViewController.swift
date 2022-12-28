@@ -163,29 +163,29 @@ extension AboutSubjectViewController{
     
     func collectionViewDidTapApi(tolenIs : String, chapterIdIs: Int)  {
         
-        let loader =   self.loader()
-        
-        objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: tolenIs, lessonIdToSend: chapterIdIs){ completionResponce in
+        DispatchQueue.main.async {
+            let loader =   self.loader()
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if completionResponce == true{
-                    
-                    self.tableView.reloadData()
-                    self.tableView.isHidden = false
-                    
-                }else{
-                    
-                    DispatchQueue.main.async {
-                        self.alertMessage(message: "Error while loaing the data try after some time ...!!!")
-                    }
+            self.objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: tolenIs, lessonIdToSend: chapterIdIs){ completionResponce in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if completionResponce == true{
+                        
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                        
+                    }else{
+                        
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Error while loaing the data try after some time ...!!!")
+                        }
 
+                    }
                 }
+       
             }
-   
         }
-        
-        
         
     }
 
@@ -253,7 +253,6 @@ extension AboutSubjectViewController{
         
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
         cell002.lessonID123 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-        print("cell",cell002.lessonID123)
         cell002.setRadious(x: objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].completeStatus)
         cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
         cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
