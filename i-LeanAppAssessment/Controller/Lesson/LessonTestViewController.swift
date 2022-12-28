@@ -7,7 +7,7 @@
 import UIKit
 
 class LessonTestViewController: UIViewController {
-    
+    var likedUnitId = 0
     var likedSubject = ""
     var likedLessonNUmber = ""
     var likedLessonName = ""
@@ -103,6 +103,8 @@ class LessonTestViewController: UIViewController {
         lessonVc?.likedLessonName = likedLessonName
         lessonVc?.likedLessonIdIdIs = likedLessonId
         lessonVc?.statusX = statusXY
+        lessonVc?.likedUnitIdIs = likedUnitId
+        
         
         lessonVc?.subjectName2 = subjectName1
         lessonVc?.chapterName2 = chapterName1

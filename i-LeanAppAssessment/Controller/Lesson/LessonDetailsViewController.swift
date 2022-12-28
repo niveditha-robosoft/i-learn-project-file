@@ -90,10 +90,10 @@ class LessonDetailsViewController: UIViewController {
                 
                 if i.isLiked == "liked"{
                     
-                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.803833425, green: 0.8039723635, blue: 0.8038246036, alpha: 1)
+                    self.likeButton.setImage(#imageLiteral(resourceName: "Path Copy"), for: .normal)
                 }else{
                     
-                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.9643666148, green: 0.9724945426, blue: 0.9806874394, alpha: 1)
+                    self.likeButton.setImage(#imageLiteral(resourceName: "icn_like"), for: .normal)
                     
                 }
                 
@@ -190,11 +190,11 @@ class LessonDetailsViewController: UIViewController {
                 
                 if status == true{
                     
-                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                    self.likeButton.setImage(#imageLiteral(resourceName: "Path Copy"), for: .normal)
                     
                 }else{
                     
-                    self.likeButton.layer.backgroundColor = #colorLiteral(red: 0.9643666148, green: 0.9724945426, blue: 0.9806874394, alpha: 1)
+                    self.likeButton.setImage(#imageLiteral(resourceName: "icn_like"), for: .normal)
                     
                 }
                 

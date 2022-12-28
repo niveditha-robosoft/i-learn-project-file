@@ -23,7 +23,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var chapterName2 = ""
     var lessonName2 = ""
     
-    
+    var likedUnitIdIs = 0
     var likedLessonName = ""
     var likedLessonIdIdIs = 0
     var statusX = 0
@@ -105,6 +105,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if status == true{
                     
                     self.tableView.reloadData()
+                    self.didLoadLikedApiCall()
                 }else{
                     
                     self.alertMessage(message: "Error while loading the data ...!!!")
@@ -119,6 +120,47 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
+    }
+    func didLoadLikedApiCall(){
+        let tokenIs = getToken()
+            
+            let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
+             if let vc = lessondetailVc {
+                let loader = self.loader()
+
+                vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(likedUnitIdIs)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
+                    
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                    
+                    
+                         if Bool {
+                            
+                            vc.totalePages = 2
+//                                vc.unitName = self.unitDetailsIS[indexPath.row].unitName
+//                                vc.subName = self.subjectName2
+//                                vc.chapName = self.chapterName2
+//                                vc.lessonName = self.lessonName2
+//                                vc.userId = self.userId2
+//                                vc.subjectId = self.subjectId2
+//                                vc.chapterId = self.chapterId2
+//                                vc.lessonId = self.lessonId2
+//                                 vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+//                                 vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                             self.navigationController?.pushViewController(vc, animated: true)
+                         }else{
+                            
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "Error while loading the data try later ...!!!")
+                            }
+                            
+                         }
+                 }
+                
+                   }
+
+         }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
