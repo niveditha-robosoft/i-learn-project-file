@@ -39,6 +39,7 @@ class SubjectListViewModel{
                         guard let subImage = i["subjectImage"] as? String else{ completion(false)
                             return}
                         
+                        
                         let sub = SubjectListModel(subjectName: data2, subjectId: dataId, subjectImage: subImage)
                         self.subjectListDetail.append(sub)
                     }

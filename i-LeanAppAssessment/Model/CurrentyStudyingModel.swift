@@ -9,6 +9,7 @@ import Foundation
 
 class CurrentlyStudyingModel {
     
+    var subjectId: Int
     var subjectName: String
     var chapterName: String
     var percentahge: Int
@@ -17,12 +18,13 @@ class CurrentlyStudyingModel {
     
     
     
-    init(subjectName: String,chapterName: String,percentahge: Int,subject_image: String,chapterId: Int) {
+    init(subjectName: String,chapterName: String,percentahge: Int,subject_image: String,chapterId: Int,subjectId: Int) {
         self.subjectName = subjectName
         self.chapterName = chapterName
         self.percentahge = percentahge
         self.subject_image = subject_image
         self.chapterId = chapterId
+        self.subjectId = subjectId
     }
     
     
