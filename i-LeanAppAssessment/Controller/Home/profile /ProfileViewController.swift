@@ -266,32 +266,36 @@ extension ProfileViewController{
         
         if call != "" {
             
-            let loader =   self.loader()
-            
-            objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: call){ responce in
+            DispatchQueue.main.async {
+                let loader =   self.loader()
                 
-                DispatchQueue.main.async() {
-                    self.stopLoader(loader: loader)
+                self.objectOfProfileViewMOdel.callApiForUSerProfileData(tokenToSend: call){ responce in
                     
-                    if responce == true{
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
                         
-                        self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
-                        self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
-                        self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
-                        self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
-                        self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
-                        self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
-                        
-                    }else{
-                        
-                        DispatchQueue.main.async {
-                            self.alertMessage(message: "Error while loading the data ...!!!")
+                        if responce == true{
+                            
+                            self.userName.text = self.objectOfProfileViewMOdel.profileData.last?.name.capitalized
+                            self.userMailId.text = self.objectOfProfileViewMOdel.profileData.last?.email
+                            self.profileImage.image = self.getImage(urlString: self.objectOfProfileViewMOdel.profileData.last?.profileIMage ?? "")
+                            self.chapterCompleted.text = String(self.objectOfProfileViewMOdel.profileData.last?.chapter ?? 0)
+                            self.averageScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.average ?? 0)
+                            self.highestScore.text = String(self.objectOfProfileViewMOdel.profileData.last?.highest ?? 0)
+                            
+                        }else{
+                            
+                            DispatchQueue.main.async {
+                                self.alertMessage(message: "Error while loading the data ...!!!")
+                            }
+                            
                         }
-                        
                     }
-                }
 
+                }
             }
+            
+            
             
         }else{
             

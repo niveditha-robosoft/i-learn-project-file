@@ -23,7 +23,7 @@ class SubjectListViewModel{
                 if errorIs == nil{
                     
 
-                    guard let data1 = dataIs as? [[String:Any]] else { completion(false)
+                    guard let data1 = dataIs else { completion(false)
                         return
                     }
                     for i in data1 {

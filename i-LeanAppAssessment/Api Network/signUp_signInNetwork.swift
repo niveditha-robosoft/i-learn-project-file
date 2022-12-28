@@ -60,6 +60,7 @@ class SignUpAndSignInApiNetwork {
                     }else if responsIs.statusCode == 400{
                         completion(false,error)
                     }else{
+                        completion(false,error)
                         print("Sign up Responce Error is: ", error?.localizedDescription ?? "Error...?")
                     }
 
@@ -124,6 +125,7 @@ class SignUpAndSignInApiNetwork {
                         
                     }else{
                         
+                        completion(nil,false,nil)
                         print(" Sign in Http Responce Error is: ", error?.localizedDescription ?? "Error..?")
                         
                     }

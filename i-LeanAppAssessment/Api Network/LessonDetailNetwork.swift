@@ -105,6 +105,10 @@ class LessonDetailNetwork{
                     completion(nil,false,nil)
                     print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     
+                }else{
+                    completion(nil,false,nil)
+
+                    
                 }
                 
             }

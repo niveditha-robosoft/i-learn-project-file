@@ -19,12 +19,16 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callApi()
+        tableView.reloadData()
+
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         callApi()
+        tableView.reloadData()
 
     }
     

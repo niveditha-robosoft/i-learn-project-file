@@ -50,7 +50,12 @@ class AboutSubjectNetwork {
                         completion(nil, false , error)
                         print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
 
-                            }
+                    }else{
+                        
+                        completion(nil, false , error)
+
+                        
+                    }
 
                         }
 

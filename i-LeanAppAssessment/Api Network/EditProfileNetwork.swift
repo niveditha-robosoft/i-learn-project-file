@@ -66,6 +66,9 @@ class EditProfileModel {
                 }else if (responsIs.statusCode == 400) {
                     
                     completion(false,error)
+                }else{
+                    
+                    completion(false,error)
                 }
 
             }

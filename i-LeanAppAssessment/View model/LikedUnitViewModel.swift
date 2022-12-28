@@ -22,6 +22,8 @@ class LikedUnitViewMOdel {
             
             self.lokedUnitDetails.removeAll()
             
+            print("data count : \(self.lokedUnitDetails.count)")
+            
             DispatchQueue.main.async {
                 
                 if completionError == nil{
