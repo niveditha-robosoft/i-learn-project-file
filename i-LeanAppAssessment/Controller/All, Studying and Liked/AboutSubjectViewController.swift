@@ -16,6 +16,9 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     var chapterIdIs = 0
     var chapteName = ""
     var lessonId = 0
+    
+    var didTap = false
+    
     var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
     var chapterId: Int?
@@ -32,6 +35,7 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
         
+        didTap = false
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -42,9 +46,17 @@ class AboutSubjectViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+                
         callApi()
+        let call = getToken()
 
+        if didTap == true {
+            
+            collectionViewDidTapApi(tolenIs : call, chapterIdIs: chapterIdIs)
+            
+        }
+        
+        
     }
     
     func callApi() {
@@ -110,6 +122,7 @@ extension AboutSubjectViewController{
             
             collectionViewDidTapApi(tolenIs : call, chapterIdIs: objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId)
             
+            didTap = true
             self.chapterIdIs = self.objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
 
             
@@ -150,29 +163,29 @@ extension AboutSubjectViewController{
     
     func collectionViewDidTapApi(tolenIs : String, chapterIdIs: Int)  {
         
-        let loader =   self.loader()
-        
-        objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: tolenIs, lessonIdToSend: chapterIdIs){ completionResponce in
+        DispatchQueue.main.async {
+            let loader =   self.loader()
             
-            DispatchQueue.main.async() {
-                self.stopLoader(loader: loader)
-                if completionResponce == true{
-                    
-                    self.tableView.reloadData()
-                    self.tableView.isHidden = false
-                    
-                }else{
-                    
-                    DispatchQueue.main.async {
-                        self.alertMessage(message: "Error while loaing the data try after some time ...!!!")
-                    }
+            self.objectOfAboutSUbjectViewModel.callApiForLessonDetails(tokenToSenf: tolenIs, lessonIdToSend: chapterIdIs){ completionResponce in
+                
+                DispatchQueue.main.async() {
+                    self.stopLoader(loader: loader)
+                    if completionResponce == true{
+                        
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                        
+                    }else{
+                        
+                        DispatchQueue.main.async {
+                            self.alertMessage(message: "Error while loaing the data try after some time ...!!!")
+                        }
 
+                    }
                 }
+       
             }
-   
         }
-        
-        
         
     }
 
@@ -240,7 +253,6 @@ extension AboutSubjectViewController{
         
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell") as! AboutSubjectTableViewCell
         cell002.lessonID123 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-        print("cell",cell002.lessonID123)
         cell002.setRadious(x: objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].completeStatus)
         cell002.chapterOneName.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitName.capitalized
         cell002.chapterOneDescription.text = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].unitOverview.capitalized
@@ -263,8 +275,8 @@ extension AboutSubjectViewController{
             vc.subjectNameIs = subjectNameIs
 //            vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
 //            print(vc.realLessonId,"reallessonID")
-            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
-            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
+//            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
+//            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
             objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
             print(objectOfAboutSUbjectViewModel.currentLessonId,"currentlessonid")
 

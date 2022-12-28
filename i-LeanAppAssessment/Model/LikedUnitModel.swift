@@ -9,16 +9,20 @@ import Foundation
 
 class LikedUnitModel {
     
+    var lessonNumber: String
     var subjectName: String
     var lessonName: String
     var unitName: String
     var unitOverView: String
+    var lessonId: Int
     
-    init(subjectName: String,lessonName: String,unitName: String,unitOverView: String) {
+    init(subjectName: String,lessonName: String,unitName: String,unitOverView: String,lessonId: Int,lessonNumber: String) {
         self.subjectName = subjectName
         self.lessonName = lessonName
         self.unitName = unitName
         self.unitOverView = unitOverView
+        self.lessonId = lessonId
+        self.lessonNumber = lessonNumber
         
     }
 }

@@ -22,16 +22,27 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var subjectName2 = ""
     var chapterName2 = ""
     var lessonName2 = ""
-               var objectOfUserDefaults = UserDefaults()
+    
+    
+    var likedLessonName = ""
+    var likedLessonIdIdIs = 0
+    var statusX = 0
+    
+    var objectOfUserDefaults = UserDefaults()
     var objectOfKeyChain = KeyChain()
-        var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
-    //    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
-        var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
+    
+    var objectOfLikedUnitDetailViewModel = LikedUnitDetailViewModel.obkectOfViewModel
+    
+    var ObjectOfSignInVIewMOdel = SignInViewModel.objectOfViewModel
+    
+//    var objectOfLessonViewModel = LessonViewModel.objectOfviewModel
+    
+    var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var unitDetailsIS = [UnitModel]()
     var objectOfSubjectListViewController = SubjectListViewModel.objectOfViewModel
     var objectOfLessonViewModel = LessonViewModel()
     var lessonDetails = [Lesson]()
-    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)")]
+    var lessonImg: [UIImage] = [#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (6)"),#imageLiteral(resourceName: "MicrosoftTeams-image (5)"),#imageLiteral(resourceName: "MicrosoftTeams-image (7)")]
     var levelLbl: UILabel!
     var titleLabl : UILabel!
     var descriptionLbl: UILabel!
@@ -42,31 +53,119 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
+        
+        if statusX == 1{
+            
+            DispatchQueue.main.async {
+                
+                let tokenIs = self.getToken()
+                
+                let loader = self.loader()
+
+                
+                self.objectOfLikedUnitDetailViewModel.likedUnitDetails(tokenIs: tokenIs, chapterIdIs: self.likedLessonIdIdIs){ status in
+                    
+                    DispatchQueue.main.async() {
+                        self.stopLoader(loader: loader)
+                    
+                    if status == true{
+                        
+                        self.tableView.reloadData()
+                    }else{
+                        
+                        self.alertMessage(message: "Error while loading the data ...!!!")
+                        
+                    }
+                    
+                }
+                    
+                }
+            }
+            
+           
+            
+            
+        }else{
+            
+            tableView.reloadData()
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        if statusX == 1{
+            
+            let tokenIs = getToken()
+            
+            print("liked lesson ide is : \(likedLessonIdIdIs)")
+            
+            
+            objectOfLikedUnitDetailViewModel.likedUnitDetails(tokenIs: tokenIs, chapterIdIs: likedLessonIdIdIs){ status in
+                
+                if status == true{
+                    
+                    self.tableView.reloadData()
+                }else{
+                    
+                    self.alertMessage(message: "Error while loading the data ...!!!")
+                    
+                }
+                
+            }
+
+        }else{
+            
+            tableView.reloadData()
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("appeared", unitDetailsIS.count)
-        return unitDetailsIS.count
+        if statusX == 1{
+            
+           return objectOfLikedUnitDetailViewModel.likedUnitdata.count
+
+        }else{
+            
+            return unitDetailsIS.count
+            
+        }
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
-        cell.customizeView()
-        cell.lessonImage.image = lessonImg[indexPath.row]
-        cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName.capitalized
-        cell.levelLabel.text = unitDetailsIS[indexPath.row].level.uppercased()
-        cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview.capitalized
-        return cell
+        
+        if statusX == 1{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
+            cell.customizeView()
+            cell.lessonImage.image = lessonImg[indexPath.row]
+            cell.levelLabel.text = objectOfLikedUnitDetailViewModel.likedUnitdata[indexPath.row].level.uppercased()
+            cell.titleLbl.text = objectOfLikedUnitDetailViewModel.likedUnitdata[indexPath.row].unitName.capitalized
+            cell.descriptionLabel.text = objectOfLikedUnitDetailViewModel.likedUnitdata[indexPath.row].unitOverview.capitalized
+                
+            return cell
+            
+        }else{
+           
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LessonableViewCell
+            cell.customizeView()
+            cell.lessonImage.image = lessonImg[indexPath.row]
+            cell.titleLbl.text = unitDetailsIS[indexPath.row].unitName.capitalized
+            cell.levelLabel.text = unitDetailsIS[indexPath.row].level.uppercased()
+            cell.descriptionLabel.text = unitDetailsIS[indexPath.row].unitOverview.capitalized
+            return cell
+ 
+            
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if unitDetailsIS[indexPath.row].totalPages != 0 {
+        if statusX == 1{
+            
             
             let tokenIs = getToken()
                 
@@ -74,7 +173,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                  if let vc = lessondetailVc {
                     let loader = self.loader()
 
-                     vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
+                    vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(objectOfLikedUnitDetailViewModel.likedUnitdata[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
                         
                         DispatchQueue.main.async() {
                             self.stopLoader(loader: loader)
@@ -82,16 +181,17 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                              if Bool {
                                 
-                                vc.unitName = self.unitDetailsIS[indexPath.row].unitName
-                                vc.subName = self.subjectName2
-                                vc.chapName = self.chapterName2
-                                vc.lessonName = self.lessonName2
-                                vc.userId = self.userId2
-                                vc.subjectId = self.subjectId2
-                                vc.chapterId = self.chapterId2
-                                vc.lessonId = self.lessonId2
-                                 vc.unitId = self.unitDetailsIS[indexPath.row].unitId
-                                 vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                                vc.totalePages = 2
+//                                vc.unitName = self.unitDetailsIS[indexPath.row].unitName
+//                                vc.subName = self.subjectName2
+//                                vc.chapName = self.chapterName2
+//                                vc.lessonName = self.lessonName2
+//                                vc.userId = self.userId2
+//                                vc.subjectId = self.subjectId2
+//                                vc.chapterId = self.chapterId2
+//                                vc.lessonId = self.lessonId2
+//                                 vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+//                                 vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
                                  self.navigationController?.pushViewController(vc, animated: true)
                              }else{
                                 
@@ -105,14 +205,80 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                        }
 
              }
+
             
         }else{
             
-            self.alertMessage(message: "Sorry this unit does not contain any lesson details try after some time ...!!!")
+            if unitDetailsIS[indexPath.row].totalPages != 0 {
+                
+                if statusX == 0{
+                   
+                    
+                    let tokenIs = getToken()
+                        
+                        let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
+                         if let vc = lessondetailVc {
+                            let loader = self.loader()
+
+                             vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
+                                
+                                DispatchQueue.main.async() {
+                                    self.stopLoader(loader: loader)
+                                
+                                
+                                     if Bool {
+                                        
+                                        vc.unitName = self.unitDetailsIS[indexPath.row].unitName
+                                        vc.subName = self.subjectName2
+                                        vc.chapName = self.chapterName2
+                                        vc.lessonName = self.lessonName2
+                                        vc.userId = self.userId2
+                                        vc.subjectId = self.subjectId2
+                                        vc.chapterId = self.chapterId2
+                                        vc.lessonId = self.lessonId2
+                                         vc.unitId = self.unitDetailsIS[indexPath.row].unitId
+                                         vc.totalePages = self.unitDetailsIS[indexPath.row].totalPages
+                                         self.navigationController?.pushViewController(vc, animated: true)
+                                     }else{
+                                        
+                                        DispatchQueue.main.async {
+                                            self.alertMessage(message: "Error while loading the data try later ...!!!")
+                                        }
+                                        
+                                     }
+                             }
+                            
+                               }
+
+                     }
+                    
+                }else{
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                
+                
+                
+            }else{
+                
+                self.alertMessage(message: "Sorry this unit does not contain any lesson details try after some time ...!!!")
+                
+            }
+            
+            
             
         }
-       
- }
+        
+        
+        
+ 
+}
 
 }
 
