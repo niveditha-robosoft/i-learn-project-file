@@ -52,11 +52,8 @@ class TestTableViewCell: UITableViewCell {
         descriptionLabel.text = "You have \(duration) minutes to answer all \(numberOfQuestion) questions. For each right ans \(marks) marks."
 
     }
-
  
-
     @IBAction func beginTestButtonClicked(_ sender: Any) {
-        
         if let indexPath = index{
             delegate?.testBegin(index: indexPath)
         }

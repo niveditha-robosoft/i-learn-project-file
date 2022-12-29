@@ -10,9 +10,9 @@ class QuestionsViewModel {
     static var shared = QuestionsViewModel()
     var testId: Int?
     var lessonId: Int?
-    var questionKey = "testId"
+   // var questionKey = "testId"
  //
-    var questionValue = 429  //166
+    //var questionValue = 429  //166
     var testVm = TestViewModel.shared
     var questionsWithOptionList = [QuestionsWithOptions]()
     

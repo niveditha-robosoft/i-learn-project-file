@@ -32,8 +32,7 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func yesButtonTpped(_ sender: UIButton) {
-        print("YESSSSSS")
-//        ResultViewModel.shared.assignParameters(testId: testId ?? 0, lessonId: lessonId ?? 0)
+        print("YES TAPPED")
         dismiss(animated: true, completion: nil)
         ResultViewModel.shared.getResult { (sucess, error) in
             print("hgcvkjtyu")

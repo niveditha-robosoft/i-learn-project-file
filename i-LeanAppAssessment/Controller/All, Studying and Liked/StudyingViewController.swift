@@ -267,19 +267,11 @@ extension StudyingViewController{
                 cell.lessonname.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonName.uppercased()
                 cell.lessonNumber.text = objectOfAboutSUbjectViewModel.lessonDetails[section].lessonNumber.capitalized
                 return cell
-
-            
         }
-        
         return nil
-
-    
-        
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell002 = tableView.dequeueReusableCell(withIdentifier: "cell01") as! StudyingBodyTableViewCell
         cell002.lessonID123 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
         cell002.setRadious(x: objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails[indexPath.row].completeStatus)
@@ -293,40 +285,20 @@ extension StudyingViewController{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as? LessonTestViewController
 
-        
         if let vc = detailsVc {
-//            vc.finalLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//            objectOfAboutSUbjectViewModel.currentLessonId = vc.finalLessonId ?? 0
             vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
             vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
             vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
             vc.subjectNameIs = subjectNametoSend
-//            vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//            print(vc.realLessonId,"reallessonID")
-//            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
-//            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
-            //objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-
             vc.lessonId = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
-           // objectOfAboutSUbjectViewModel.currentLessonVC = vc
-            
             vc.subjectName1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName
             vc.chapterName1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName
             vc.lessonName1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
-                
-                
             vc.subjectId1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectId
             vc.chapterId1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterId
             vc.lessonId1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-                        
-            
             self.navigationController?.pushViewController(vc, animated: true)
-
+            
        }
-     
     }
-    
-    
-    
-    
 }

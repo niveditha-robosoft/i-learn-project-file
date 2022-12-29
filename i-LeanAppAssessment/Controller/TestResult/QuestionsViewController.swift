@@ -125,13 +125,6 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         print(viewModel.questionsWithOptionList[indexPath.row].questionId, "question id")
         cell.currentTestID = viewModel.testId ?? 0
         cell.currentLessonID = viewModel.lessonId ?? 0
-//        if let id = viewModel.testId {
-//            cell.currentTestID =
-//        }
-//        if let lessID = viewModel.lessonId {
-//            cell.currentLessonID = lessID
-//        }
-        
         cell.question.text = viewModel.questionsWithOptionList[indexPath.row].questionName
         cell.optionA.setTitle("  A.  \(viewModel.questionsWithOptionList[indexPath.row].option1)", for: .normal)
         cell.optionB.setTitle("  B.  \(viewModel.questionsWithOptionList[indexPath.row].option2)", for: .normal)

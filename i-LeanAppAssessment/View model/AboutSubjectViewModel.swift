@@ -138,9 +138,9 @@ class AboutSUbjectViewModel {
                                 }
                                 
                             }
-                            for lesson in lessonDetails {
-                                print(lesson.lessonId,"is lessonID is fine in lesson details list")
-                            }
+//                            for lesson in lessonDetails {
+//                                print(lesson.lessonId,"is lessonID is fine in lesson details list")
+//                            }
                             completion(true)
                         }
                         

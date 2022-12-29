@@ -64,9 +64,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         if let optionText = selectedOption.title(for: .normal){
             questionVM.answersList[currentQuestionID] = Answer(testId: self.currentTestID, lessonId: currentLessonID, questionId: currentQuestionID, givenAnswer: optionText)
             print("TESTIDDD",self.currentTestID)
-//            print("LESSONIDDD", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId)
-
-            
         }
         switch selectedOption {
         case optionA:
@@ -110,9 +107,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionB)
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD)
-            //storeAnswer(questionId: currentQuestionID, answer: optionD.title(for: .normal) ?? "")
-
-            //submitVM.assignParameters(testId: nil, lessonId: nil)
+    
         }
         questionListVM.highlightIndex.append(curentIndex)
     }

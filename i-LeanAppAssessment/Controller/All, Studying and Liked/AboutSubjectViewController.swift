@@ -266,37 +266,19 @@ extension AboutSubjectViewController{
 
         
         if let vc = detailsVc {
-//            vc.finalLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//            print(vc.finalLessonId,"is it taking lessonID for particular lesson")
-//            objectOfAboutSUbjectViewModel.currentLessonId = vc.finalLessonId ?? 0
             vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
             vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
             vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
             vc.subjectNameIs = subjectNameIs
-//            vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//            print(vc.realLessonId,"reallessonID")
-//            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
-//            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
-//            objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//            print(objectOfAboutSUbjectViewModel.currentLessonId,"currentlessonid")
-
             vc.lessonId = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
-           // objectOfAboutSUbjectViewModel.currentLessonVC = vc
-            
             vc.subjectName1 = subjectNameIs
             vc.chapterName1 = chapteName
             vc.lessonName1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
-                
-                
             vc.subjectId1 = subIdIs
             vc.chapterId1 = chapterIdIs
             vc.lessonId1 = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-            
             print("\(objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)")
-            
-            
             self.navigationController?.pushViewController(vc, animated: true)
-
        }
      
     }

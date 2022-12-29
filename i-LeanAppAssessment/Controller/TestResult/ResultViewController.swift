@@ -72,7 +72,7 @@ class ResultViewController: UIViewController {
         viewModel.tryAgainClick += 1
         answerList.removeAll()
         viewModel.assignAnswer()
-        print(viewModel.tryAgainClick,"tryginclic")
+        print(viewModel.tryAgainClick,"try again click count")
         if viewModel.tryAgainClick > 2 {
             print("inside if")
             let alert = UIAlertController(title: "Alert", message: "You can only attempt the test three times", preferredStyle: .alert)
@@ -91,7 +91,7 @@ class ResultViewController: UIViewController {
             
         }
         else {
-            print("elseconditiom")
+            print("else condition")
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
             if let id = testId{
                 print(1586,id)
@@ -104,9 +104,6 @@ class ResultViewController: UIViewController {
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        //self.navigationController?.popViewController(animated: true)
-        
-        
     }
 }
 

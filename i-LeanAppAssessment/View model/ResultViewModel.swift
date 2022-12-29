@@ -40,8 +40,7 @@ class ResultViewModel {
     }
     
     func assignAnswer() {
-        print(answerList, ";uhjk")
-        print("lkhjhbglkjghhkjh09809")
+        print(answerList)
         parameters["questionAnswerResponses"] = answerList
     }
     
