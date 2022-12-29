@@ -23,7 +23,7 @@ class QuestionsViewController: UIViewController {
     var testId: Int?
     var lessonId: Int?
     var elapsedTime: TimeInterval = 0
-    let duration: TimeInterval = 3600
+    let duration: TimeInterval = 600
     var viewModel = QuestionsViewModel.shared
     private var isPopUpShown = false
     var viewModel2 = QuestionListViewModel.shared
@@ -92,13 +92,36 @@ class QuestionsViewController: UIViewController {
                 navigationController?.present(vc, animated: true, completion: nil)
                 vc.delegate = self
             }
+            
         }
+        
         
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionListViewController") as? QuestionListViewController {
+        if viewModel.questionsWithOptionList.count == viewModel2.highlightIndex.count{
+            ResultViewModel.shared.getResult { (sucess, error) in
+                print("hgcvkjtyu")
+                if sucess! {
+                    
+                }
+                DispatchQueue.main.async {
+                    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                   
+                }
+            }
+
+            print("test completed")
+        }
+            
+
+        
+    }
+        else{
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "QuestionListViewController") as? QuestionListViewController {
             self.navigationController?.pushViewController(vc, animated: true)
+        }
         }
         
     }
@@ -130,9 +153,9 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         cell.optionC.setTitle("  C.  \(viewModel.questionsWithOptionList[indexPath.row].option3)", for: .normal)
         cell.optionD.setTitle("  D.  \(viewModel.questionsWithOptionList[indexPath.row].option4)", for: .normal)
         cell.optionAText = viewModel.questionsWithOptionList[indexPath.row].option1
-        cell.optionBText = viewModel.questionsWithOptionList[indexPath.row].option1
-        cell.optionCText = viewModel.questionsWithOptionList[indexPath.row].option1
-        cell.optionDText = viewModel.questionsWithOptionList[indexPath.row].option1
+        cell.optionBText = viewModel.questionsWithOptionList[indexPath.row].option2
+        cell.optionCText = viewModel.questionsWithOptionList[indexPath.row].option3
+        cell.optionDText = viewModel.questionsWithOptionList[indexPath.row].option4
         cell.defaultButtonBorderText()
         cell.curentIndex = indexPath.row
         return cell

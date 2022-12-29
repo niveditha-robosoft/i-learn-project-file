@@ -71,7 +71,7 @@ class ResultViewController: UIViewController {
     @IBAction func tryAgainButtonTapped(_ sender: Any) {
         viewModel.tryAgainClick += 1
         answerList.removeAll()
-        viewModel.assignAnswer()
+//        viewModel.assignAnswer()
         print(viewModel.tryAgainClick,"try again click count")
         if viewModel.tryAgainClick > 2 {
             let alert = UIAlertController(title: "Alert", message: "You can only attempt the test three times", preferredStyle: .alert)
