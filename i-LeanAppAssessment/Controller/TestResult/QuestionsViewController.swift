@@ -54,7 +54,6 @@ class QuestionsViewController: UIViewController {
             timer = nil
             let vc = storyboard?.instantiateViewController(withIdentifier: "TimeOutViewController") as! TimeOutViewController
             ResultViewModel.shared.getResult { (sucess, error) in
-                print("hgcvkjtyu")
                 if sucess! {
                     DispatchQueue.main.async
                     {

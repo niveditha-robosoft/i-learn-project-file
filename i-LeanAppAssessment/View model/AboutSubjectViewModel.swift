@@ -94,7 +94,6 @@ class AboutSUbjectViewModel {
                                 
                                 guard let data2 = i["lessonId"] as? Int else{completion(false)
                                     return}
-                                print(data2,"lessonID from api")
                                 guard let data3 = i["lessonNumber"] as? String else{completion(false)
                                     return}
                                 guard let data4 = i["lessonName"] as? String else{completion(false)
@@ -138,9 +137,7 @@ class AboutSUbjectViewModel {
                                 }
                                 
                             }
-//                            for lesson in lessonDetails {
-//                                print(lesson.lessonId,"is lessonID is fine in lesson details list")
-//                            }
+                   
                             completion(true)
                         }
                         

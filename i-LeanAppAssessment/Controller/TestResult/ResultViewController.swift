@@ -74,12 +74,8 @@ class ResultViewController: UIViewController {
         viewModel.assignAnswer()
         print(viewModel.tryAgainClick,"try again click count")
         if viewModel.tryAgainClick > 2 {
-            print("inside if")
             let alert = UIAlertController(title: "Alert", message: "You can only attempt the test three times", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in
-                print()
-                print(AboutSUbjectViewModel.objectOfViewmodel.lessonVC,"LESSSSONVC OBJECT")
-                print()
                 for controller in self.navigationController!.viewControllers as Array {
                     if controller.isKind(of: LessonTestViewController.self) {
                         self.navigationController!.popToViewController(controller, animated: true)
@@ -91,10 +87,9 @@ class ResultViewController: UIViewController {
             
         }
         else {
-            print("else condition")
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
             if let id = testId{
-                print(1586,id)
+                print(id)
                 vm3.fetchQuestions(key: "testId", value: id) { (data, error) in
                     if data! {
                     }
