@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import UIKit
 class ResultNetworkManager {
+    
+    var objectOfUserDefaults = UserDefaults()
+    var objectOfKeyChain = KeyChain()
+    
     func postData(url: String,parameters: [String:Any],completion: @escaping(Any? , Error?) -> Void) {
         
-        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGV0dHlzaHJ1c2h0aTE0M0BnbWFpbC5jb20iLCJleHAiOjE2NzIzMjc3NTcsImlhdCI6MTY3MjI5MTc1N30.mjkbjZql5ExuGioBO4ihYka6RI18XvZzWjyAfbXNWRdwACtjM_9gFEYs_UzXP48hs0sSfKm5IPmfTFBFsx5dDg"
+        let token = getToken()
         var request = URLRequest(url: URL(string: url)!)
         
         request.httpMethod = "POST"
@@ -57,4 +62,33 @@ class ResultNetworkManager {
             }
         }.resume()
     }
+    
+    
+    
+    
+    func getToken() -> String {
+        
+        var id = ""
+       let userIdIs = objectOfUserDefaults.value(forKey: "userId")
+        
+        if let idIs = userIdIs as? Int{
+            
+            id = String(idIs)
+            
+        }
+        
+        guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
+            return ""}
+
+        guard let receivedToken = String(data: receivedTokenData, encoding: .utf8) else {print("3")
+            return ""}
+        
+        print("token",receivedToken)
+        
+        return receivedToken
+    }
+    
+    
+    
+    
 }
