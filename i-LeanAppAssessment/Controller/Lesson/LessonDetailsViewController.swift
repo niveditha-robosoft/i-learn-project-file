@@ -20,6 +20,7 @@ class LessonDetailsViewController: UIViewController {
     var lessonName = ""
     var unitName = ""
     
+    var pageIdIs = 0
     
     // var  objectFromLessonViewModel = LessonViewModel()
     var objectOfUserCurrentlyStudyingDataViewMOdel = UserCurrentlyStudyingDataViewMOdel.objectOfViewModel
@@ -87,6 +88,8 @@ class LessonDetailsViewController: UIViewController {
         collectionView.dataSource = self
         DispatchQueue.main.async { [self] in
             for i in self.objectOfLessonViewModel.lessonDetail{
+                
+                pageIdIs = i.pageId
                 
                 if i.isLiked == "liked"{
                     
@@ -178,25 +181,25 @@ class LessonDetailsViewController: UIViewController {
         
         let tokenIs = getToken()
 
-        print("sending unit id : \(unitId)")
-        print("Sending token is : \(tokenIs)")
+        print("sending page id : \(pageIdIs)")
+
         
-        objectOfLessonViewModel.likedLessonDetailsToSend(tokenToSend: tokenIs, unitIdToSend: unitId){ status in
+        objectOfLessonViewModel.likedLessonDetailsToSend(tokenToSend: tokenIs, unitIdToSend: pageIdIs){ status in
             DispatchQueue.main.async() {
                 self.stopLoader(loader: loader)
-                
+
                 if status == true{
-                    
+
                     self.likeButton.setImage(#imageLiteral(resourceName: "Path Copy"), for: .normal)
-                    
+
                 }else{
-                    
+
                     self.likeButton.setImage(#imageLiteral(resourceName: "icn_like"), for: .normal)
-                    
+
                 }
-                
+
             }
-            
+
         }
  
         
@@ -356,6 +359,7 @@ class LessonDetailsViewController: UIViewController {
                         }
 
 
+                        self.pageIdIs = self.objectOfLessonViewModel.lessonDetail.last?.pageId ?? 0
 
 
                         self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
@@ -473,7 +477,7 @@ class LessonDetailsViewController: UIViewController {
 
 
                         
-                        
+                        self.pageIdIs = self.objectOfLessonViewModel.lessonDetail.last?.pageId ?? 0
                         
                         self.titleLabel.text = self.objectOfLessonViewModel.lessonDetail.last?.pageTitle
                         self.contentTextView.text = self.objectOfLessonViewModel.lessonDetail.last?.unitDescription

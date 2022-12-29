@@ -7,15 +7,15 @@
 
 import Foundation
 class LessonDetailModel{
-    var pageNum : Int
+    var pageId : Int
     var pageTitle: String
     var unitImage: String
     var unitVideo: String
     var unitDescription: String
     var unitNum: Int
     var isLiked: String
-    init(pageNum: Int,pageTitle: String,unitImage: String,unitDescription: String,unitNum: Int,unitVideo: String,isLiked: String) {
-        self.pageNum = pageNum
+    init(pageId: Int,pageTitle: String,unitImage: String,unitDescription: String,unitNum: Int,unitVideo: String,isLiked: String) {
+        self.pageId = pageId
         self.pageTitle = pageTitle
         self.unitImage = unitImage
         self.unitDescription = unitDescription

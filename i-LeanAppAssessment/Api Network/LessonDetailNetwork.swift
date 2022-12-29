@@ -63,7 +63,7 @@ class LessonDetailNetwork{
     
     func likedUnitData(token: String, unitId: Int, completion: @escaping(([String: Any]?,Bool,Error?) -> ())) {
         
-        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likeUnit?unitId=\(unitId)") else{return}
+        guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likeUnit?pageId=\(unitId)") else{return}
         
         var request = URLRequest(url: url)
         

@@ -11,6 +11,9 @@ class LikedInitApiManager {
 
     func likedUnitApi(token: String, completion: @escaping(([[String: Any]]?,Bool,Error?) -> ())) {
         
+        print("token sending is : \(token)")
+        
+        
         guard let url = URL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/likedUnit") else{return}
         
         var request = URLRequest(url: url)

@@ -259,12 +259,16 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if statusX == 0{
                    
                     
+                    print("unitId : \(unitDetailsIS[indexPath.row].unitId)")
+                    
+                    
                     let tokenIs = getToken()
                         
                         let lessondetailVc = self.storyboard?.instantiateViewController(withIdentifier:"LessonDetailsViewController" ) as? LessonDetailsViewController
                          if let vc = lessondetailVc {
                             let loader = self.loader()
 
+                            
                              vc.objectOfLessonViewModel.callForLessonDetail(URLString: "https://app-e-learning-221207163844.azurewebsites.net/user/view/unitDetails?unitId=\(unitDetailsIS[indexPath.row].unitId)&limit=1&page=1", tokenTOSend: tokenIs){ (Bool) in
                                 
                                 DispatchQueue.main.async() {
@@ -272,7 +276,7 @@ class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 
                                 
                                      if Bool {
-                                        
+                                                                                
                                         vc.unitName = self.unitDetailsIS[indexPath.row].unitName
                                         vc.subName = self.subjectName2
                                         vc.chapName = self.chapterName2

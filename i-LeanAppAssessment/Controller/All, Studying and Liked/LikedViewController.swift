@@ -19,7 +19,7 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        callApi()
+//        callApi()
         tableView.reloadData()
 
         tableView.delegate = self
@@ -34,6 +34,8 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("count..... \(objectOfLikedUnitViewMOdel.lokedUnitDetails.count)")
+
         return objectOfLikedUnitViewMOdel.lokedUnitDetails.count
     }
     
