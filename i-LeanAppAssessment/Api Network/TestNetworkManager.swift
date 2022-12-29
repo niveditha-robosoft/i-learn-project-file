@@ -13,7 +13,6 @@ class TestNetworkManager{
                 do {
                     if let jsonData = try JSONSerialization.jsonObject(with: apiData, options: .mutableContainers)
                         as? [[String:Any]]{
-                        print(jsonData)
                         completion(jsonData,nil)
                     }
                     else{
@@ -21,7 +20,7 @@ class TestNetworkManager{
                     }
                 }
                 catch{
-                    print(error.localizedDescription, "this error")
+                    print(error.localizedDescription)
                 }
             }
         }
@@ -29,23 +28,4 @@ class TestNetworkManager{
     }
 }
 
-extension Dictionary {
-    func percentEscaped() -> String {
-        return map { (key, value) in
-            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
-            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
-            return escapedKey + "=" + escapedValue
-        }
-        .joined(separator: "&")
-    }
-}
-extension CharacterSet {
-    static let urlQueryValueAllowed: CharacterSet = {
-        let generalDelimitersToEncode = ":#[]@"
-        let subDelimitersToEncode = "!$&'()*+,;="
-        var allowed = CharacterSet.urlQueryAllowed
-        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
-        return allowed
-    }()
-    
-}
+//

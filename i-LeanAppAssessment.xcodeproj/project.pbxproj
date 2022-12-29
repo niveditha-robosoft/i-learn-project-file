@@ -152,6 +152,7 @@
 		7D0264E02954A5450097FCF6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264DF2954A5450097FCF6 /* Answer.swift */; };
 		7D0264E62954AC740097FCF6 /* OptionsCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0264E52954AC740097FCF6 /* OptionsCustomButton.swift */; };
 		7D1D013A293F242C00D98E7A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D0139293F242C00D98E7A /* SignInViewController.swift */; };
+		7D509450295DA8380036BFAA /* popCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50944F295DA8380036BFAA /* popCustomButton.swift */; };
 		7DB5A7FC295489A100513255 /* KeyChainFIle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A7FB295489A100513255 /* KeyChainFIle.swift */; };
 		7DB5A800295489E800513255 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A7FF295489E800513255 /* SkipButton.swift */; };
 		7DB5A80329548A3100513255 /* SkipCustomButtob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5A80229548A3100513255 /* SkipCustomButtob.swift */; };
@@ -327,6 +328,7 @@
 		7D0264DF2954A5450097FCF6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		7D0264E52954AC740097FCF6 /* OptionsCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCustomButton.swift; sourceTree = "<group>"; };
 		7D1D0139293F242C00D98E7A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7D50944F295DA8380036BFAA /* popCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popCustomButton.swift; sourceTree = "<group>"; };
 		7DB5A7FB295489A100513255 /* KeyChainFIle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFIle.swift; sourceTree = "<group>"; };
 		7DB5A7FF295489E800513255 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
 		7DB5A80229548A3100513255 /* SkipCustomButtob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipCustomButtob.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				77F6FA61293F060100EBD0A9 /* Main.storyboard */,
+				7D50944F295DA8380036BFAA /* popCustomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				77DFCF2729499CB0002F1CFC /* AudioTableViewCell.swift in Sources */,
 				777F16F2294AEFB90010D807 /* ProfileNetwork.swift in Sources */,
 				77AEE5C2294DB17900906FE4 /* LessonDetailNetwork.swift in Sources */,
+				7D509450295DA8380036BFAA /* popCustomButton.swift in Sources */,
 				777886262940DCA9001E7E1F /* signInViewModel.swift in Sources */,
 				77AEE5B9294DB0AE00906FE4 /* LessonDetailViewModel.swift in Sources */,
 				77AEE593294DA28B00906FE4 /* SubjecListViewModel.swift in Sources */,

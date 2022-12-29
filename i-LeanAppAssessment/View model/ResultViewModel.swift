@@ -36,16 +36,23 @@ class ResultViewModel {
     func assignParameters(testId: Int,lessonId: Int) {
         parameters["testId"] = testId
         parameters["lessonId"] = lessonId
-        assignAnswer()
+//        assignAnswer()
     }
     
-    func assignAnswer() {
+    func assignAnswer(testAnswerList: [[String: Any]] ) {
         print(answerList)
-        parameters["questionAnswerResponses"] = answerList
+        parameters["questionAnswerResponses"] = testAnswerList
     }
     
     func getResult(completion: @escaping((Bool?, Error?) -> Void)) {
+        var testAnswerList = [[String: Any]]()
         let networkManager = ResultNetworkManager()
+        
+        for answer in answerList {
+            let newAnswer = TestAnswer(id: answer.key, answer: answer.value)
+            testAnswerList.append(newAnswer.dictionary)
+        }
+        assignAnswer(testAnswerList: testAnswerList)
         print(parameters)
         networkManager.postData(url: url, parameters: parameters) { [self] data,error in
             if let apiData = data{
@@ -66,4 +73,9 @@ class ResultViewModel {
             }
         }
     }
+}
+struct TestAnswer {
+    var id: Int
+    var answer: String
+    var dictionary: [String: Any] { return ["questionId": id, "givenAnswer": answer] }
 }

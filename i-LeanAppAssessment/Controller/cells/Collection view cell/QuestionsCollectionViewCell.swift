@@ -14,6 +14,9 @@ enum SelectedOption{
     case optionC
     case optionD
 }
+//protocol AllQuestionsAnswered {
+//    func completedTest()
+//}
 class QuestionsCollectionViewCell: UICollectionViewCell {
     let questionVM = QuestionsViewModel.shared
     
@@ -72,9 +75,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD)
             submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
+            storeAnswer(questionId: currentQuestionID, answer: optionAText)
             print("currentID", currentTestID)
             
-            storeAnswer(questionId: currentQuestionID, answer: optionAText )
         case optionB:
             borderOnClickingOption(button: optionA)
             borderOnClickingOption(button: optionB, borderWidth: 1,textColor: #colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1))
@@ -107,9 +110,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionB)
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD)
+            //submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
     
         }
         questionListVM.highlightIndex.append(curentIndex)
+        
     }
     
     func borderOnClickingOption(button: UIButton, borderWidth: CGFloat = 0, textColor: UIColor = #colorLiteral(red: 0.5568627451, green: 0.5607843137, blue: 0.5764705882, alpha: 1)) {
@@ -120,9 +125,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     func storeAnswer(questionId: Int, answer: String) {
         print(questionId,"shrushtishetty")
-        let dict: [String: Any] = ["questionId": currentQuestionID, "givenAnswer": answer ]
-        answerList.append(dict)
-        ResultViewModel.shared.assignAnswer()
+          answerList[questionId] = answer
     }
 }
-var answerList: [[String: Any]] = []
+var answerList: [Int: String] = [:]

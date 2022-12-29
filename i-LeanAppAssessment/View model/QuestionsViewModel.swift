@@ -48,11 +48,10 @@ class QuestionsViewModel {
                     print(option3)
                     guard let option4 = question["option4"] as? String else {return}
                     print(option4)
-                    //guard let filePath = testData[0]["filePath"] as? String else {return}
-                    //print(filePath)
                     let questionWithOptionsLists1 = QuestionsWithOptions(questionName: questionName, questionId: questionId, option1: option1, option2: option2, option3: option3, option4: option4)
                     self.questionsWithOptionList.append(questionWithOptionsLists1)
-                    let answer = Answer(testId: 429, lessonId: 29, questionId: questionId, givenAnswer: "")
+                    //let answer = Answer(testId: 429, lessonId: 29, questionId: questionId, givenAnswer: "")
+                    let answer = Answer(testId: testId ?? 0, lessonId: lessonId ?? 0, questionId: questionId, givenAnswer: "")
                     self.answersList[questionId] = answer
                 }
                 completion(true,nil)

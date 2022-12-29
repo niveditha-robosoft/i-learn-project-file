@@ -13,10 +13,10 @@ protocol pushtoNextVc {
 }
 class PopUpViewController: UIViewController {
     
-    @IBOutlet weak var designView: UIView!
+   
     @IBOutlet weak var popUpView: UIView!
-    @IBOutlet weak var yes: UIButton!
-    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var yes: customPopupButton!
+    @IBOutlet weak var noButton: customPopupButton!
     @IBOutlet weak var popViewHeight: NSLayoutConstraint!
     var testId: Int?
     var lessonId: Int?
@@ -25,13 +25,16 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        designView.layer.borderWidth = 3
-        designView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+       
         popUpView.layer.cornerRadius = 20
         popUpView.layer.shadowOffset = CGSize(width: 0, height: -5)
+        yes.deselect()
+        noButton.deselect()
     }
     
     @IBAction func yesButtonTpped(_ sender: UIButton) {
+        yes.selected()
+        noButton.deselect()
         print("YES TAPPED")
         dismiss(animated: true, completion: nil)
         ResultViewModel.shared.getResult { (sucess, error) in
@@ -46,6 +49,8 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
+        yes.deselect()
+        noButton.selected()
         self.dismiss(animated: true, completion: nil )
     }
 }

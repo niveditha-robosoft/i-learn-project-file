@@ -10,8 +10,9 @@ class QuestionListViewModel {
     static var shared = QuestionListViewModel()
     var highlightIndex: [Int] = []
     var questionListKey = "testId"
-    var questionListValue = 429
+  //  var questionListValue = QuestionsViewModel.shared.testId
     var questionListArray = [QuestionList]()
+    var numberOfQuestionAnswred = 0
     var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGV0dHlzaHJ1c2h0aTE0M0BnbWFpbC5jb20iLCJleHAiOjE2NzIzMjc3NTcsImlhdCI6MTY3MjI5MTc1N30.mjkbjZql5ExuGioBO4ihYka6RI18XvZzWjyAfbXNWRdwACtjM_9gFEYs_UzXP48hs0sSfKm5IPmfTFBFsx5dDg"
     
     func fetchQuestionList(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){

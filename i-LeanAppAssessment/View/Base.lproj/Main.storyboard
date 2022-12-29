@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Light.ttf">
-            <string>Rubik-Light</string>
-        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -22,6 +19,7 @@
             <string>Rubik-SemiBold</string>
         </array>
         <array key="Rubik-VariableFont_wght.ttf">
+            <string>Rubik-Light</string>
             <string>RubikRoman-Regular</string>
         </array>
     </customFonts>
@@ -1302,18 +1300,8 @@ away from 100%. You can do it.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLH-uc-Aml" customClass="ProgressBarViewTwo" customModule="i_LeanAppAssessment" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="188" width="194" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-45-3wT">
-                                                        <rect key="frame" x="60" y="60" width="42" height="43"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="43" id="Ywd-KU-vTO"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="ico-46-0VX"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="30"/>
-                                                        <color key="textColor" red="0.098039215690000001" green="0.1058823529" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWl-Ms-gMN">
-                                                        <rect key="frame" x="98" y="77" width="16" height="18"/>
+                                                        <rect key="frame" x="103" y="82" width="16" height="18"/>
                                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1328,16 +1316,26 @@ away from 100%. You can do it.</string>
                                                         <color key="textColor" red="0.34901960780000002" green="0.35686274509999999" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-45-3wT">
+                                                        <rect key="frame" x="50" y="66" width="53.5" height="43"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="43" id="Ywd-KU-vTO"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="ico-46-0VX"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="30"/>
+                                                        <color key="textColor" red="0.098039215690000001" green="0.1058823529" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Avx-va-zHy" firstAttribute="top" secondItem="xWl-Ms-gMN" secondAttribute="bottom" constant="8" symbolic="YES" id="1yp-Qt-Tu5"/>
-                                                    <constraint firstItem="yg3-45-3wT" firstAttribute="centerX" secondItem="DLH-uc-Aml" secondAttribute="centerX" constant="-16" id="Jr8-aS-asr"/>
-                                                    <constraint firstItem="xWl-Ms-gMN" firstAttribute="top" secondItem="DLH-uc-Aml" secondAttribute="top" constant="77" id="Lgf-G1-SL8"/>
+                                                    <constraint firstItem="Avx-va-zHy" firstAttribute="top" secondItem="xWl-Ms-gMN" secondAttribute="bottom" constant="3" id="1yp-Qt-Tu5"/>
+                                                    <constraint firstItem="yg3-45-3wT" firstAttribute="centerX" secondItem="DLH-uc-Aml" secondAttribute="centerX" constant="-20.25" id="Jr8-aS-asr"/>
+                                                    <constraint firstItem="xWl-Ms-gMN" firstAttribute="top" secondItem="DLH-uc-Aml" secondAttribute="top" constant="82" id="Lgf-G1-SL8"/>
                                                     <constraint firstItem="Avx-va-zHy" firstAttribute="centerX" secondItem="DLH-uc-Aml" secondAttribute="centerX" constant="-4.5" id="U1r-5s-B5z"/>
                                                     <constraint firstItem="xWl-Ms-gMN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DLH-uc-Aml" secondAttribute="leading" constant="20" symbolic="YES" id="X77-GB-24Q"/>
-                                                    <constraint firstItem="Avx-va-zHy" firstAttribute="top" secondItem="yg3-45-3wT" secondAttribute="bottom" id="e8F-ZS-q8h"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xWl-Ms-gMN" secondAttribute="trailing" constant="80" id="ifh-KO-6f8"/>
-                                                    <constraint firstItem="yg3-45-3wT" firstAttribute="top" secondItem="DLH-uc-Aml" secondAttribute="top" constant="60" id="tMw-m6-nm2"/>
+                                                    <constraint firstItem="Avx-va-zHy" firstAttribute="top" secondItem="yg3-45-3wT" secondAttribute="bottom" constant="-6" id="e8F-ZS-q8h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xWl-Ms-gMN" secondAttribute="trailing" constant="75" id="ifh-KO-6f8"/>
+                                                    <constraint firstItem="yg3-45-3wT" firstAttribute="top" secondItem="DLH-uc-Aml" secondAttribute="top" constant="66" id="tMw-m6-nm2"/>
                                                     <constraint firstAttribute="width" constant="194" id="vfv-d0-kZi"/>
                                                     <constraint firstAttribute="height" constant="195" id="wfL-dW-gHd"/>
                                                 </constraints>
@@ -5251,7 +5249,7 @@ the image below implies?</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn2-cR-UdR" customClass="OptionsCustomButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="343" width="350" height="70"/>
+                                                                    <rect key="frame" x="32" y="343" width="350" height="70"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Uja-W5-n1e"/>
@@ -5266,7 +5264,7 @@ the image below implies?</string>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHm-xP-TIR" customClass="OptionsCustomButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="423" width="350" height="70"/>
+                                                                    <rect key="frame" x="32" y="423" width="350" height="70"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="70" id="AHk-kQ-WrF"/>
@@ -5281,7 +5279,7 @@ the image below implies?</string>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2m0-ZW-hX9" customClass="OptionsCustomButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="503" width="350" height="70"/>
+                                                                    <rect key="frame" x="32" y="503" width="350" height="70"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="70" id="bmc-wH-kfL"/>
@@ -5296,7 +5294,7 @@ the image below implies?</string>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-Pt-BbI" customClass="OptionsCustomButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
-                                                                    <rect key="frame" x="30" y="583" width="350" height="70"/>
+                                                                    <rect key="frame" x="32" y="583" width="350" height="70"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="70" id="lql-Er-Zh3"/>
@@ -5313,16 +5311,20 @@ the image below implies?</string>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="PRb-Pt-BbI" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="30" id="3dz-HA-Vy9"/>
+                                                                <constraint firstItem="PRb-Pt-BbI" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="32" id="3dz-HA-Vy9"/>
                                                                 <constraint firstItem="2m0-ZW-hX9" firstAttribute="top" secondItem="cHm-xP-TIR" secondAttribute="bottom" constant="10" id="8TU-Qi-QP5"/>
                                                                 <constraint firstItem="h6j-7g-FvQ" firstAttribute="centerX" secondItem="Qvo-bp-lzm" secondAttribute="centerX" id="95V-9I-1zp"/>
                                                                 <constraint firstItem="zn2-cR-UdR" firstAttribute="top" secondItem="h6j-7g-FvQ" secondAttribute="bottom" constant="35" id="AE1-is-ono"/>
-                                                                <constraint firstItem="2m0-ZW-hX9" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="30" id="Pjh-LM-sOx"/>
+                                                                <constraint firstAttribute="trailing" secondItem="PRb-Pt-BbI" secondAttribute="trailing" constant="32" id="MOw-fM-lfv"/>
+                                                                <constraint firstItem="2m0-ZW-hX9" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="32" id="Pjh-LM-sOx"/>
                                                                 <constraint firstItem="JC5-7q-0BO" firstAttribute="top" secondItem="Qvo-bp-lzm" secondAttribute="top" constant="30" id="SUM-DA-6YQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zn2-cR-UdR" secondAttribute="trailing" constant="32" id="TLW-yS-qG3"/>
                                                                 <constraint firstItem="h6j-7g-FvQ" firstAttribute="top" secondItem="JC5-7q-0BO" secondAttribute="bottom" constant="36" id="Z6c-rt-g51"/>
                                                                 <constraint firstItem="JC5-7q-0BO" firstAttribute="centerX" secondItem="Qvo-bp-lzm" secondAttribute="centerX" id="arT-XE-uaK"/>
-                                                                <constraint firstItem="zn2-cR-UdR" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="30" id="d76-2n-amI"/>
-                                                                <constraint firstItem="cHm-xP-TIR" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="30" id="mNa-oT-MYj"/>
+                                                                <constraint firstAttribute="trailing" secondItem="2m0-ZW-hX9" secondAttribute="trailing" constant="32" id="csr-Hu-VqU"/>
+                                                                <constraint firstItem="zn2-cR-UdR" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="32" id="d76-2n-amI"/>
+                                                                <constraint firstAttribute="trailing" secondItem="cHm-xP-TIR" secondAttribute="trailing" constant="32" id="lMY-p4-CAA"/>
+                                                                <constraint firstItem="cHm-xP-TIR" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="32" id="mNa-oT-MYj"/>
                                                                 <constraint firstItem="cHm-xP-TIR" firstAttribute="top" secondItem="zn2-cR-UdR" secondAttribute="bottom" constant="10" id="ueS-TJ-DIN"/>
                                                                 <constraint firstItem="PRb-Pt-BbI" firstAttribute="top" secondItem="2m0-ZW-hX9" secondAttribute="bottom" constant="10" id="xRP-g6-OO6"/>
                                                                 <constraint firstItem="h6j-7g-FvQ" firstAttribute="leading" secondItem="Qvo-bp-lzm" secondAttribute="leading" constant="32" id="yu6-G7-mlH"/>
@@ -5396,7 +5398,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="AboutSubjectViewController" id="8vN-PY-cni" customClass="AboutSubjectViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHK-d5-i0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-kP-Mjh">
@@ -5691,7 +5693,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="StudyingViewController" id="ctg-2g-pB3" customClass="StudyingViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-Lz-xgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con't found any currenty studying subjects :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW9-lC-S6s">
@@ -6005,7 +6007,7 @@ the image below implies?</string>
             <objects>
                 <viewController storyboardIdentifier="LikedViewController" id="X8h-yW-QKo" customClass="LikedViewController" customModule="i_LeanAppAssessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIY-Yt-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="640.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Liked Chapters Found  : (" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-FE-Utt">
@@ -6301,50 +6303,63 @@ the image below implies?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkv-6r-Scf">
                                 <rect key="frame" x="26" y="587" width="362" height="312"/>
                                 <subviews>
-                                    <view alpha="0.49000000953674316" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-3K-1FF">
-                                        <rect key="frame" x="161" y="8" width="40" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roI-7a-suW">
-                                        <rect key="frame" x="31" y="204" width="135" height="60"/>
-                                        <color key="backgroundColor" red="0.29803921570000003" green="0.57647058819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="NEd-Jz-uHl"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="NWq-1s-ftF"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ox5-gm-jGt"/>
-                                            <constraint firstAttribute="width" constant="135" id="Qty-xa-cyN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="No">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXR-fc-gro">
-                                        <rect key="frame" x="196" y="204" width="135" height="60"/>
-                                        <color key="backgroundColor" red="0.29803921570000003" green="0.57647058819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="D2w-Cd-L0l"/>
-                                            <constraint firstAttribute="width" constant="135" id="LgA-uf-mMO"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="mfM-mJ-O4v"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="xvV-bJ-Gkx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="Yes">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="yesButtonTpped:" destination="nlB-Gm-JfD" eventType="touchUpInside" id="Tpb-Ad-bz2"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NuT-hY-Yz7">
+                                        <rect key="frame" x="31" y="204" width="300" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roI-7a-suW" customClass="customPopupButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                                <color key="backgroundColor" red="0.29803921570000003" green="0.57647058819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="NEd-Jz-uHl"/>
+                                                    <constraint firstAttribute="width" constant="135" id="Qty-xa-cyN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="20"/>
+                                                <state key="normal" title="No">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="noButtonTapped:" destination="nlB-Gm-JfD" eventType="touchUpInside" id="gEg-Zy-OVT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXR-fc-gro" customClass="customPopupButton" customModule="i_LeanAppAssessment" customModuleProvider="target">
+                                                <rect key="frame" x="165" y="0.0" width="135" height="60"/>
+                                                <color key="backgroundColor" red="0.29803921570000003" green="0.57647058819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="D2w-Cd-L0l"/>
+                                                    <constraint firstAttribute="width" constant="135" id="LgA-uf-mMO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="20"/>
+                                                <state key="normal" title="Yes">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="yesButtonTpped:" destination="nlB-Gm-JfD" eventType="touchUpInside" id="Tpb-Ad-bz2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have unattempted questions, would you like to submit the test?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxq-qF-F5S">
-                                        <rect key="frame" x="46" y="100.5" width="285" height="71.5"/>
+                                        <rect key="frame" x="38.5" y="100.5" width="285" height="71.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71.5" id="VDT-2M-M0v"/>
+                                            <constraint firstAttribute="width" constant="285" id="yOw-lG-dJp"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="20"/>
                                         <color key="textColor" red="0.34901960780000002" green="0.35686274509999999" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXb-nH-ysZ">
-                                        <rect key="frame" x="116" y="59.5" width="129" height="27"/>
+                                        <rect key="frame" x="116.5" y="59.5" width="129" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="129" id="EVh-6k-d4J"/>
                                             <constraint firstAttribute="height" constant="27" id="goz-5d-oAX"/>
@@ -6353,23 +6368,32 @@ the image below implies?</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulu-z1-zgT">
+                                        <rect key="frame" x="161" y="13" width="40" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Grm-RL-i3T"/>
+                                            <constraint firstAttribute="width" constant="40" id="SeD-Yy-E0W"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="roI-7a-suW" firstAttribute="leading" secondItem="mkv-6r-Scf" secondAttribute="leading" constant="31" id="EN4-dG-TDY"/>
+                                    <constraint firstItem="ulu-z1-zgT" firstAttribute="centerX" secondItem="mkv-6r-Scf" secondAttribute="centerX" id="3RG-b9-0Rn"/>
+                                    <constraint firstItem="NuT-hY-Yz7" firstAttribute="centerX" secondItem="mkv-6r-Scf" secondAttribute="centerX" id="CZS-d2-NPz"/>
                                     <constraint firstAttribute="height" constant="312" id="JvY-ht-xvN"/>
-                                    <constraint firstItem="ZXR-fc-gro" firstAttribute="leading" secondItem="roI-7a-suW" secondAttribute="trailing" constant="30" id="MLi-Je-I83"/>
-                                    <constraint firstItem="ZXR-fc-gro" firstAttribute="top" secondItem="Qxq-qF-F5S" secondAttribute="bottom" constant="32" id="SQY-03-8uN"/>
+                                    <constraint firstItem="NuT-hY-Yz7" firstAttribute="top" secondItem="Qxq-qF-F5S" secondAttribute="bottom" constant="32" id="MaN-y2-g7H"/>
+                                    <constraint firstAttribute="bottom" secondItem="NuT-hY-Yz7" secondAttribute="bottom" constant="48" id="TkH-et-yi6"/>
                                     <constraint firstItem="Qxq-qF-F5S" firstAttribute="top" secondItem="rXb-nH-ysZ" secondAttribute="bottom" constant="14" id="Txt-hA-7Zt"/>
-                                    <constraint firstItem="Qxq-qF-F5S" firstAttribute="leading" secondItem="mkv-6r-Scf" secondAttribute="leading" constant="46" id="aZH-cs-Rm9"/>
-                                    <constraint firstAttribute="bottom" secondItem="roI-7a-suW" secondAttribute="bottom" constant="48" id="c5J-47-rn7"/>
-                                    <constraint firstItem="roI-7a-suW" firstAttribute="top" secondItem="Qxq-qF-F5S" secondAttribute="bottom" constant="32" id="ep8-Sn-DEy"/>
-                                    <constraint firstAttribute="trailing" secondItem="rXb-nH-ysZ" secondAttribute="trailing" constant="117" id="fMP-uo-itA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qxq-qF-F5S" secondAttribute="trailing" constant="31" id="k9u-Y3-rHv"/>
-                                    <constraint firstItem="rXb-nH-ysZ" firstAttribute="leading" secondItem="mkv-6r-Scf" secondAttribute="leading" constant="116" id="oKS-AO-hqu"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZXR-fc-gro" secondAttribute="bottom" constant="48" id="w3u-wt-Uuo"/>
+                                    <constraint firstItem="Qxq-qF-F5S" firstAttribute="centerX" secondItem="mkv-6r-Scf" secondAttribute="centerX" id="W06-h1-1bW"/>
+                                    <constraint firstItem="ulu-z1-zgT" firstAttribute="top" secondItem="mkv-6r-Scf" secondAttribute="top" constant="13" id="ce3-VX-jFG"/>
+                                    <constraint firstItem="rXb-nH-ysZ" firstAttribute="centerX" secondItem="mkv-6r-Scf" secondAttribute="centerX" id="dRQ-ia-5qk"/>
                                     <constraint firstAttribute="width" constant="362" id="xBa-Fx-Mdo"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZXR-fc-gro" secondAttribute="trailing" constant="31" id="y5x-3E-Ha0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -6382,7 +6406,6 @@ the image below implies?</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="designView" destination="ctv-3K-1FF" id="iJe-ts-bzK"/>
                         <outlet property="noButton" destination="roI-7a-suW" id="SRm-6B-uTE"/>
                         <outlet property="popUpView" destination="mkv-6r-Scf" id="6kS-L3-si6"/>
                         <outlet property="yes" destination="ZXR-fc-gro" id="XsG-qI-svU"/>
@@ -6390,7 +6413,7 @@ the image below implies?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oH9-K0-YDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12251" y="708"/>
+            <point key="canvasLocation" x="12250.72463768116" y="707.8125"/>
         </scene>
     </scenes>
     <resources>
