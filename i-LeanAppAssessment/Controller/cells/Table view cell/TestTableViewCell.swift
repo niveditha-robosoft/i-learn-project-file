@@ -5,15 +5,14 @@
 //  Created by Harsha R Mundaragi on 23/12/22.
 //
 
+import Foundation
 import UIKit
 
 protocol beginTest {
 
-    func testBegin(index: IndexPath, testId: Int)
+    func testBegin(index: IndexPath)
 
 }
-
- 
 
 class TestTableViewCell: UITableViewCell {
 
@@ -57,9 +56,10 @@ class TestTableViewCell: UITableViewCell {
  
 
     @IBAction func beginTestButtonClicked(_ sender: Any) {
-
-        delegate?.testBegin(index: index!, testId: finalTestId!)
-
+        
+        if let indexPath = index{
+            delegate?.testBegin(index: indexPath)
+        }
     }
 
 }

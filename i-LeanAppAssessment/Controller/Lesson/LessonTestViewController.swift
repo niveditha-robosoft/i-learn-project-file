@@ -5,20 +5,13 @@
 //  Created by Niveditha Naik on 12/12/22.
 //
 import UIKit
-
+import Foundation
 class LessonTestViewController: UIViewController {
-    
-    var likedSubject = ""
-    var likedLessonNUmber = ""
-    var likedLessonName = ""
-    var likedLessonId = 0
-    var statusXY = 0
-    
     
     var subjectName1 = ""
     var chapterName1 = ""
     var lessonName1 = ""
-    
+    var lessonId = 0
     
     var userId1 = 0
     var subjectId1 = 0
@@ -29,10 +22,10 @@ class LessonTestViewController: UIViewController {
     
     var lessonVc :LessonViewController?
     var lessonNameIs = ""
-    var lessonId:Int?
+   // var lessonId:Int?
     var lessonNumberIs = ""
-    var realLessonId: Int?
-    var finalLessonId: Int?
+    //var realLessonId: Int?
+    //var finalLessonId: Int?
     
     var unitDetails = [UnitModel]()
     
@@ -54,20 +47,6 @@ class LessonTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if statusXY == 1{
-            
-            subjectName.text = "INTRODUCTION TO \(likedSubject.uppercased())"
-            lessonName.text = likedLessonName
-            lessonNumber.text = likedLessonNUmber
-            
-        }else{
-            subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
-            lessonName.text = lessonNameIs.capitalized
-            lessonNumber.text = lessonNumberIs
-            
-        }
-        
-        
         if isLessonShown{
             testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
             lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
@@ -83,27 +62,24 @@ class LessonTestViewController: UIViewController {
             view.bringSubviewToFront(testContainerView)
         }
         
-        
+        subjectName.text = "INTRODUCTION TO \(subjectNameIs.uppercased())"
+        lessonName.text = lessonNameIs.capitalized
+        lessonNumber.text = lessonNumberIs
         testButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
         lessonButton.setTitleColor(#colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1), for: .normal)
         testContainerView.isHidden = true
         lessonContainerView.isHidden = false
         view.bringSubviewToFront(lessonContainerView)
+        getTestByLesson()
         lessonButton.roundCorners(corners: [.bottomLeft,.topLeft], radius: 12)
         testButton.roundCorners(corners: [.bottomRight,.topRight], radius: 12)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         testVc = segue.destination as? TestViewController
-        testVc?.lessonId = self.realLessonId
-        testVc?.chapterId = self.lessonId
-        AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
+       // testVc?.lessonIdIs = lessonId
+        testVc?.lessonIdIs = lessonId1
         lessonVc = segue.destination as? LessonViewController
-        
-        lessonVc?.likedLessonName = likedLessonName
-        lessonVc?.likedLessonIdIdIs = likedLessonId
-        lessonVc?.statusX = statusXY
-        
         lessonVc?.subjectName2 = subjectName1
         lessonVc?.chapterName2 = chapterName1
         lessonVc?.lessonName2 = lessonName1
@@ -112,8 +88,22 @@ class LessonTestViewController: UIViewController {
         lessonVc?.chapterId2 = chapterId1
         lessonVc?.lessonId2 = lessonId1
         lessonVc?.unitDetailsIS = unitDetails
+        //        testVc?.lessonId = self.realLessonId
+        //        testVc?.chapterId = self.lessonId
+        //        AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentChapterId = self.lessonId ?? 0
     }
-    
+    func getTestByLesson(){
+        TestViewModel.shared.fetchTestQuestions(key: TestViewModel.shared.testByLessonKey, value: TestViewModel.shared.testByLessonValue) { (test, error) in
+            print(TestViewModel.shared.testList)
+            
+        }
+    }
+    func getQuestions(){
+        TestViewModel.shared.fetchTestQuestions(key: TestViewModel.shared.questionKey, value: TestViewModel.shared.questionValue) { (test, error) in
+            
+        }
+    }
+
     @IBAction func lessonButtonTapped(_ sender: Any) {
         showLesson()
     }

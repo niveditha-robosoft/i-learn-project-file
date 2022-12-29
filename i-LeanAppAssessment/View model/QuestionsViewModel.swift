@@ -8,27 +8,30 @@
 import Foundation
 class QuestionsViewModel {
     static var shared = QuestionsViewModel()
-    var objectOfKeyChain = KeyChain()
+    var testId: Int?
+    var lessonId: Int?
     var questionKey = "testId"
-     var questionValue = 429  //166
-    
+ //
+    var questionValue = 429  //166
+    var testVm = TestViewModel.shared
     var questionsWithOptionList = [QuestionsWithOptions]()
     
     var answersList = [Int: Answer]()
     var objectOfUserDefaults = UserDefaults()
-    
+    var objectOfKeyChain = KeyChain()
     
    
     
-    func fetchQuestions(key: String, value: Int, completion: @escaping((String, Int, Bool?, Error?) -> Void)){
+    func fetchQuestions(key: String, value: Int, completion: @escaping((Bool?, Error?) -> Void)){
         
+        print(value)
         var tokenIs = getToken()
         let networkManager = QuestionsNetworkManager()
         let request = NSMutableURLRequest(url: NSURL(string: "https://app-e-learning-221207163844.azurewebsites.net/user/question-with-options?\(key)=\(value)")! as URL)
         request.httpMethod = "GET"
         request.setValue("Bearer \(tokenIs)", forHTTPHeaderField: "Authorization")
         request.allHTTPHeaderFields = nil
-        networkManager.fetchList1(at: request) { [self]message,statusCode, data, error in
+        networkManager.fetchList1(at: request) { [self]data,error in
             if let apiData = data{
                 self.questionsWithOptionList.removeAll()
                 guard let questionsWithOption = apiData as?  [[String: Any]] else {return}
@@ -49,11 +52,11 @@ class QuestionsViewModel {
                     //print(filePath)
                     let questionWithOptionsLists1 = QuestionsWithOptions(questionName: questionName, questionId: questionId, option1: option1, option2: option2, option3: option3, option4: option4)
                     self.questionsWithOptionList.append(questionWithOptionsLists1)
-                    let answer = Answer(testId: questionValue, lessonId: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId, questionId: questionId, givenAnswer: "")
+                    let answer = Answer(testId: 429, lessonId: 29, questionId: questionId, givenAnswer: "")
                     self.answersList[questionId] = answer
                 }
+                completion(true,nil)
             }
-            completion(message,statusCode,true,nil)
         }
     }
     func sendAnswer() {
@@ -62,15 +65,17 @@ class QuestionsViewModel {
     
     func getToken() -> String {
         
-       var id = ""
+        var id = ""
        let userIdIs = objectOfUserDefaults.value(forKey: "userId")
         
         if let idIs = userIdIs as? Int{
+            
             id = String(idIs)
+            
         }
-        
         print("stored user id : \(id)")
 
+        
         guard let receivedTokenData = objectOfKeyChain.loadData(userId: id) else {print("2")
             return ""}
 

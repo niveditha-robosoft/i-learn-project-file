@@ -5,13 +5,16 @@
 //  Created by Shrushti Shetty on 14/12/22.
 //
 
+import Foundation
 import UIKit
 
 class ResultViewController: UIViewController {
     
     var viewModel = ResultViewModel.shared
     var viewModel2 = TestViewController()
-    var vm3 = QuestionsViewController()
+    var vm3 = QuestionsViewModel.shared
+    var testId: Int?
+    var lessonId: Int?
     var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel
     @IBOutlet weak var progressBar: ProgressBarViewTwo!
     @IBOutlet weak var creditLabel: UIView!
@@ -64,47 +67,46 @@ class ResultViewController: UIViewController {
         progressBar.progress = (Float(percentageProgress)/Float(100))
     }
     
+    
     @IBAction func tryAgainButtonTapped(_ sender: Any) {
         viewModel.tryAgainClick += 1
-        // viewModel.tryAgainClick = 0
         answerList.removeAll()
         viewModel.assignAnswer()
         print(viewModel.tryAgainClick,"tryginclic")
         if viewModel.tryAgainClick > 2 {
+            print("inside if")
             let alert = UIAlertController(title: "Alert", message: "You can only attempt the test three times", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self]_ in
-//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LessonTestViewController") as! LessonTestViewController
-                
-//                vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
-//                vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
-//                vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
-//                vc.subjectNameIs = subjectNameIs
-//                vc.realLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//                objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-//
-//                vc.lessonId = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
-//                self.navigationController?.pushViewController(vc, animated: true)
-                
-                
-//                vc.isLessonShown = false
-//                self.navigationController?.pushViewController(vc, animated: true)
-                self.navigationController?.popToViewController(objectOfAboutSUbjectViewModel.currentLessonVC, animated: false)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in
+                print()
+                print(AboutSUbjectViewModel.objectOfViewmodel.lessonVC,"LESSSSONVC OBJECT")
+                print()
+                for controller in self.navigationController!.viewControllers as Array {
+                    if controller.isKind(of: LessonTestViewController.self) {
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        break
+                    }
+                }
             }))
             self.present(alert, animated: true)
-            
             
         }
         else {
             print("elseconditiom")
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as? QuestionsViewController else {print("vc error");return}
-            vc.viewModel2.fetchQuestionList(key: "testId", value: vm3.testId ?? 0) { [self] (data, error) in
-                if data! {
+            if let id = testId{
+                print(1586,id)
+                vm3.fetchQuestions(key: "testId", value: id) { (data, error) in
+                    if data! {
+                    }
+                    print(vc.viewModel2.questionListArray.count)
                 }
-                print(vc.viewModel2.questionListArray.count)
             }
+
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        //self.navigationController?.popViewController(animated: true)
+        
+        
     }
-    
 }
 

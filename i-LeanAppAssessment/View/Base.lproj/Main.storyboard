@@ -24,9 +24,6 @@
         <array key="Rubik-VariableFont_wght.ttf">
             <string>RubikRoman-Regular</string>
         </array>
-        <array key="TimesNewRoman.ttf">
-            <string>.SFUI-Regular</string>
-        </array>
     </customFonts>
     <scenes>
         <!--On Boarding One View Controller-->
@@ -119,7 +116,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGg-TQ-xs8">
-                                                                    <rect key="frame" x="56.5" y="603" width="300" height="41"/>
+                                                                    <rect key="frame" x="51.5" y="603" width="310" height="41"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="310" id="ElO-81-3pf"/>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="dDk-Tc-wzh"/>
@@ -5260,8 +5257,8 @@ the image below implies?</string>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Uja-W5-n1e"/>
                                                                         <constraint firstAttribute="height" constant="70" id="qiM-z1-Ctp"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="18"/>
-                                                                    <state key="normal" title="   A.  The bird is a scavanger">
+                                                                    <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
+                                                                    <state key="normal" title="A.  The bird is a scavanger">
                                                                         <color key="titleColor" red="0.5568627451" green="0.56078431370000004" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                     <connections>
@@ -5276,7 +5273,7 @@ the image below implies?</string>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Txt-c8-esL"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="18"/>
-                                                                    <state key="normal" title="  B.  The bird is a bed of prey">
+                                                                    <state key="normal" title="B.  The bird is a bed of prey">
                                                                         <color key="titleColor" red="0.5568627451" green="0.56078431370000004" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                     <connections>
@@ -5291,7 +5288,7 @@ the image below implies?</string>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="raF-xZ-raR"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="RubikRoman-Regular" family="Rubik" pointSize="18"/>
-                                                                    <state key="normal" title="  B.  The bird is a bed of prey">
+                                                                    <state key="normal" title="B.  The bird is a bed of prey">
                                                                         <color key="titleColor" red="0.5568627451" green="0.56078431370000004" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                     <connections>

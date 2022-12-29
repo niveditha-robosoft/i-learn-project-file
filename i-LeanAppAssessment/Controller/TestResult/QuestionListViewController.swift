@@ -5,6 +5,7 @@
 //  Created by Shrushti Shetty on 14/12/22.
 //
 
+import Foundation
 import UIKit
 
 class QuestionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -26,7 +27,7 @@ class QuestionListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.fetchQuestionList(key: "testId", value: AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentTestId) { [self] (data, error) in
+        viewModel.fetchQuestionList(key: "testId", value: 429) { [self] (data, error) in
             DispatchQueue.main.async{
                 if data! {
                     print(viewModel.questionListArray.count,"apidata")
@@ -55,5 +56,4 @@ class QuestionListViewController: UIViewController, UITableViewDelegate, UITable
         navigationController?.popViewController(animated: true)
     }
 }
-
 

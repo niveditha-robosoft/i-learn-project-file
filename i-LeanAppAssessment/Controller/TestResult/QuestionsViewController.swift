@@ -4,9 +4,12 @@
 //
 //  Created by Shrushti Shetty on 14/12/22.
 //
-
 import UIKit
 
+import Foundation
+//protocol NavigationPop {
+//    func popVC()
+//}
 class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var leftMoveButton: UIButton!
@@ -16,11 +19,11 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    var lessonId: Int?
-    var testId: Int?
     var timer: Timer?
+    var testId: Int?
+    var lessonId: Int?
     var elapsedTime: TimeInterval = 0
-    let duration: TimeInterval = 600
+    let duration: TimeInterval = 3600
     var viewModel = QuestionsViewModel.shared
     private var isPopUpShown = false
     var viewModel2 = QuestionListViewModel.shared
@@ -31,12 +34,6 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        viewModel.fetchQuestions(key: "testId", value: testId ?? 0) { (message, statusCode, data, error) in
-            DispatchQueue.main.async {
-                print(self.testId,"questionVCCC")
-                self.collectionView.reloadData()
-            }
-        }
         print(viewModel.questionsWithOptionList.count,"count from options")
         print(viewModel2.questionListArray.count,"countFor qu")
         self.questionCountsLabel.text = String(currentPage+1) +  " " + "of" + " " + String(viewModel.questionsWithOptionList.count) + " " + "question"
@@ -57,6 +54,7 @@ class QuestionsViewController: UIViewController {
             timer = nil
             let vc = storyboard?.instantiateViewController(withIdentifier: "TimeOutViewController") as! TimeOutViewController
             ResultViewModel.shared.getResult { (sucess, error) in
+                print("hgcvkjtyu")
                 if sucess! {
                     DispatchQueue.main.async
                     {
@@ -90,6 +88,8 @@ class QuestionsViewController: UIViewController {
         if nextItem.row == viewModel.questionsWithOptionList.count{
             print(nextItem.row)
             if let vc = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+                vc.testId = testId
+                vc.lessonId = lessonId
                 navigationController?.present(vc, animated: true, completion: nil)
                 vc.delegate = self
             }
@@ -122,17 +122,25 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return QuestionsCollectionViewCell()}
         print( viewModel.questionsWithOptionList[indexPath.row].questionName)
         cell.currentQuestionID = viewModel.questionsWithOptionList[indexPath.row].questionId
-        cell.currentTestID = testId ?? 0
         print(viewModel.questionsWithOptionList[indexPath.row].questionId, "question id")
-       
-        //cell.currentTestID = 429
-        cell.currentLessonID = lessonId ?? 0
+        cell.currentTestID = viewModel.testId ?? 0
+        cell.currentLessonID = viewModel.lessonId ?? 0
+//        if let id = viewModel.testId {
+//            cell.currentTestID =
+//        }
+//        if let lessID = viewModel.lessonId {
+//            cell.currentLessonID = lessID
+//        }
         
         cell.question.text = viewModel.questionsWithOptionList[indexPath.row].questionName
-        cell.optionA.setTitle(viewModel.questionsWithOptionList[indexPath.row].option1, for: .normal)
-        cell.optionB.setTitle(viewModel.questionsWithOptionList[indexPath.row].option2, for: .normal)
-        cell.optionC.setTitle(viewModel.questionsWithOptionList[indexPath.row].option3, for: .normal)
-        cell.optionD.setTitle(viewModel.questionsWithOptionList[indexPath.row].option4, for: .normal)
+        cell.optionA.setTitle("  A.  \(viewModel.questionsWithOptionList[indexPath.row].option1)", for: .normal)
+        cell.optionB.setTitle("  B.  \(viewModel.questionsWithOptionList[indexPath.row].option2)", for: .normal)
+        cell.optionC.setTitle("  C.  \(viewModel.questionsWithOptionList[indexPath.row].option3)", for: .normal)
+        cell.optionD.setTitle("  D.  \(viewModel.questionsWithOptionList[indexPath.row].option4)", for: .normal)
+        cell.optionAText = viewModel.questionsWithOptionList[indexPath.row].option1
+        cell.optionBText = viewModel.questionsWithOptionList[indexPath.row].option1
+        cell.optionCText = viewModel.questionsWithOptionList[indexPath.row].option1
+        cell.optionDText = viewModel.questionsWithOptionList[indexPath.row].option1
         cell.defaultButtonBorderText()
         cell.curentIndex = indexPath.row
         return cell
@@ -143,14 +151,29 @@ extension QuestionsViewController: UICollectionViewDataSource, UICollectionViewD
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
         let size = (collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow)
+        
         return CGSize(width: size, height: 700)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        coordinator.animate(alongsideTransition: nil) { (context) -> Void in
+
+            self.collectionView.reloadData()
+
+        }
+
+    }
+    
+
 }
 
 extension QuestionsViewController: pushtoNextVc{
     
     func push() {
         let vc = storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController
+        vc?.testId = testId
+        vc?.lessonId = lessonId
         vc?.assignLabels()
         navigationController?.pushViewController(vc!, animated: true)
     }

@@ -9,7 +9,7 @@ import Foundation
 class ResultNetworkManager {
     func postData(url: String,parameters: [String:Any],completion: @escaping(Any? , Error?) -> Void) {
         
-        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGV0dHlzaHJ1c2h0aTE0M0BnbWFpbC5jb20iLCJleHAiOjE2NzIxNTA4OTEsImlhdCI6MTY3MjExNDg5MX0.-6ZnD7-Wz-hI8YWjW0dJaWAyNtuyg3_YmZDFz2oj3OnV2rpUAp5z4zjSNRepLZo4cJRKfb1MHYoxwKycJ1d0pg"
+        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGV0dHlzaHJ1c2h0aTE0M0BnbWFpbC5jb20iLCJleHAiOjE2NzIyNjU4NTUsImlhdCI6MTY3MjIyOTg1NX0.n-qaU43-ScGyp42U4EW3I2SXHLT6kXc1ajsHhsMHUFmks-wMRJ-qQHcftGnaZSJnz27eD1qMew4VEmmufNfMIg"
         var request = URLRequest(url: URL(string: url)!)
         
         request.httpMethod = "POST"
@@ -26,7 +26,6 @@ class ResultNetworkManager {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) { responseData, response, error in
             print(type(of: responseData))
-            print(responseData, "DATAAaaa")
             if let response = response as? HTTPURLResponse {
                 print("Response", response.statusCode)
                 let body = String(data: responseData!, encoding: .utf8)

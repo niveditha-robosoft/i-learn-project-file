@@ -295,8 +295,8 @@ extension StudyingViewController{
 
         
         if let vc = detailsVc {
-            vc.finalLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
-            objectOfAboutSUbjectViewModel.currentLessonId = vc.finalLessonId ?? 0
+//            vc.finalLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
+//            objectOfAboutSUbjectViewModel.currentLessonId = vc.finalLessonId ?? 0
             vc.lessonNameIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonName
             vc.lessonNumberIs = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonNumber
             vc.unitDetails = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].unitDetails
@@ -305,10 +305,10 @@ extension StudyingViewController{
 //            print(vc.realLessonId,"reallessonID")
 //            vc.realLessonId = AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.row].lessonId
 //            print("is api data coming here", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId)
-            objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
+            //objectOfAboutSUbjectViewModel.currentLessonId = objectOfAboutSUbjectViewModel.lessonDetails[indexPath.section].lessonId
 
             vc.lessonId = objectOfAboutSUbjectViewModel.subjectDetailsArray[indexPath.row].chapterId
-            objectOfAboutSUbjectViewModel.currentLessonVC = vc
+           // objectOfAboutSUbjectViewModel.currentLessonVC = vc
             
             vc.subjectName1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].subjectName
             vc.chapterName1 = objectOfHomeViewModel.currentyStudyingData[indexPath.row].chapterName

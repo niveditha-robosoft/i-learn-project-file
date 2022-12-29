@@ -5,6 +5,7 @@
 //  Created by Shrushti Shetty on 19/12/22.
 //
 
+import Foundation
 import UIKit
 
 protocol pushtoNextVc {
@@ -16,7 +17,9 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var yes: UIButton!
     @IBOutlet weak var noButton: UIButton!
-    
+    @IBOutlet weak var popViewHeight: NSLayoutConstraint!
+    var testId: Int?
+    var lessonId: Int?
     var delegate : pushtoNextVc?
     var viewModel: ResultViewModel? = ResultViewModel.shared
     
@@ -30,6 +33,7 @@ class PopUpViewController: UIViewController {
     
     @IBAction func yesButtonTpped(_ sender: UIButton) {
         print("YESSSSSS")
+//        ResultViewModel.shared.assignParameters(testId: testId ?? 0, lessonId: lessonId ?? 0)
         dismiss(animated: true, completion: nil)
         ResultViewModel.shared.getResult { (sucess, error) in
             print("hgcvkjtyu")
@@ -41,4 +45,9 @@ class PopUpViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func noButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil )
+    }
 }
+

@@ -5,7 +5,9 @@
 //  Created by Shrushti Shetty on 14/12/22.
 //
 
+import Foundation
 import UIKit
+
 enum SelectedOption{
     case optionA
     case optionB
@@ -20,7 +22,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
 //    let testVM = TestViewModel.shared
     
     let submitVM = ResultViewModel.shared
-    
+    var optionAText: String = ""
+    var optionBText: String = ""
+    var optionCText: String = ""
+    var optionDText: String = ""
+
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var optionA: UIButton!
     @IBOutlet weak var optionB: UIButton!
@@ -58,7 +64,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         if let optionText = selectedOption.title(for: .normal){
             questionVM.answersList[currentQuestionID] = Answer(testId: self.currentTestID, lessonId: currentLessonID, questionId: currentQuestionID, givenAnswer: optionText)
             print("TESTIDDD",self.currentTestID)
-            print("LESSONIDDD", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId)
+//            print("LESSONIDDD", AboutSUbjectViewModel.objectOfAboutSUbjectViewModel.currentLessonId)
 
             
         }
@@ -69,15 +75,17 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD)
             submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
+            print("currentID", currentTestID)
             
-            storeAnswer(questionId: currentQuestionID, answer: optionA.title(for: .normal) ?? "jhgf")
+            storeAnswer(questionId: currentQuestionID, answer: optionAText )
         case optionB:
             borderOnClickingOption(button: optionA)
             borderOnClickingOption(button: optionB, borderWidth: 1,textColor: #colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1))
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD)
             submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
-            storeAnswer(questionId: currentQuestionID, answer: optionB.title(for: .normal) ?? "")
+            print("currentID", currentTestID)
+            storeAnswer(questionId: currentQuestionID, answer: optionBText )
 
         case optionC:
             borderOnClickingOption(button: optionA)
@@ -85,7 +93,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionC, borderWidth: 1,textColor: #colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1))
             borderOnClickingOption(button: optionD)
             submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
-            storeAnswer(questionId: currentQuestionID, answer: optionC.title(for: .normal) ?? "")
+            print("currentID", currentTestID)
+            storeAnswer(questionId: currentQuestionID, answer: optionCText )
 
         case optionD:
             borderOnClickingOption(button: optionA)
@@ -93,7 +102,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             borderOnClickingOption(button: optionC)
             borderOnClickingOption(button: optionD, borderWidth: 1,textColor: #colorLiteral(red: 0.3614955544, green: 0.654981792, blue: 1, alpha: 1))
             submitVM.assignParameters(testId: self.currentTestID, lessonId: currentLessonID)
-            storeAnswer(questionId: currentQuestionID, answer: optionD.title(for: .normal) ?? "")
+            print("currentID", currentTestID)
+            storeAnswer(questionId: currentQuestionID, answer: optionDText )
 
         default:
             borderOnClickingOption(button: optionA)

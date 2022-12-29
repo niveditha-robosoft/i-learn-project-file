@@ -50,13 +50,13 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let vc = detailVc{
             
-            vc.statusXY = 1
-            
-            print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")
-            vc.likedLessonNUmber = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber
-            vc.likedSubject = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName
-            vc.likedLessonId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonId
-            vc.likedLessonName = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName
+//            vc.statusXY = 1
+//            
+//            print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")
+//            vc.likedLessonNUmber = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber
+//            vc.likedSubject = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName
+//            vc.likedLessonId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonId
+//            vc.likedLessonName = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

@@ -11,14 +11,15 @@ import Foundation
 class AboutSUbjectViewModel {
     static var objectOfAboutSUbjectViewModel = AboutSUbjectViewModel()
     var subjectDetailsArray = [SubjectDetailsModel]()
-    var testIdArray = [Test]()
     var lessonDetails = [lessonModel]()
-    var testDetails = [Test]()
-    var currentTestId = 0
-    var currentLessonId = 0
-    var currentChapterId = 0
-    var currentLessonVC: LessonTestViewController = LessonTestViewController()
-    //static var objectOfViewmodel = AboutSUbjectViewModel()
+    var lessonVC = LessonTestViewController()
+
+//
+//    var currentTestId = 0
+//    var currentLessonId = 0
+//    var currentChapterId = 0
+//    var currentLessonVC: LessonTestViewController = LessonTestViewController()
+    static var objectOfViewmodel = AboutSUbjectViewModel()
     var objectOfAboutSubjectNetwork = AboutSubjectNetwork()
     func callApiForSubjectdetails(subjectIdToSend: Int, completion: @escaping((Bool) -> ())) {
         
@@ -158,64 +159,6 @@ class AboutSUbjectViewModel {
             
             
             
-        }
-        
-    }
-    func fetchTestDetails(tokenToSenf: String,lessonIdToSend: Int, completion: @escaping((Bool) -> ())) {
-        objectOfAboutSubjectNetwork.callApiForDetailsOfTheLesson(tokenIs: tokenToSenf,lessonId: lessonIdToSend){ responceData, responceStatus, responceError in
-            
-            self.testDetails.removeAll()
-            
-            DispatchQueue.main.async { [self] in
-                if responceError == nil{
-                    
-                    if responceStatus == true{
-                        
-                        if let data1 = responceData{
-                            for i in data1 {
-                                if let testData = i["test"] as? [[String: Any]]{
-                                    for j in testData{
-                                        print("for loop")
-                                        guard let testId = j["testId"] as? Int else{completion(false)
-                                            return}
-                                        guard let level = j["level"] as? String else{completion(false)
-                                            return}
-                                        guard let testName = j["testName"] as? String else{completion(false)
-                                            return}
-                                        guard let noOfAttempts = j["noOfAttempts"] as? Int else{completion(false)
-                                            return}
-                                        guard let duration = j["duration"] as? Int else{ completion(false)
-                                            return}
-                                        guard let totalQuestions = j["totalQuestions"] as? Int else{completion(false)
-                                            return}
-                                        guard let marks = j["marks"] as? Int else{completion(false)
-                                            return}
-                                        let testData = Test(testId: testId, testName: testName, duration: duration, totalQuestions: totalQuestions, level: level, marks: marks)
-                                        self.testDetails.append(testData)
-                                        
-                                        print("testData", testData.testId)
-                                        
-                                    }
-                                }
-                            }
-                            for test in self.testDetails{
-                                print(test.testId,"TestID From API")
-                            }
-                            //print(currentTestId)
-                            completion(true)
-                        }
-                        
-                    }else{
-                        
-                        completion(false)
-                        
-                    }
-                    
-                }else{
-                    print("false is here")
-                    completion(false)
-                }
-            }
         }
         
     }
