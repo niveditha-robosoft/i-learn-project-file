@@ -7,6 +7,13 @@
 import UIKit
 import Foundation
 class LessonTestViewController: UIViewController {
+    var likedUnitId = 0
+    var likedSubject = ""
+    var likedLessonNUmber = ""
+    var likedLessonName = ""
+    var likedLessonId = 0
+    var statusXY = 0
+    
     
     var subjectName1 = ""
     var chapterName1 = ""
@@ -80,6 +87,13 @@ class LessonTestViewController: UIViewController {
        // testVc?.lessonIdIs = lessonId
         testVc?.lessonIdIs = lessonId1
         lessonVc = segue.destination as? LessonViewController
+        
+        lessonVc?.likedLessonName = likedLessonName
+        lessonVc?.likedLessonIdIdIs = likedLessonId
+        lessonVc?.statusX = statusXY
+        lessonVc?.likedUnitIdIs = likedUnitId
+        
+        
         lessonVc?.subjectName2 = subjectName1
         lessonVc?.chapterName2 = chapterName1
         lessonVc?.lessonName2 = lessonName1

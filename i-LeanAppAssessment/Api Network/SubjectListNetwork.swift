@@ -9,7 +9,7 @@ import Foundation
 class SubjectListNetwork {
     
     
-    func apiCallforSubjectDetails(completion: @escaping(([[String: Any]],Error?) -> ())){
+    func apiCallforSubjectDetails(completion: @escaping(([[String: Any]]?,Error?) -> ())){
         
         print("Api call")
         guard let url = URL(string:"https://app-e-learning-221207163844.azurewebsites.net/user/view/allSubjects") else{
@@ -41,7 +41,7 @@ class SubjectListNetwork {
                             
                         }
                     }else{
-                        completion([["": ""]],error)
+                        completion(nil,error)
                         print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
                     }
 

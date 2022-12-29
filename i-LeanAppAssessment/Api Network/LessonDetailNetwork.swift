@@ -39,7 +39,7 @@ class LessonDetailNetwork{
 
                         if let datais = responsData as? [String: Any]{
                             
-                            print("fsdfsfsdgsgsfg",datais)
+                          
                             completion(datais,true,nil)
                         }
 
@@ -104,6 +104,10 @@ class LessonDetailNetwork{
                 }else if responsIs.statusCode == 400 {
                     completion(nil,false,nil)
                     print("Responce Error is: ", error?.localizedDescription ?? "Error...!")
+                    
+                }else{
+                    completion(nil,false,nil)
+
                     
                 }
                 

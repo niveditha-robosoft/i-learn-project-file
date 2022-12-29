@@ -19,12 +19,16 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callApi()
+        tableView.reloadData()
+
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         callApi()
+        tableView.reloadData()
 
     }
     
@@ -50,6 +54,13 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let vc = detailVc{
             
+            vc.statusXY = 1
+            vc.likedUnitId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitId
+            print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")
+            vc.likedLessonNUmber = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber
+            vc.likedSubject = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].subjectName
+            vc.likedLessonId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonId
+            vc.likedLessonName = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonName
 //            vc.statusXY = 1
 //            
 //            print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")

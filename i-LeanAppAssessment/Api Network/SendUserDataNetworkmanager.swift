@@ -64,6 +64,7 @@ class SendUserDataNetworkmanager {
                         completion(false,nil)
                         
                     }else{
+                        completion(false,nil)
                         print("Sign up Responce Error is: ", error?.localizedDescription ?? "Error...?")
                     }
 

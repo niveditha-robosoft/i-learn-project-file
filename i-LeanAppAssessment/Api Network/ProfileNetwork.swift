@@ -101,6 +101,10 @@ class ProfileNetwork {
                         
                         completion(nil,false,error)
                         
+                    }else{
+                        
+                        completion(nil,false,error)
+                        
                     }
 
                 }

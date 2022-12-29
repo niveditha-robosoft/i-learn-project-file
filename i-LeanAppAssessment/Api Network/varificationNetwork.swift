@@ -51,6 +51,10 @@ class VarificationNetwork {
                     }else if (responsIs.statusCode == 400) {
                         
                         completion(false,nil)
+                    }else{
+                        
+                        completion(false,nil)
+
                     }
 
                 }

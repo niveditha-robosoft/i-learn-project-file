@@ -47,6 +47,9 @@ class NotificationNetwork {
                     }else if (responsIs.statusCode == 400) {
                         
                         completion(false,nil)
+                    }else{
+                        
+                        completion(false,nil)
                     }
 
                 }
@@ -98,6 +101,10 @@ class NotificationNetwork {
                     }else if (responsIs.statusCode == 400) {
                         
                         completion(nil,false,error)
+                    }else{
+                        
+                        completion(nil,false,error)
+
                     }
 
                 }
