@@ -15,6 +15,9 @@ protocol dismissVc {
 
 class LessonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    var likedPageIdToSend = 0
+    
     var userId2 = 0
     var subjectId2 = 0
     var chapterId2 = 0

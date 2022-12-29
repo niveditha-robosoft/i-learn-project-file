@@ -7,6 +7,10 @@
 import UIKit
 import Foundation
 class LessonTestViewController: UIViewController {
+    
+    var likedPageIdIs = 0
+    
+    
     var likedUnitId = 0
     var likedSubject = ""
     var likedLessonNUmber = ""
@@ -103,6 +107,7 @@ class LessonTestViewController: UIViewController {
         testVc?.lessonIdIs = lessonId1
         lessonVc = segue.destination as? LessonViewController
         
+        lessonVc?.likedPageIdToSend = likedPageIdIs
         lessonVc?.likedLessonName = likedLessonName
         lessonVc?.likedLessonIdIdIs = likedLessonId
         lessonVc?.statusX = statusXY

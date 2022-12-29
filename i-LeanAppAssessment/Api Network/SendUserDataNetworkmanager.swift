@@ -49,7 +49,7 @@ class SendUserDataNetworkmanager {
               
                 if let responsIs = responce as? HTTPURLResponse{
 
-                    print("user data responce : ",responsIs.statusCode)
+                    print("user studied data responce : ",responsIs.statusCode)
                     if (responsIs.statusCode == 200 || responsIs.statusCode == 201){
 
                         do{

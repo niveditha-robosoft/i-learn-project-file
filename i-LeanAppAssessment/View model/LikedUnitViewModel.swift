@@ -52,9 +52,14 @@ class LikedUnitViewMOdel {
                                 guard let data6 = i["unitId"] as? Int else { completion(false)
                                     return
                                 }
-                                print("liked unit details is : \(data1)\n\(data2)\n\(data3)")
                                 
-                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4", lessonId: data4, lessonNumber: data5, unitId:data6)
+                                guard let likedPageId = i["pageId"] as? Int else {
+                                    
+                                    completion(false)
+                                    
+                                    return
+                                }
+                                let unit = LikedUnitModel(subjectName: data1, lessonName: data2, unitName: data3, unitOverView: "data4", lessonId: data4, lessonNumber: data5, unitId:data6, likedPageId: likedPageId)
                                 
                                 self.lokedUnitDetails.append(unit)
                                 

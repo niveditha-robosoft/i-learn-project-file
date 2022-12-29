@@ -42,10 +42,7 @@ class LessonDetailViewModel{
                             guard let likeStatus = data["liked"] as? String else{ completion(false)
                                 return
                             }                            
-                            print("")
-                            print("photo is is : \(self.photoIs)")
-                            print("video is is : \(self.videoIs)")
-                            print("")
+
                             let lessonDetails = LessonDetailModel(pageId: pageNo, pageTitle: title, unitImage: self.photoIs, unitDescription: description, unitNum: unitNo, unitVideo: self.videoIs, isLiked: likeStatus)
                             self.lessonDetail.append(lessonDetails)
 

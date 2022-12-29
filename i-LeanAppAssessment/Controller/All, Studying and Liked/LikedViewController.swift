@@ -56,6 +56,9 @@ class LikedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let vc = detailVc{
             
+            
+            vc.likedPageIdIs = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].likedPageId
+            
             vc.statusXY = 1
             vc.likedUnitId = objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].unitId
             print("999 : \(objectOfLikedUnitViewMOdel.lokedUnitDetails[indexPath.row].lessonNumber)")

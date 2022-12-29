@@ -71,4 +71,11 @@ class LikedUnitDetailViewModel {
             
         }
     }
+    
+    
+    func likedPageData(tokenToSend: String, pageIdTosend: Int) {
+        
+    }
+    
+    
 }

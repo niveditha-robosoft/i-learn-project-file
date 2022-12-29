@@ -41,8 +41,6 @@ class LikedUnitDetailNetworkManager {
 
                             if let data1 = responsData as? [[String: Any]]{
                                 
-                                print("Send otp data : ",data1)
-
                                 completion(data1,true,nil)
                                 
                             }
@@ -65,5 +63,14 @@ class LikedUnitDetailNetworkManager {
             task.resume()
         
     }
+    
+    
+    
+    func getLikedPage(token: String, pageId: Int) {
+        
+    }
+    
+    
+    
     
 }

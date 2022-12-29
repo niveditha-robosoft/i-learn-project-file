@@ -367,6 +367,14 @@ class LessonDetailsViewController: UIViewController {
                         self.unitDetailImageIs.image = UIImage( contentsOfFile: objectOfLessonViewModel.lessonDetail.last!.unitImage)
                         self.currentPage.text = "\(self.currentPageNo) of \(self.totalePages) pages"
                     
+                        if self.objectOfLessonViewModel.lessonDetail.last?.isLiked == "liked"{
+                            
+                            self.likeButton.setImage(#imageLiteral(resourceName: "Path Copy"), for: .normal)
+                        }else{
+                            
+                            self.likeButton.setImage(#imageLiteral(resourceName: "icn_like"), for: .normal)
+                            
+                        }
 
                     }else{
 
@@ -474,7 +482,14 @@ class LessonDetailsViewController: UIViewController {
 
                         }
 
-
+                        if self.objectOfLessonViewModel.lessonDetail.last?.isLiked == "liked"{
+                            
+                            self.likeButton.setImage(#imageLiteral(resourceName: "Path Copy"), for: .normal)
+                        }else{
+                            
+                            self.likeButton.setImage(#imageLiteral(resourceName: "icn_like"), for: .normal)
+                            
+                        }
 
                         
                         self.pageIdIs = self.objectOfLessonViewModel.lessonDetail.last?.pageId ?? 0
